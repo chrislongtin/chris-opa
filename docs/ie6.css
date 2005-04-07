@@ -1,0 +1,147 @@
+td.barBlack
+    {
+    background-color: #000000;
+    }
+
+td.barSpacer
+    {
+    background-color: #ffffff;
+    }
+
+td.barColour
+    {
+    background-color: #3A6EA5;
+    }
+
+td.barLink
+    {
+    margin-left: 2px;
+    color: #ffffff;
+    font-weight: bold;
+    }
+
+a.barLink:hover, a .barLink:visited, a .barLink:link, a .barLink:active
+    {
+    margin-left: 2px;
+    display: block;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    }
+
+td.button
+    {
+    background:    #3A6EA5;
+    border-bottom: 1px solid #ffffff;
+    border-left:   1px solid #ffffff;
+    border-right:  1px solid #ffffff;
+    }
+
+a.button:link
+    {
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #cccccc;
+    border-bottom-color: #cccccc;
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+    }
+
+a.button:visited
+    {
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #cccccc;
+    border-bottom-color: #cccccc;
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+    }
+
+a.button:hover
+    {
+    width: 100%;
+    color: #ff0000;
+    font-weight: bold;
+    background: #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #cccccc;
+    border-left-color: #cccccc;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+    }
+
+a.button:active
+    {
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #cccccc;
+    border-left-color: #cccccc;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+    }
+
+@media print
+    {
+    H1, H2, H3, H4, H5, H6
+        {
+        page-break-after:  avoid;
+        page-break-inside: avoid;
+        }
+
+    BLOCKQUOTE, UL, OL, DL
+        {
+        page-break-before: avoid;
+        }
+
+    .noPrint
+        {
+        display: none;
+        }
+
+    .FullWidth
+        {
+        width:  100%;
+        border: none;
+        }
+
+    .LeftWidth
+        {
+        width: 58px;
+        }
+    }
+
+@media aural
+    {
+    .copyright
+        {
+        volume: soft
+        }
+    }
+}
+
+  

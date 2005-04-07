@@ -1,0 +1,291 @@
+<!-- Created using helpMATIC Pro HTML V4.6 -->
+
+<html>
+    <head>
+        <title>Installation-Linux</title>
+    </head>
+
+    <LINK REL = "stylesheet" TYPE = "text/css" HREF = "default.css"></LINK>
+
+    <BODY>
+        <P>
+        <STRONG>Installing OPA-JAVA on LINUX</STRONG></P>
+
+        <P>
+        &nbsp;</P>
+
+        <P>
+        <STRONG>Hardware, Operating System and Networking Requirements
+
+        <BR></STRONG>&nbsp;
+
+        <BR>
+        . Pentium III PC with 733 MHz CPU, or higher
+
+        <BR>
+        . 512 MB RAM, or higher
+
+        <BR>
+        . 10 GB free hard disk space
+
+        <BR>
+        . LINUX Operating System&nbsp;
+
+        <BR>
+        . Access to Internet with leased line and broadband connection</P>
+
+        <P>
+        <STRONG>Software Prerequisites</STRONG></P>
+
+        <P>
+        <BR>
+        1. Java (tm) 2 SDK, Standard Edition - version 1.4.1 or higher.
+
+        <BR>
+        Download it at:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <A href = "http:\\java.sun.com\j2se\1.4.1\download.html">http://java.sun.com/j2se/1.4.1/download.html</A>&nbsp;&nbsp;
+
+        <BR>
+        Download and/or follow the installation instructions</P>
+
+        <P>
+        2. Java Web Services Developer Pack 1.2 with Tomcat standalone server
+
+        <BR>
+        Download it at:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <A href = "http:\\java.sun.com\webservices\downloads.html">http://java.sun.com/webservices/downloads.html</A>&nbsp;&nbsp;&nbsp;
+
+        <BR>
+        Download and/or follow the installation instructions
+
+        <BR>
+        <A href = "http:\\java.sun.com\webservices\downloads\install-unix.html">http://java.sun.com/webservices/downloads/install-unix.html</A></P>
+
+        <P>
+        3. MySQL Version 4.1.x&nbsp; Database Server
+
+        <BR>
+        Download it at:&nbsp;&nbsp;&nbsp;&nbsp;
+        <A href = "http:\\www.mysql.com\downloads\">http://www.mysql.com/downloads/</A>&nbsp; <BR>Download and/or follow the installation instructions.<BR><A href="
+           http:\\www.mysql.com\doc\en\Linux-RPM.html
+           ">http://www.mysql.com/doc/en/Linux-RPM.html</A></P>
+<P>4. Web Browser<BR>Mozilla 1.3<BR>Any browser that works on LINUX</P>
+<P><BR>5. OPA-JAVA Version 2.0 . <BR>Download it at:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A href="
+           http:\\www.omoli.com\downloads\opajava\opa-java20.zip
+           ">http://www.omoli.com/downloads/opajava/opa-java20.zip</A>.<BR>It includes JDBC driver for MySQL</P>
+<P><BR>Important: Install required software in the order shown above, except for Web Browser which probably was installed with the Operating System. </P>
+<P><BR><STRONG>OPA-JAVA Installation</STRONG></P>
+<P><BR>1. Unzip the zip file to some temporary folder. <BR>2. Copy the archive contents as follows:</P>
+<P>======================================================<BR>mysql_connector&nbsp; Folder.<BR>======================================================</P>
+<P>This contains JDBC drivers necessary for MYSQL Tables</P>
+<P>1. Copy "
+           mysql-connector-java-3.0.8-stable-bin.jar
+           " to <BR>&nbsp;&nbsp;&nbsp; &lt;JWSDP HOME&gt;/shared/lib/</P>
+<P>2 Copy "
+           com
+           " subdirectory and all of its contents (including sub-directories) to&nbsp; &lt;JWSDP HOME&gt;/common/classes/<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>* &lt;JWSDP HOME&gt; is the Java Web Services Developer Pack home folder <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </P>
+<P>=========================================<BR>database\&nbsp;&nbsp;&nbsp;&nbsp; Folder<BR>=========================================<BR>This folder contains the SQL scripts for creating tables and populating those needed for initial startup. To run these scripts</P>
+<P>1. Create the OPA-JAVA database</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start LINUX Shell to accept commands<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shell&gt; cd $MYSQL_HOME&nbsp;&nbsp; &lt;Enter&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shell&gt; mysql -u root - p&nbsp; &lt;Enter&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Enter your 'root' password and hit Enter)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mysql&gt; create database opajava;&nbsp;&nbsp; &lt;Enter&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mysql&gt; use opajava;&nbsp; &lt;Enter&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;<BR>a. Run the create_db.sql script </P>
+<P>mysql&gt; source /folder/create_db.sql;&nbsp; &lt;Enter&gt;&nbsp;&nbsp;&nbsp;&nbsp; <BR>where /folder/ is the path to the location of the "
+           database
+           " folder&nbsp;&nbsp; <BR>The database tables are created.</P>
+<P>b.&nbsp;&nbsp; In similar fashion run all the scripts in /database/data_inserts folder. <BR>These scripts insert initial data in the database like languages, phrases, etc.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>============================================<BR>opa\&nbsp;&nbsp;&nbsp;&nbsp; Folder<BR>============================================<BR>This folder contains the OPA application files.</P>
+<P>Copy "
+           opa
+           " subdirectory and paste as a subdirectory of &lt;JWSDP HOME&gt;/webapps/</P>
+<P>The OPA directory now looks like<BR>&nbsp; /opa/<BR>&nbsp; /opa/admin/<BR>&nbsp;&nbsp; /opa/archive/<BR>and so on.</P>
+<P>=======================================<BR>opav.xml&nbsp; file. <BR>=======================================<BR>This is the configuration file for OPA Application</P>
+<P>Copy this file to &lt;JWSDP HOME&gt;/webapps/&nbsp; folder.<BR>Edit&nbsp; the file using a text editor.<BR>Use the&nbsp; "
+           path
+           " and "
+           docBase
+           "&nbsp; attributes to define the path to OPA application.<BR>Example: path="
+           /opajava/" docbase="opajava" if your OPA application directory root is "opajava".</P>
+           <P>Edit the database connections attributes. </P>
+
+        <P>
+        For example if you are hosting you application on "localhost" and
+
+        <BR>
+        your database name is "opajava" and your user id is "root" and
+
+        <BR>
+        you LINUX root password "abcd", this section will look like:</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;url&lt;/name&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;jdbc:mysql://localhost/opajava&lt;/value&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/parameter&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;username&lt;/name&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;root&lt;/value&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/parameter&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;password&lt;/name&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;abcd&lt;/value&gt;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/parameter&gt;</P>
+
+        <P>
+        Save opav.xml.</P>
+
+        <P>
+        <BR>
+        ==========================================
+
+        <BR>
+        Modifications For Lists Management
+
+        <BR>
+        ==========================================</P>
+
+        <P>
+        Look into each of these modules in the /admin/communication/ folder:</P>
+
+        <P>
+        dsp_comm_email_archive.jsp
+
+        <BR>
+        dsp_comm_email_members.jsp
+
+        <BR>
+        dsp_comm_email_message.jsp</P>
+
+        <P>
+        In each, look for the section that has this code:</P>
+
+        <P>
+        &lt;sql:setDataSource
+
+        <BR>
+        var="lyrics"
+
+        <BR>
+        driver="com.mysql.jdbc.Driver"
+
+        <BR>
+        url="jdbc:mysql://localhost/opadev"
+
+        <BR>
+        user="root"
+
+        <BR>
+        password=""
+
+        <BR>
+        /&gt;</P>
+
+        <P>
+        Make changes as appropriate to be able to locate the database
+
+        <BR>
+        that has the LISTS, MEMBERS, and MESSAGES tables, even if these tables
+
+        <BR>
+        are already part of the OPA database.</P>
+
+        <P>
+        &nbsp;</P>
+
+        <P>
+        ===========================================================================</P>
+
+        <P>
+        Restart your computer.</P>
+
+        <P>
+        Start Tomcat Servlet Container and Web Server</P>
+
+        <P>
+        &nbsp;At the LINUX Shell </P>
+
+        <P>
+        &nbsp;Shell&gt; cd $CATALINA_HOME/bin&nbsp; &lt;enter&gt;
+
+        <BR>
+        &nbsp;Shell&gt; catalina.sh&nbsp; start &lt;enter&gt;</P>
+
+        <P>
+        This starts the services needed to serve the web pages</P>
+
+        <P>
+        <BR>
+        &nbsp;Start OPA as Administrator/Reviewer</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web Browser (Internet Explorer, Netscape ,
+        ...)
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on the address line:</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <A href = "http:\\localhost:8080\opa\admin">http://localhost:8080/opa/admin</A>&nbsp;&nbsp; (if using localhost)
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;<A href = "http:\\nnn.nnn.nnn.nnn:8080\opa\admin">http://nnn.nnn.nnn.nnn:8080/opa/admin</A>&nbsp;&nbsp;
+        (if using IP Address&nbsp;&nbsp; nnn.nnn.nnn.nnn)
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;<A href = "http:\\abc.com:8080\opa\admin">http://abc.com:8080/opa/admin</A>&nbsp;&nbsp;
+        (if using Web Address abc.com)</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp; Start OPA as Public User</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web Browser (Internet Exploree, Netscape ,
+        ...)
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on the address line:</P>
+
+        <P>
+        &nbsp;&nbsp;&nbsp;&nbsp;<A href = "http:\\localhost:8080\opa\">http://localhost:8080/opa/</A>&nbsp; (if using localhost)<BR></P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;<A href="
+                                   http:\\nnn.nnn.nnn.nnn:8080\opa\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   ">http://nnn.nnn.nnn.nnn:8080/opa/&nbsp;</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (if using IP Address nnn.nnn.nnn.nnn)<BR></P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;<A href="
+                                   http:\\abc.com:8080\opa\
+                                   ">http://abc.com:8080/opa/</A>&nbsp; (if using Web Address abc.com)<BR>&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR></P></BODY>
+</html>
+
+
+<object type="
+                                   application
+                                   /x-oleobject"classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+                                   <param
+                                   name = "ALink Name"
+                                   value = "Installation">
+
+        </object>

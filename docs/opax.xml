@@ -1,0 +1,59 @@
+<Context path = "/opa" docBase = "opa" debug = "0">
+    <Resource name = "jdbc/opajava" auth = "Container" type = "javax.sql.DataSource"/>
+
+    <ResourceParams name = "jdbc/opajava">
+        <parameter>
+            <name>
+                driverClassName
+            </name>
+
+            <value>
+                com.mysql.jdbc.Driver
+            </value>
+        </parameter>
+
+        <parameter>
+            <name>
+                url
+            </name>
+
+            <value>
+                jdbc:mysql://localhost/opajava
+            </value>
+        </parameter>
+
+        <parameter>
+            <name>
+                username
+            </name>
+
+            <value>
+                root
+            </value>
+        </parameter>
+
+        <parameter>
+            <name>
+                password
+            </name>
+
+            <value>
+                jordan
+            </value>
+        </parameter>
+    </ResourceParams>
+
+    <Resource name = "mail/session" auth = "Container" type = "javax.mail.Session"/>
+
+    <ResourceParams name = "mail/session">
+        <parameter>
+            <name>
+                mail.smtp.host
+            </name>
+
+            <value>
+                mail.gti.net
+            </value>
+        </parameter>
+    </ResourceParams>
+</Context>
