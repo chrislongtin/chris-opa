@@ -1,0 +1,1061 @@
+/************************************/
+/* TBS default stylesheet           */
+/* created by David Morgan 946-9297 */
+/* updated by Nhan Nguyen, cb 2005-03-12  */
+/************************************/
+
+/*****************************/
+/* GLOBAL                    */
+/*****************************/
+html {
+	color: #000000; 
+	background-color: #FFFFFF;
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 85%;
+	line-height: 1.3;
+}
+body { 
+	color: #000000; 
+	background-color: #FFFFFF;
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 85%;
+	line-height: 1.3;
+}
+
+BODY.archivee {
+background : white url("/archives/images/archivee.jpg") no-repeat fixed; 
+} 
+BODY.archivef {
+background : white url("/archives/images/archivef.jpg") no-repeat fixed; 
+}
+BODY.drafte{
+background : white url("/archives/images/drafte.gif") no-repeat fixed; 
+} 
+BODY.draftf {
+background : white url("/archives/images/draftf.gif") no-repeat fixed; 
+}
+
+
+/*****************************/
+/* BLOCK HTML ELEMENTS       */
+/*****************************/
+h1{ 
+	margin-bottom: 2px; 
+	font-weight: normal; 
+	font-family: "helvetica", "verdana", "arial", sans-serif; 
+	font-size: 160%;
+}
+h2, h3, h4, h5, h6 { 
+	margin-bottom: 0px; 
+	font-weight: bold; 
+	font-family: "verdana", "helvetica", "arial", sans-serif; 
+}
+
+h2 { 
+	font-size: 140%;
+	
+}
+h3 { 
+	font-size: 130%; 
+	COLOR:#333333;
+	background-color: transparent;
+}
+h4 { 
+	font-size: 120%; 
+	margin-left: 15px;
+	COLOR:#333333;
+	background-color: transparent;
+}
+
+h5 { 
+	font-size: 110%; 
+	margin-left: 30px;
+	COLOR:#666633;
+	background-color: transparent;
+}
+
+h6 { 
+	font-size: 100%; 
+	margin-left: 45px;
+	COLOR:#666633;
+	background-color: transparent;
+}
+
+h1, h3, h5 { 
+	font-style: normal;
+}
+
+table {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 100%;
+	font-weight: normal;	
+}
+caption { 
+	font-style: italic; 
+}
+th { 
+	padding: .5em; 
+	margin: 0em; 
+	border: 1px solid; 	
+	text-align: center; 
+	font-weight: bold; 
+
+}
+
+ul { 
+	list-style: square;
+}
+
+li { 
+	margin-bottom: .6em;
+	margin-top: .2em; 
+}
+
+select {font-size: 100%;}
+
+/*****************************/
+/* INLINE HTML ELEMENTS      */
+/*****************************/
+a:active, a:visited  { 
+	color: #666633; 
+	background-color: transparent;
+}
+a:link { 
+	color: #003399; 
+	background-color: transparent;
+}
+a:hover, a:focus { 
+	color: #000000; 
+	background-color: transparent;
+}
+img { 
+	border-top-style: none; 
+	border-right-style: none; 
+	border-bottom-style: none; 
+	border-left-style: none; 
+}
+/*****************************/
+/* GENERIC CLASSES           */
+/*****************************/
+.lineabove {
+	text-decoration: overline; 
+}
+.linethrough {
+	text-decoration: line-through;
+}
+.lineunder {
+	text-decoration : underline;
+}
+.smaller {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 90%;
+}
+.smallest {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 80%;
+}
+.larger {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 120%;
+}
+.largest {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 140%;
+}
+.purple, td.purple {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	text-align: center; 
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #6699CC; 
+	border: 1px solid #ffffff;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 2px;
+	border-left-width: 0px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+/*****************************/
+/* HIGHLIGHT BOX             */
+/*****************************/
+td.highlighthead {
+	font-family: "verdana", "helvetica", "arial", sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	padding: 2px 0px 1px 2px;
+	color: #000000;
+	background-color: #cccc99;
+}
+td.highlight {
+	color: #000000;
+ 	background-color: #ffffff;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 5px;
+	border: solid;
+	border-width: 1px 1px 1px 1px; 
+	border-color: #cccc99; 
+	width: 132px; 	
+}
+
+p.highlight, a.highlight, a.highlight:link, a.highlight:active, a.highlight:visited  {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	font-weight: bold;
+	margin-top: 3px;
+	margin-bottom: 5px; 
+	text-decoration: none; 
+	background: white;
+	width: 100%;	
+	background-color: transparent;		
+}
+a.highlight:focus, a.highlight:hover  {
+	color: #666666; 
+	background: #ffffff; 
+	text-decoration: underline; 
+}
+
+.container {
+	padding-bottom: 1.5em; text-align: left; BORDER: #cccc99 1px solid; WIDTH: 300px; BACKGROUND-COLOR: #ffffff
+}
+.leftcontainer {
+	PADDING: 0em; FLOAT: left; WIDTH: 145px; text-align: left; 
+}
+.rightcontainer {
+	PADDING: 0em; MARGIN-LEFT: 150px; BORDER-LEFT: #cccc99 1px solid; 
+}
+h2.highlight {
+	margin-top: 0px; background-color:#cccc99; color: #000; font-size: 10pt; font-weight: bold
+}
+ul.highlight {
+	list-style-type: disc; margin: 0px; margin-left: 15px; padding: 1px;
+}
+li.highlight {
+	font-size: 95%; font-weight: bold; color: #000; vertical-align: middle; margin: 0; padding: 2px;
+}
+
+
+
+
+/*****************************/
+/* END OF HIGHLIGHT          */
+/*****************************/
+
+.rcell {
+	text-align: right; 
+}
+.ccell {
+	text-align: center; 
+}
+.nav { 
+	text-decoration: none; 
+}
+/* Title with underline and image. Use div for best results. */
+.swish {
+	 width: 450px; 
+	 color: #000000; 
+	 background-color: #ffffff; 
+	 background-image: url('/images/clf/swishlg.gif');
+	 background-repeat: no-repeat; 
+     font-family: "helvetica", "arial", "verdana", sans-serif; 
+	 font-weight: normal; 
+	 border: 1px solid #cccc99;
+	 border-left-width: 0px; 
+	 border-right-width: 0px;
+	 border-top-width: 0px; 
+	 border-bottom-width: 2px; 
+   	 padding-top: 14px; 
+	 background-position: top right; 
+}
+/* Footer with overline. Use div for best results. */
+.footer {
+	width: 450px;
+	color: #000000;
+	background-color: #ffffff; 
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	font-weight: normal; 
+	border: 1px solid #cccc99;
+	border-top-width: 2px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;	
+}
+/*****************************/
+/* CL&F MENUS                */
+/* GoC = common              */
+/* TBS = inst                */
+/*****************************/
+/* GoC or common menu bar */
+a.common, a.inst, a.contactez-nous {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	text-decoration: none; 
+	font-weight: bold; 
+	width: 100%;
+}
+a.common, a.contactez-nous {
+	color: #ffffff;
+	background-color: #000000;
+}
+a.common, a.inst {
+	font-size: 95%; 
+	padding-left: 2px;
+}
+a.contactez-nous {
+	padding-left: 1px;
+	font-size: 95%; 
+}
+a.common:link, a.common:visited, a.contactez-nous:link, a.contactez-nous:visited { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #000000; 
+}
+a.common:hover, a.common:focus, a.contactez-nous:hover, a.contactez-nous:focus { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #666666; 
+}
+a.common:active, a.contactez-nous:active { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #999999;
+}
+td.common { 
+	vertical-align: middle; 
+	width: 90px; 
+	color: #ffffff;
+	background-color: #000000;
+	height: 14px;
+	border: 1px solid #ffffff;
+	border-top-width: 0px;
+	border-left-width: 0px;
+}
+a.inst {
+	color: #ffffff;
+	background-color: #6699CC; 
+}
+a.inst:link, a.inst:visited { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #6699CC; 
+}
+a.inst:hover, a.inst:focus { 
+	color: #000000;
+	text-decoration: none; 
+	background-color: #cccc99;
+}
+a.inst:active { 
+	color: #000000;
+	text-decoration: none; 
+	background-color: #cccc99;
+}
+td.inst { 
+	vertical-align: middle; 
+	width: 90px; 
+	color: #ffffff;
+	background-color: #6699CC; 
+	height: 14px;
+	border: 1px solid #ffffff;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+
+td.blank {
+	padding: 0em; 
+	margin: 0em; 
+	border: none; 
+	color: #000000;
+	background-color: #ffffff;
+}
+/**********************/
+/* Aligned Button classes */
+/**********************/
+td.lbutton, div.lbutton, td.cbutton, td.rbutton {
+	color: black;
+ 	background: #eeeeee;
+	border-bottom: solid 1px #cccc99;
+	border-left: solid 1px #cccc99; 
+	border-right: solid 1px #cccc99; 
+	padding: 0px 0px 0px 2px;
+	font-weight: bold;
+}
+a.lbutton, a.cbutton, a.rbutton, 
+a.cbutton:active, a.lbutton:active, a.rbutton:active, 
+a.cbutton:link, a.lbutton:link, a.rbutton:link, 
+a.cbutton:visited, a.lbutton:visited, a.rbutton:visited {
+	color: black;
+ 	background: #eeeeee;
+	text-decoration: none;
+	width: 100%;
+}
+a.cbutton:hover, a.lbutton:hover, a.rbutton:hover	{ 
+	color: black; 
+	background: #cccccc;
+}
+.cbutton {
+	text-align: center;
+}
+.rbutton {
+	text-align: right;
+}
+
+/**********************/
+/* Hierarchical Button classes */
+/**********************/
+
+td.button, div.button, td.sbutton, div.sbutton {
+	color: black;
+ 	background-color: #ffffff;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 2px;
+	border: solid;
+	border-width: 1px 1px 1px 1px; 
+	border-color: #cccc99; 	
+}
+td.sbutton, div.sbutton, td.sibutton, div.sibutton, td.siibutton, div.siibutton, td.siiibutton, div.siiibutton {
+	font-weight: bold;
+}
+a.button, a.button:link, a.button:active, a.button:visited  {
+	text-decoration: none; 
+	color: #003399;
+	font-weight: bold;
+	background: #ffffff;
+	width: 100%;
+}
+a.button:focus, a.button:hover  {
+	color: #003399;
+	background: #ffffff; 
+	text-decoration: underline; 
+}
+a.sbutton, a.sbutton:link, a.sbutton:visited, a.sbutton:hover { 
+	font-weight: bold; 
+	text-decoration: none; 
+	width: 100%;
+	color: black; 
+	background: white; 
+	background-color: transparent;	
+}
+td.ibutton, div.ibutton, td.sibutton, div.sibutton {
+	color: black;
+ 	background-color: white;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 2px;
+	border: solid;
+	border-width: 1px 1px 1px 5px; 
+	border-color: #cccc99;	
+}
+a.ibutton, a.ibutton:link, a.ibutton:active, a.ibutton:visited  {
+	text-decoration: none; 
+	color: black; 
+	background: white; 
+	width: 100%;
+}
+a.ibutton:focus, a.ibutton:hover  {
+	color: #666666; 
+	background: #ffffff; 
+	text-decoration: underline; 
+}
+a.sibutton, a.sibutton:link, a.sibutton:visited {
+	font-weight: bold; 
+	text-decoration: none; 
+	width: 100%;
+	color: black; 
+	background: white; 
+}
+td.iibutton, div.iibutton, td.siibutton, div.siibutton	{
+	color: black;
+ 	background-color: white;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 2px;
+	border: solid;
+	border-width: 1px 1px 1px 10px; 
+	border-color: #cccc99; 
+}
+a.iibutton, a.iibutton:link, a.iibutton:active, a.iibutton:visited  {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	color: black; 
+	background: white; 
+	text-decoration: none; 
+	width: 100%;
+}
+a.iibutton:focus, a.iibutton:hover  {
+	color: #666666; 
+	background: #ffffff; 
+	text-decoration: underline; 
+}
+a.siibutton, a.siibutton:link, a.siibutton:visited {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	font-weight: bold; 
+	text-decoration: none; 
+	width: 100%;
+	color: black; 
+	background: white; 
+}
+td.iiibutton, div.iiibutton, td.siiibutton, div.siiibutton	{
+	color: black;
+ 	background-color: white;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 2px;
+	border: solid;
+	border-width: 1px 1px 1px 15px; 
+	border-color: #cccc99; 
+}
+a.siiibutton:link, a.siiibutton:visited {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	font-weight: bold; 
+	text-decoration: none; 
+	width: 100%;
+	color: black; 
+	background: white; 
+}
+a.iiibutton, a.iiibutton:link, a.iiibutton:active, a.iiibutton:visited {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%; 
+	color: black; 
+	background: white; 
+	text-decoration: none;
+	width: 100%; 
+}
+a.siiibutton  {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 85%; 
+	color: black; 
+	background: white; 
+	font-weight: bold;
+	text-decoration: none; 
+}
+a.iiibutton:focus, a.iiibutton:hover  {
+	color: #666666; 
+	background: #ffffff; 
+	text-decoration: underline; 
+}
+div.download, td.download {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%; 
+	text-align: center; 
+	width: 132px; 
+	color: #000000;
+	background-color: #cccc99; 
+}
+/*****************************/
+/* 4 NAV STREAM CLASSES      */
+/* a-z activity audience org */
+/* for top of left margin    */
+/*****************************/
+a.a-z, a.activity, a.audience, a.org {
+	background-color: transparent; 
+	color: #000000;
+	text-decoration: none; 
+	font-weight: bold; 
+}
+a.a-z 	{
+	width: 30px;	
+}
+a.activity, a.audience, a.org {
+	width: 100%; 
+}
+a.a-z:link, a.a-z:visited, 
+a.activity:link, a.activity:visited, 
+a.audience:link, a.audience:visited,
+a.org:link, a.org:visited { 
+	color: #000000; 
+	text-decoration: none; 
+	background-color: transparent; 
+}
+a.a-z:hover, a.a-z:focus,
+a.activity:hover, a.activity:focus, 
+a.audience:hover, a.audience:focus,
+a.org:hover, a.org:focus { 
+	text-decoration: underline; 
+}
+a.a-z:active, a.activity:active, a.audience:active, a.org:active { 
+	color: #000000; 
+	text-decoration: none; 
+	background-color: #ffffff;
+}
+.a-z, .audience, .activity, .org  { 
+	vertical-align: middle; 
+	text-align: center; 
+	padding-left: 5px;
+	width: 100%; 
+	font-family: "times", "courier", serif;
+	font-size: 100%;
+}
+td.a-z, div.a-z { 
+	background-image: url('/images/clf/a-zbg.gif'); 
+	background-repeat: no-repeat; 
+     padding-top: 3px; 
+	 padding-bottom: 3px; 
+}
+td.activity, div.activity { 
+	background-image: url('/images/clf/activitiesbg.gif'); 
+	background-repeat: no-repeat; 
+	padding-top: 3px; 
+	padding-bottom: 3px; 
+}
+td.audience, div.audience { 
+	background-image: url('/images/clf/audiencebg.gif'); 
+	background-repeat: no-repeat; 
+	padding-top: 3px; 
+	padding-bottom: 3px; 
+}
+td.org, div.org { 
+	background-image: url('/images/clf/orgbg.gif'); 
+	background-repeat: no-repeat; 
+    padding-top: 3px; 
+	padding-bottom: 3px;
+}
+/*****************************/
+/* SERVICE CLASSES           */
+/* 2nd level                 */
+/* top of left margin        */
+/*****************************/
+a.service {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 100%;
+	width: 100%; 
+	color: #ffffff;
+	background-color: #6699CC; 
+	text-decoration: none; 
+	font-weight: bold; 
+}
+a.service:link, a.service:visited { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #6699CC; 
+}
+a.service:hover, a.service:focus { 
+	color: #000000;
+	text-decoration: none; 
+	background-color: #cccc99;
+}
+a.service:active { 
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #6699CC;
+}
+td.service, div.service, h1.service { 
+	text-align: center; 
+	width: 132px; 
+	color: #ffffff;
+	background-color: #6699CC; 
+	border: 1px solid #ffffff;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 4px;
+	border-left-width: 0px;
+	padding: 2px 2px 2px 2px;
+}
+
+/*****************************/
+/* ALTERNATIVE MEDIA         */
+/*****************************/
+@media print {
+	H1, H2, H3, H4, H5, H6    { page-break-after: avoid; page-break-inside: avoid; }
+	BLOCKQUOTE, UL, OL, DL    { page-break-before: avoid; }
+}
+@page { margin: 10%; }
+
+@media aural {
+	H1, H2, H3, H4, H5, H6    { voice-family: paul, male; stress: 20; richness: 90; }
+	H2            { pitch: x-low; pitch-range: 80; }
+	H3            { pitch: low; pitch-range: 70; }
+	H4            { pitch: medium; pitch-range: 60; }
+	H5            { pitch: medium; pitch-range: 50; }
+	H6            { pitch: medium; pitch-range: 40; }
+	LI, DT, DD    { pitch: medium; richness: 60; }
+	DT            { stress: 80; }
+	STRONG        { pitch: medium; pitch-range: 60; stress: 90; richness: 90; }
+	I             { pitch: medium; pitch-range: 60; stress: 60; richness: 50; }
+	B             { pitch: medium; pitch-range: 60; stress: 90; richness: 90; }
+	U             { richness: 0; }
+	A:link        { voice-family: harry, male; }
+	A:visited     { voice-family: betty, female; }
+	A:active      { voice-family: betty, female; pitch-range: 80; pitch: x-high; }
+}
+
+/*****************************/
+/* GENERIC ALGINMENT         */
+/*****************************/
+
+.aligncenter { text-align: center; } 
+.alignright { text-align: right; } 
+.alignleft { text-align: left; } 	 
+.indentleft5 { margin-left: 5%; }
+.indentleft10 { margin-left: 10%; }
+.indentleft0 { margin-left: 0%; }
+
+
+/**********************/
+/* Aligned Archives Button classes */
+/**********************/
+td.lblack, div.lblack, td.cblack, td.rblack {
+	color: #ffffff;
+ 	background: #eeeeee;
+	border-bottom: solid 1px #ffffff;
+	border-left: solid 1px #ffffff; 
+	border-right: solid 1px #ffffff; 
+	padding: 0px 0px 0px 2px;
+	font-weight: bold;
+
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 4px;
+	border-left-width: 0px;
+
+
+}
+a.lblack, a.cblack, a.rblack, 
+a.cblack:active, a.lblack:active, a.rblack:active, 
+a.cblack:link, a.lblack:link, a.rblack:link, 
+a.cblack:visited, a.lblack:visited, a.rblack:visited {
+	color: #000000;
+ 	background: #cccccc;
+	text-decoration: none;
+	width: 100%;
+}
+a.cblack:hover, a.lblack:hover, a.rblack:hover	{ 
+	color: #000000; 
+	background: #eeeeee;
+}
+.cblack {
+	text-align: center;
+}
+.rblack {
+	text-align: right;
+}
+
+/**********************/
+/* White on Black button for ERC */
+/**********************/
+td.wbbutton, div.wbbutton {
+	color: #ffffff;
+ 	background: #000000;
+	border-bottom: solid 1px #000000;
+	border-left: solid 1px #000000; 
+	border-right: solid 1px #000000; 
+	padding: 0px 0px 0px 2px;
+	font-weight: bold;
+
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+}
+
+a.wbbutton, 
+a.wbbutton:active, 
+a.wbbutton:link, 
+a.wbbutton:visited {
+	color: #ffffff;
+ 	background: #000000;
+	text-decoration: none;
+	width: 100%;
+}
+a.wbbutton:hover	{ 
+	color: #ffffff; 
+	background: #000000;
+}
+
+/**** style for top 5 links box ***/
+td.toplinks {
+	color: #000000;
+ 	background-color: #ffffff;
+	margin: 0px 0px 0px 0px;
+	padding: 2px 0px 2px 5px;
+	border: solid;
+	border-width: 1px 1px 1px 1px; 
+	border-color: #cccc99; 
+}
+ul.toplinks, p.toplinks  {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 95%;
+	font-weight: normal;
+	margin-top: 3px;
+	margin-bottom: 5px; 
+	background: white;
+	background-color: transparent;	
+	width: 100%;	
+}
+p.splash  {
+	font-family: "verdana", "helvetica", "arial", sans-serif; 
+	font-size: 105%;
+	font-weight: bold;
+	color: #666633;
+	margin-top: 3px;
+	margin-bottom: 7px; 
+	background: white;
+	background-color: transparent;	
+	width: 100%;	
+}
+
+TABLE.colour1, TH.colour1, TD.colour1 {
+	background-color: #ffffff;
+	vertical-align: top;
+}
+TABLE.colour2, TH.colour2, TD.colour2 {
+	background-color: #cccccc;
+	vertical-align: top;
+}
+TABLE.colour3, TH.colour3, TD.colour3 {
+	background-color: #cccc99;
+	vertical-align: top;
+}
+TABLE.colour1c, TH.colour1c, TD.colour1c {
+	background-color: #ffffff;
+	vertical-align: top;
+	text-align: center;
+}
+TABLE.colour2c, TH.colour2c, TD.colour2c {
+	background-color: #cccccc;
+	vertical-align: top;
+	text-align: center;
+}
+
+
+div.borderbox, td.borderbox { 	
+	margin: 0px 0px 0px 0px; 
+	padding: 4px 4px 4px 4px;	
+	border: solid; 
+	border-width: 2px 2px 2px 2px; 
+	border-color: #FF0000;
+	}
+	
+
+
+/* cb - other related document 2005-03-12*/
+a.ord:link 	{ width : 100%; background : #000000; color : #ffffff; text-decoration : none; font-weight : bold; padding: 2px;} 
+a.ord:visited 	{ width : 100%; background : #000000; color : #ffffff; text-decoration : none; font-weight : bold; padding: 2px; } 
+a.ord:hover 	{ width : 100%; background : #cccccc; color : #ff0000; text-decoration : none; font-weight : bold; padding: 2px; } 
+a.ord:active 	{ width : 100%; background : #cccccc; color : #ff0000; text-decoration : none; font-weight : bold; padding: 2px; } 
+
+/* FOOTER For Printable version */
+#Printfooter
+{
+	float:left;
+	width:/*450px*/100%;
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+}
+
+#Printfooter #Moddate
+{
+	float:left;
+	/*width:185px30%;*/
+	margin-left: .5em;
+}
+
+#Printfooter #fip
+{
+	float:right;
+	/*width:185px30%;*/
+	text-align:right;
+	padding-right: .5em;
+}
+
+/* DEFAULT PAGE LANGUAGE BUTTONS */
+a.default { 		
+	display: block; padding: 3px; background: #ff0000; color: #ffffff; text-decoration: none; font-weight: bold; 
+	border-style: solid; border-width: 1px; 
+	border-top-color: #ff6666; border-left-color: #ff6666; border-right-color: #990000; border-bottom-color: #990000; 
+	} 
+a.default:visited {
+	display: block; padding: 3px; background: #ff0000; color: #ffffff; 
+	border-style: solid; border-width: 1px; 
+	border-top-color: #ff6666; border-left-color: #ff6666; border-right-color: #990000; border-bottom-color: #990000; 
+	} 
+a.default:hover {
+	display: block; padding: 3px; background: #ff0000; color: #ffffff; 
+	border-style: solid; border-width: 1px; 
+	border-top-color: #990000; border-left-color: #990000; border-right-color: #ff6666; border-bottom-color: #ff6666; 
+	} 
+a.default:active {
+	display: block; padding: 3px; background: #ff0000; color: #ffffff; 
+	border-style: solid; border-width: 1px; 
+	border-top-color: #990000; border-left-color: #990000; border-right-color: #ff6666; border-bottom-color: #ff6666; 
+	} 
+* html a.default		{position: relative; }
+* html a.default:visited 	{position: relative; }
+* html a.default:hover   	{position: relative; }
+* html a.default:active  	{position: relative; }
+
+/* 
+a.ord {
+	font-family: "helvetica", "arial", "verdana", sans-serif;
+	font-size: 100%;
+	width: 100%; 
+	color: #ffffff;
+	background-color: #000000; 
+	text-decoration: none; 
+	font-weight: bold; 
+}
+a.ord:link, a.ord:visited { 
+	display : block;
+	color: #ffffff;
+	text-decoration: none; 
+	background-color: #000000; 
+}
+a.ord:hover, a.ord:focus { 
+	display : block;
+	color: #ff0000;
+	text-decoration: none; 
+	background-color: #cccccc;
+}
+a.ord:active { 
+	color: #ff0000;
+	text-decoration: none; 
+	background-color: #cccccc;
+}
+td.ord, div.ord, h1.ord { 
+	text-align: center; 
+	width: 132px; 
+	color: #ffffff;
+	background-color: #ffffff; 
+	border: 1px solid #ffffff;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 4px;
+	border-left-width: 0px;
+	padding: 2px 2px 2px 2px;
+}
+*/
+
+
+
+/* CLF2 STYLES  */
+.widthFull {
+	width: 98.5%;
+}
+.width95 {
+	width: 95%;
+}
+.width90 {
+	width: 90%;
+}
+.width85 {
+	width: 85%;
+}
+.width80 {
+	width: 80%;
+}
+.width75 {
+	width: 75%;
+}
+.width70 {
+	width: 70%;
+}
+.width65 {
+	width: 65%;
+}
+.width60 {
+	width: 60%;
+}
+.width55 {
+	width: 55%;
+}
+.width50 {
+	width: 50%;
+}
+.width45 {
+	width: 45%;
+}
+.width40 {
+	width: 40%;
+}
+.width35 {
+	width: 35%;
+}
+.width30 {
+	width: 30%;
+}
+.width25 {
+	width: 25%;
+}
+.width20 {
+	width: 20%;
+}
+.width15 {
+	width: 15%;
+}
+.width10 {
+	width: 10%;
+}
+.width5 {
+	width: 5%;
+}
+
+.alignRight {
+	text-align: right;
+}
+.alignCenter {
+	text-align: center;
+}
+.alignLeft {
+	text-align: left;
+}
+.alignTop {
+	vertical-align: top;
+}
+.alignBottom {
+	vertical-align: bottom;
+}
+.alignTopRight {
+	text-align: right;
+	vertical-align: top;
+}
+.alignTopCenter {
+	text-align: center;
+	vertical-align: top;
+}
+.alignTopLeft {
+	text-align: left;
+	vertical-align: top;
+}
+.alignBottomRight {
+	text-align: right;
+	vertical-align: bottom;
+}
+.alignBottomCenter {
+	text-align: center;
+	vertical-align: bottom;
+}
+.alignBottomLeft {
+	text-align: left;
+	vertical-align: bottom;
+}
+.floatRight {
+	float: right;
+}
+.floatLeft {
+	float: left;
+}
+.image-left { 
+	float: left;
+	vertical-align: text-top;
+}
+.image-right {
+	float: right;
+	vertical-align: text-top;
+}
+.indent1 {
+	padding-left: 18px;
+}
+.indent2 {
+	padding-left: 36px;
+}
+.indent3 {
+	padding-left: 54px;
+}
+.indent4 {
+	padding-left: 72px;
+}
+.indent5 {
+	padding-left: 90px;
+}
+
+

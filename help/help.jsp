@@ -1,11 +1,11 @@
 <html>
     <head>
-        <title>OPA Help</title>
+        <title>OPM Help</title>
     </head>
 
     <FRAMESET cols = 18%,* FRAMEBORDER = "NO" FRAMESPACING = 0 FRAMEPADDING = 0>
-        <frame src = http://www.leapfrogindex.com:8090/coseopa/help/list2.html>
-            <frame src = http://www.leapfrogindex.com:8090/coseopa/help/html/About-OPA.htm name = "right">
+        <frame src = "list2.html">
+            <frame src = "html/About-OPA.htm"    name = "right">
     </frameset>
 
     <noframes>
@@ -14,8 +14,9 @@
 
             <br>
             <P>
-            <b>Please click </b><a STYLE="text-decoration: underline"  href = "http://www.leapfrogindex.com:8090/coseopa/help/whatisopa.html">H E R
-            E</A> to view a version of our site
+            <b>Please click </b><a STYLE = "text-decoration: underline"
+                         href = "help/html/About-OPA.htm">H
+            E R E</A> to view a version of our site
 
             <br>
             designed for browsers that do not support frames.

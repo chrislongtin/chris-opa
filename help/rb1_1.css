@@ -1,187 +1,240 @@
-BODY	{
-	color: 		#2020AA ;
-	margin-left: 	0%;
-	margin-right: 	0%;
-	font: 9pt verdana, arial, helvetica, sans-serif; 
-	}
+BODY
+    {
+    color: #2020AA;
+    margin-left: 0%;
+    margin-right: 0%;
+    font: 9pt verdana, arial, helvetica, sans-serif;
+    }
 
-A:visited { color: #FF0000; }
-A:link    { color: #2020A0; }
-A:hover   { color: #FF4030; }
+A:visited
+    {
+    color: #FF0000;
+    }
 
-TABLE   {
-	color : #2020A0;
-	}
+A:link
+    {
+    color: #2020A0;
+    }
 
-TH	{
-	background : #2020A0;
-	color : #D0F0FF;
-	font-size: 9pt;
-	}
-BTH {
-		 background: #CCCCFF; 
-		 font-size: 20pt;
-		 font-weight: bold;
-     }
-.n	{
-	background : #C0C0C0;
-	}
+A:hover
+    {
+    color: #FF4030;
+    }
 
-.n2	{
-	background : #FFFFFF;
-	font: 9pt verdana, arial, helvetica, sans-serif; 
-	}
+TABLE
+    {
+    color: #2020A0;
+    }
 
-.about	{
-	background-image:url(../img/f_about.gif);
-	font: 10pt verdana, arial, helvetica, sans-serif; 
-	}
+TH
+    {
+    background: #2020A0;
+    color: #D0F0FF;
+    font-size: 9pt;
+    }
 
-.pre	{
-	background : #FFFFFF;
-	color      : #000000;
-        font       : 8pt "Courier New", Monospace;
-	}
+BTH
+    {
+    background: #CCCCFF;
+    font-size: 20pt;
+    font-weight: bold;
+    }
 
-.p0	{
-	background : #2020A0;
-	color : #D0F0FF;
-	}
+.n
+    {
+    background: #C0C0C0;
+    }
 
-.p2	{
-	color      : #2020A0;
-	background : #D0F0FF;
-	font: 9pt verdana, arial, helvetica, sans-serif;
-	letter-spacing: 0pt;
-	font-weight: bold;
-	}
+.n2
+    {
+    background: #FFFFFF;
+    font: 9pt verdana, arial, helvetica, sans-serif;
+    }
 
-.tit  {
-	font: 18pt verdana, arial, helvetica, sans-serif;
-	letter-spacing: 2pt;
-	font-weight: bold;
-	text-align:center;
-	line-height:22pt;
-	font-weight: bold;
-	}
+.about
+    {
+    background-image: url(../img/f_about.gif);
+    font: 10pt verdana, arial, helvetica, sans-serif;
+    }
 
+.pre
+    {
+    background: #FFFFFF;
+    color: #000000;
+    font: 8pt "Courier New", Monospace;
+    }
 
-A.a1	{
-	color: #D0F0FF;
-	}
-.a1	{
-	color: #D0F0FF;
-	background: #2020A0;
-	font: 10pt verdana, arial, helvetica, sans-serif;
-	font-weight: bold;
-	}
-A:hover.a1   {	color:#FFFFD0;	}
-A:visited.a1 {	text-decoration: none; }
+.p0
+    {
+    background: #2020A0;
+    color: #D0F0FF;
+    }
 
-.p1	{
-	background-image:url(../img/cs1.gif);
-	font: 11pt verdana, arial, helvetica, sans-serif;
-	font-weight: bold;
-	}
-A:hover.p1   {	color:#FFFFD0;}
+.p2
+    {
+    color: #2020A0;
+    background: #D0F0FF;
+    font: 9pt verdana, arial, helvetica, sans-serif;
+    letter-spacing: 0pt;
+    font-weight: bold;
+    }
 
-.b0, b1	{
-	color      : #2020A0;
-	background : #D0F0FF;
-	font: 10pt verdana, arial, helvetica, sans-serif;
-	}
+.tit
+    {
+    font:           18pt verdana, arial, helvetica, sans-serif;
+    letter-spacing: 2pt;
+    font-weight:    bold;
+    text-align:     center;
+    line-height:    22pt;
+    font-weight:    bold;
+    }
 
-.b1	{
-	font: 11pt verdana, arial, helvetica, sans-serif;
-	}
+A.a1
+    {
+    color: #D0F0FF;
+    }
 
-UL.u1 {
-	list-style-image: url(../img/sb_2.gif) ;
-	list-style-position:  outside ;
-	margin-left: 22;
-	margin-top: 0;
-	margin-bottom: 15;
-	font: 9pt verdana, arial, helvetica, sans-serif;
-       }
-UL.u2 {
-	list-style-image: url(../img/img0.gif) ;
-	list-style-position:  outside ;
-	margin-left: 25;
-	margin-top: 10;
-	margin-bottom: 15;
-	font: 11pt verdana, arial, helvetica, sans-serif;
-	line-height:15pt;
-       }
+.a1
+    {
+    color: #D0F0FF;
+    background: #2020A0;
+    font: 10pt verdana, arial, helvetica, sans-serif;
+    font-weight: bold;
+    }
 
+A:hover.a1
+    {
+    color: #FFFFD0;
+    }
 
-H3     {
-	color      : #2020A0;
-	font: 11pt verdana, arial, helvetica, sans-serif;
-	letter-spacing: 0pt;
-	font-weight: bold;
-	}
-	
+A:visited.a1
+    {
+    text-decoration: none;
+    }
+
+.p1
+    {
+    background-image: url(../img/cs1.gif);
+    font: 11pt verdana, arial, helvetica, sans-serif;
+    font-weight: bold;
+    }
+
+A:hover.p1
+    {
+    color: #FFFFD0;
+    }
+
+.b0, b1
+    {
+    color: #2020A0;
+    background: #D0F0FF;
+    font: 10pt verdana, arial, helvetica, sans-serif;
+    }
+
+.b1
+    {
+    font: 11pt verdana, arial, helvetica, sans-serif;
+    }
+
+UL.u1
+    {
+    list-style-image: url(../img/sb_2.gif);
+    list-style-position:   outside;
+    margin-left: 22;
+    margin-top: 0;
+    margin-bottom: 15;
+    font: 9pt verdana, arial, helvetica, sans-serif;
+    }
+
+UL.u2
+    {
+    list-style-image: url(../img/img0.gif);
+    list-style-position:   outside;
+    margin-left: 25;
+    margin-top: 10;
+    margin-bottom: 15;
+    font: 11pt verdana, arial, helvetica, sans-serif;
+    line-height: 15pt;
+    }
+
+H3
+    {
+    color: #2020A0;
+    font: 11pt verdana, arial, helvetica, sans-serif;
+    letter-spacing: 0pt;
+    font-weight: bold;
+    }
+
 .boldtable, .boldtable TD, .boldtable TH
-{
-font-family:sans-serif;
-font-size:20pt;
-color:white;
-background-color:navy;
-}
+    {
+    font-family: sans-serif;
+    font-size: 20pt;
+    color:     white;
+    background-color: navy;
+    }
 
 .darkblue
-   {
-   background-color:#000080;
-   color:white;
-   }
-.darkblue A:link{color:white}
-.darkblue A:visited{color:yellow}
-.darkblue A:active{color:fuchsia}
+    {
+    background-color: #000080;
+    color: white;
+    }
 
+.darkblue A:link
+    {
+    color: white
+    }
+
+.darkblue A:visited
+    {
+    color: yellow
+    }
+
+.darkblue A:active
+    {
+    color: fuchsia
+    }
 
 .sboldtable, .sboldtable TD, .sboldtable TH
-{
-font-family:sans-serif;
-font-size:11pt;
-color:yellow;
-background-color:#c8d8f8;
-}
+    {
+    font-family: sans-serif;
+    font-size: 11pt;
+    color:     yellow;
+    background-color: #c8d8f8;
+    }
 
 .rboldtable, .rboldtable TD, .rboldtable TH
-{
-font-family:sans-serif;
-font-size:9pt;
-color:blue;
-background-color:#c8d8f8;
-}
-
+    {
+    font-family: sans-serif;
+    font-size: 9pt;
+    color:     blue;
+    background-color: #c8d8f8;
+    }
 
 .rboldtableeven, .rboldtableeven TD, .rboldtableeven TH
-{
-font-family:sans-serif;
-font-size:9pt;
-color:blue;
-background-color:#cccccc;
-}
-
+    {
+    font-family: sans-serif;
+    font-size: 9pt;
+    color:     blue;
+    background-color: #cccccc;
+    }
 
 .rboldtableodd, .rboldtableodd TD, .rboldtableodd TH
-{
-font-family:sans-serif;
-font-size:9pt;
-color:blue;
-background-color:#ccccff;
-}
+    {
+    font-family: sans-serif;
+    font-size: 9pt;
+    color:     blue;
+    background-color: #ccccff;
+    }
 
 .rboldtable2, .rboldtable2 TD, .rboldtable2 TH
-{
-font-family:sans-serif;
-font-size:6pt;
-color:blue;
-background-color:#c8d8f8;
-}
+    {
+    font-family: sans-serif;
+    font-size: 6pt;
+    color:     blue;
+    background-color: #c8d8f8;
+    }
 
-.bigspan 
-{
-background-color:#ff0000;
-}
+.bigspan
+    {
+    background-color: #ff0000;
+    }

@@ -84,8 +84,9 @@
            " and hit Enter<BR>&nbsp;<BR>a. Run the create_db.sql script <BR>Enter "
            source
            /folder/create_db.sql;"&nbsp;&nbsp;&nbsp;&nbsp; where /folder/ is the path to the location of the SQL scripts.&nbsp; Hit Enter.&nbsp; The database tables are created.</P>
-           <P>b.&nbsp;&nbsp; In similar fashion run all the scripts in \database\data_inserts folder. These scripts
-        insert initial data in the database like languages, phrases, etc.
+           <P>b.&nbsp;&nbsp; In similar fashion run all the scripts in
+        \database\data_inserts folder. These scripts insert initial data in
+        the database like languages, phrases, etc.
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -103,7 +104,8 @@
         This folder contains the OPA application files.</P>
 
         <P>
-        Copy "opa" subdirectory and paste as a subdirectory of &lt;JWSDP HOME&gt;\webapps\</P>
+        Copy "opa" subdirectory and paste as a subdirectory of &lt;JWSDP
+        HOME&gt;\webapps\</P>
 
         <P>
         The OPA directory now looks like
@@ -124,7 +126,8 @@
         ================================================
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opav.xml&nbsp; file.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        opav.xml&nbsp; file.
 
         <BR>
         ================================================
@@ -139,17 +142,20 @@
         Edit&nbsp; the file using a text editor.
 
         <BR>
-        Use the&nbsp; "path" and "docBase "&nbsp; attributes to define the path to OPA application.
+        Use the&nbsp; "path" and "docBase "&nbsp; attributes to define the
+        path to OPA application.
 
         <BR>
-        Example: path="/opa/" docbase="opa" if your OPA application directory root is "opa".</P>
+        Example: path="/opa/" docbase="opa" if your OPA application directory
+        root is "opa".</P>
 
         <P>
         Edit the database connections attributes. </P>
 
         <P>
-        For example if you are hosting you application on "localhost" and your database name is "opajava" and your
-        user id is "root" and you have no password, this section will look like:</P>
+        For example if you are hosting you application on "localhost" and your
+        database name is "opajava" and your user id is "root" and you have no
+        password, this section will look like:</P>
 
         <P>
         &nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
@@ -158,7 +164,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;url&lt;/name&gt;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;jdbc:mysql://localhost/opajava&lt;/value&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;value&gt;jdbc:mysql://localhost/opajava&lt;/value&gt;
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/parameter&gt;
@@ -167,10 +174,12 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;username&lt;/name&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;name&gt;username&lt;/name&gt;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;root&lt;/value&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;value&gt;root&lt;/value&gt;
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/parameter&gt;
@@ -179,7 +188,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;parameter&gt;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;password&lt;/name&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;name&gt;password&lt;/name&gt;
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;&lt;/value&gt;
@@ -271,49 +281,53 @@
         &nbsp;Start OPA as Administrator/Reviewer</P>
 
         <P>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web Browser (Internet Explorer, Netscape ,
-        ...)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web
+        Browser (Internet Explorer, Netscape , ...)
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on the address line:</P>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on
+        the address line:</P>
 
         <P>
-        <A href = "http:\\localhost:8080\opa\admin">http://localhost:8080/opa/admin</A>&nbsp;&nbsp; (if using localhost)
+        <A href = "http:\\localhost:8080\opa\admin">http://localhost:8080/opa/admin</A>&nbsp;&nbsp;
+        (if using localhost)
 
         <BR>
-        <A href = "http:\\nnn.nnn.nnn.nnn:8080\opa\admin">http://nnn.nnn.nnn.nnn:8080/opa/admin</A>&nbsp;&nbsp; (if
-        using IP Address&nbsp;&nbsp; nnn.nnn.nnn.nnn)
+        <A href = "http:\\nnn.nnn.nnn.nnn:8080\opa\admin">http://nnn.nnn.nnn.nnn:8080/opa/admin</A>&nbsp;&nbsp;
+        (if using IP Address&nbsp;&nbsp; nnn.nnn.nnn.nnn)
 
         <BR>
-        <A href = "http:\\abc.com:8080\opa\admin">http://abc.com:8080/opa/admin</A>&nbsp;&nbsp; (if using Web Address
-        abc.com)</P>
+        <A href = "http:\\abc.com:8080\opa\admin">http://abc.com:8080/opa/admin</A>&nbsp;&nbsp;
+        (if using Web Address abc.com)</P>
 
         <P>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start OPA as Public User</P>
 
         <P>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web Browser (Internet Exploree, Netscape ,
-        ...)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start your Web
+        Browser (Internet Exploree, Netscape , ...)
 
         <BR>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on the address line:</P>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter on
+        the address line:</P>
 
         <P>
-        <A href = "http:\\localhost:8080\opa\admin">http://localhost:8080/opa/</A>&nbsp;&nbsp; (if using localhost)
+        <A href = "http:\\localhost:8080\opa\admin">http://localhost:8080/opa/</A>&nbsp;&nbsp;
+        (if using localhost)
 
         <BR>
-        <A href = "http:\\nnn.nnn.nnn.nnn:8080\opa\admin">http://nnn.nnn.nnn.nnn:8080/opa/</A>&nbsp;&nbsp; (if using
-        IP Address&nbsp;&nbsp; nnn.nnn.nnn.nnn)
+        <A href = "http:\\nnn.nnn.nnn.nnn:8080\opa\admin">http://nnn.nnn.nnn.nnn:8080/opa/</A>&nbsp;&nbsp;
+        (if using IP Address&nbsp;&nbsp; nnn.nnn.nnn.nnn)
 
         <BR>
-        <A href = "http:\\abc.com:8080\opa\admin">http://abc.com:8080/opa/</A>&nbsp;&nbsp; (if using Web Address
-        abc.com)</P>
+        <A href = "http:\\abc.com:8080\opa\admin">http://abc.com:8080/opa/</A>&nbsp;&nbsp;
+        (if using Web Address abc.com)</P>
 
         <P>
         &nbsp;&nbsp;

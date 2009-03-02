@@ -1,0 +1,21 @@
+<Context path="/opa" docBase="opa"
+            debug="5" reloadable="true" crossContext="true">
+
+  <Logger className="org.apache.catalina.logger.FileLogger"
+             prefix="localhost_opa_log." suffix=".txt"
+             timestamp="true"/>
+	    
+	    
+    <Resource name="jdbc/opa" auth="Container" type="javax.sql.DataSource"
+					   maxActive="100" maxIdle="30" maxWait="10000"
+					   username="anizor2007" password="" driverClassName="com.mysql.jdbc.Driver"
+					   factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+					   url="jdbc:mysql://localhost:3306/opa?autoReconnect=true"/> 
+
+    <Resource name="mail/session" auth="Container" type="javax.mail.Session"
+            mail.smtp.host="localhost" username="root" password="root"/> 
+
+     <ResourceLink name="jdbc/opa" global="jdbc/opa" type="javax.sql.DataSource"/>	
+     <ResourceLink name="mail/session" global="mail/session" type="javax.mail.Session"/>
+
+</Context>

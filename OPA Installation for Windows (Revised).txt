@@ -1,0 +1,153 @@
+Installing OPA-JAVA on WINDOWS
+
+
+
+Hardware, Operating System and Networking Requirements
+	
+* Pentium III PC with 733 MHz CPU, or higher
+* 512 MB RAM, or higher
+* 10 GB free hard disk space
+* Window 2000/2003 Server Operating System
+* Access to Internet with lease line and broadband connection
+
+Software Prerequisites
+
+Software Components
+ 
+1. Install JavaSE DK6 Update 6 or better from 	http://java.sun.com/javase/downloads/index.jsp
+
+2. Install Tomcat 6.0.16 or better from
+	http://tomcat.apache.org/download-60.cgi
+	-Direct the installer to your JRE 6.0.16 folder
+
+3. Install MySQL 5.0 or better from 	http://dev.mysql.com/downloads/mysql/5.0.html
+	-Complete install
+
+4. Web Browser
+Internet Explorer Version 6.0 or higher;
+or Netscape 7.0 or higher; or FireFox 1.0 or higher
+
+
+Important: Install required software in the order shown above, except for Web Browser 
+which probably was installed with the Operating System. 
+
+=============================================================================================
+Installation of OPA
+=============================================================================================
+
+The /coseopa.database/ folder which came with OPA contains the SQL scripts for creating tables and populating those 
+needed for initial startup. To run these scripts
+
+1. Create the OPA-JAVA database
+
+      Start DOS Command Prompt 
+      Change directory to the directory <MYSQL HOME>\bin
+      Enter the command "mysql"  and hit Enter. 
+      Enter the password you gave during the MySQL install (if no password was given, then leave it blank)
+      Enter "create database opa;"  and hit Enter
+      Enter "use opa;" and hit Enter
+ 
+a. Run the create_db.sql script 
+Enter "source /folder/create_db.sql;" where /folder/ is the path to 
+the location of the SQL scripts.  Hit Enter.  The database tables are created.
+
+NOTE: If your database is not named 'opa', edit the script and substitute the proper name.
+
+b.   In similar fashion run all the scripts in \database\data_inserts folder. 
+These scripts insert initial data in the database like languages, phrases, and default values.
+
+
+      
+2. Move folder /coseopa.webapp/ to the Tomcat\webapp directory
+=============================================================================================
+           opa.xml  file
+=============================================================================================
+This is the configuration file for OPA Application
+
+3. Edit  the file using a text editor.
+	Use the  "path" and "docBase "  attributes to define the path to OPA application.
+
+Example: path="/opa" docbase="opa" if your OPA application directory root is "opa".
+
+Edit the database connections attributes. 
+
+For example if you are hosting your application on "localhost" and your database name is 
+"opajava" and your user id is "root" and you have no password, this section will look like:
+
+     <parameter>
+        <name>url</name>
+        <value>jdbc:mysql://localhost/opajava</value>
+      </parameter>
+      <parameter>
+        <name>username</name>
+        <value>root</value>
+      </parameter>
+      <parameter>
+        <name>password</name>
+        <value></value>
+      </parameter>
+
+Save opa.xml.
+
+=============================================================================================
+           context.xml  file and web.xml File
+=============================================================================================
+
+4. 	-Edit the context.xml file in the /coseopa.webapp/META-INF 
+	folder, replacing 'coseopa' with whatever the Webapp's root 
+	folder is called (in this case, coseopa.webapp)
+	
+	-Remove the password so that your context.xml should have a 
+	 block of code looking somewhat like this (the username is irrelevant)
+"
+
+	maxWait="10000"
+	username="admin" password="" 
+	driverClassName="com.mysql.jdbc.Driver"
+					   
+"	
+
+5. Do the same as step 6 for web.xml in the /coseopa.webapp/META-INF folder
+
+=============================================================================================
+           mysql-connector-java-5.1.6.jar or better
+=============================================================================================
+
+6. Finally, possibly the most important step, download and add the mysql-connector-java-5.1.6.jar (or newer) file to the tomcat6.0/lib folder
+	-download from here: http://dev.mysql.com/downloads/#connector-j
+
+
+
+*********************************************************************************************
+           Starting OPA
+*********************************************************************************************
+
+1. Start Tomcat Servlet Container and Web Server
+
+
+2. Start OPA as Administrator/Reviewer
+
+          Start your Web Browser (Internet Explorer, Netscape , ...)
+           
+           Enter on the address line:
+
+                http://localhost:8080/opa/admin   (if using localhost)
+http://nnn.nnn.nnn.nnn:8080/opa/admin   (if using IP Address   nnn.nnn.nnn.nnn)
+http://abc.com:8080/opa/admin   (if using Web Address abc.com)
+
+       Start OPA as Public User
+
+          Start your Web Browser (Internet Exploree, Netscape , ...)
+           
+           Enter on the address line:
+
+             http://localhost:8080/opa/(if using localhost)
+http://nnn.nnn.nnn.nnn:8080/opa/(if using IP Address nnn.nnn.nnn.nnn)
+http://abc.com:8080/opa/(if using Web Address abc.com)
+
+
+Admin default user name and password for a Coordinator are:
+username: admin
+Password: opajava
+  
+          

@@ -1,0 +1,7 @@
+JavaSide ; http://www.javaside.com ; _load
+Message 2 ; javascript:tpopup('./aticker.html') ; _script ; ?PopupWindows
+AspSide ; http://www.aspside.com ; _load
+XMLSide ; http://www.xmlside.com ; _load
+Nolink ; -- ; ?No link on this message
+rbl@berthou.com ; mailto:rbl@berthou.com ; _top ; ?Send me a mail
+
