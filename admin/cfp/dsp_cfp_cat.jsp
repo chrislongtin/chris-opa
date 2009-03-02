@@ -42,16 +42,19 @@
 </c:choose>
 
 <form action = "index.jsp?fuseaction=act_cfp_cat" method = "post">
-    <input type = "hidden" name = "cfp_code" value = "<c:out value='${param.cfp_code}'/>">
-    <c:if test = "${act == 'edit'}">
-        <input type = "hidden" name = "cfp_cat_id" value = "<c:out value='${param.cfp_cat_id}'/>">
+    <input type = "hidden" name = "cfp_code"
+    value = "<c:out value='${param.cfp_code}'/>"><c:if test = "${act == 'edit'}">
+        <input type = "hidden" name = "cfp_cat_id"
+               value = "<c:out value='${param.cfp_cat_id}'/>">
     </c:if>
 
     <input type = "hidden" name = "act" value = "<c:out value='${act}'/>">
 
     <cf:GetPhrase phrase_id = "457" lang_id = "${lang}"/>:
-    <input type = "text" name = "cfp_cat_name" value = "<c:out value='${cfp_cat_name}'/>" size = "50">
+    <input type = "text" name = "cfp_cat_name"
+           value = "<c:out value='${cfp_cat_name}'/>" size = "50">
 
     <br>
-    <input type = "submit" value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />   ">
+    <input type = "submit"
+           value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />   ">
 </form>

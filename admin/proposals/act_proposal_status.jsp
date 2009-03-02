@@ -49,14 +49,17 @@
 
 <c:choose>
     <c:when test = "${redirect=='info'}">
-        <c:set var = "u" value = "proposals/dsp_proposal_info.jsp?tracking_code=${tracking_code}" scope = "page"/>
+        <c:set var = "u"
+               value = "proposals/dsp_proposal_info.jsp?tracking_code=${tracking_code}"
+               scope = "page"/>
 
         <c:import url = "${u}"/>
     </c:when>
 
     <c:otherwise>
         <c:if test = "${redirect=='summary'}">
-            <c:set var = "u" value = "proposals/dsp_proposal_summary.jsp?tracking_code=${tracking_code}"
+            <c:set var = "u"
+                   value = "proposals/dsp_proposal_summary.jsp?tracking_code=${tracking_code}"
                    scope = "page"/>
 
             <c:import url = "${u}"/>

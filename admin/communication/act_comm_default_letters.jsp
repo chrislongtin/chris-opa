@@ -42,14 +42,16 @@
 
             <c:otherwise>
                 <sql:query var = "letter_num" maxRows = "1">
-                    select letter_id from default_letters order by letter_id desc
+                    select letter_id from default_letters order by letter_id
+                    desc
                 </sql:query>
 
-                <c:set var = "letter_id" value = "${letter_num.rows[0].letter_id + 1}"/>
+                <c:set var = "letter_id"
+                       value = "${letter_num.rows[0].letter_id + 1}"/>
 
                 <sql:update var = "letter_add">
-                    insert into default_letters (letter_id, letter_subject, letter_body, status_id) values ( ?, ?, ?,
-                    ? )
+                    insert into default_letters (letter_id, letter_subject,
+                    letter_body, status_id) values ( ?, ?, ?, ? )
 
                     <sql:param value = "${letter_id}"/>
 
@@ -70,7 +72,8 @@
         <!--- edit default letter --->
 
         <sql:query var = "status_check">
-            select letter_id from default_letters where status_id = ? AND (letter_id < ? OR
+            select letter_id from default_letters where status_id = ? AND
+            (letter_id < ? OR
 		letter_id  > ?)
 <sql:param value="${param.status_id}"/>
 <sql:param value="${param.letter_id}"/>
@@ -118,6 +121,7 @@ where letter_id = ?
 
 </c:when>
 </c:choose>
+
 
 
 

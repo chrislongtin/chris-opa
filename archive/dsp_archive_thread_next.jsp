@@ -13,7 +13,8 @@
 </c:set>
 
 <sql:query var = "messages">
-    select * from discussion where doc_id = ? and discuss_parent = ? order by discuss_date desc
+    select * from discussion where doc_id = ? and discuss_parent = ? order by
+    discuss_date desc
 
     <sql:param value = "${doc_id}"/>
 
@@ -38,7 +39,8 @@
 
 <ul>
     <c:forEach items = "${messages.rows}" var = "row">
-        <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${row.doc_id}" />&lang=<c:out value="${lang}" />&show_msg=yes&id_num=<c:out value="${row.discussion_id}" />">
+        <li><a STYLE = "text-decoration: underline"
+               href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${row.doc_id}" />&lang=<c:out value="${lang}" />&show_msg=yes&id_num=<c:out value="${row.discussion_id}" />">
 
         <c:out value = "${row.discuss_subject}"/></a> <i><c:choose>
             <c:when test = "${row.discuss_author!=''}">

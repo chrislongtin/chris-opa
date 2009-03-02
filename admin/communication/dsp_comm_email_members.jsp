@@ -21,7 +21,8 @@
 <sql:setDataSource var = "lyrics" dataSource = "Lyris" url = ""/>
 
 <sql:query var = "listmembers" dataSource = "${lyris}">
-    SELECT list, fullname, emailaddr, datejoined, subtype FROM members WHERE list = ? ORDER BY fullname, emailaddr
+    SELECT list, fullname, emailaddr, datejoined, subtype FROM members WHERE
+    list = ? ORDER BY fullname, emailaddr
 
     <sql:param value = "${list}"/>
 </sql:query>
@@ -60,7 +61,9 @@
             </TD>
 
             <TD>
-                <font face = "Arial" size = "-1"><a STYLE="text-decoration: underline"  href = "mailto:<c:out value='${row.emailaddr}'/>">
+                <font face = "Arial"
+                      size = "-1"><a STYLE = "text-decoration: underline"
+                                     href = "mailto:<c:out value='${row.emailaddr}'/>">
 
                 <c:out value = '${row.emailaddr}'/></A>
             </TD>
@@ -69,7 +72,8 @@
                 <font face = "Arial" size = "-1">
 
                 <center>
-                    <fmt:formatDate pattern = 'dd-MMM-yyyy' value = '${row.datejoined}'/>
+                    <fmt:formatDate pattern = 'dd-MMM-yyyy'
+                                    value = '${row.datejoined}'/>
                 </center>
             </TD>
         </TR>

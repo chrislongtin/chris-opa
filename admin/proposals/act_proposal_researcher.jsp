@@ -81,12 +81,16 @@
 
         <c:set var = "researcher_id" value = "1" scope = "page"/>
 
-        <c:set var = "researcher_id" value = "${researcher_num.rows[0].researcher_id + 1}" scope = "page"/>
+        <c:set var = "researcher_id"
+               value = "${researcher_num.rows[0].researcher_id + 1}"
+               scope = "page"/>
 
         <sql:update>
-            insert into researchers (researcher_id, tracking_code, researcher_firstname, researcher_lastname,
-            researcher_initial, researcher_phone, researcher_fax, researcher_email, researcher_citizenship,
-            researcher_residency, researcher_org) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            insert into researchers (researcher_id, tracking_code,
+            researcher_firstname, researcher_lastname, researcher_initial,
+            researcher_phone, researcher_fax, researcher_email,
+            researcher_citizenship, researcher_residency, researcher_org)
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 
             <sql:param value = "${researcher_id}"/>
 
@@ -114,9 +118,11 @@
 
     <c:when test = "${act=='edit'}">
         <sql:update>
-            update researchers set researcher_firstname = ?, researcher_lastname = ?, researcher_initial = ?,
-            researcher_phone = ?, researcher_fax = ?, researcher_email = ?, researcher_citizenship = ?,
-            researcher_residency = ?, researcher_org = ? where researcher_id = ?
+            update researchers set researcher_firstname = ?,
+            researcher_lastname = ?, researcher_initial = ?, researcher_phone
+            = ?, researcher_fax = ?, researcher_email = ?,
+            researcher_citizenship = ?, researcher_residency = ?,
+            researcher_org = ? where researcher_id = ?
 
             <sql:param value = "${researcher_firstname}"/>
 
@@ -150,26 +156,30 @@
         <table>
             <tr>
                 <td>
-                    <form action = "index.jsp?fuseaction=act_proposal_researcher" method = "post">
-                        <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                        <input type = "hidden" name = "researcher_id" value = "<c:out value="${researcher_id}" />">
+                    <form action = "index.jsp?fuseaction=act_proposal_researcher"
+                          method = "post">
+                        <input type = "hidden" name = "tracking_code"
+                        value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "researcher_id" value = "<c:out value="${researcher_id}" />">
                         <input type = "hidden" name = "act" value = "delete">
-                        <input type = "submit" value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
+                        <input type = "submit"
+                        value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
                     </form>
                 </td>
 
                 <td>
-                    <form action = "index.jsp?fuseaction=proposal_info" method = "post">
-                        <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                        <input type = "submit" value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
+                    <form action = "index.jsp?fuseaction=proposal_info"
+                          method = "post">
+                        <input type = "hidden" name = "tracking_code"
+                        value = "<c:out value="${tracking_code}" />"> <input type = "submit"
+                        value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
                     </form>
                 </td>
         </table>
 
-<%
+        <%
         if (true)
             return;
-%>
+        %>
     </c:when>
 
     <c:when test = "${act=='delete'}">

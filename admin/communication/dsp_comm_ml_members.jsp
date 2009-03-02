@@ -21,8 +21,9 @@
 
 <c:if test = "${list.rowCount == 1}">
     <sql:query var = "members">
-        select members.*, listmembers.member_status from members, listmembers where members.member_id =
-        listmembers.member_id and listmembers.list_id = ? order by members.member_name
+        select members.*, listmembers.member_status from members, listmembers
+        where members.member_id = listmembers.member_id and
+        listmembers.list_id = ? order by members.member_name
 
         <sql:param value = "${list_id}"/>
     </sql:query>
@@ -55,18 +56,24 @@
                 </c:set>
             </c:if>
 
-            <form name = "edit_member" method = "post" action = "index.jsp?fuseaction=comm_ml_editmembers">
+            <form name = "edit_member" method = "post"
+                  action = "index.jsp?fuseaction=comm_ml_editmembers">
                 <hr noshade size = "1" color = "#DDDDDD">
-                <table width = "100%" border = "0" cellspacing = "0" cellpadding = "3">
+                <table width = "100%" border = "0" cellspacing = "0"
+                       cellpadding = "3">
                     <tr>
                         <td>
-                            <font face = "Arial, Helvetica, sans-serif" size = "-1">
+                            <font face = "Arial, Helvetica, sans-serif"
+                                  size = "-1">
 
-                            <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>:</font>
+                            <cf:GetPhrase phrase_id = "66"
+                                          lang_id = "${lang}"/>:</font>
                         </td>
 
                         <td>
-                            <input type = "text" maxlength = "128" name = "member_name"
+                            <input type = "text"
+                                   maxlength = "128"
+                                   name = "member_name"
                                    value = "<c:out value="${row.member_name}" />">
                         </td>
                     </tr>
@@ -75,24 +82,25 @@
                         <td>
                             <FONT face = Arial size = -1 color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b></font>
+                            <cf:GetPhrase phrase_id = "24"
+                                          lang_id = "${lang}"/>:</b></font>
                         </td>
 
                         <td>
-                            <input type = "text"
-                                   maxlength = "128"
-                                   name = "member_email"
-                                   value = "<c:out value="${row.member_email}" />">
-                            <input type = "hidden" name = "member_email_required"
-                                   value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
+                            <input type = "text" maxlength = "128"
+                            name = "member_email"
+                            value = "<c:out value="${row.member_email}" />"> <input type = "hidden"
+                            name = "member_email_required"
+                            value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan = "2">
-                            <font face = "Arial, Helvetica, sans-serif" font size = "-1">
-                            <input type = "checkbox" name = "active" value = "1" <c:if
-                                   test = "${row.member_status == 1}">
+                            <font face = "Arial, Helvetica, sans-serif" font
+                            size = "-1">
+                            <input type = "checkbox" name = "active" value = "1"
+                            <c:if test = "${row.member_status == 1}">
 
                             <c:out value = " checked "/>
         </c:if>
@@ -110,21 +118,25 @@
         <tr>
             <td colspan = "2">
                 <font face = "Arial, Helvetica, sans-serif" size = "-1">
-                <input type = "hidden" name = "list" value = "<c:out value="${list_id}" />">
-                <input type = "hidden" name = "act" value = "edit">
-                <input type = "hidden" name = "member" value = "<c:out value="${row.member_id}" />">
-                <input type = "submit" name = "save_changes"
-                       value = "<cf:GetPhrase phrase_id="817" lang_id="${lang}" />">
+                <input type = "hidden" name = "list"
+                value = "<c:out value="${list_id}" />"> <input type = "hidden"
+                name = "act" value = "edit">
+                <input type = "hidden" name = "member"
+                value = "<c:out value="${row.member_id}" />"> <input type = "submit"
+                name = "save_changes"
+                value = "<cf:GetPhrase phrase_id="817" lang_id="${lang}" />">
 
                 <br>
                 <br>
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_editmembers&act=delfromlist&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml_editmembers&act=delfromlist&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
 
                 <cf:GetPhrase phrase_id = "821" lang_id = "${lang}"/></a>
 
                 <br>
                 <br>
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_editmembers&act=del&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml_editmembers&act=del&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
 
                 <cf:GetPhrase phrase_id = "822" lang_id = "${lang}"/></a> (
 
@@ -146,8 +158,10 @@
     <cf:GetPhrase phrase_id = "833" lang_id = "${lang}"/></h4>
 
     <sql:query var = "other_members">
-        select distinct members.* from members, listmembers, mailinglists where members.member_id =
-        listmembers.member_id and listmembers.list_id = mailinglists.list_id and mailinglists.coordinator_id = ?
+        select distinct members.* from members, listmembers, mailinglists
+        where members.member_id = listmembers.member_id and
+        listmembers.list_id = mailinglists.list_id and
+        mailinglists.coordinator_id = ?
 
         <c:if test = "${!empty wexp}">
             and members.member_id not in (
@@ -170,7 +184,8 @@
 
             <cf:GetPhrase phrase_id = "814" lang_id = "${lang}"/>) </font>
 
-            <form name = "add_emembers" method = "post" action = "index.jsp?fuseaction=comm_ml_editmembers">
+            <form name = "add_emembers" method = "post"
+                  action = "index.jsp?fuseaction=comm_ml_editmembers">
                 <font face = Arial size = -1>
 
                 <select name = "members" size = "5" multiple>
@@ -182,9 +197,10 @@
 
                 </font> <input type = "hidden" name = "act" value = "add">
                 <input type = "hidden" name = "active" value = "1">
-                <input type = "hidden" name = "list" value = "<c:out value="${list_id}" />">
-                <input type = "submit" name = "add_members"
-                       value = "<cf:GetPhrase phrase_id="824" lang_id="${lang}" />">
+                <input type = "hidden" name = "list"
+                value = "<c:out value="${list_id}" />"> <input type = "submit"
+                name = "add_members"
+                value = "<cf:GetPhrase phrase_id="824" lang_id="${lang}" />">
             </form>
 
             </li>
@@ -197,7 +213,8 @@
 
         <cf:GetPhrase phrase_id = "825" lang_id = "${lang}"/></font>
 
-        <form name = "create_member" method = "post" action = "index.jsp?fuseaction=comm_ml_editmembers">
+        <form name = "create_member" method = "post"
+              action = "index.jsp?fuseaction=comm_ml_editmembers">
             <font face = "Arial, Helvetica, sans-serif" size = "-1">
 
             <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>:
@@ -218,8 +235,10 @@
 
             <br>
             <input type = "hidden" name = "act" value = "create">
-            <input type = "hidden" name = "list" value = "<c:out value="${list_id}" />">
-            <input type = "submit" name = "create_member" value = "<cf:GetPhrase phrase_id="825" lang_id="${lang}" />">
+            <input type = "hidden" name = "list"
+            value = "<c:out value="${list_id}" />">
+            <input type = "submit" name = "create_member"
+            value = "<cf:GetPhrase phrase_id="825" lang_id="${lang}" />">
         </form>
 
         </li>

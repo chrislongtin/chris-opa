@@ -123,17 +123,20 @@
         <cf:GetPhrase phrase_id = "662" lang_id = "${lang}"/></h3>
 
         <sql:query var = "edit_proposal">
-            select p.*, c.cfp_title from proponent_record p, cfp_info c where p.tracking_code = ? and p.cfp_code =
-            c.cfp_code
+            select p.*, c.cfp_title from proponent_record p, cfp_info c where
+            p.tracking_code = ? and p.cfp_code = c.cfp_code
 
             <sql:param value = "${tracking_code}"/>
         </sql:query>
 
         <c:set var = "ep" value = "${edit_proposal.rows[0]}" scope = "page"/>
 
-        <c:set var = "previous_tracking_code" value = "${ep.previous_tracking_code}" scope = "page"/>
+        <c:set var = "previous_tracking_code"
+               value = "${ep.previous_tracking_code}"
+               scope = "page"/>
 
-        <c:set var = "tracking_code" value = "${ep.tracking_code}" scope = "page"/>
+        <c:set var = "tracking_code" value = "${ep.tracking_code}"
+               scope = "page"/>
 
         <c:set var = "cfp_code" value = "${ep.cfp_code}" scope = "page"/>
 
@@ -141,61 +144,95 @@
 
         <c:set var = "cfp_cat_id" value = "${ep.cfp_cat_id}" scope = "page"/>
 
-        <c:set var = "proponent_password" value = "${ep.proponent_password}" scope = "page"/>
+        <c:set var = "proponent_password" value = "${ep.proponent_password}"
+               scope = "page"/>
 
-        <c:set var = "proposal_title" value = "${ep.proposal_title}" scope = "page"/>
+        <c:set var = "proposal_title" value = "${ep.proposal_title}"
+               scope = "page"/>
 
-        <c:set var = "requested_amount" value = "${ep.requested_amount}" scope = "page"/>
+        <c:set var = "requested_amount" value = "${ep.requested_amount}"
+               scope = "page"/>
 
-        <c:set var = "proponent_institution" value = "${ep.proponent_institution}" scope = "page"/>
+        <c:set var = "proponent_institution"
+               value = "${ep.proponent_institution}"
+               scope = "page"/>
 
-        <c:set var = "proponent_address" value = "${ep.proponent_address}" scope = "page"/>
+        <c:set var = "proponent_address" value = "${ep.proponent_address}"
+               scope = "page"/>
 
-        <c:set var = "proponent_phone" value = "${ep.proponent_phone}" scope = "page"/>
+        <c:set var = "proponent_phone" value = "${ep.proponent_phone}"
+               scope = "page"/>
 
-        <c:set var = "proponent_fax" value = "${ep.proponent_fax}" scope = "page"/>
+        <c:set var = "proponent_fax" value = "${ep.proponent_fax}"
+               scope = "page"/>
 
-        <c:set var = "proponent_email" value = "${ep.proponent_email}" scope = "page"/>
+        <c:set var = "proponent_email" value = "${ep.proponent_email}"
+               scope = "page"/>
 
-        <c:set var = "proponent_url" value = "${ep.proponent_url}" scope = "page"/>
+        <c:set var = "proponent_url" value = "${ep.proponent_url}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_firstname" value = "${ep.proponent_leader_firstname}" scope = "page"/>
+        <c:set var = "proponent_leader_firstname"
+               value = "${ep.proponent_leader_firstname}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_lastname" value = "${ep.proponent_leader_lastname}" scope = "page"/>
+        <c:set var = "proponent_leader_lastname"
+               value = "${ep.proponent_leader_lastname}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_initial" value = "${ep.proponent_leader_initial}" scope = "page"/>
+        <c:set var = "proponent_leader_initial"
+               value = "${ep.proponent_leader_initial}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_affiliation" value = "${ep.proponent_leader_affiliation}" scope = "page"/>
+        <c:set var = "proponent_leader_affiliation"
+               value = "${ep.proponent_leader_affiliation}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_address" value = "${ep.proponent_leader_address}" scope = "page"/>
+        <c:set var = "proponent_leader_address"
+               value = "${ep.proponent_leader_address}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_phone" value = "${ep.proponent_leader_phone}" scope = "page"/>
+        <c:set var = "proponent_leader_phone"
+               value = "${ep.proponent_leader_phone}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_fax" value = "${ep.proponent_leader_fax}" scope = "page"/>
+        <c:set var = "proponent_leader_fax" value = "${ep.proponent_leader_fax}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_email" value = "${ep.proponent_leader_email}" scope = "page"/>
+        <c:set var = "proponent_leader_email"
+               value = "${ep.proponent_leader_email}"
+               scope = "page"/>
 
-        <c:set var = "proponent_citizenship" value = "${ep.proponent_citizenship}" scope = "page"/>
+        <c:set var = "proponent_citizenship"
+               value = "${ep.proponent_citizenship}"
+               scope = "page"/>
 
-        <c:set var = "proponent_residency" value = "${ep.proponent_residency}" scope = "page"/>
+        <c:set var = "proponent_residency" value = "${ep.proponent_residency}"
+               scope = "page"/>
 
-        <c:set var = "project_country" value = "${ep.project_country}" scope = "page"/>
+        <c:set var = "project_country" value = "${ep.project_country}"
+               scope = "page"/>
 
-        <c:set var = "project_date" value = "${ep.project_date}" scope = "page"/>
+        <c:set var = "project_date" value = "${ep.project_date}"
+               scope = "page"/>
 
         <c:set var = "act" value = "edit" scope = "page"/>
 
         <sql:query var = "old_cfp_code">
-            select cfp_code as cfp_old_code from cfp_category where cfp_cat_id = ?
+            select cfp_code as cfp_old_code from cfp_category where cfp_cat_id
+            = ?
 
             <sql:param value = "${cfp_cat_id}"/>
         </sql:query>
 
-        <c:set var = "cfp_old_code" value = "${old_cfp_code.rows[0].cfp_old_code}" scope = "page"/>
+        <c:set var = "cfp_old_code"
+               value = "${old_cfp_code.rows[0].cfp_old_code}"
+               scope = "page"/>
 
         <!--- verify that cfp is still active --->
         <sql:query var = "cfp_current_list">
-            select cfp_title from cfp_info where cfp_code = ? and cfp_deadline >= CURDATE()
+            select cfp_title from cfp_info where cfp_code = ? and cfp_deadline
+            >= CURDATE()
 
             <sql:param value = "${cfp_code}"/>
         </sql:query>
@@ -211,7 +248,9 @@
             <sql:param value = "${cfp_cat_id}"/>
         </sql:query>
 
-        <c:set var = "cfp_cat_name" value = "${cfp_cat_info.rows[0].cfp_cat_name}" scope = "page"/>
+        <c:set var = "cfp_cat_name"
+               value = "${cfp_cat_info.rows[0].cfp_cat_name}"
+               scope = "page"/>
     </c:when>
 
     <c:otherwise>
@@ -222,50 +261,54 @@
 </c:choose>
 
 <sql:query var = "currency_type">
-    select c.currency_id, c.currency from cfp_info cf, currency_code c where cf.cfp_code = ? and cf.currency_id =
-    c.currency_id
+    select c.currency_id, c.currency from cfp_info cf, currency_code c where
+    cf.cfp_code = ? and cf.currency_id = c.currency_id
 
     <sql:param value = "${cfp_code}"/>
 </sql:query>
 
-<c:set var = "currency" value = "${currency_type.rows[0].currency}" scope = "page"/>
+<c:set var = "currency" value = "${currency_type.rows[0].currency}"
+       scope = "page"/>
 
 <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
 
-<form action = "index.jsp?fuseaction=act_proposal_submit" method = "post" ENCTYPE = "multipart/form-data">
-    <input type = "hidden" name = "act" value = "<c:out value="${act}" />"><c:choose>
+<form action = "index.jsp?fuseaction=act_proposal_submit" method = "post"
+      ENCTYPE = "multipart/form-data">
+    <input type = "hidden" name = "act" value = "<c:out value="${act}" />">
+    <c:choose>
         <c:when test = "${act=='add'}">
-            <input type = "hidden" name = "cfp_code" value = "<c:out value="${cfp_code}" />">
+            <input type = "hidden" name = "cfp_code"
+            value = "<c:out value="${cfp_code}" />">
             <input type = "hidden" name = "proponent_password_required"
-                   value = "<cf:GetPhrase phrase_id="663" lang_id="${lang}" />">
+            value = "<cf:GetPhrase phrase_id="663" lang_id="${lang}" />">
         </c:when>
 
         <c:otherwise>
-            <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
+            <input type = "hidden" name = "tracking_code"
+                   value = "<c:out value="${tracking_code}" />">
         </c:otherwise>
     </c:choose>
 
-    <input type = "hidden"
-           name = "proposal_title_required"
-           value = "<cf:GetPhrase phrase_id="664" lang_id="${lang}" />"> <input type = "hidden"
-           name = "requested_amount_float"
-           value = "<cf:GetPhrase phrase_id="778" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_institution_required"
-           value = "<cf:GetPhrase phrase_id="666" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_address_required"
-           value = "<cf:GetPhrase phrase_id="667" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_phone_required"
-           value = "<cf:GetPhrase phrase_id="668" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_leader_affiliation_required"
-           value = "<cf:GetPhrase phrase_id="669" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_leader_address_required"
-           value = "<cf:GetPhrase phrase_id="670" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_leader_phone_required"
-           value = "<cf:GetPhrase phrase_id="671" lang_id="${lang}" />"> <input type = "hidden"
-           name = "proponent_leader_firstname_required"
-           value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />">
-    <input type = "hidden" name = "proponent_leader_lastname_required"
-           value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />">
+    <input type = "hidden" name = "proposal_title_required"
+    value = "<cf:GetPhrase phrase_id="664" lang_id="${lang}" />"> <input type = "hidden"
+    name = "requested_amount_float"
+    value = "<cf:GetPhrase phrase_id="778" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_institution_required"
+    value = "<cf:GetPhrase phrase_id="666" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_address_required"
+    value = "<cf:GetPhrase phrase_id="667" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_phone_required"
+    value = "<cf:GetPhrase phrase_id="668" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_leader_affiliation_required"
+    value = "<cf:GetPhrase phrase_id="669" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_leader_address_required"
+    value = "<cf:GetPhrase phrase_id="670" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_leader_phone_required"
+    value = "<cf:GetPhrase phrase_id="671" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_leader_firstname_required"
+    value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />"> <input type = "hidden"
+    name = "proponent_leader_lastname_required"
+    value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />">
 
     <table width = "100%" cellpadding = "3">
         <tr bgcolor = "CFCFCF">
@@ -287,7 +330,8 @@
                 </td>
 
                 <td>
-                    <input type = "password" name = "proponent_password" size = "10">
+                    <input type = "password" name = "proponent_password"
+                           size = "10">
                 </td>
             </tr>
 
@@ -495,6 +539,7 @@ order by cfp_cat_id
 <br><input type="submit" value=" Delete ">
 </form>
 </c:if>
+
 
 
 

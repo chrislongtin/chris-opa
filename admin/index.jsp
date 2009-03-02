@@ -6,19 +6,21 @@
 <c:if test = "${((empty sessionScope.user) or (sessionScope.user=='')) and (fuseaction!='login')}">
     <c:import url = "dsp_login_type.jsp"/>
 
-    <c:import url = "footer.jsp"/>
-
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
+
+<c:if test = "${fuseaction!='login'}">
+ <c:import url = "header_site.jsp"/>
+</c:if>
+
+
 
 
 <!--- layout and formatting is contained in the header --->
 <c:if test = "${(fuseaction!='dsp_login') and (fuseaction!='login') and (!empty fuseaction)}">
-    <c:import url = "header_site.jsp"/>
-
     <c:import url = "header.jsp"/>
 </c:if>
 
@@ -641,10 +643,10 @@
 
     <c:import url = "footer.jsp"/>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <c:if test = "${fuseaction!='login'}">

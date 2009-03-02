@@ -20,34 +20,40 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='admin_act_gen_doc'/>
 <c:param name='${user}'/>
-</c:url>" method = "post"
+</c:url>"
+      method = "post"
       ENCTYPE = "multipart/form-data">
-    <input type = "hidden" name = "discuss_date" value = "<c:out value='${discuss_date}'/>">
+    <input type = "hidden" name = "discuss_date"
+           value = "<c:out value='${discuss_date}'/>">
 
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "502" lang_id = "${lang}"/>:</b> <input type = "text" name = "doc_title">
+    <cf:GetPhrase phrase_id = "502" lang_id = "${lang}"/>:</b>
+    <input type = "text" name = "doc_title">
 
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "504" lang_id = "${lang}"/>:</b> <input type = "file" name = "doc_filename" size = "40">
-    <h4>
+    <cf:GetPhrase phrase_id = "504" lang_id = "${lang}"/>:</b>
+    <input type = "file" name = "doc_filename" size = "40"> <h4>
 
     <cf:GetPhrase phrase_id = "503" lang_id = "${lang}"/></h4> <b>
 
-    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b> <input type = "text" name = "discuss_subject" size = "40">
+    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b>
+    <input type = "text" name = "discuss_subject" size = "40">
 
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "43" lang_id = "${lang}"/>:</b> <input type = "text" name = "discuss_author">
+    <cf:GetPhrase phrase_id = "43" lang_id = "${lang}"/>:</b>
+    <input type = "text" name = "discuss_author">
 
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b> <input type = "text" name = "discuss_email">
+    <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b>
+    <input type = "text" name = "discuss_email">
 
     <p>
     <b>
@@ -58,5 +64,6 @@
     <textarea name = "discuss_message" cols = "60" rows = "15" wrap>
     </textarea>
 
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+    <input type = "submit"
+           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 </form>

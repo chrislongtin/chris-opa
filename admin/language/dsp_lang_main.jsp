@@ -16,12 +16,14 @@
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "240" lang_id = "${lang}"/>:</h4><sql:query var = "langs">
+<cf:GetPhrase phrase_id = "240" lang_id = "${lang}"/>:</h4>
+<sql:query var = "langs">
     select * from languages
 </sql:query>
 
 <c:forEach var = "row" items = "${langs.rows}">
-    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+    <a STYLE = "text-decoration: underline"
+       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_add_lang'/>
 <c:param name='act' value='delete'/>
 <c:param name='lang_id' value='${row.lang_id}'/>
@@ -36,7 +38,8 @@
 </c:forEach>
 
 <p>
-<h4><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+<h4><a STYLE = "text-decoration: underline"
+       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='add_lang'/>
 <c:param name='${user}'/>
 </c:url>">
@@ -56,17 +59,20 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='add_phrase'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+          method = "post">
         <td>
             <font face = "Arial" size = "-1">
 
             <select name = "lang_id">
                 <c:forEach var = "row" items = "${langs.rows}">
-                    <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                    <option value = "<c:out value='${row.lang_id}'/>">
+                    <c:out value = '${row.language}'/>
                 </c:forEach>
             </select>
 
-            <input type = "submit" value = "<cf:GetPhrase phrase_id="487" lang_id="${lang}" />">
+            <input type = "submit"
+                   value = "<cf:GetPhrase phrase_id="487" lang_id="${lang}" />">
         </td>
     </form>
 </table>
@@ -86,13 +92,15 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='lang_convert'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+          method = "post">
         <td>
             <font face = "Arial" size = "-1">
 
             <select name = "lang_id1">
                 <c:forEach var = "row" items = "${langs.rows}">
-                    <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                    <option value = "<c:out value='${row.lang_id}'/>">
+                    <c:out value = '${row.language}'/>
                 </c:forEach>
             </select>
         </td>
@@ -104,11 +112,13 @@
 
             <select name = "lang_id2">
                 <c:forEach var = "row" items = "${langs.rows}">
-                    <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                    <option value = "<c:out value='${row.lang_id}'/>">
+                    <c:out value = '${row.language}'/>
                 </c:forEach>
             </select>
 
-            <input type = "submit" value = " <cf:GetPhrase phrase_id="558" lang_id="${lang}" /> ">
+            <input type = "submit"
+                   value = " <cf:GetPhrase phrase_id="558" lang_id="${lang}" /> ">
         </td>
     </form>
 </table>

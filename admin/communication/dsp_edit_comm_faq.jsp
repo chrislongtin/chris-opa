@@ -21,13 +21,13 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_comm_faq'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-        <input type = "hidden" name = "act" value = "Edit"> <input type = "hidden"
-               name = "faq_question_required"
-               value = "<cf:GetPhrase phrase_id='483' lang_id='${lang}'/>"> <input type = "hidden"
-               name = "faq_answer_required"
-               value = "<cf:GetPhrase phrase_id='484' lang_id='${lang}'/>">
-        <input type = "hidden" name = "faq_id" value = "${row.faq_id}"> <b>
+</c:url>"
+          method = "post">
+        <input type = "hidden" name = "act" value = "Edit">
+        <input type = "hidden" name = "faq_question_required"
+        value = "<cf:GetPhrase phrase_id='483' lang_id='${lang}'/>"> <input type = "hidden" name = "faq_answer_required" value = "<cf:GetPhrase phrase_id='484' lang_id='${lang}'/>">
+        <input type = "hidden" name = "faq_id"
+        value = "<c:out value = '${row.faq_id}'/>"> <b>
 
         <cf:GetPhrase phrase_id = "176" lang_id = "${lang}"/>:</b>
 
@@ -47,6 +47,7 @@
         </textarea>
 
         <p>
-        <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+        <input type = "submit"
+               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
     </form>
 </c:forEach>

@@ -28,7 +28,8 @@
     <c:when test = "${act == 'view'}">
         <p>
         <cf:GetPhrase phrase_id = "36" lang_id = "${lang}"/>
-        <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='discuss_comment'/>
 <c:param name='${lang}'/>
 <c:param name='act' value='add'/>
@@ -39,8 +40,8 @@
         <p>
         <hr size = "1">
         <sql:query var = "QueryName">
-            select * from admin_discussion where doc_id = 0 AND discuss_parent = 0 order by discuss_date desc,
-            discussion_id desc
+            select * from admin_discussion where doc_id = 0 AND discuss_parent
+            = 0 order by discuss_date desc, discussion_id desc
         </sql:query>
 
         <c:set var = "id_num">
@@ -62,7 +63,8 @@
         <ul>
             <c:forEach var = "row" items = "${QueryName.rows}">
                 <p>
-                <li><font size = "3"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <li><font size = "3"><a STYLE = "text-decoration: underline"
+                                        href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='discuss_comment'/>
 <c:param name='${lang}'/>
 <c:param name='show_msg' value='yes'/>
@@ -86,15 +88,17 @@
                         <td bgcolor = "E1E1E1">
                             <font face = "Arial" size = "-2">
 
-                            <fmt:formatDate value = "${row.discuss_date}" pattern = "MMM dd, yyyy"/> |
-                            <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                            <fmt:formatDate value = "${row.discuss_date}"
+                            pattern = "MMM dd, yyyy"/> | <a STYLE = "text-decoration: underline"
+                            href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='discuss_comment'/>
 <c:param name='${lang}'/>
 <c:param name='act' value='add'/>
 <c:param name='discuss_parent' value='${row.discussion_id}'/>
 </c:url>">
 
-                            <cf:GetPhrase phrase_id = "39" lang_id = "${lang}"/></a></font>
+                            <cf:GetPhrase phrase_id = "39"
+                                          lang_id = "${lang}"/></a></font>
 
                             <p>
                             <font face = "Arial" size = "-1">
@@ -102,7 +106,8 @@
                             <cf:ParagraphFormat value = "${row.discuss_message}"/>
 
                             <br>
-                            <a STYLE="text-decoration: underline"  href = "../docs/<c:out value='${row.discuss_attachment}'/>?ois=no">
+                            <a STYLE = "text-decoration: underline"
+                               href = "../docs/<c:out value='${row.discuss_attachment}'/>?ois=no">
 
                             <c:out value = "${row.discuss_attachment}"/></a></font>
                         </td>
@@ -121,7 +126,8 @@
 
         <!--- general documents discussion section --->
         <sql:query var = "doc_list">
-            select doc_id, doc_title, doc_filename from admin_documents where tracking_code = 0
+            select doc_id, doc_title, doc_filename from admin_documents where
+            tracking_code = 0
         </sql:query>
 
         <hr size = "1">
@@ -138,14 +144,16 @@
                 <tr>
                     <td>
                         <font face = "Arial"
-                              size = "-1"><a STYLE="text-decoration: underline"  href = "../docs/<c:out value='${row.doc_filename}'/>?ois=no">
+                              size = "-1"><a STYLE = "text-decoration: underline"
+                                             href = "../docs/<c:out value='${row.doc_filename}'/>?ois=no">
 
                         <c:out value = '${row.doc_title}'/></a>
                     </td>
 
                     <td>
                         <font face = "Arial"
-                              size = "-1"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                              size = "-1"><a STYLE = "text-decoration: underline"
+                                             href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='gen_doc_comment'/>
 <c:param name='doc_id' value='${row.doc_id}'/>
 <c:param name='${lang}'/>
@@ -202,13 +210,16 @@
                     <br>
                     <font size = "-2">
 
-                    <fmt:formatDate value = "${row.discuss_date}" pattern = "MMM dd, yyyy"/></font>
+                    <fmt:formatDate value = "${row.discuss_date}"
+                                    pattern = "MMM dd, yyyy"/></font>
 
                     <br>
-                    <menu><cf:ParagraphFormat value = "${row.discuss_message}"/></menu>
+                    <menu>
+                    <cf:ParagraphFormat value = "${row.discuss_message}"/></menu>
 
                     <hr size = "1">
-                    <c:set var = "discuss_level" value = "${discuss_level + 1}"/>
+                    <c:set var = "discuss_level"
+                           value = "${discuss_level + 1}"/>
                 </c:forEach>
             </c:if>
 
@@ -218,18 +229,19 @@
             <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_discuss_comment'/>
 <c:param name='${lang}'/>
-</c:url>" method = "post"
+</c:url>"
+                  method = "post"
                   ENCTYPE = "multipart/form-data">
                 <input type = "hidden" name = "tracking_code" value = "0">
                 <input type = "hidden" name = "doc_id" value = "0">
                 <input type = "hidden" name = "cfp_code" value = "0">
-                <input type = "hidden" name = "discuss_level" value = "<c:out value='${discuss_level}'/>">
-                <input type = "hidden" name = "discuss_parent" value = "<c:out value='${discuss_parent}'/>">
-                <input type = "hidden"
-                       name = "discuss_message_required"
-                       value = "<cf:GetPhrase phrase_id='516' lang_id='${lang}'/>">
-                <input type = "hidden" name = "discuss_subject_required"
-                       value = "<cf:GetPhrase phrase_id='517' lang_id='${lang}'/>"> <font color = "FF0000"><b>*
+                <input type = "hidden" name = "discuss_level"
+                value = "<c:out value='${discuss_level}'/>"> <input type = "hidden"
+                name = "discuss_parent"
+                value = "<c:out value='${discuss_parent}'/>"> <input type = "hidden"
+                name = "discuss_message_required"
+                value = "<cf:GetPhrase phrase_id='516' lang_id='${lang}'/>"> <input type = "hidden" name = "discuss_subject_required" value = "<cf:GetPhrase phrase_id='517' lang_id='${lang}'/>">
+                <font color = "FF0000"><b>*
 
                 <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b></font>
                 <input type = "text" name = "discuss_subject" size = "40">
@@ -245,8 +257,8 @@
                 <br>
                 <b>
 
-                <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b> <input type = "text" name = "discuss_email">
-                <i>(
+                <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b>
+                <input type = "text" name = "discuss_email"> <i>(
 
                 <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
 
@@ -266,7 +278,8 @@
                     <cf:GetPhrase phrase_id = "47" lang_id = "${lang}"/>:</b>
 
                     <br>
-                    <input type = "file" name = "discuss_attachment" size = "40">
+                    <input type = "file" name = "discuss_attachment"
+                           size = "40">
 
                     <br>
                     <i>
@@ -275,7 +288,8 @@
                 </c:if>
 
                 <p>
-                <input type = "submit" value = "<cf:GetPhrase phrase_id="50" lang_id="${lang}" />">
+                <input type = "submit"
+                       value = "<cf:GetPhrase phrase_id="50" lang_id="${lang}" />">
             </form>
 
             <p>

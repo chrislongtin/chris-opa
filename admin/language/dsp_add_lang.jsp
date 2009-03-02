@@ -15,7 +15,8 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_add_lang'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+      method = "post">
     <cf:GetPhrase phrase_id = "206" lang_id = "${lang}"/>
 
     : <input type = "text" name = "language" size = "40">
@@ -28,5 +29,6 @@
     <cf:GetPhrase phrase_id = "556" lang_id = "${lang}"/>)
 
     <br>
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+    <input type = "submit"
+           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 </form>

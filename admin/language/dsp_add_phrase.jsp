@@ -42,7 +42,8 @@
 
     <c:when test = "${act == 'edit'}">
         <sql:query var = "phrase_edit">
-            select phrase, phrase_id, lang_id from phrases where phrase_id = ? and lang_id = ?
+            select phrase, phrase_id, lang_id from phrases where phrase_id = ?
+            and lang_id = ?
 
             <sql:param value = "${phrase_id}"/>
 
@@ -66,25 +67,31 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_add_phrase'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-    <input type = "hidden" name = "phrase_id" value = "<c:out value='${phrase_id}'/>">
-    <input type = "hidden" name = "act" value = "<c:out value='${act}'/>">
-    <input type = "hidden" name = "lang_id" value = "<c:out value='${lang_id}'/>">
+</c:url>"
+      method = "post">
+    <input type = "hidden" name = "phrase_id"
+    value = "<c:out value='${phrase_id}'/>"> <input type = "hidden" name = "act"
+    value = "<c:out value='${act}'/>"> <input type = "hidden" name = "lang_id"
+    value = "<c:out value='${lang_id}'/>">
 
     <cf:GetPhrase phrase_id = "233" lang_id = "${lang}"/>: <b>
 
     <c:out value = '${phrase_id}'/></b>
-    <input type = "text" name = "phrase" size = "40" value = "<c:out value='${phrase_edit}'/>">
+    <input type = "text" name = "phrase" size = "40"
+           value = "<c:out value='${phrase_edit}'/>">
 
     <br>
-    <input type = "submit" value = "  <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+    <input type = "submit"
+           value = "  <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
 </form>
 
 <p>
 <b>
 
-<cf:GetPhrase phrase_id = "234" lang_id = "${lang}"/>:</b><sql:query var = "phrases">
-    select phrase, phrase_id, lang_id from phrases where lang_id = ? order by phrase
+<cf:GetPhrase phrase_id = "234" lang_id = "${lang}"/>:</b>
+<sql:query var = "phrases">
+    select phrase, phrase_id, lang_id from phrases where lang_id = ? order by
+    phrase
 
     <sql:param value = "${lang_id}"/>
 </sql:query>
@@ -109,7 +116,8 @@
             <td>
                 <font face = "Arial" size = "-1">
 
-                <li><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <li><a STYLE = "text-decoration: underline"
+                       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='add_phrase'/>
 <c:param name='${user}'/>
 <c:param name='act' value='edit'/>

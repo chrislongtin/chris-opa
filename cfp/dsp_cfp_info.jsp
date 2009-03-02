@@ -46,7 +46,8 @@
         <td>
             <font face = "Arial" size = "-1">
 
-            <fmt:formatDate value = "${cfp.cfp_startdate}" pattern = "dd-MMM-yyyy"/>
+            <fmt:formatDate value = "${cfp.cfp_startdate}"
+                            pattern = "dd-MMM-yyyy"/>
         </td>
     </tr>
 
@@ -60,7 +61,8 @@
         <td>
             <font face = "Arial" size = "-1">
 
-            <fmt:formatDate value = "${cfp.cfp_deadline}" pattern = "dd-MMM-yyyy"/>
+            <fmt:formatDate value = "${cfp.cfp_deadline}"
+                            pattern = "dd-MMM-yyyy"/>
         </td>
     </tr>
 
@@ -114,7 +116,8 @@
 
             <cf:GetPhrase phrase_id = "82" lang_id = "${lang}"/>:</b>
 
-            <fmt:formatNumber value = "${cfp.cfp_maxaward}" type = "currency" currencySymbol = ""/>
+            <fmt:formatNumber value = "${cfp.cfp_maxaward}" type = "currency"
+                              currencySymbol = ""/>
         </td>
     </tr>
 
@@ -124,12 +127,14 @@
 
             <cf:GetPhrase phrase_id = "83" lang_id = "${lang}"/>:</b>
 
-            <fmt:formatNumber value = "${cfp.cfp_totalfunds}" type = "currency" currencySymbol = ""/>
+            <fmt:formatNumber value = "${cfp.cfp_totalfunds}" type = "currency"
+                              currencySymbol = ""/>
         </td>
     </tr>
 </table>
 
-<h4><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=cfp_eligibility&cfp_code=<c:out value="${param.cfp_code}" />&lang=<c:out value="${lang}" />">
+<h4><a STYLE = "text-decoration: underline"
+       href = "index.jsp?fuseaction=cfp_eligibility&cfp_code=<c:out value="${param.cfp_code}" />&lang=<c:out value="${lang}" />">
 
 <cf:GetPhrase phrase_id = "84" lang_id = "${lang}"/></a></h4>
 

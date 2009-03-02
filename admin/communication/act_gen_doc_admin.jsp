@@ -4,7 +4,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<jsp:useBean id = "myUpload" scope = "page" class = "com.jspsmart.upload.SmartUpload"/>
+<jsp:useBean id = "myUpload" scope = "page"
+             class = "com.jspsmart.upload.SmartUpload"/>
 
 <%
     myUpload.initialize(pageContext);
@@ -27,14 +28,22 @@
 <%
     pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
     pageContext.setAttribute("doc_title", myRequest.getParameter("doc_title"));
-    pageContext.setAttribute("discussion_id", myRequest.getParameter("discussion_id"));
-    pageContext.setAttribute("discuss_level", myRequest.getParameter("discuss_level"));
-    pageContext.setAttribute("discuss_parent", myRequest.getParameter("discuss_parent"));
-    pageContext.setAttribute("discuss_author", myRequest.getParameter("discuss_author"));
-    pageContext.setAttribute("discuss_email", myRequest.getParameter("discuss_email"));
-    pageContext.setAttribute("discuss_subject", myRequest.getParameter("discuss_subject"));
-    pageContext.setAttribute("discuss_date", myRequest.getParameter("discuss_date"));
-    pageContext.setAttribute("discuss_message", myRequest.getParameter("discuss_message"));
+    pageContext.setAttribute("discussion_id",
+                             myRequest.getParameter("discussion_id"));
+    pageContext.setAttribute("discuss_level",
+                             myRequest.getParameter("discuss_level"));
+    pageContext.setAttribute("discuss_parent",
+                             myRequest.getParameter("discuss_parent"));
+    pageContext.setAttribute("discuss_author",
+                             myRequest.getParameter("discuss_author"));
+    pageContext.setAttribute("discuss_email",
+                             myRequest.getParameter("discuss_email"));
+    pageContext.setAttribute("discuss_subject",
+                             myRequest.getParameter("discuss_subject"));
+    pageContext.setAttribute("discuss_date",
+                             myRequest.getParameter("discuss_date"));
+    pageContext.setAttribute("discuss_message",
+                             myRequest.getParameter("discuss_message"));
 %>
 
 <!--- add a document for general discussion --->
@@ -80,8 +89,8 @@
 %>
 
 <sql:update var = "doc_add">
-    insert into documents (doc_id, tracking_code, doc_type_id, doc_title, doc_filename, doc_date) values ( ?, 0, 0, ?,
-    ?, ? )
+    insert into documents (doc_id, tracking_code, doc_type_id, doc_title,
+    doc_filename, doc_date) values ( ?, 0, 0, ?, ?, ? )
 
     <sql:param value = "${doc_id}"/>
 
@@ -115,8 +124,8 @@
     </c:set>
 
     <sql:update var = "message_add">
-        insert into discussion (discussion_id, doc_id, discuss_level, discuss_parent, discuss_subject, discuss_date,
-        discuss_message
+        insert into discussion (discussion_id, doc_id, discuss_level,
+        discuss_parent, discuss_subject, discuss_date, discuss_message
 
         <c:if test = "${!empty discuss_author}">
             , discuss_author

@@ -22,10 +22,13 @@
             </sql:query>
 
             <c:forEach items = "${application_areas.rows}" var = "row">
-                <c:set var = "application_area_id" value = "${row.application_area_id}" scope = "page"/>
+                <c:set var = "application_area_id"
+                       value = "${row.application_area_id}"
+                       scope = "page"/>
 
                 <sql:query var = "reports">
-                    select report_id,report_label from reports_control_table where application_area_id = ? and
+                    select report_id,report_label from reports_control_table
+                    where application_area_id = ? and
 
                     <c:if test = "${sessionScope.user == 'coordinator'}">
                         user_group_code = 'C'
@@ -52,7 +55,9 @@
                     <c:forEach items = "${reports.rows}" var = "rowa">
                         <tr bgcolor = 'CCCCFF' BORDERCOLOR = #c0c0c0>
                             <td>
-                                <input type = "radio" name = "selection" value = "<c:out value="${rowa.report_id}" />">
+                                <input type = "radio"
+                                       name = "selection"
+                                       value = "<c:out value="${rowa.report_id}" />">
 
                                 <c:out value = "${rowa.report_label}"/>
                             </td>
@@ -69,19 +74,24 @@
         <table width = '100%' border = 1 cellpadding = 2 cellspacing = 0>
             <tr bgcolor = 'CCCCFF'BORDERCOLOR=#c0c0c0>
                 <td align = 'center'>
-                    <input type = "radio" name = "displayType" value = "pdf" checked>
+                    <input type = "radio" name = "displayType" value = "pdf"
+                           checked>
 
                     <cf:GetPhrase phrase_id = "1026" lang_id = "${lang}"/>
-                    &nbsp;&nbsp;<input type = "radio" name = "displayType" value = "html">
+                    &nbsp;&nbsp;<input type = "radio" name = "displayType"
+                                       value = "html">
 
                     <cf:GetPhrase phrase_id = "1027" lang_id = "${lang}"/>
-                    &nbsp;&nbsp;<input type = "radio" name = "displayType" value = "xls">
+                    &nbsp;&nbsp;<input type = "radio" name = "displayType"
+                                       value = "xls">
 
                     <cf:GetPhrase phrase_id = "1028" lang_id = "${lang}"/>
-                    &nbsp;&nbsp;<input type = "radio" name = "displayType" value = "csv">
+                    &nbsp;&nbsp;<input type = "radio" name = "displayType"
+                                       value = "csv">
 
                     <cf:GetPhrase phrase_id = "1029" lang_id = "${lang}"/>
-                    &nbsp;&nbsp;<input type = "radio" name = "displayType" value = "xml">
+                    &nbsp;&nbsp;<input type = "radio" name = "displayType"
+                                       value = "xml">
 
                     <cf:GetPhrase phrase_id = "1030" lang_id = "${lang}"/>
                 </td>
@@ -90,7 +100,8 @@
 
         <br>
         <br>
-        <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+        <input type = "submit"
+               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
     </form>
 </center>
 

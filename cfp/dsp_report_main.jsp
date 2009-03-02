@@ -22,13 +22,12 @@
 
         <p>
         <br>
-        <form action = "index.jsp?fuseaction=report_add&lang=<c:out value="${lang}" />" method = "post">
-            <input type = "hidden"
-                   name = "tracking_code_required"
-                   value = "<cf:GetPhrase phrase_id="686" lang_id="${lang}" />"> <input type = "hidden"
-                   name = "proponent_password_required"
-                   value = "<cf:GetPhrase phrase_id="687" lang_id="${lang}" />">
-            <input type = "hidden" name = "act" value = "<c:out value="${param.act}" />">
+        <form action = "index.jsp?fuseaction=report_add&lang=<c:out value="${lang}" />"
+              method = "post">
+            <input type = "hidden" name = "tracking_code_required"
+            value = "<cf:GetPhrase phrase_id="686" lang_id="${lang}" />"> <input type = "hidden" name = "proponent_password_required" value = "<cf:GetPhrase phrase_id="687" lang_id="${lang}" />">
+            <input type = "hidden" name = "act"
+            value = "<c:out value="${param.act}" />">
 
             <p>
             <b>
@@ -38,7 +37,8 @@
 
             <cf:GetPhrase phrase_id = "92" lang_id = "${lang}"/>:</b>
             <input type = "password" name = "proponent_password" size = "10">
-            <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+            <input type = "submit"
+                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
         </form>
     </td>
 </table>
@@ -49,5 +49,6 @@
     <p>
     <cf:GetPhrase phrase_id = "771" lang_id = "${lang}"/>:
     <input type = "text" name = "proponent_leader_email" size = "30">
-    <input type = "submit" value = "<cf:GetPhrase phrase_id="772" lang_id="${lang}" />">
+    <input type = "submit"
+           value = "<cf:GetPhrase phrase_id="772" lang_id="${lang}" />">
 </form>

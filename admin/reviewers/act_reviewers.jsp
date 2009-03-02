@@ -121,20 +121,23 @@
 
                     <table border = "0" cellspacing = "0" cellpadding = "2">
                         <td>
-                            <form action = "index.jsp?fuseaction=act_reviewer" method = "post">
-                                <input type = "hidden" name = "act" value = "delete"> <input type = "hidden"
-                                       name = "delete_confirm"
-                                       value = "<cf:GetPhrase phrase_id="542" lang_id="${lang}" />">
-                                <input type = "hidden"
-                                       name = "reviewer_id"
-                                       value = "<c:out value="${reviewer_id}" />">
-                                <input type = "submit" value = " <cf:GetPhrase phrase_id="695" lang_id="${lang}" /> ">
+                            <form action = "index.jsp?fuseaction=act_reviewer"
+                                  method = "post">
+                                <input type = "hidden" name = "act"
+                                value = "delete">
+                                <input type = "hidden" name = "delete_confirm"
+                                value = "<cf:GetPhrase phrase_id="542" lang_id="${lang}" />">
+                                <input type = "hidden" name = "reviewer_id"
+                                value = "<c:out value="${reviewer_id}" />"> <input type = "submit"
+                                value = " <cf:GetPhrase phrase_id="695" lang_id="${lang}" /> ">
                             </form>
                         </td>
 
                         <td>
-                            <form action = "index.jsp?fuseaction=reviewers" method = "post">
-                                <input type = "submit" value = " <cf:GetPhrase phrase_id="696" lang_id="${lang}" /> ">
+                            <form action = "index.jsp?fuseaction=reviewers"
+                                  method = "post">
+                                <input type = "submit"
+                                       value = " <cf:GetPhrase phrase_id="696" lang_id="${lang}" /> ">
                             </form>
                         </td>
                     </table>
@@ -182,13 +185,16 @@
             </c:when>
 
             <c:otherwise>
-                <c:set var = "reviewer_id" value = "${reviewer_num.rows[0].reviewer_id + 1}" scope = "page"/>
+                <c:set var = "reviewer_id"
+                       value = "${reviewer_num.rows[0].reviewer_id + 1}"
+                       scope = "page"/>
             </c:otherwise>
         </c:choose>
 
         <sql:update>
-            insert into reviewers ( reviewer_id, reviewer_firstname, reviewer_lastname, reviewer_login,
-            reviewer_password, reviewer_email, reviewer_phone,
+            insert into reviewers ( reviewer_id, reviewer_firstname,
+            reviewer_lastname, reviewer_login, reviewer_password,
+            reviewer_email, reviewer_phone,
 
             <c:if test = "${!empty reviewer_fax}">
                 reviewer_fax,
@@ -202,7 +208,8 @@
                 reviewer_profile,
             </c:if>
 
-            reviewer_coordinator, cfp_code, cfp_cat_id,payment_rate) values ( ?, ?, ?, ?, ?, ?, ?,
+            reviewer_coordinator, cfp_code, cfp_cat_id,payment_rate) values (
+            ?, ?, ?, ?, ?, ?, ?,
 
             <c:if test = "${!empty reviewer_fax}">
                 ?,
@@ -268,8 +275,9 @@
         </c:if>
 
         <sql:update>
-            update reviewers set reviewer_lastname=?, reviewer_firstname=?, reviewer_login=?, reviewer_password=?,
-            reviewer_email=?, reviewer_phone=?,
+            update reviewers set reviewer_lastname=?, reviewer_firstname=?,
+            reviewer_login=?, reviewer_password=?, reviewer_email=?,
+            reviewer_phone=?,
 
             <c:if test = "${!empty reviewer_fax}">
                 reviewer_fax=?,
@@ -283,7 +291,8 @@
                 reviewer_profile=?,
             </c:if>
 
-            reviewer_coordinator=?, cfp_code = ?, cfp_cat_id = ?, payment_rate = ? where reviewer_id=?
+            reviewer_coordinator=?, cfp_code = ?, cfp_cat_id = ?, payment_rate
+            = ? where reviewer_id=?
 
             <sql:param value = "${reviewer_lastname}"/>
 

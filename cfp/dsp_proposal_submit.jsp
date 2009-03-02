@@ -124,7 +124,8 @@
 
         <!--- check that password is correct --->
         <sql:query var = "password_check">
-            select tracking_code, cfp_code from proponent_record where proponent_password = ? and tracking_code = ?
+            select tracking_code, cfp_code from proponent_record where
+            proponent_password = ? and tracking_code = ?
 
             <sql:param value = "${proponent_password}"/>
 
@@ -157,65 +158,101 @@
 
         <c:set var = "ep" value = "${edit_proposal.rows[0]}" scope = "page"/>
 
-        <c:set var = "previous_tracking_code" value = "${ep.previous_tracking_code}" scope = "page"/>
+        <c:set var = "previous_tracking_code"
+               value = "${ep.previous_tracking_code}"
+               scope = "page"/>
 
-        <c:set var = "tracking_code" value = "${ep.tracking_code}" scope = "page"/>
+        <c:set var = "tracking_code" value = "${ep.tracking_code}"
+               scope = "page"/>
 
         <c:set var = "cfp_code" value = "${ep.cfp_code}" scope = "page"/>
 
         <c:set var = "cfp_cat_id" value = "${ep.cfp_cat_id}" scope = "page"/>
 
-        <c:set var = "proponent_password" value = "${ep.proponent_password}" scope = "page"/>
+        <c:set var = "proponent_password" value = "${ep.proponent_password}"
+               scope = "page"/>
 
-        <c:set var = "proposal_title" value = "${ep.proposal_title}" scope = "page"/>
+        <c:set var = "proposal_title" value = "${ep.proposal_title}"
+               scope = "page"/>
 
-        <c:set var = "requested_amount" value = "${ep.requested_amount}" scope = "page"/>
+        <c:set var = "requested_amount" value = "${ep.requested_amount}"
+               scope = "page"/>
 
-        <c:set var = "proponent_institution" value = "${ep.proponent_institution}" scope = "page"/>
+        <c:set var = "proponent_institution"
+               value = "${ep.proponent_institution}"
+               scope = "page"/>
 
-        <c:set var = "proponent_address" value = "${ep.proponent_address}" scope = "page"/>
+        <c:set var = "proponent_address" value = "${ep.proponent_address}"
+               scope = "page"/>
 
-        <c:set var = "proponent_phone" value = "${ep.proponent_phone}" scope = "page"/>
+        <c:set var = "proponent_phone" value = "${ep.proponent_phone}"
+               scope = "page"/>
 
-        <c:set var = "proponent_fax" value = "${ep.proponent_fax}" scope = "page"/>
+        <c:set var = "proponent_fax" value = "${ep.proponent_fax}"
+               scope = "page"/>
 
-        <c:set var = "proponent_email" value = "${ep.proponent_email}" scope = "page"/>
+        <c:set var = "proponent_email" value = "${ep.proponent_email}"
+               scope = "page"/>
 
-        <c:set var = "proponent_url" value = "${ep.proponent_url}" scope = "page"/>
+        <c:set var = "proponent_url" value = "${ep.proponent_url}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_firstname" value = "${ep.proponent_leader_firstname}" scope = "page"/>
+        <c:set var = "proponent_leader_firstname"
+               value = "${ep.proponent_leader_firstname}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_lastname" value = "${ep.proponent_leader_lastname}" scope = "page"/>
+        <c:set var = "proponent_leader_lastname"
+               value = "${ep.proponent_leader_lastname}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_initial" value = "${ep.proponent_leader_initial}" scope = "page"/>
+        <c:set var = "proponent_leader_initial"
+               value = "${ep.proponent_leader_initial}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_affiliation" value = "${ep.proponent_leader_affiliation}" scope = "page"/>
+        <c:set var = "proponent_leader_affiliation"
+               value = "${ep.proponent_leader_affiliation}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_address" value = "${ep.proponent_leader_address}" scope = "page"/>
+        <c:set var = "proponent_leader_address"
+               value = "${ep.proponent_leader_address}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_phone" value = "${ep.proponent_leader_phone}" scope = "page"/>
+        <c:set var = "proponent_leader_phone"
+               value = "${ep.proponent_leader_phone}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_fax" value = "${ep.proponent_leader_fax}" scope = "page"/>
+        <c:set var = "proponent_leader_fax" value = "${ep.proponent_leader_fax}"
+               scope = "page"/>
 
-        <c:set var = "proponent_leader_email" value = "${ep.proponent_leader_email}" scope = "page"/>
+        <c:set var = "proponent_leader_email"
+               value = "${ep.proponent_leader_email}"
+               scope = "page"/>
 
-        <c:set var = "proponent_citizenship" value = "${ep.proponent_citizenship}" scope = "page"/>
+        <c:set var = "proponent_citizenship"
+               value = "${ep.proponent_citizenship}"
+               scope = "page"/>
 
-        <c:set var = "proponent_residency" value = "${ep.proponent_residency}" scope = "page"/>
+        <c:set var = "proponent_residency" value = "${ep.proponent_residency}"
+               scope = "page"/>
 
-        <c:set var = "project_country" value = "${ep.project_country}" scope = "page"/>
+        <c:set var = "project_country" value = "${ep.project_country}"
+               scope = "page"/>
 
-        <c:set var = "project_date" value = "${ep.project_date}" scope = "page"/>
+        <c:set var = "project_date" value = "${ep.project_date}"
+               scope = "page"/>
 
         <c:set var = "act" value = "edit" scope = "page"/>
 
         <sql:query var = "edit_doc">
-            select doc_filename from documents where tracking_code = ? and doc_type_id = 1
+            select doc_filename from documents where tracking_code = ? and
+            doc_type_id = 1
 
             <sql:param value = "${tracking_code}"/>
         </sql:query>
 
-        <c:set var = "proposal_filename" value = "${edit_doc.rows[0].doc_filename}" scope = "page"/>
+        <c:set var = "proposal_filename"
+               value = "${edit_doc.rows[0].doc_filename}"
+               scope = "page"/>
 
         <!--- verify that cfp is still active 
         <cfoutput>
@@ -224,7 +261,8 @@
         --->
 
         <sql:query var = "cfp_current_list">
-            select cfp_title from cfp_info where cfp_code = ? AND cfp_deadline >= CURDATE()
+            select cfp_title from cfp_info where cfp_code = ? AND cfp_deadline
+            >= CURDATE()
 
             <sql:param value = "${cfp_code}"/>
         </sql:query>
@@ -240,7 +278,9 @@
             <sql:param value = "${cfp_cat_id}"/>
         </sql:query>
 
-        <c:set var = "cfp_cat_name" value = "${cfp_cat_info.rows[0].cfp_cat_name}" scope = "page"/>
+        <c:set var = "cfp_cat_name"
+               value = "${cfp_cat_info.rows[0].cfp_cat_name}"
+               scope = "page"/>
     </c:when>
 
     <c:otherwise>
@@ -251,55 +291,52 @@
 </c:choose>
 
 <sql:query var = "currency_type">
-    select c.currency_id, c.currency from cfp_info cf, currency_code c where cf.cfp_code = ? and cf.currency_id =
-    c.currency_id
+    select c.currency_id, c.currency from cfp_info cf, currency_code c where
+    cf.cfp_code = ? and cf.currency_id = c.currency_id
 
     <sql:param value = "${cfp_code}"/>
 </sql:query>
 
-<c:set var = "currency" value = "${currency_type.rows[0].currency}" scope = "page"/>
+<c:set var = "currency" value = "${currency_type.rows[0].currency}"
+       scope = "page"/>
 
 <c:if test = "${pword_check=='yes'}">
     <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
 
-    <form action = "index.jsp?fuseaction=act_proposal_submit&lang=<c:out value="${lang}" />" method = "post"
+    <form action = "index.jsp?fuseaction=act_proposal_submit&lang=<c:out value="${lang}" />"
+          method = "post"
           ENCTYPE = "multipart/form-data">
         <input type = "hidden" name = "act" value = "<c:out value="${act}" />">
-        <input type = "hidden" name = "cfp_code" value = "<c:out value="${cfp_code}" />">
-        <input type = "hidden" name = "cfp_code_required" value = "<cf:GetPhrase phrase_id="776" lang_id="${lang}" />">
-        <c:choose>
+        <input type = "hidden" name = "cfp_code"
+        value = "<c:out value="${cfp_code}" />">
+        <input type = "hidden" name = "cfp_code_required"
+        value = "<cf:GetPhrase phrase_id="776" lang_id="${lang}" />"><c:choose>
             <c:when test = "${act=='add'}">
-                <input type = "hidden" name = "proponent_password_required"
+                <input type = "hidden"
+                       name = "proponent_password_required"
                        value = "<cf:GetPhrase phrase_id="777" lang_id="${lang}" />">
             </c:when>
 
             <c:otherwise>
-                <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}"/> ">
+                <input type = "hidden" name = "tracking_code"
+                value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
+                name = "proponent_password"
+                value = "<c:out value="${proponent_password}"/> ">
             </c:otherwise>
         </c:choose>
 
-        <input type = "hidden"
-               name = "proposal_title_required"
-               value = "<cf:GetPhrase phrase_id="664" lang_id="${lang}" />"> <input type = "hidden"
-               name = "requested_amount_float"
-               value = "<cf:GetPhrase phrase_id="778" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_institution_required"
-               value = "<cf:GetPhrase phrase_id="666" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_address_required"
-               value = "<cf:GetPhrase phrase_id="667" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_phone_required"
-               value = "<cf:GetPhrase phrase_id="668" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_leader_affiliation_required"
-               value = "<cf:GetPhrase phrase_id="669" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_leader_address_required"
-               value = "<cf:GetPhrase phrase_id="670" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_leader_firstname_required"
-               value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />"> <input type = "hidden"
-               name = "proponent_leader_lastname_required"
-               value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />">
-        <input type = "hidden" name = "proponent_leader_phone_required"
-               value = "<cf:GetPhrase phrase_id="671" lang_id="${lang}" />">
+        <input type = "hidden" name = "proposal_title_required"
+        value = "<cf:GetPhrase phrase_id="664" lang_id="${lang}" />"> <input type = "hidden" name = "requested_amount_float" value = "<cf:GetPhrase phrase_id="778" lang_id="${lang}" />">
+        <input type = "hidden" name = "proponent_institution_required"
+        value = "<cf:GetPhrase phrase_id="666" lang_id="${lang}" />"> <input type = "hidden" name = "proponent_address_required" value = "<cf:GetPhrase phrase_id="667" lang_id="${lang}" />">
+        <input type = "hidden" name = "proponent_phone_required"
+        value = "<cf:GetPhrase phrase_id="668" lang_id="${lang}" />"> <input type = "hidden" name = "proponent_leader_affiliation_required" value = "<cf:GetPhrase phrase_id="669" lang_id="${lang}" />">
+        <input type = "hidden" name = "proponent_leader_address_required"
+        value = "<cf:GetPhrase phrase_id="670" lang_id="${lang}" />"> <input type = "hidden" name = "proponent_leader_firstname_required" value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />">
+        <input type = "hidden" name = "proponent_leader_lastname_required"
+        value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />"> <input type = "hidden"
+        name = "proponent_leader_phone_required"
+        value = "<cf:GetPhrase phrase_id="671" lang_id="${lang}" />">
 
         <table width = "100%" cellpadding = "3">
             <tr bgcolor = "CFCFCF">
@@ -317,11 +354,13 @@
 
                         <cf:GetPhrase phrase_id = "299" lang_id = "${lang}"/>
 
-                        <cf:GetPhrase phrase_id = "92" lang_id = "${lang}"/></font>
+                        <cf:GetPhrase phrase_id = "92"
+                                      lang_id = "${lang}"/></font>
                     </td>
 
                     <td>
-                        <input type = "password" name = "proponent_password" size = "10">
+                        <input type = "password" name = "proponent_password"
+                               size = "10">
                     </td>
                 </tr>
 
@@ -336,7 +375,8 @@
 
             <!--- if cfp categories exist list them here --->
             <sql:query var = "cfp_category">
-                select * from cfp_category where cfp_code = ? order by cfp_cat_id
+                select * from cfp_category where cfp_code = ? order by
+                cfp_cat_id
 
                 <sql:param value = "${cfp_code}"/>
             </sql:query>
@@ -344,9 +384,11 @@
             <c:if test = "${!(empty cfp_category.rows[0].cfp_cat_id)}">
                 <tr>
                     <td>
-                        <font face = "arial" size = "-1"><font color = "FF0000">*
+                        <font face = "arial"
+                              size = "-1"><font color = "FF0000">*
 
-                        <cf:GetPhrase phrase_id = "618" lang_id = "${lang}"/></font>
+                        <cf:GetPhrase phrase_id = "618"
+                                      lang_id = "${lang}"/></font>
                     </td>
 
                     <td>
@@ -357,9 +399,9 @@
                                 </c:if>
                             </c:if>
 
-                            <c:forEach items = "${cfp_category.rows}" var = "row">
-                                <option value = "<c:out value="${row.cfp_cat_id}" />">
-                                <c:out value = "${row.cfp_cat_name}"/>
+                            <c:forEach items = "${cfp_category.rows}"
+                                       var = "row">
+                                <option value = "<c:out value="${row.cfp_cat_id}" />"><c:out value = "${row.cfp_cat_name}"/>
                             </c:forEach>
                         </select>
                     </td>
@@ -388,8 +430,10 @@
                     </td>
 
                     <td>
-                        <font face = "Arial" size = "-1">
-                        <font face = "Arial" size = "-2"><input type = "file" name = "doc_filename" size = "30">
+                        <font face = "Arial" size = "-1"> <font face = "Arial"
+                              size = "-2"><input type = "file"
+                                                 name = "doc_filename"
+                                                 size = "30">
                     </td>
                 </tr>
 
@@ -412,7 +456,9 @@
                 <td>
                     <font face = "arial" size = "-1">(
 
-                    <c:out value = "${currency}"/>) <input type = "number" name = "requested_amount" size = "10"
+                    <c:out value = "${currency}"/>) <input type = "number"
+                           name = "requested_amount"
+                           size = "10"
                            value = "<fmt:formatNumber value="${requested_amount}" type="currency" currencySymbol=""/>">
                 </td>
             </tr>
@@ -422,7 +468,9 @@
                     <font face = "arial" size = "-1">
 
                     <cf:GetPhrase phrase_id = "298" lang_id = "${lang}"/>
-                    <input type = "number" name = "previous_tracking_code" size = "2"
+                    <input type = "number"
+                           name = "previous_tracking_code"
+                           size = "2"
                            value = "<c:out value="${previous_tracking_code}" />">
                 </td>
             </tr>
@@ -443,8 +491,10 @@
                 </td>
 
                 <td>
-                    <input type = "text"                                             name = "proponent_leader_firstname"
-                           value = "<c:out value="${proponent_leader_firstname}" />" size = "10">
+                    <input type = "text"
+                           name = "proponent_leader_firstname"
+                           value = "<c:out value="${proponent_leader_firstname}" />"
+                           size = "10">
                 </td>
             </tr>
 
@@ -456,8 +506,10 @@
                 </td>
 
                 <td>
-                    <input type = "text"                                           name = "proponent_leader_initial"
-                           value = "<c:out value="${proponent_leader_initial}" />" size = "2">
+                    <input type = "text"
+                           name = "proponent_leader_initial"
+                           value = "<c:out value="${proponent_leader_initial}" />"
+                           size = "2">
                 </td>
             </tr>
 
@@ -469,8 +521,10 @@
                 </td>
 
                 <td>
-                    <input type = "text"                                            name = "proponent_leader_lastname"
-                           value = "<c:out value="${proponent_leader_lastname}" />" size = "10">
+                    <input type = "text"
+                           name = "proponent_leader_lastname"
+                           value = "<c:out value="${proponent_leader_lastname}" />"
+                           size = "10">
                 </td>
             </tr>
 
@@ -482,7 +536,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_leader_affiliation"
+                    <input type = "text"
+                           name = "proponent_leader_affiliation"
                            value = "<c:out value="${proponent_leader_affiliation}" />">
                 </td>
             </tr>
@@ -495,7 +550,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_leader_address"
+                    <input type = "text"
+                           name = "proponent_leader_address"
                            value = "<c:out value="${proponent_leader_address}" />">
                 </td>
             </tr>
@@ -508,7 +564,9 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_leader_phone" size = "10"
+                    <input type = "text"
+                           name = "proponent_leader_phone"
+                           size = "10"
                            value = "<c:out value="${proponent_leader_phone}" />">
                 </td>
             </tr>
@@ -521,7 +579,9 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_leader_fax" size = "10"
+                    <input type = "text"
+                           name = "proponent_leader_fax"
+                           size = "10"
                            value = "<c:out value="${proponent_leader_fax}" />">
                 </td>
             </tr>
@@ -534,7 +594,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_leader_email"
+                    <input type = "text"
+                           name = "proponent_leader_email"
                            value = "<c:out value="${proponent_leader_email}" />">
                 </td>
             </tr>
@@ -573,7 +634,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "project_country" value = "<c:out value="${project_country}" />">
+                    <input type = "text" name = "project_country"
+                           value = "<c:out value="${project_country}" />">
                 </td>
             </tr>
 
@@ -585,7 +647,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "project_date" value = "<c:out value="${project_date}" />">
+                    <input type = "text" name = "project_date"
+                           value = "<c:out value="${project_date}" />">
                 </td>
             </tr>
 
@@ -605,8 +668,10 @@
                 </td>
 
                 <td>
-                    <input type = "text"                                        name = "proponent_institution"
-                           value = "<c:out value="${proponent_institution}" />" size = "40">
+                    <input type = "text"
+                           name = "proponent_institution"
+                           value = "<c:out value="${proponent_institution}" />"
+                           size = "40">
                 </td>
             </tr>
 
@@ -618,7 +683,9 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_address" value = "<c:out value="${proponent_address}" />"
+                    <input type = "text"
+                           name = "proponent_address"
+                           value = "<c:out value="${proponent_address}" />"
                            size = "40">
                 </td>
             </tr>
@@ -657,7 +724,8 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_email" value = "<c:out value="${proponent_email}" />">
+                    <input type = "text" name = "proponent_email"
+                           value = "<c:out value="${proponent_email}" />">
                 </td>
             </tr>
 
@@ -669,13 +737,15 @@
                 </td>
 
                 <td>
-                    <input type = "text" name = "proponent_url" value = "<c:out value="${proponent_url}" />">
+                    <input type = "text" name = "proponent_url"
+                           value = "<c:out value="${proponent_url}" />">
                 </td>
             </tr>
 
             <tr bgcolor = "CFCFCF">
                 <td colspan = "2" align = "center">
-                    <input type = "submit" value = " <cf:GetPhrase phrase_id="463" lang_id="${lang}" /> ">
+                    <input type = "submit"
+                           value = " <cf:GetPhrase phrase_id="463" lang_id="${lang}" /> ">
                 </td>
             </tr>
         </table>

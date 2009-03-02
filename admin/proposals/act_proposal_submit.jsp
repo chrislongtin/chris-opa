@@ -39,10 +39,12 @@
             <cf:GetPhrase phrase_id = "584" lang_id = "${lang}"/>!</h3>
 
             <p>
-            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=act_proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=delete_confirm&cfp_code=<c:out value="${cfp_code}" />">
+            <a STYLE = "text-decoration: underline"
+               href = "index.jsp?fuseaction=act_proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=delete_confirm&cfp_code=<c:out value="${cfp_code}" />">
 
             <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/></a> |
-            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=edit">
+            <a STYLE = "text-decoration: underline"
+               href = "index.jsp?fuseaction=proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=edit">
 
             <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/></a>
 
@@ -94,17 +96,18 @@
 
             <c:import url = "proposals/dsp_proposal_main.jsp"/>
 
-<%
+            <%
             if (true)
                 return;
-%>
+            %>
         </c:if>
     </c:when>
 
     <c:otherwise>
-        <jsp:useBean id = "myUpload" scope = "page" class = "com.jspsmart.upload.SmartUpload"/>
+        <jsp:useBean id = "myUpload" scope = "page"
+                     class = "com.jspsmart.upload.SmartUpload"/>
 
-<%
+        <%
         myUpload.initialize(pageContext);
 
         try
@@ -116,11 +119,11 @@
             }
 
         Request myRequest         = myUpload.getRequest();
-%>
+        %>
 
         <%@ include file = "../../guard_required_params.jsp"%>
 
-<%
+        <%
         GuardRequiredParams guard = new GuardRequiredParams(myRequest);
 
         if (guard.isParameterMissed())
@@ -128,70 +131,101 @@
             out.write(guard.getSplashScreen());
             return;
             }
-%>
+        %>
 
-<%
+        <%
         pageContext.setAttribute("act", myRequest.getParameter("act"));
-        pageContext.setAttribute("tracking_code", myRequest.getParameter("tracking_code"));
-        pageContext.setAttribute("proponent_password", myRequest.getParameter("proponent_password"));
-        pageContext.setAttribute("proposal_title", myRequest.getParameter("proposal_title"));
-        pageContext.setAttribute("previous_tracking_code", myRequest.getParameter("previous_tracking_code"));
-        pageContext.setAttribute("cfp_code", myRequest.getParameter("cfp_code"));
-        pageContext.setAttribute("proponent_institution", myRequest.getParameter("proponent_institution"));
-        pageContext.setAttribute("proponent_address", myRequest.getParameter("proponent_address"));
-        pageContext.setAttribute("proponent_phone", myRequest.getParameter("proponent_phone"));
-        pageContext.setAttribute("proponent_fax", myRequest.getParameter("proponent_fax"));
-        pageContext.setAttribute("proponent_email", myRequest.getParameter("proponent_email"));
-        pageContext.setAttribute("proponent_url", myRequest.getParameter("proponent_url"));
-        pageContext.setAttribute("proponent_leader_firstname", myRequest.getParameter("proponent_leader_firstname"));
-        pageContext.setAttribute("proponent_leader_lastname", myRequest.getParameter("proponent_leader_lastname"));
-        pageContext.setAttribute("proponent_leader_initial", myRequest.getParameter("proponent_leader_initial"));
+        pageContext.setAttribute("tracking_code",
+                                 myRequest.getParameter("tracking_code"));
+        pageContext.setAttribute("proponent_password",
+                                 myRequest.getParameter("proponent_password"));
+        pageContext.setAttribute("proposal_title",
+                                 myRequest.getParameter("proposal_title"));
+        pageContext.setAttribute("previous_tracking_code",
+                                 myRequest.getParameter("previous_tracking_code"));
+        pageContext.setAttribute("cfp_code",
+                                 myRequest.getParameter("cfp_code"));
+        pageContext.setAttribute("proponent_institution",
+                                 myRequest.getParameter("proponent_institution"));
+        pageContext.setAttribute("proponent_address",
+                                 myRequest.getParameter("proponent_address"));
+        pageContext.setAttribute("proponent_phone",
+                                 myRequest.getParameter("proponent_phone"));
+        pageContext.setAttribute("proponent_fax",
+                                 myRequest.getParameter("proponent_fax"));
+        pageContext.setAttribute("proponent_email",
+                                 myRequest.getParameter("proponent_email"));
+        pageContext.setAttribute("proponent_url",
+                                 myRequest.getParameter("proponent_url"));
+        pageContext.setAttribute("proponent_leader_firstname",
+                                 myRequest.getParameter("proponent_leader_firstname"));
+        pageContext.setAttribute("proponent_leader_lastname",
+                                 myRequest.getParameter("proponent_leader_lastname"));
+        pageContext.setAttribute("proponent_leader_initial",
+                                 myRequest.getParameter("proponent_leader_initial"));
         pageContext.setAttribute("proponent_leader_affiliation",
                                  myRequest.getParameter("proponent_leader_affiliation"));
-        pageContext.setAttribute("proponent_leader_address", myRequest.getParameter("proponent_leader_address"));
-        pageContext.setAttribute("proponent_leader_phone", myRequest.getParameter("proponent_leader_phone"));
-        pageContext.setAttribute("proponent_leader_fax", myRequest.getParameter("proponent_leader_fax"));
-        pageContext.setAttribute("proponent_leader_email", myRequest.getParameter("proponent_leader_email"));
-        pageContext.setAttribute("proponent_residency", myRequest.getParameter("proponent_residency"));
-        pageContext.setAttribute("proponent_citizenship", myRequest.getParameter("proponent_citizenship"));
-        pageContext.setAttribute("requested_amount", myRequest.getParameter("requested_amount"));
-        pageContext.setAttribute("project_country", myRequest.getParameter("project_country"));
-        pageContext.setAttribute("project_date", myRequest.getParameter("project_date"));
+        pageContext.setAttribute("proponent_leader_address",
+                                 myRequest.getParameter("proponent_leader_address"));
+        pageContext.setAttribute("proponent_leader_phone",
+                                 myRequest.getParameter("proponent_leader_phone"));
+        pageContext.setAttribute("proponent_leader_fax",
+                                 myRequest.getParameter("proponent_leader_fax"));
+        pageContext.setAttribute("proponent_leader_email",
+                                 myRequest.getParameter("proponent_leader_email"));
+        pageContext.setAttribute("proponent_residency",
+                                 myRequest.getParameter("proponent_residency"));
+        pageContext.setAttribute("proponent_citizenship",
+                                 myRequest.getParameter("proponent_citizenship"));
+        pageContext.setAttribute("requested_amount",
+                                 myRequest.getParameter("requested_amount"));
+        pageContext.setAttribute("project_country",
+                                 myRequest.getParameter("project_country"));
+        pageContext.setAttribute("project_date",
+                                 myRequest.getParameter("project_date"));
         String cfp_cat_id = myRequest.getParameter("cfp_cat_id");
-        pageContext.setAttribute("cfp_cat_id", (cfp_cat_id == null) ? "0" : cfp_cat_id);
-%>
+        pageContext.setAttribute("cfp_cat_id", (cfp_cat_id == null)
+                                                   ? "0" : cfp_cat_id);
+        %>
 
         <c:choose>
             <c:when test = "${act=='add'}">
                 <sql:query var = "track_code">
-                    select tracking_code from proponent_record order by tracking_code desc
+                    select tracking_code from proponent_record order by
+                    tracking_code desc
                 </sql:query>
 
                 <c:choose>
                     <c:when test = "${track_code.rowCount==0}">
-                        <c:set var = "tracking_code" value = "1" scope = "page"/>
+                        <c:set var = "tracking_code" value = "1"
+                               scope = "page"/>
                     </c:when>
 
                     <c:otherwise>
-                        <c:set var = "tracking_code" value = "${track_code.rows[0].tracking_code + 1}" scope = "page"/>
+                        <c:set var = "tracking_code"
+                               value = "${track_code.rows[0].tracking_code + 1}"
+                               scope = "page"/>
                     </c:otherwise>
                 </c:choose>
 
-<%
+                <%
                 File doc_filename = myUpload.getFiles().getFile(0);
-                pageContext.setAttribute("doc_filename", doc_filename.isMissing() ? null : "doc_filename");
-%>
+                pageContext.setAttribute("doc_filename",
+                                         doc_filename.isMissing()
+                                             ? null : "doc_filename");
+                %>
 
                 <sql:query var = "doc_dir_find">
                     select host_doc_dir from initiative_setup
                 </sql:query>
 
-                <c:set var = "host_doc_dir" value = "${doc_dir_find.rows[0].host_doc_dir}"/>
+                <c:set var = "host_doc_dir"
+                       value = "${doc_dir_find.rows[0].host_doc_dir}"/>
 
-<%
+                <%
                 if (!doc_filename.isMissing())
                     {
-%>
+                %>
 
                     <c:set var = "DOCS_DIR" value = "${host_doc_dir}"/>
 
@@ -218,15 +252,15 @@
     pageContext.setAttribute("file_name1", filename);
 %>
 
-<%
+                <%
                     }
-%>
+                %>
             </c:when>
 
             <c:otherwise>
-<%
+                <%
                 pageContext.setAttribute("doc_filename", null);
-%>
+                %>
             </c:otherwise>
         </c:choose>
 
@@ -242,12 +276,15 @@
                 <c:set var = "doc_id" value = "1" scope = "page"/>
 
                 <c:if test = "${doc_num.rowCount!=0}">
-                    <c:set var = "doc_id" value = "${doc_num.rows[0].doc_id + 1}" scope = "page"/>
+                    <c:set var = "doc_id"
+                           value = "${doc_num.rows[0].doc_id + 1}"
+                           scope = "page"/>
                 </c:if>
 
                 <sql:update>
-                    insert into documents (doc_id, tracking_code, doc_type_id, doc_title, doc_filename, doc_date)
-                    values (?, ?, 1, ?, ?, CURDATE())
+                    insert into documents (doc_id, tracking_code, doc_type_id,
+                    doc_title, doc_filename, doc_date) values (?, ?, 1, ?, ?,
+                    CURDATE())
 
                     <sql:param value = "${doc_id}"/>
 
@@ -266,18 +303,23 @@
                     previous_tracking_code,
                 </c:if>
 
-                cfp_code, proponent_password, proposal_title, proponent_institution, proponent_address,
-                proponent_phone, proponent_fax, proponent_email, proponent_url, proponent_leader_firstname,
-                proponent_leader_lastname, proponent_leader_initial, proponent_leader_affiliation,
-                proponent_leader_address, proponent_leader_phone, proponent_leader_fax, proponent_leader_email,
-                proponent_residency, proponent_citizenship, requested_amount, status_id, date_submitted,
-                date_last_updated, cfp_cat_id, project_country, project_date, proposal_hide) values ( ?,
+                cfp_code, proponent_password, proposal_title,
+                proponent_institution, proponent_address, proponent_phone,
+                proponent_fax, proponent_email, proponent_url,
+                proponent_leader_firstname, proponent_leader_lastname,
+                proponent_leader_initial, proponent_leader_affiliation,
+                proponent_leader_address, proponent_leader_phone,
+                proponent_leader_fax, proponent_leader_email,
+                proponent_residency, proponent_citizenship, requested_amount,
+                status_id, date_submitted, date_last_updated, cfp_cat_id,
+                project_country, project_date, proposal_hide) values ( ?,
 
                 <c:if test = "${!empty previous_tracking_code}">
                     ?,
                 </c:if>
 
-                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, CURDATE(), CURDATE(), ?, ?, ?, 0)
+                ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1,
+                CURDATE(), CURDATE(), ?, ?, ?, 0)
 
                 <sql:param value = "${tracking_code}"/>
 
@@ -337,25 +379,32 @@
 
                 <!--- set coordinator admin email address --->
                 <sql:query var = "admin_email">
-                    select coordinator_admin_email, coordinator_firstname, coordinator_lastname from coordinators
-                    where receive_admin_emails = 1
+                    select coordinator_admin_email, coordinator_firstname,
+                    coordinator_lastname from coordinators where
+                    receive_admin_emails = 1
                 </sql:query>
 
-                <c:set var = "coordinator_admin_email" value = "${admin_email.rows[0].coordinator_admin_email}"
+                <c:set var = "coordinator_admin_email"
+                       value = "${admin_email.rows[0].coordinator_admin_email}"
                        scope = "page"/>
 
-                <c:set var = "coordinator_firstname" value = "${admin_email.rows[0].coordinator_firstname}"
+                <c:set var = "coordinator_firstname"
+                       value = "${admin_email.rows[0].coordinator_firstname}"
                        scope = "page"/>
 
-                <c:set var = "coordinator_lastname" value = "${admin_email.rows[0].coordinator_lastname}"
+                <c:set var = "coordinator_lastname"
+                       value = "${admin_email.rows[0].coordinator_lastname}"
                        scope = "page"/>
 
                 <!--- get initiative information --->
                 <sql:query var = "i_info">
-                    select initiative_name from initiative_info where lang_id = 1
+                    select initiative_name from initiative_info where lang_id
+                    = 1
                 </sql:query>
 
-                <c:set var = "initiative_name" value = "${i_info.rows[0].initiative_name}" scope = "page"/>
+                <c:set var = "initiative_name"
+                       value = "${i_info.rows[0].initiative_name}"
+                       scope = "page"/>
 
                 <mt:mail session = "java:/comp/env/mail/session">
                     <mt:from>
@@ -367,49 +416,35 @@
                     </mt:setrecipient>
 
                     <mt:subject>
-                        Proposal Confirmation
+                        <cf:GetPhrase phrase_id = "936" lang_id = "${lang}"/>
                     </mt:subject>
 
                     <mt:message>
                         <cf:GetPhrase phrase_id = "461" lang_id = "${lang}"/>
 
-                        <c:out value = "${proponent_leader_firstname} ${proponent_leader_lastname}"/>
+                        <c:out value = "${proponent_leader_firstname} ${proponent_leader_lastname}"/>,
 
-                        ,
-
-                        <cf:GetPhrase phrase_id = "578" lang_id = "${lang}"/>
+                        <cf:GetPhrase phrase_id = "578" lang_id = "${lang}"/>:
 
                         <c:out value = "${proposal_title}"/>
 
-                        <cf:GetPhrase phrase_id = "579" lang_id = "${lang}"/>
+                        <cf:GetPhrase phrase_id = "579" lang_id = "${lang}"/>:
 
-                        <c:out value = "${initiative_name}"/>
-
-                        .
+                        <c:out value = "${initiative_name}"/>.
 
                         <cf:GetPhrase phrase_id = "580" lang_id = "${lang}"/>
 
-                        :
-
-                        <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>
-
-                        :&nbsp;
+                        <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:
 
                         <c:out value = "${tracking_code}"/>
 
-                        <cf:GetPhrase phrase_id = "566" lang_id = "${lang}"/>
+                        <cf:GetPhrase phrase_id = "566" lang_id = "${lang}"/>:
 
-                        :&nbsp;
+                        <c:out value = "${proposal_password}"/>
 
-                        <c:out value = "${proponent_password}"/>
+                        <cf:GetPhrase phrase_id = "583" lang_id = "${lang}"/>.
 
-                        <cf:GetPhrase phrase_id = "583" lang_id = "${lang}"/>
-
-                        .
-
-                        <cf:GetPhrase phrase_id = "462" lang_id = "${lang}"/>
-
-                        ,
+                        <cf:GetPhrase phrase_id = "462" lang_id = "${lang}"/>,
 
                         <c:out value = "${coordinator_firstname} ${coordinator_lastname}"/>
                     </mt:message>
@@ -421,13 +456,17 @@
 
         <c:if test = "${act=='edit'}">
             <sql:update>
-                update proponent_record set cfp_code = ?, proposal_title = ?, proponent_institution = ?,
-                proponent_address = ?, proponent_phone = ?, proponent_fax = ?, proponent_email = ?, proponent_url = ?,
-                proponent_leader_firstname = ?, proponent_leader_lastname = ?, proponent_leader_initial = ?,
-                proponent_leader_affiliation = ?, proponent_leader_address = ?, proponent_leader_phone = ?,
-                proponent_leader_fax = ?, proponent_leader_email = ?, proponent_citizenship = ?, proponent_residency =
-                ?, requested_amount = ?, date_last_updated = CURDATE(), cfp_cat_id = ?, project_country = ?,
-                project_date = ? where tracking_code = ?
+                update proponent_record set cfp_code = ?, proposal_title = ?,
+                proponent_institution = ?, proponent_address = ?,
+                proponent_phone = ?, proponent_fax = ?, proponent_email = ?,
+                proponent_url = ?, proponent_leader_firstname = ?,
+                proponent_leader_lastname = ?, proponent_leader_initial = ?,
+                proponent_leader_affiliation = ?, proponent_leader_address =
+                ?, proponent_leader_phone = ?, proponent_leader_fax = ?,
+                proponent_leader_email = ?, proponent_citizenship = ?,
+                proponent_residency = ?, requested_amount = ?,
+                date_last_updated = CURDATE(), cfp_cat_id = ?, project_country
+                = ?, project_date = ? where tracking_code = ?
 
                 <sql:param value = "${cfp_code}"/>
 
@@ -478,8 +517,9 @@
 
             <c:if test = "${!empty doc_filename}">
                 <sql:update>
-                    update documents set doc_title = ?, doc_filename = ?, doc_date = CURDATE() where tracking_code = ?
-                    and doc_type_id = 1
+                    update documents set doc_title = ?, doc_filename = ?,
+                    doc_date = CURDATE() where tracking_code = ? and
+                    doc_type_id = 1
 
                     <sql:param value = "${proposal_title}"/>
 

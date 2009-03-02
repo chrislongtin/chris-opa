@@ -15,14 +15,15 @@
 </c:set>
 
 <c:forEach var = "row" items = "${report_appraisal.rows}">
-    <c:set var = "report_appraisal_id" value = "${row.report_appraisal_id + 1}"/>
+    <c:set var = "report_appraisal_id"
+           value = "${row.report_appraisal_id + 1}"/>
 </c:forEach>
 
 <!-- Add report appraisal/review--->
 
 <sql:update var = "review_add">
-    insert into report_appraisal (report_appraisal_id, reviewer_id,tracking_code,doc_id,report_comments) values ( ?,
-    ?, ?, ?, ? )
+    insert into report_appraisal (report_appraisal_id,
+    reviewer_id,tracking_code,doc_id,report_comments) values ( ?, ?, ?, ?, ? )
 
     <sql:param value = "${report_appraisal_id}"/>
 
@@ -38,7 +39,8 @@
 <!-- update reviewer assignment --->
 
 <sql:update var = "reviewer_assignment">
-    update reviewer_assignment set report_review_completed = 1 where reviewer_id = ? and tracking_code = ?
+    update reviewer_assignment set report_review_completed = 1 where
+    reviewer_id = ? and tracking_code = ?
 
     <sql:param value = "${rid}"/>
 

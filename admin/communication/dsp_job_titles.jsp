@@ -27,7 +27,7 @@
     </c:when>
 
     <c:otherwise>
-        <a STYLE="text-decoration: underline"  href = "#add">
+        <a STYLE = "text-decoration: underline" href = "#add">
 
         <cf:GetPhrase phrase_id = "1013" lang_id = "${lang}"/></a>
     </c:otherwise>
@@ -46,7 +46,8 @@
             </td>
 
             <td valign = "top">
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_titles'/>
 <c:param name='seq_no' value='${row.seq_no}'/>
 <c:param name='act' value='Delete'/>
@@ -54,7 +55,8 @@
 </c:url>">
 
                 <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_titles'/>
 <c:param name='seq_no' value='${row.seq_no}'/>
 <c:param name='act' value='Edit'/>
@@ -74,15 +76,19 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_titles'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+      method = "post">
     <input type = "hidden" name = "act" value = "Add">
-    <input type = "hidden" name = "seq_no_required" value = "<cf:GetPhrase phrase_id='1014' lang_id='${lang}'/>">
-    <input type = "hidden" name = "job_name_required" value = "<cf:GetPhrase phrase_id='1015' lang_id='${lang}'/>"> <b>
+    <input type = "hidden" name = "seq_no_required"
+    value = "<cf:GetPhrase phrase_id='1014' lang_id='${lang}'/>"> <input type = "hidden"
+    name = "job_name_required"
+    value = "<cf:GetPhrase phrase_id='1015' lang_id='${lang}'/>"> <b>
 
     <cf:GetPhrase phrase_id = "1016" lang_id = "${lang}"/>:</b>
 
     <br>
-    <input type = "text" name = "seq_no" length = "4" value = " <c:out value="${next_no}" />">
+    <input type = "text" name = "seq_no" length = "4"
+           value = " <c:out value="${next_no}" />">
 
     <p>
     <b>
@@ -93,5 +99,6 @@
     <input type = "text" name = "job_name" length = "30">
 
     <p>
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+    <input type = "submit"
+           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 </form>

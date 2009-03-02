@@ -30,9 +30,13 @@
             <sql:param value = "${reviewer}"/>
         </sql:query>
 
-        <c:set var = "r_cfp_code" value = "${reviewer_settings.rows[0].cfp_code}" scope = "page"/>
+        <c:set var = "r_cfp_code"
+               value = "${reviewer_settings.rows[0].cfp_code}"
+               scope = "page"/>
 
-        <c:set var = "r_cfp_cat_id" value = "${reviewer_settings.rows[0].cfp_cat_id}" scope = "page"/>
+        <c:set var = "r_cfp_cat_id"
+               value = "${reviewer_settings.rows[0].cfp_cat_id}"
+               scope = "page"/>
 
         <sql:query var = "cfp_name">
             select cfp_title, cfp_code from cfp_info
@@ -87,11 +91,14 @@
     <!--- Report Review --->
 
     <sql:query var = "report_info">
-        select p.tracking_code, p.proposal_title, p.cfp_code,doc.doc_title,doc.doc_filename,doc.doc_id from
-        proponent_record p, reviewer_assignment ra, documents doc, document_types dt where ra.reviewer_id = ? and
-        (ra.report_review_completed = 0 or ra.report_review_completed is null) and ra.report = 1 and ra.tracking_code
-        = p.tracking_code and ra.tracking_code = doc.tracking_code and doc.doc_type_id = dt.doc_type_id and
-        dt.doc_type_category = 'R' order by proposal_title
+        select p.tracking_code, p.proposal_title,
+        p.cfp_code,doc.doc_title,doc.doc_filename,doc.doc_id from
+        proponent_record p, reviewer_assignment ra, documents doc,
+        document_types dt where ra.reviewer_id = ? and
+        (ra.report_review_completed = 0 or ra.report_review_completed is null)
+        and ra.report = 1 and ra.tracking_code = p.tracking_code and
+        ra.tracking_code = doc.tracking_code and doc.doc_type_id =
+        dt.doc_type_id and dt.doc_type_category = 'R' order by proposal_title
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
@@ -111,7 +118,8 @@
 
             <ul>
                 <c:forEach items = "${report_info.rows}" var = "row">
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=report_review&tracking_code=<c:out value="${row.tracking_code}" />">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=report_review&tracking_code=<c:out value="${row.tracking_code}" />">
 
                     <c:out value = "${row.doc_title} (P${row.tracking_code})"/></a>
                 </c:forEach>
@@ -122,10 +130,13 @@
     <!--- Report Review  Edit--->
 
     <sql:query var = "edit_report_reviews">
-        select ra.tracking_code, p.proposal_title, doc.doc_title,doc.doc_filename,doc.doc_id from reviewer_assignment
-        ra, cfp_info c, proponent_record p, documents doc where ra.reviewer_id = ? and ra.report_review_completed = 1
-        and ra.report = 1 and ra.tracking_code = p.tracking_code and ra.cfp_code = c.cfp_code and ra.tracking_code =
-        doc.tracking_code and c.cfp_report_review_deadline >= CURDATE()
+        select ra.tracking_code, p.proposal_title,
+        doc.doc_title,doc.doc_filename,doc.doc_id from reviewer_assignment ra,
+        cfp_info c, proponent_record p, documents doc where ra.reviewer_id = ?
+        and ra.report_review_completed = 1 and ra.report = 1 and
+        ra.tracking_code = p.tracking_code and ra.cfp_code = c.cfp_code and
+        ra.tracking_code = doc.tracking_code and c.cfp_report_review_deadline
+        >= CURDATE()
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
@@ -137,7 +148,8 @@
 
         <ul>
             <c:forEach items = "${edit_report_reviews.rows}" var = "row">
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=report_edit_review&proposal_title=<c:out value="${row.proposal_title}" />&doc_title=<c:out value="${row.doc_title}" />&tracking_code=<c:out value="${row.tracking_code}" />&doc_filename=<c:out value="${row.doc_filename}" />">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=report_edit_review&proposal_title=<c:out value="${row.proposal_title}" />&doc_title=<c:out value="${row.doc_title}" />&tracking_code=<c:out value="${row.tracking_code}" />&doc_filename=<c:out value="${row.doc_filename}" />">
 
                 <c:out value = "${row.doc_title} (P${row.tracking_code})"/></a>
             </c:forEach>
@@ -146,9 +158,11 @@
 
     <!--- retrieve a list of proposals that the reviewer is responsible for, where the review has not already been completed --->
     <sql:query var = "proposal_info">
-        select p.tracking_code, p.proposal_title, p.cfp_code from proponent_record p, reviewer_assignment ra where
-        ra.reviewer_id = ? and (ra.proposal_review_completed = 0 or ra.proposal_review_completed is null) and
-        ra.proposal = 1 and ra.tracking_code = p.tracking_code order by proposal_title
+        select p.tracking_code, p.proposal_title, p.cfp_code from
+        proponent_record p, reviewer_assignment ra where ra.reviewer_id = ?
+        and (ra.proposal_review_completed = 0 or ra.proposal_review_completed
+        is null) and ra.proposal = 1 and ra.tracking_code = p.tracking_code
+        order by proposal_title
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
@@ -168,7 +182,8 @@
 
             <ul>
                 <c:forEach items = "${proposal_info.rows}" var = "row">
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_review&tracking_code=<c:out value="${row.tracking_code}" />">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=proposal_review&tracking_code=<c:out value="${row.tracking_code}" />">
 
                     <c:out value = "${row.proposal_title} (P${row.tracking_code})"/></a>
                 </c:forEach>
@@ -177,9 +192,11 @@
     </c:choose>
 
     <sql:query var = "edit_reviews">
-        select ra.tracking_code, p.proposal_title from reviewer_assignment ra, cfp_info c, proponent_record p where
-        ra.reviewer_id = ? and ra.proposal_review_completed = 1 and ra.proposal = 1 and ra.tracking_code =
-        p.tracking_code and ra.cfp_code = c.cfp_code and c.cfp_proposal_review_deadline >= CURDATE()
+        select ra.tracking_code, p.proposal_title from reviewer_assignment ra,
+        cfp_info c, proponent_record p where ra.reviewer_id = ? and
+        ra.proposal_review_completed = 1 and ra.proposal = 1 and
+        ra.tracking_code = p.tracking_code and ra.cfp_code = c.cfp_code and
+        c.cfp_proposal_review_deadline >= CURDATE()
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
@@ -191,7 +208,8 @@
 
         <ul>
             <c:forEach items = "${edit_reviews.rows}" var = "row">
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit_review&tracking_code=<c:out value="${row.tracking_code}" />">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=proposal_edit_review&tracking_code=<c:out value="${row.tracking_code}" />">
 
                 <c:out value = "${row.proposal_title} (P${row.tracking_code})"/></a>
             </c:forEach>
@@ -213,21 +231,23 @@
 </sql:query>
 
 <sql:query var = "firstname">
-    select proponent_leader_firstname, COUNT(proponent_leader_firstname) AS firstname_sum from proponent_record group
-    by proponent_leader_firstname
+    select proponent_leader_firstname, COUNT(proponent_leader_firstname) AS
+    firstname_sum from proponent_record group by proponent_leader_firstname
 </sql:query>
 
 <sql:query var = "lastname">
-    select proponent_leader_lastname, COUNT(proponent_leader_lastname) AS lastname_sum from proponent_record group by
-    proponent_leader_lastname
+    select proponent_leader_lastname, COUNT(proponent_leader_lastname) AS
+    lastname_sum from proponent_record group by proponent_leader_lastname
 </sql:query>
 
 <sql:query var = "citizenship">
-    select distinct proponent_citizenship from proponent_record order by proponent_citizenship
+    select distinct proponent_citizenship from proponent_record order by
+    proponent_citizenship
 </sql:query>
 
 <sql:query var = "implementation">
-    select distinct project_country from proponent_record order by project_country
+    select distinct project_country from proponent_record order by
+    project_country
 </sql:query>
 
 <form action = "index.jsp?fuseaction=report_list" method = "post">
@@ -242,7 +262,8 @@
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "cfp_code">
                     <c:if test = "${r_cfp_code==0}">
-                        <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <option value = "">
+                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
                     </c:if>
 
                     <c:forEach items = "${cfp_name.rows}" var = "row">
@@ -263,7 +284,8 @@
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "cfp_cat_id">
                     <c:if test = "${r_cfp_cat_id==0}">
-                        <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <option value = "">
+                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
                     </c:if>
 
                     <c:forEach items = "${category.rows}" var = "row">
@@ -284,7 +306,8 @@
 
                 <td bgcolor = "EAEAEA">
                     <select name = "status_id">
-                        <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <option value = "">
+                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
 
                         <c:forEach items = "${status.rows}" var = "row">
                             <option value = "<c:out value="${row.status_id}" />"><c:out value = "${row.status_name}"/>
@@ -413,6 +436,7 @@
 </form>
 	
 </c:if>
+
 
 
 

@@ -18,17 +18,18 @@
         <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_edit">
 
         <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
 
         <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
     </div>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <c:set var = "act">
@@ -67,13 +68,17 @@
             <sql:param value = "${doc_id}"/>
         </sql:query>
 
-        <c:set var = "doc_title" value = "${doc_edit.rows[0].doc_title}" scope = "page"/>
+        <c:set var = "doc_title" value = "${doc_edit.rows[0].doc_title}"
+               scope = "page"/>
 
-        <c:set var = "doc_abstract" value = "${doc_edit.rows[0].doc_abstract}" scope = "page"/>
+        <c:set var = "doc_abstract" value = "${doc_edit.rows[0].doc_abstract}"
+               scope = "page"/>
 
-        <c:set var = "doc_filename" value = "${doc_edit.rows[0].doc_filename}" scope = "page"/>
+        <c:set var = "doc_filename" value = "${doc_edit.rows[0].doc_filename}"
+               scope = "page"/>
 
-        <c:set var = "doc_type_id" value = "${doc_edit.rows[0].doc_type_id}" scope = "page"/>
+        <c:set var = "doc_type_id" value = "${doc_edit.rows[0].doc_type_id}"
+               scope = "page"/>
 
         <sql:query var = "document_type">
             select * from document_types where doc_type_id = ?
@@ -81,7 +86,9 @@
             <sql:param value = "${doc_type_id}"/>
         </sql:query>
 
-        <c:set var = "doc_type_name" value = "${document_type.rows[0].doc_type_name}" scope = "page"/>
+        <c:set var = "doc_type_name"
+               value = "${document_type.rows[0].doc_type_name}"
+               scope = "page"/>
 
         <p>
         <h3>
@@ -97,12 +104,18 @@
     </c:otherwise>
 </c:choose>
 
-<form action = "index.jsp?fuseaction=act_proposal_doc" method = "post" ENCTYPE = "multipart/form-data">
-    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-    <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
-    <input type = "hidden" name = "doc_title_required" value = "<cf:GetPhrase phrase_id="605" lang_id="${lang}" />">
-    <input type = "hidden" name = "act" value = "<c:out value="${act}" />"><c:if test = "${act=='edit'}">
-        <input type = "hidden" name = "doc_id" value = "<c:out value="${doc_id}" />">
+<form action = "index.jsp?fuseaction=act_proposal_doc" method = "post"
+      ENCTYPE = "multipart/form-data">
+    <input type = "hidden" name = "tracking_code"
+    value = "<c:out value="${tracking_code}" />">
+    <input type = "hidden" name = "proponent_password"
+    value = "<c:out value="${proponent_password}" />"> <input type = "hidden"
+    name = "doc_title_required"
+    value = "<cf:GetPhrase phrase_id="605" lang_id="${lang}" />"> <input type = "hidden"
+    name = "act" value = "<c:out value="${act}" />">
+    <c:if test = "${act=='edit'}">
+        <input type = "hidden" name = "doc_id"
+               value = "<c:out value="${doc_id}" />">
     </c:if>
 
     <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
@@ -117,7 +130,8 @@
             </td>
 
             <td>
-                <input type = "text" name = "doc_title" size = "30" value = "<c:out value="${doc_title}" />">
+                <input type = "text" name = "doc_title" size = "30"
+                       value = "<c:out value="${doc_title}" />">
             </td>
         </tr>
 
@@ -129,8 +143,9 @@
             </td>
 
             <td>
-                <font face = "arial" size = "-1"><input type = "file" name = "doc_filename" size = "30">
-                <c:if test = "${doc_filename!=''}">
+                <font face = "arial"
+                size = "-1"><input type = "file" name = "doc_filename"
+                size = "30"><c:if test = "${doc_filename!=''}">
                     <br>
                     <cf:GetPhrase phrase_id = "607" lang_id = "${lang}"/>
 
@@ -156,7 +171,8 @@
         </tr>
 
         <sql:query var = "type_name">
-            select * from document_types where doc_type_id > 0 order by doc_type_id
+            select * from document_types where doc_type_id > 0 order by
+            doc_type_id
         </sql:query>
 
         <c:if test = "${!(empty type_name.rows[0].doc_type_id)}">
@@ -172,12 +188,12 @@
 
                     <select name = "doc_type_id">
                         <c:if test = "${doc_type_name!=''}">
-                            <option value = "<c:out value="${doc_type_id}" />"><c:out value = "${doc_type_name}"/>
+                            <option value = "<c:out value="${doc_type_id}" />">
+                            <c:out value = "${doc_type_name}"/>
                         </c:if>
 
                         <c:forEach items = "${type_name.rows}" var = "row">
-                            <option value = "<c:out value="${row.doc_type_id}" />">
-                            <c:out value = "${row.doc_type_name}"/>
+                            <option value = "<c:out value="${row.doc_type_id}" />"><c:out value = "${row.doc_type_name}"/>
                         </c:forEach>
                     </select>
                 </td>
@@ -186,7 +202,8 @@
 
         <tr>
             <td colspan = "2" align = "center">
-                <input type = "submit" value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />   ">
+                <input type = "submit"
+                       value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />   ">
             </td>
         </tr>
     </table>

@@ -25,41 +25,55 @@
     <c:out value = "${param.background}" default = " "/>
 </c:set>
 
-<fmt:parseDate var = 'cfp_startdate' pattern = 'MMM-dd-yy' value = '${param.cfp_startdate}'/>
+<fmt:parseDate var = 'cfp_startdate' pattern = 'MMM-dd-yy'
+               value = '${param.cfp_startdate}'/>
 
-<fmt:parseDate var = 'cfp_deadline' pattern = 'MMM-dd-yy' value = '${param.cfp_deadline}'/>
+<fmt:parseDate var = 'cfp_deadline' pattern = 'MMM-dd-yy'
+               value = '${param.cfp_deadline}'/>
 
 <fmt:parseDate var = 'cfp_proposal_review_deadline' pattern = 'MMM-dd-yy'
                value = '${param.cfp_proposal_review_deadline}'/>
 
-<fmt:parseDate var = 'cfp_report_review_deadline' pattern = 'MMM-dd-yy' value = '${param.cfp_report_review_deadline}'/>
+<fmt:parseDate var = 'cfp_report_review_deadline' pattern = 'MMM-dd-yy'
+               value = '${param.cfp_report_review_deadline}'/>
 
-<fmt:parseDate var = 'first_reminder' pattern = 'MMM-dd-yy' value = '${param.first_reminder}'/>
+<fmt:parseDate var = 'first_reminder' pattern = 'MMM-dd-yy'
+               value = '${param.first_reminder}'/>
 
-<fmt:parseDate var = 'second_reminder' pattern = 'MMM-dd-yy' value = '${param.second_reminder}'/>
+<fmt:parseDate var = 'second_reminder' pattern = 'MMM-dd-yy'
+               value = '${param.second_reminder}'/>
 
-<fmt:parseDate var = 'cfp_report_deadline' pattern = 'MMM-dd-yy' value = '${param.cfp_report_deadline}'/>
+<fmt:parseDate var = 'cfp_report_deadline' pattern = 'MMM-dd-yy'
+               value = '${param.cfp_report_deadline}'/>
 
-<fmt:formatDate var = 'cfp_startdate' pattern = 'yyyy-MM-dd' value = '${cfp_startdate}'/>
+<fmt:formatDate var = 'cfp_startdate' pattern = 'yyyy-MM-dd'
+                value = '${cfp_startdate}'/>
 
-<fmt:formatDate var = 'cfp_deadline' pattern = 'yyyy-MM-dd' value = '${cfp_deadline}'/>
+<fmt:formatDate var = 'cfp_deadline' pattern = 'yyyy-MM-dd'
+                value = '${cfp_deadline}'/>
 
-<fmt:formatDate var = 'cfp_proposal_review_deadline' pattern = 'yyyy-MM-dd' value = '${cfp_proposal_review_deadline}'/>
+<fmt:formatDate var = 'cfp_proposal_review_deadline' pattern = 'yyyy-MM-dd'
+                value = '${cfp_proposal_review_deadline}'/>
 
-<fmt:formatDate var = 'cfp_report_review_deadline' pattern = 'yyyy-MM-dd' value = '${cfp_report_review_deadline}'/>
+<fmt:formatDate var = 'cfp_report_review_deadline' pattern = 'yyyy-MM-dd'
+                value = '${cfp_report_review_deadline}'/>
 
-<fmt:formatDate var = 'first_reminder' pattern = 'yyyy-MM-dd' value = '${first_reminder}'/>
+<fmt:formatDate var = 'first_reminder' pattern = 'yyyy-MM-dd'
+                value = '${first_reminder}'/>
 
-<fmt:formatDate var = 'second_reminder' pattern = 'yyyy-MM-dd' value = '${second_reminder}'/>
+<fmt:formatDate var = 'second_reminder' pattern = 'yyyy-MM-dd'
+                value = '${second_reminder}'/>
 
-<fmt:formatDate var = 'cfp_report_deadline' pattern = 'yyyy-MM-dd' value = '${cfp_report_deadline}'/>
+<fmt:formatDate var = 'cfp_report_deadline' pattern = 'yyyy-MM-dd'
+                value = '${cfp_report_deadline}'/>
 
 <c:choose>
     <c:when test = "${param.act == 'edit'}">
         <c:set var = "cfp_code" value = "${param.cfp_code}"/>
 
         <sql:update var = "update_cfp">
-            update cfp_info set cfp_title=?, cfp_background=?, cfp_maxaward=?, cfp_totalfunds=?,
+            update cfp_info set cfp_title=?, cfp_background=?, cfp_maxaward=?,
+            cfp_totalfunds=?,
 
             cfp_startdate=?, cfp_deadline=?, cfp_proposal_review_deadline=?,
 
@@ -97,7 +111,8 @@
         </sql:update>
 
         <sql:update>
-            delete from funding_agencies_cfp where agency_id = ? and cfp_code = ?
+            delete from funding_agencies_cfp where agency_id = ? and cfp_code
+            = ?
 
             <sql:param value = "${param.agency_id}"/>
 
@@ -148,10 +163,12 @@
         </c:set>
 
         <sql:update var = "add_funding_initative">
-            insert into cfp_info ( cfp_code, cfp_title, cfp_background, cfp_maxaward, cfp_totalfunds, cfp_format,
-            currency_id, cfp_startdate, cfp_deadline, cfp_report_deadline, cfp_proposal_review_deadline,
-            cfp_report_review_deadline, first_reminder, second_reminder ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ? )
+            insert into cfp_info ( cfp_code, cfp_title, cfp_background,
+            cfp_maxaward, cfp_totalfunds, cfp_format, currency_id,
+            cfp_startdate, cfp_deadline, cfp_report_deadline,
+            cfp_proposal_review_deadline, cfp_report_review_deadline,
+            first_reminder, second_reminder ) values ( ?, ?, ?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ? )
 
             <sql:param value = "${cfp_code}"/>
 
@@ -243,7 +260,6 @@
         </c:if>
     </c:when>
 </c:choose>
-
 
 <!--- redirect to main funding information page --->
 

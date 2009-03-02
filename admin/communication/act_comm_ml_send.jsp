@@ -1,10 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ page import = "java.util.*"%>
 
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
-<%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
-<%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
-<%@ taglib prefix = "mt" uri = "http://jakarta.apache.org/taglibs/mailer-1.1"%>
+<%@include  file ="../../taglibs_declarations.jsp"%> 
 
 <!--- check for session.user variable to insure user logged in --->
 <%@ include file = "../act_session_check_sub.jsp"%>
@@ -75,15 +72,18 @@
     <c:choose>
         <c:when test = "${send_to_all == 1}">
             <sql:query var = "member">
-                select members.* from members, listmembers where members.member_id = listmembers.member_id and
-                listmembers.member_status = 1 and listmembers.list_id = ? order by members.member_name
+                select members.* from members, listmembers where
+                members.member_id = listmembers.member_id and
+                listmembers.member_status = 1 and listmembers.list_id = ?
+                order by members.member_name
 
                 <sql:param value = "${list_id}"/>
             </sql:query>
 
             <c:if test = "${member.rowCount > 0}">
                 <sql:update>
-                    insert into messages ( message_id, list_id, sent_date, message_from, message_text
+                    insert into messages ( message_id, list_id, sent_date,
+                    message_from, message_text
 
                     <c:if test = "${!empty from_spc}">
                         , from_spc
@@ -123,7 +123,7 @@
                 </sql:update>
 
                 <c:forEach var = "row" items = "${member.rows}">
-                    <mt:mail session = "java:/comp/env/mail/session">
+<%--                     <mt:mail session = "java:/comp/env/mail/session">
                         <mt:from>
                             <c:if test = "${!empty from_spc}">
                                 "
@@ -132,13 +132,17 @@
 
                                 "
                             </c:if><<c:out value="${from}"/>></mt:from>
-<mt:setrecipient type="to"><c:out value="${row.member_email}"/></mt:setrecipient>
-<mt:subject><c:out value="${subj}"/></mt:subject>
-<mt:message>
-<c:out value="${mess_body}"/>
-</mt:message>
-<mt:send/>
-</mt:mail>
+			<mt:setrecipient type="to"><c:out value="${row.member_email}"/></mt:setrecipient>
+			<mt:subject><c:out value="${subj}"/></mt:subject>
+			<mt:message>
+			<c:out value="${mess_body}"/>
+			</mt:message>
+			<mt:send/>
+			</mt:mail> --%>
+		      <sm:Sendmail host = "leapfrogindex.com" domain = "leapfrogindex.com" port = "25"                
+				    from = "${from_spc}"          to = "${row.member_email}" debug = "true"
+				  subject = "${subj}"     content = "${mess_body}">
+		     </sm:Sendmail>
 
 <sql:update>
 	insert into sentto
@@ -212,7 +216,7 @@
   <sql:param value="${row}" />
   </sql:query>  
   <c:if test="${member.rowCount == 1}">
-<mt:mail session="java:/comp/env/mail/session" >
+<%-- <mt:mail session="java:/comp/env/mail/session" >
 <mt:from><c:if test="${!empty from_spc}">"<c:out value="${from_spc}" />" </c:if><<c:out value="${from}"/>></mt:from>
 <mt:setrecipient type="to"><c:out value="${member.rows[0].member_email}"/></mt:setrecipient>
 <mt:subject><c:out value="${subj}"/></mt:subject>
@@ -220,7 +224,11 @@
 <c:out value="${mess_body}"/>
 </mt:message>
 <mt:send/>
-</mt:mail>
+</mt:mail> --%>
+		      <sm:Sendmail host = "leapfrogindex.com" domain = "leapfrogindex.com" port = "25"                
+				    from = "${from_spc}"          to = "${member.rows[0].member_email}" debug = "true"
+				  subject = "${subj}"     content = "${mess_body}">
+		     </sm:Sendmail>
 
 <sql:update>
 	insert into sentto
@@ -243,6 +251,7 @@
 <c:import url="communication/dsp_comm_ml_sent.jsp?message=${message_id}" />
 
 </c:if>
+
 
 
 

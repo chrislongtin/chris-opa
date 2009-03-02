@@ -34,13 +34,16 @@
         <sql:param value = "${reviewer}"/>
     </sql:query>
 
-    <c:set var = "reviewer_coordinator" value = "${r_coord_check.rows[0].reviewer_coordinator}" scope = "page"/>
+    <c:set var = "reviewer_coordinator"
+           value = "${r_coord_check.rows[0].reviewer_coordinator}"
+           scope = "page"/>
 </c:if>
 
 <!--- general information about the proposal --->
 <sql:query var = "proposal_info">
-    select p.cfp_code, p.tracking_code, p.proponent_institution, p.requested_amount, p.awarded_amount,
-    p.proposal_title, p.proposal_hide, p.status_id, s.status_name from proponent_record p, record_status s where
+    select p.cfp_code, p.tracking_code, p.proponent_institution,
+    p.requested_amount, p.awarded_amount, p.proposal_title, p.proposal_hide,
+    p.status_id, s.status_name from proponent_record p, record_status s where
     p.tracking_code = ? and p.status_id = s.status_id
 
     <sql:param value = "${tracking_code}"/>
@@ -67,24 +70,26 @@
 
 <!--- retrieving initiative criteria appraisal info --->
 <sql:query var = "i_appraisal_info">
-    select i_criteria_id, SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum from proposal_appraisal
-    where tracking_code = ? group by i_criteria_id
+    select i_criteria_id, SUM(appraisal_score) as score_sum,
+    SUM(appraisal_rank) as rank_sum from proposal_appraisal where
+    tracking_code = ? group by i_criteria_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
 
 <!--- retrieving CFP criteria appraisal info --->
 <sql:query var = "cfp_appraisal_info">
-    select cfp_criteria_id, SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum from proposal_appraisal
-    where tracking_code = ? group by cfp_criteria_id
+    select cfp_criteria_id, SUM(appraisal_score) as score_sum,
+    SUM(appraisal_rank) as rank_sum from proposal_appraisal where
+    tracking_code = ? group by cfp_criteria_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
 
 <!--- retrieving status information --->
 <sql:query var = "status_info">
-    select s.status_name, s.status_id from proponent_record p, record_status s where p.tracking_code = ? and
-    p.status_id = s.status_id
+    select s.status_name, s.status_id from proponent_record p, record_status s
+    where p.tracking_code = ? and p.status_id = s.status_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -99,7 +104,8 @@
     select minimum_rank from initiative_setup
 </sql:query>
 
-<c:set var = "minimum_rank" value = "${minimums.rows[0].minimum_rank}" scope = "page"/>
+<c:set var = "minimum_rank" value = "${minimums.rows[0].minimum_rank}"
+       scope = "page"/>
 
 <!--- proponent record summary --->
 
@@ -297,6 +303,7 @@ order by status_id
 
 	</c:otherwise>
 </c:choose>
+
 
 
 

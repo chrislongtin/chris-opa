@@ -18,17 +18,18 @@
         <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=report_edit">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=report_edit">
 
         <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
 
         <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
     </div>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <!--- show the proponent the full proposal record --->
@@ -38,7 +39,8 @@
 
 <!--- check that password is correct --->
 <sql:query var = "password_check">
-    select tracking_code, cfp_code from proponent_record where proponent_password = ? and tracking_code = ?
+    select tracking_code, cfp_code from proponent_record where
+    proponent_password = ? and tracking_code = ?
 
     <sql:param value = "${proponent_password}"/>
 
@@ -52,23 +54,26 @@
 
     <cf:GetPhrase phrase_id = "773" lang_id = "${lang}"/>.</b>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <sql:query var = "proposal_info">
-    select p.*, c.cfp_title from proponent_record p, cfp_info c where p.tracking_code = ? and p.cfp_code = c.cfp_code
+    select p.*, c.cfp_title from proponent_record p, cfp_info c where
+    p.tracking_code = ? and p.cfp_code = c.cfp_code
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
 
-<c:set var = "cfp_code" value = "${proposal_info.rows[0].cfp_code}" scope = "page"/>
+<c:set var = "cfp_code" value = "${proposal_info.rows[0].cfp_code}"
+       scope = "page"/>
 
 <!--- verify that cfp (report deadline) is still active --->
 <sql:query var = "cfp_current_list">
-    select cfp_title from cfp_info where cfp_code = ? and cfp_report_deadline >= CURDATE()
+    select cfp_title from cfp_info where cfp_code = ? and cfp_report_deadline
+    >= CURDATE()
 
     <sql:param value = "${cfp_code}"/>
 </sql:query>
@@ -88,8 +93,9 @@
     <c:otherwise>
         <c:if test = "${param.act == 'add'}">
             <sql:query var = "initiative_info">
-                select copyright,ia_name, ia_email, ia_address, ia_courier, ia_courier_inst, ia_fax, ia_phone from
-                initiative_info where lang_id = ?
+                select copyright,ia_name, ia_email, ia_address, ia_courier,
+                ia_courier_inst, ia_fax, ia_phone from initiative_info where
+                lang_id = ?
 
                 <sql:param value = "${lang}"/>
             </sql:query>
@@ -104,14 +110,16 @@
 
                 <cf:ParagraphFormat value = "${cr}"/>
 
-                <form action = "index.jsp?fuseaction=report_doc" method = "post">
+                <form action = "index.jsp?fuseaction=report_doc"
+                      method = "post">
                     <input type = "hidden" name = "act" value = "add">
-                    <input type = "hidden" name = "lang" value = "<c:out value="${lang}" />">
-                    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                    <input type = "hidden"
-                           name = "proponent_password"
-                           value = "<c:out value="${proponent_password}" />">
-                    <input type = "submit" value = "<cf:GetPhrase phrase_id="110" lang_id="${lang}" />">
+                    <input type = "hidden" name = "lang"
+                    value = "<c:out value="${lang}" />"> <input type = "hidden"
+                    name = "tracking_code"
+                    value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
+                    name = "proponent_password"
+                    value = "<c:out value="${proponent_password}" />"> <input type = "submit"
+                    value = "<cf:GetPhrase phrase_id="110" lang_id="${lang}" />">
                 </form>
 
                 <p>
@@ -128,7 +136,8 @@
 
                     <br>
                     <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
-                    <a STYLE="text-decoration: underline"  href = "mailto:<c:out value="${row.ia_email}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "mailto:<c:out value="${row.ia_email}" />">
 
                     <c:out value = "${row.ia_email}"/></a>
 
@@ -161,14 +170,16 @@
 
         <c:if test = "${param.act == 'edit'}">
             <sql:query var = "docid" maxRows = "1">
-                select d.doc_id from documents d, document_types dt where d.tracking_code = ? and d.doc_type_id > 0
-                and d.doc_type_id = dt.doc_type_id and dt.doc_type_category = 'R'
+                select d.doc_id from documents d, document_types dt where
+                d.tracking_code = ? and d.doc_type_id > 0 and d.doc_type_id =
+                dt.doc_type_id and dt.doc_type_category = 'R'
 
                 <sql:param value = "${tracking_code}"/>
             </sql:query>
 
             <c:if test = "${docid.rowCount!=0}">
-                <c:set var = "doc_id" value = "${docid.rows[0].doc_id}" scope = "page"/>
+                <c:set var = "doc_id" value = "${docid.rows[0].doc_id}"
+                       scope = "page"/>
 
                 <c:import url = "cfp/dsp_report_edit_doc.jsp">
                     <c:param name = "tracking_code" value = "${tracking_code}"/>

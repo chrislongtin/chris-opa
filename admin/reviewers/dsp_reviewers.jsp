@@ -13,7 +13,8 @@
 <!--------------------- DISPLAY COORDINATORS -------------------------->
 
 <sql:query var = "coordinators">
-    select * from coordinators order by coordinator_lastname, coordinator_firstname
+    select * from coordinators order by coordinator_lastname,
+    coordinator_firstname
 </sql:query>
 
 <table border = "0" cellspacing = "0" cellpadding = "2" width = "100%">
@@ -27,7 +28,9 @@
 
     <tr bgcolor = "BCBCBC">
         <td colspan = "4" align = "center">
-            <font size = "1" face = "Arial"><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=simple_coordinators_list">
+            <font size = "1"
+                  face = "Arial"><a STYLE = "text-decoration: underline"
+                                    href = "index.jsp?fuseaction=simple_coordinators_list">
 
             <cf:GetPhrase phrase_id = "945" lang_id = "${lang}"/></a></font>
         </td>
@@ -37,7 +40,9 @@
         <c:when test = "${sessionScope.user=='coordinator'}">
             <tr>
                 <td colspan = "4" align = "right">
-                    <font size = "-1" face = "Arial"> <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=modify_coordinator&act=add">
+                    <font size = "-1" face = "Arial">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=modify_coordinator&act=add">
 
                     <cf:GetPhrase phrase_id = "328" lang_id = "${lang}"/></a>
 
@@ -170,10 +175,12 @@
 
                 <td colspan = "2" align = "right">
                     <font size = "-2" face = "Arial">
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=act_coordinator&act=delete&coordinator_id=<c:out value="${row.coordinator_id}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=act_coordinator&act=delete&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
                     <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=modify_coordinator&act=edit&coordinator_id=<c:out value="${row.coordinator_id}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=modify_coordinator&act=edit&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
                     <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
                 </td>
@@ -206,16 +213,22 @@
 
     <!--- check to see if reviewer is a reviewer coordinator --->
     <sql:query var = "r_coord_check">
-        select reviewer_coordinator, cfp_code, cfp_cat_id from reviewers where reviewer_id = ?
+        select reviewer_coordinator, cfp_code, cfp_cat_id from reviewers where
+        reviewer_id = ?
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
 
-    <c:set var = "reviewer_organizer" value = "${r_coord_check.rows[0].reviewer_coordinator}" scope = "page"/>
+    <c:set var = "reviewer_organizer"
+           value = "${r_coord_check.rows[0].reviewer_coordinator}"
+           scope = "page"/>
 
-    <c:set var = "reviewer_cfp_code" value = "${r_coord_check.rows[0].cfp_code}" scope = "page"/>
+    <c:set var = "reviewer_cfp_code" value = "${r_coord_check.rows[0].cfp_code}"
+           scope = "page"/>
 
-    <c:set var = "reviewer_cfp_cat_id" value = "${r_coord_check.rows[0].cfp_cat_id}" scope = "page"/>
+    <c:set var = "reviewer_cfp_cat_id"
+           value = "${r_coord_check.rows[0].cfp_cat_id}"
+           scope = "page"/>
 
     <!--- if the reviewer is associated with a specific CFP, limit the information that is shown to the reviewer, and limit the options for setting up a new reviewer --->
     <c:if test = "${reviewer_cfp_code!=0}">
@@ -225,7 +238,8 @@
             <sql:param value = "${reviewer_cfp_code}"/>
         </sql:query>
 
-        <c:set var = "cfp_title" value = "${r_cfp_title.rows[0].cfp_title}" scope = "page"/>
+        <c:set var = "cfp_title" value = "${r_cfp_title.rows[0].cfp_title}"
+               scope = "page"/>
     </c:if>
 </c:if>
 
@@ -262,7 +276,9 @@
 
     <tr bgcolor = "BCBCBC">
         <td colspan = "4" align = "center">
-            <font size = "1" face = "Arial"><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=simple_reviewers_list">
+            <font size = "1"
+                  face = "Arial"><a STYLE = "text-decoration: underline"
+                                    href = "index.jsp?fuseaction=simple_reviewers_list">
 
             <cf:GetPhrase phrase_id = "946" lang_id = "${lang}"/></a></font>
         </td>
@@ -299,17 +315,21 @@
                     :<c:choose>
                         <c:when test = "${reviewer_cfp_code==0}">
                             <select name = "cfp_code">
-                                <option value = "0"><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                                <option value = "0">
+                                <cf:GetPhrase phrase_id = "641"
+                                              lang_id = "${lang}"/>
 
-                                <c:forEach items = "${cfp_list.rows}" var = "row">
-                                    <option value = "<c:out value="${row.cfp_code}" />">
-                                    <c:out value = "${row.cfp_title}"/>
+                                <c:forEach items = "${cfp_list.rows}"
+                                           var = "row">
+                                    <option value = "<c:out value="${row.cfp_code}" />"><c:out value = "${row.cfp_title}"/>
                                 </c:forEach>
                             </select>
                         </c:when>
 
                         <c:otherwise>
-                            <input type = "hidden" name = "cfp_code" value = "<c:out value="${reviewer_cfp_code}" />">
+                            <input type = "hidden"
+                                   name = "cfp_code"
+                                   value = "<c:out value="${reviewer_cfp_code}" />">
 
                             <c:out value = "${cfp_title}"/>
                         </c:otherwise>
@@ -319,7 +339,8 @@
 
             <tr>
                 <td colspan = "4" align = "center">
-                    <input type = "submit" value = "<cf:GetPhrase phrase_id="716" lang_id="${lang}" />">
+                    <input type = "submit"
+                           value = "<cf:GetPhrase phrase_id="716" lang_id="${lang}" />">
                 </td>
             </tr>
         </form>
@@ -468,7 +489,8 @@
 
         <c:if test = "${row.cfp_cat_id!=0}">
             <sql:query var = "cfp_cat_info">
-                select cfp_cat_id, cfp_cat_name from cfp_category where cfp_cat_id = ?
+                select cfp_cat_id, cfp_cat_name from cfp_category where
+                cfp_cat_id = ?
 
                 <sql:param value = "${row.cfp_cat_id}"/>
             </sql:query>
@@ -497,9 +519,11 @@
                 <td colspan = "2" align = "right">
                     <font size = "-2" face = "Arial"><c:choose>
                         <c:when test = "${(sessionScope.user=='coordinator') or (reviewer_organizer==1)}">
-                            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=act_reviewer&act=delete&reviewer_id=<c:out value="${row.reviewer_id}" />">
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp?fuseaction=act_reviewer&act=delete&reviewer_id=<c:out value="${row.reviewer_id}" />">
 
-                            <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+                            <cf:GetPhrase phrase_id = "143"
+                            lang_id = "${lang}"/></a> |
                         </c:when>
 
                         <c:otherwise>
@@ -507,7 +531,8 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=modify_reviewer&act=edit&reviewer_id=<c:out value="${row.reviewer_id}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=modify_reviewer&act=edit&reviewer_id=<c:out value="${row.reviewer_id}" />">
 
                     <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
                 </td>

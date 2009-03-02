@@ -27,7 +27,8 @@
         <c:set var = "skill_id" value = "${skill_num.rows[0].skill_id + 1}"/>
 
         <sql:update var = "skill_add">
-            insert into professional_skills (skill_id, skill_name, industry_id) values ( ?, ?, ? )
+            insert into professional_skills (skill_id, skill_name,
+            industry_id) values ( ?, ?, ? )
 
             <sql:param value = "${skill_id}"/>
 
@@ -53,7 +54,8 @@
 
     <c:when test = "${param.act == 'Edit'}">
         <sql:update var = "skill_add2">
-            update professional_skills set skill_id = ?, skill_name = ?, industry_id = ? where skill_id = ?
+            update professional_skills set skill_id = ?, skill_name = ?,
+            industry_id = ? where skill_id = ?
 
             <sql:param value = "${param.skill_id}"/>
 

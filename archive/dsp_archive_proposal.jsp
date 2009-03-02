@@ -13,8 +13,8 @@
 
 <!--- retrieve proponent info --->
 <sql:query var = "proponent_record">
-    select p.*, s.status_name from proponent_record p, record_status s where tracking_code = ? and p.status_id =
-    s.status_id
+    select p.*, s.status_name from proponent_record p, record_status s where
+    tracking_code = ? and p.status_id = s.status_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -28,8 +28,9 @@
 
 <!--- retrieve proposal appraisal info --->
 <sql:query var = "appraisal_info">
-    select p.*, r.reviewer_lastname, r.reviewer_firstname from proposal_appraisal p, reviewers r where p.tracking_code
-    = ? and p.reviewer_id = r.reviewer_id order by appraisal_id
+    select p.*, r.reviewer_lastname, r.reviewer_firstname from
+    proposal_appraisal p, reviewers r where p.tracking_code = ? and
+    p.reviewer_id = r.reviewer_id order by appraisal_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -104,7 +105,9 @@
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</b> <a STYLE="text-decoration: underline"  href = "<c:out value="${pr.proponent_url}" />">
+<cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</b>
+<a STYLE = "text-decoration: underline"
+   href = "<c:out value="${pr.proponent_url}" />">
 
 <c:out value = "${pr.proponent_url}"/></a>
 
@@ -159,12 +162,13 @@
 
 <cf:GetPhrase phrase_id = "69" lang_id = "${lang}"/>:</b>
 
-<fmt:formatNumber value = "${pr.requested_amount}" type = "currency" currencySymbol = ""/>
-<c:if test = "${!empty appraisal_info.rows[0].reviewer_lastname}">
+<fmt:formatNumber value = "${pr.requested_amount}" type = "currency"
+currencySymbol = ""/><c:if test = "${!empty appraisal_info.rows[0].reviewer_lastname}">
     <br>
     <b>
 
     <cf:GetPhrase phrase_id = "70" lang_id = "${lang}"/>:</b>
 
-    <fmt:formatNumber value = "${row.awarded_amount}" type = "currency" currencySymbol = ""/>
+    <fmt:formatNumber value = "${row.awarded_amount}" type = "currency"
+                      currencySymbol = ""/>
 </c:if>

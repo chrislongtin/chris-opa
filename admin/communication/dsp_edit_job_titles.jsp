@@ -21,16 +21,18 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_titles'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+          method = "post">
         <input type = "hidden" name = "act" value = "Edit">
-        <input type = "hidden" name = "seq_no_required" value = "<cf:GetPhrase phrase_id='1014' lang_id='${lang}'/>">
-        <input type = "hidden" name = "job_name_required"
-               value = "<cf:GetPhrase phrase_id='1015' lang_id='${lang}'/>"> <b>
+        <input type = "hidden" name = "seq_no_required"
+        value = "<cf:GetPhrase phrase_id='1014' lang_id='${lang}'/>"> <input type = "hidden" name = "job_name_required" value = "<cf:GetPhrase phrase_id='1015' lang_id='${lang}'/>">
+        <b>
 
         <cf:GetPhrase phrase_id = "1016" lang_id = "${lang}"/>:</b>
 
         <br>
-        <input type = "text" name = "seq_no" value = " <c:out value="${row.seq_no}" />">
+        <input type = "text" name = "seq_no"
+               value = " <c:out value="${row.seq_no}" />">
 
         <br>
         <b>
@@ -38,9 +40,11 @@
         <cf:GetPhrase phrase_id = "1017" lang_id = "${lang}"/>:</b>
 
         <br>
-        <input type = "text" name = "job_name" value = " <c:out value="${row.job_name}" />">
+        <input type = "text" name = "job_name"
+               value = " <c:out value="${row.job_name}" />">
 
         <br>
-        <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+        <input type = "submit"
+               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
     </form>
 </c:forEach>

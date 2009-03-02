@@ -10,9 +10,7 @@
         {
         return ((s == null) || (s.equals("null"))) ? "-" : s;
         }
-%>
-
-<%
+%><%
     String body  = "<p><center><font face='arial,helvetica' size=3><STRONG>" + "<font color=blue>CFP Search</font>"
                        + "</STRONG></font></center><br><br><a STYLE="text-decoration: underline"  href = \"../admin/index.jsp?fuseaction=list_cfp\">Back to Selection</a>";
 
@@ -158,3 +156,4 @@
         e.printStackTrace(System.err);
         }
 %>
+

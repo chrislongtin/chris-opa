@@ -27,7 +27,7 @@
     </c:when>
 
     <c:otherwise>
-        <a STYLE="text-decoration: underline"  href = "#add">
+        <a STYLE = "text-decoration: underline" href = "#add">
 
         <cf:GetPhrase phrase_id = "1004" lang_id = "${lang}"/></a>
     </c:otherwise>
@@ -46,7 +46,8 @@
             </td>
 
             <td valign = "top">
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_skills'/>
 <c:param name='skill_id' value='${row.skill_id}'/>
 <c:param name='act' value='Delete'/>
@@ -54,7 +55,8 @@
 </c:url>">
 
                 <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_skills'/>
 <c:param name='skill_id' value='${row.skill_id}'/>
 <c:param name='act' value='Edit'/>
@@ -74,16 +76,20 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_skills'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+      method = "post">
     <input type = "hidden" name = "act" value = "Add">
-    <input type = "hidden" name = "skill_id_required" value = "<cf:GetPhrase phrase_id='1005' lang_id='${lang}'/>">
-    <input type = "hidden" name = "skill_name_required" value = "<cf:GetPhrase phrase_id='1006' lang_id='${lang}'/>">
-    <input type = "hidden" name = "industry_id" value = "0"> <b>
+    <input type = "hidden" name = "skill_id_required"
+    value = "<cf:GetPhrase phrase_id='1005' lang_id='${lang}'/>"> <input type = "hidden"
+    name = "skill_name_required"
+    value = "<cf:GetPhrase phrase_id='1006' lang_id='${lang}'/>"> <input type = "hidden"
+    name = "industry_id" value = "0"> <b>
 
     <cf:GetPhrase phrase_id = "1007" lang_id = "${lang}"/>:</b>
 
     <br>
-    <input type = "text" name = "skill_id" length = "4" value = " <c:out value="${next_id}" />">
+    <input type = "text" name = "skill_id" length = "4"
+           value = " <c:out value="${next_id}" />">
 
     <p>
     <b>
@@ -94,5 +100,6 @@
     <input type = "text" name = "skill_name" length = "30">
 
     <p>
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+    <input type = "submit"
+           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 </form>

@@ -29,7 +29,8 @@
 <!--- List all Current Call for Proposals (CFPs) --->
 
 <sql:query var = "CFP_current_list">
-    select cfp_title, cfp_startdate,cfp_deadline, cfp_code, cfp_focus from cfp_info where cfp_deadline >= ?
+    select cfp_title, cfp_startdate,cfp_deadline, cfp_code, cfp_focus from
+    cfp_info where cfp_deadline >= ?
 
     <c:if test = "${!empty job_name}">
         and cfp_title like concat('%',?,'%')
@@ -65,7 +66,8 @@
 <!--- List all Archived Call for Proposals (CFPs) --->
 
 <sql:query var = "CFP_archived_list">
-    select cfp_title, cfp_startdate,cfp_deadline, cfp_code, cfp_focus from cfp_info where cfp_deadline
+    select cfp_title, cfp_startdate,cfp_deadline, cfp_code, cfp_focus from
+    cfp_info where cfp_deadline
 
     <?<c:if test = "${!empty job_name}">
         and cfp_title like concat('%',?,'%')
@@ -202,7 +204,8 @@
 
                 <td colspan = "3" bgcolor = "EAEAEA">
                     <select name = "job_name">
-                        <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <option value = "">
+                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
 
                         <c:forEach items = "${jobtitles.rows}" var = "row">
                             <option value = "<c:out value="${row.job_name}" />"><c:out value = "${row.job_name}"/>
@@ -220,11 +223,11 @@
 
                 <td colspan = "3" bgcolor = "EAEAEA">
                     <select name = "agency_name">
-                        <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <option value = "">
+                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
 
                         <c:forEach items = "${agencies.rows}" var = "row">
-                            <option value = "<c:out value="${row.agency_name}" />">
-                            <c:out value = "${row.agency_name} (Agency:${row.agency_id})"/>
+                            <option value = "<c:out value="${row.agency_name}" />"><c:out value = "${row.agency_name} (Agency:${row.agency_id})"/>
                         </c:forEach>
                     </select>
                 </td>
@@ -238,23 +241,32 @@
 
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "job_length">
-                    <option value = ""><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                    <option value = "">
+                    <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
 
-                    <option value = "Full Time"><cf:GetPhrase phrase_id = "985" lang_id = "${lang}"/>
+                    <option value = "Full Time">
+                    <cf:GetPhrase phrase_id = "985" lang_id = "${lang}"/>
 
-                    <option value = "Contract"><cf:GetPhrase phrase_id = "986" lang_id = "${lang}"/>
+                    <option value = "Contract">
+                    <cf:GetPhrase phrase_id = "986" lang_id = "${lang}"/>
 
-                    <option value = "Part Time"><cf:GetPhrase phrase_id = "987" lang_id = "${lang}"/>
+                    <option value = "Part Time">
+                    <cf:GetPhrase phrase_id = "987" lang_id = "${lang}"/>
 
-                    <option value = "Temp-to-Perm"><cf:GetPhrase phrase_id = "988" lang_id = "${lang}"/>
+                    <option value = "Temp-to-Perm">
+                    <cf:GetPhrase phrase_id = "988" lang_id = "${lang}"/>
 
-                    <option value = "Tempporary"><cf:GetPhrase phrase_id = "989" lang_id = "${lang}"/>
+                    <option value = "Tempporary">
+                    <cf:GetPhrase phrase_id = "989" lang_id = "${lang}"/>
 
-                    <option value = "Internship"><cf:GetPhrase phrase_id = "990" lang_id = "${lang}"/>
+                    <option value = "Internship">
+                    <cf:GetPhrase phrase_id = "990" lang_id = "${lang}"/>
 
-                    <option value = "Entry Level"><cf:GetPhrase phrase_id = "991" lang_id = "${lang}"/>
+                    <option value = "Entry Level">
+                    <cf:GetPhrase phrase_id = "991" lang_id = "${lang}"/>
 
-                    <option value = "Co-Op"><cf:GetPhrase phrase_id = "992" lang_id = "${lang}"/>
+                    <option value = "Co-Op">
+                    <cf:GetPhrase phrase_id = "992" lang_id = "${lang}"/>
                 </select>
             </td>
 
@@ -262,7 +274,8 @@
 
             <tr>
                 <td colspan = "4" align = "center" bgcolor = "000000">
-                    <input type = "submit" value = "  <cf:GetPhrase phrase_id="982" lang_id="${lang}" />  ">
+                    <input type = "submit"
+                           value = "  <cf:GetPhrase phrase_id="982" lang_id="${lang}" />  ">
                 </td>
             </tr>
         </table>
@@ -336,7 +349,8 @@
                     <font face = "Arial" size = "-1">
 
                     <p>
-                    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                    <a STYLE = "text-decoration: underline"
+                       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='cfp_info'/>
 <c:param name='cfp_code' value='${row.cfp_code}'/>
 <c:param name='job_name' value='${row.cfp_title}'/>
@@ -350,14 +364,16 @@
                     <font face = "Arial" size = "-1">
 
                     <center>
-                        <fmt:formatDate value = "${row.cfp_startdate}" pattern = "dd-MMM-yyyy"/>
+                        <fmt:formatDate value = "${row.cfp_startdate}"
+                                        pattern = "dd-MMM-yyyy"/>
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1">
 
                     <center>
-                        <fmt:formatDate value = "${row.cfp_deadline}" pattern = "dd-MMM-yyyy"/>
+                        <fmt:formatDate value = "${row.cfp_deadline}"
+                                        pattern = "dd-MMM-yyyy"/>
                 </td>
 
                 <td>
@@ -431,7 +447,8 @@
                 <tr>
                     <td>
                         <font face = "Arial"
-                              size = "-1"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                              size = "-1"><a STYLE = "text-decoration: underline"
+                                             href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='cfp_info'/>
 <c:param name='cfp_code' value='${row.cfp_code}'/>
 <c:param name='job_name' value='${job_name}'/>
@@ -445,14 +462,16 @@
                         <font face = "Arial" size = "-1">
 
                         <center>
-                            <fmt:formatDate value = "${row.cfp_startdate}" pattern = "dd-MMM-yyyy"/>
+                            <fmt:formatDate value = "${row.cfp_startdate}"
+                                            pattern = "dd-MMM-yyyy"/>
                     </td>
 
                     <td>
                         <font face = "Arial" size = "-1">
 
                         <center>
-                            <fmt:formatDate value = "${row.cfp_deadline}" pattern = "dd-MMM-yyyy"/>
+                            <fmt:formatDate value = "${row.cfp_deadline}"
+                                            pattern = "dd-MMM-yyyy"/>
                     </td>
 
                     <td>

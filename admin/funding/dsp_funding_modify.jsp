@@ -14,7 +14,8 @@
 
         <!--- setting initiative number --->
         <sql:query var = "funding_initiative" maxRows = "1">
-            select initiative_id from initiative_info order by initiative_id desc
+            select initiative_id from initiative_info order by initiative_id
+            desc
         </sql:query>
 
         <c:choose>
@@ -24,15 +25,16 @@
 
             <c:otherwise>
                 <c:forEach var = "row" items = "${funding_initiative.rows}">
-                    <c:set var = "initiative_id" value = "${row.initiative_id + 1}"/>
+                    <c:set var = "initiative_id"
+                           value = "${row.initiative_id + 1}"/>
                 </c:forEach>
             </c:otherwise>
         </c:choose>
 
         <!--- determining if any languages have not been completed --->
         <sql:query var = "getlang">
-            select l.language, l.lang_id from languages l left join initiative_info i on l.lang_id = i.lang_id where
-            i.lang_id is null
+            select l.language, l.lang_id from languages l left join
+            initiative_info i on l.lang_id = i.lang_id where i.lang_id is null
         </sql:query>
 
         <!--- setting empty values to allow for the use of one form --->
@@ -163,9 +165,11 @@
 
             <c:set var = "ia_url" value = "${row.ia_url}"/>
 
-            <c:set var = "public_image_title" value = "${row.public_image_title}"/>
+            <c:set var = "public_image_title"
+                   value = "${row.public_image_title}"/>
 
-            <c:set var = "admin_image_title" value = "${row.admin_image_title}"/>
+            <c:set var = "admin_image_title"
+                   value = "${row.admin_image_title}"/>
 
             <c:set var = "image_toolbar" value = "${row.image_toolbar}"/>
 
@@ -194,36 +198,26 @@
         <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_funding'/>
 <c:param name='${user}'/>
-</c:url>" enctype = "multipart/form-data"
+</c:url>"
+              enctype = "multipart/form-data"
               method = "post">
-            <input type = "hidden" name = "initiative_id" value = "<c:out value='${initiative_id}'/>">
-            <input type = "hidden" name = "act" value = "<c:out value='${param.act}'/>"> <input type = "hidden"
-                   name = "initiative_name_required"
-                   value = "<cf:GetPhrase phrase_id='524' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "eligibility_required"
-                   value = "<cf:GetPhrase phrase_id='525' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "review_process_required"
-                   value = "<cf:GetPhrase phrase_id='526' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "copyright_required"
-                   value = "<cf:GetPhrase phrase_id='527' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "proposal_format_required"
-                   value = "<cf:GetPhrase phrase_id='528' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "about_submitting_required"
-                   value = "<cf:GetPhrase phrase_id='529' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_name_required"
-                   value = "<cf:GetPhrase phrase_id='530' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_email_required"
-                   value = "<cf:GetPhrase phrase_id='531' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_address_required"
-                   value = "<cf:GetPhrase phrase_id='532' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_courier_required"
-                   value = "<cf:GetPhrase phrase_id='533' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_phone_required"
-                   value = "<cf:GetPhrase phrase_id='534' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "ia_fax_required"
-                   value = "<cf:GetPhrase phrase_id='535' lang_id='${lang}'/>">
+            <input type = "hidden" name = "initiative_id"
+            value = "<c:out value='${initiative_id}'/>"> <input type = "hidden"
+            name = "act" value = "<c:out value='${param.act}'/>">
+            <input type = "hidden" name = "initiative_name_required"
+            value = "<cf:GetPhrase phrase_id='524' lang_id='${lang}'/>"> <input type = "hidden" name = "eligibility_required" value = "<cf:GetPhrase phrase_id='525' lang_id='${lang}'/>">
+            <input type = "hidden" name = "review_process_required"
+            value = "<cf:GetPhrase phrase_id='526' lang_id='${lang}'/>"> <input type = "hidden" name = "copyright_required" value = "<cf:GetPhrase phrase_id='527' lang_id='${lang}'/>">
+            <input type = "hidden" name = "proposal_format_required"
+            value = "<cf:GetPhrase phrase_id='528' lang_id='${lang}'/>"> <input type = "hidden" name = "about_submitting_required" value = "<cf:GetPhrase phrase_id='529' lang_id='${lang}'/>">
+            <input type = "hidden" name = "ia_name_required"
+            value = "<cf:GetPhrase phrase_id='530' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_email_required" value = "<cf:GetPhrase phrase_id='531' lang_id='${lang}'/>">
+            <input type = "hidden" name = "ia_address_required"
+            value = "<cf:GetPhrase phrase_id='532' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_courier_required" value = "<cf:GetPhrase phrase_id='533' lang_id='${lang}'/>">
+            <input type = "hidden" name = "ia_phone_required"
+            value = "<cf:GetPhrase phrase_id='534' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_fax_required" value = "<cf:GetPhrase phrase_id='535' lang_id='${lang}'/>">
             <input type = "hidden" name = "ia_courier_inst_required"
-                   value = "<cf:GetPhrase phrase_id='536' lang_id='${lang}'/>"><c:choose>
+            value = "<cf:GetPhrase phrase_id='536' lang_id='${lang}'/>"><c:choose>
                 <c:when test = "${param.act == 'add'}">
                     <p>
                     <b>
@@ -232,13 +226,15 @@
 
                     <select name = "lang_id">
                         <c:forEach var = "row" items = "${getlang.rows}">
-                            <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                            <option value = "<c:out value='${row.lang_id}'/>">
+                            <c:out value = '${row.language}'/>
                         </c:forEach>
                     </select>
                 </c:when>
 
                 <c:when test = "${param.act == 'edit'}">
-                    <input type = "hidden" name = "lang_id" value = "<c:out value='${lang_id}'/>">
+                    <input type = "hidden" name = "lang_id"
+                           value = "<c:out value='${lang_id}'/>">
                 </c:when>
             </c:choose>
 
@@ -248,7 +244,10 @@
             <cf:GetPhrase phrase_id = "207" lang_id = "${lang}"/>:</b></font>
 
             <br>
-            <input type = "text" name = "initiative_name" value = "<c:out value='${initiative_name}'/>" size = "60">
+            <input type = "text"
+                   name = "initiative_name"
+                   value = "<c:out value='${initiative_name}'/>"
+                   size = "60">
 
             <p>
             <b>
@@ -317,7 +316,8 @@
             <cf:GetPhrase phrase_id = "201" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "file" name = "admin_image_title" size = "40"><c:if test = "${!empty admin_image_title}">
+            <input type = "file" name = "admin_image_title" size = "40">
+            <c:if test = "${!empty admin_image_title}">
                 <font color = "FF0000">"
 
                 <c:out value = '${admin_image_title}'/>
@@ -333,7 +333,8 @@
             <cf:GetPhrase phrase_id = "202" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "file" name = "public_image_title" size = "40"><c:if test = "${!empty public_image_title}">
+            <input type = "file" name = "public_image_title" size = "40">
+            <c:if test = "${!empty public_image_title}">
                 <font color = "FF0000">"
 
                 <c:out value = '${public_image_title}'/>
@@ -354,7 +355,8 @@
             <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_name" value = "<c:out value='${ia_name}'/>" size = "50">
+            <input type = "text"                         name = "ia_name"
+                   value = "<c:out value='${ia_name}'/>" size = "50">
 
             <p>
             <b>*
@@ -362,7 +364,8 @@
             <cf:GetPhrase phrase_id = "200" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_contact" value = "<c:out value='${ia_contact}'/>" size = "50">
+            <input type = "text"                            name = "ia_contact"
+                   value = "<c:out value='${ia_contact}'/>" size = "50">
 
             <p>
             <b>*
@@ -370,7 +373,8 @@
             <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_email" value = "<c:out value='${ia_email}'/>" size = "50">
+            <input type = "text"                          name = "ia_email"
+                   value = "<c:out value='${ia_email}'/>" size = "50">
 
             <p>
             <b>*
@@ -378,7 +382,8 @@
             <cf:GetPhrase phrase_id = "25" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_address" value = "<c:out value='${ia_address}'/>" size = "50">
+            <input type = "text"                            name = "ia_address"
+                   value = "<c:out value='${ia_address}'/>" size = "50">
 
             <p>
             <b>*
@@ -386,7 +391,8 @@
             <cf:GetPhrase phrase_id = "26" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_courier" value = "<c:out value='${ia_courier}'/>" size = "50">
+            <input type = "text"                            name = "ia_courier"
+                   value = "<c:out value='${ia_courier}'/>" size = "50">
 
             <p>
             <b>*
@@ -404,7 +410,8 @@
             <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_phone" value = "<c:out value='${ia_phone}'/>" size = "25">
+            <input type = "text"                          name = "ia_phone"
+                   value = "<c:out value='${ia_phone}'/>" size = "25">
 
             <p>
             <b>*
@@ -412,7 +419,8 @@
             <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_fax" value = "<c:out value='${ia_fax}'/>" size = "25"></font>
+            <input type = "text"                        name = "ia_fax"
+                   value = "<c:out value='${ia_fax}'/>" size = "25"></font>
 
             <p>
             <b>
@@ -420,10 +428,12 @@
             <cf:GetPhrase phrase_id = "208" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "ia_url" size = "50" value = "<c:out value='${ia_url}'/>">
+            <input type = "text" name = "ia_url" size = "50"
+                   value = "<c:out value='${ia_url}'/>">
 
             <p>
-            <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+            <input type = "submit"
+                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
         </form>
     </c:otherwise>
 </c:choose>

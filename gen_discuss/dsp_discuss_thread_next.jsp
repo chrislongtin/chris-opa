@@ -5,7 +5,8 @@
 <c:set var = "lang" value = "${sessionScope.lang}" scope = "page"/>
 
 <sql:query var = "messages">
-    select * from discussion where doc_id = ? and discuss_parent = ? order by discuss_date desc
+    select * from discussion where doc_id = ? and discuss_parent = ? order by
+    discuss_date desc
 
     <sql:param value = "${param.doc_id}"/>
 
@@ -26,8 +27,8 @@
 
 <ul>
     <c:forEach items = "${messages.rows}" var = "row">
-        <li>
-        <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <li> <a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
   <c:param name='fuseaction' value='archive_comment'/>
   <c:param name='doc_id' value='${param.doc_id}'/>
   <c:param name='lang' value='${lang}'/>

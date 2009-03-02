@@ -27,7 +27,8 @@
         <c:set var = "faq_id" value = "${faq_num.rows[0].faq_id + 1}"/>
 
         <sql:update var = "faq_add">
-            insert into faq (faq_id, faq_question, faq_answer) values ( ?, ?, ? )
+            insert into faq (faq_id, faq_question, faq_answer) values ( ?, ?,
+            ? )
 
             <sql:param value = "${faq_id}"/>
 

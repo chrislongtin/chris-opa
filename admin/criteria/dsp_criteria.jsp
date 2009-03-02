@@ -21,7 +21,8 @@
 %>
 
 <sql:query var = "check_review_status">
-    select cfp_code from cfp_info where ? > cfp_deadline and cfp_proposal_review_deadline > ?
+    select cfp_code from cfp_info where ? > cfp_deadline and
+    cfp_proposal_review_deadline > ?
 
     <sql:param value = "${Current_Date}"/>
 
@@ -37,7 +38,8 @@
 </sql:query>
 
 <sql:query var = "minimums">
-    select minimum_score, minimum_rank from initiative_setup where initiative_setup_id = 1
+    select minimum_score, minimum_rank from initiative_setup where
+    initiative_setup_id = 1
 </sql:query>
 
 <!--- Main initiative criteria setup --->
@@ -47,7 +49,7 @@
 
 <cf:GetPhrase phrase_id = "72" lang_id = "${lang}"/></h3>
 <c:if test = "${user == 'coordinator' and review_active == 'no'}">
-    <a STYLE="text-decoration: underline"  href = "#add">
+    <a STYLE = "text-decoration: underline" href = "#add">
 
     <cf:GetPhrase phrase_id = "190" lang_id = "${lang}"/></a>
 </c:if>
@@ -75,7 +77,8 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "138" lang_id = "${lang}"/>:</b> <font face = "Times New Roman">I</font>-
+    <cf:GetPhrase phrase_id = "138" lang_id = "${lang}"/>:</b>
+    <font face = "Times New Roman">I</font>-
 
     <c:out value = "${row.i_criteria_id}"/>
 
@@ -106,9 +109,11 @@
 
     <cf:GetPhrase phrase_id = "141" lang_id = "${lang}"/>:</b>
 
-    <c:out value = "${row.i_high_rank}"/><c:if test = "${user == 'coordinator' and review_active == 'no'}">
+    <c:out value = "${row.i_high_rank}"/>
+    <c:if test = "${user == 'coordinator' and review_active == 'no'}">
         <br>
-        <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_criteria'/>
 <c:param name='i_criteria_id' value='${row.i_criteria_id}'/>
 <c:param name='act' value='del_criteria'/>
@@ -116,7 +121,8 @@
 </c:url>">
 
         <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
-        <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='edit_criteria'/>
 <c:param name='i_criteria_id' value='${row.i_criteria_id}'/>
 <c:param name='${user}'/>
@@ -155,15 +161,12 @@
 <c:param name='${user}'/>
 </c:url>"
           method = "post">
-        <input type = "hidden"
-               name = "i_criteria_name_required"
-               value = "<cf:GetPhrase phrase_id='450' lang_id='${lang}'/>"> <input type = "hidden"
-               name = "i_criteria_weight_required"
-               value = "<cf:GetPhrase phrase_id='451' lang_id='${lang}'/>"> <input type = "hidden"
-               name = "i_low_rank_required"
-               value = "<cf:GetPhrase phrase_id='452' lang_id='${lang}'/>">
-        <input type = "hidden" name = "i_high_rank_required"
-               value = "<cf:GetPhrase phrase_id='453' lang_id='${lang}'/>">
+        <input type = "hidden" name = "i_criteria_name_required"
+        value = "<cf:GetPhrase phrase_id='450' lang_id='${lang}'/>"> <input type = "hidden" name = "i_criteria_weight_required" value = "<cf:GetPhrase phrase_id='451' lang_id='${lang}'/>">
+        <input type = "hidden" name = "i_low_rank_required"
+        value = "<cf:GetPhrase phrase_id='452' lang_id='${lang}'/>"> <input type = "hidden"
+        name = "i_high_rank_required"
+        value = "<cf:GetPhrase phrase_id='453' lang_id='${lang}'/>">
 
         <p>
         <font face = "" color = "FF0000">*
@@ -189,6 +192,7 @@
         *
 
         <cf:GetPhrase phrase_id = "140" lang_id = "${lang}"/>:
-        <input type = "text" name = "i_criteria_weight" size = "6"> <input type = "submit" value = " Submit "></font>
+        <input type = "text" name = "i_criteria_weight" size = "6">
+        <input type = "submit" value = " Submit "></font>
     </form>
 </c:if>

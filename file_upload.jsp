@@ -1,7 +1,8 @@
 <%
     class FileUpload
         {
-        String saveFile(com.jspsmart.upload.File upFile, String path, ServletContext application)
+        String saveFile(com.jspsmart.upload.File upFile, String path,
+                        ServletContext application)
             throws java.io.IOException, com.jspsmart.upload.SmartUploadException
             {
             path = application.getRealPath(path);
@@ -16,7 +17,8 @@
                 if (filename.matches(".*\\[\\d+\\]\\..*"))
                     filename = filename.replaceFirst("\\[\\d+\\]\\.", ".");
 
-                filename = filename.replaceFirst("\\.(?=[^.]+$)", "[" + i + "].");
+                filename
+                    = filename.replaceFirst("\\.(?=[^.]+$)", "[" + i + "].");
 
                 f = new java.io.File(path, filename);
                 }

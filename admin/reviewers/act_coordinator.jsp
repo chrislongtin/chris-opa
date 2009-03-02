@@ -95,12 +95,15 @@
         </sql:query>
 
         <c:if test = "${coord_num.rowCount!=0}">
-            <c:set var = "coordinator_id" value = "${coord_num.rows[0].coordinator_id + 1}" scope = "page"/>
+            <c:set var = "coordinator_id"
+                   value = "${coord_num.rows[0].coordinator_id + 1}"
+                   scope = "page"/>
         </c:if>
 
         <sql:update>
-            insert into coordinators ( coordinator_id, coordinator_firstname, coordinator_lastname, coordinator_login,
-            coordinator_password, coordinator_email, coordinator_phone,
+            insert into coordinators ( coordinator_id, coordinator_firstname,
+            coordinator_lastname, coordinator_login, coordinator_password,
+            coordinator_email, coordinator_phone,
 
             <c:if test = "${!empty coordinator_fax}">
                 coordinator_fax,
@@ -118,7 +121,8 @@
                 coordinator_public_email,
             </c:if>
 
-            receive_public_emails, receive_admin_emails ) values ( ?, ?, ?, ?, ?, ?, ?,
+            receive_public_emails, receive_admin_emails ) values ( ?, ?, ?, ?,
+            ?, ?, ?,
 
             <c:if test = "${!empty coordinator_fax}">
                 ?,
@@ -176,7 +180,8 @@
 
     <c:when test = "${act=='edit'}">
         <sql:update>
-            update coordinators set coordinator_lastname=?, coordinator_firstname=?, coordinator_login=?,
+            update coordinators set coordinator_lastname=?,
+            coordinator_firstname=?, coordinator_login=?,
             coordinator_password=?, coordinator_email=?, coordinator_phone=?,
 
             <c:if test = "${!empty coordinator_fax}">
@@ -195,7 +200,8 @@
                 coordinator_public_email=?,
             </c:if>
 
-            receive_public_emails=?, receive_admin_emails=? where coordinator_id=?
+            receive_public_emails=?, receive_admin_emails=? where
+            coordinator_id=?
 
             <sql:param value = "${coordinator_lastname}"/>
 

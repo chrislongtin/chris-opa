@@ -8,7 +8,8 @@
 <!--- check for session.user variable to insure user logged in --->
 <%@ include file = "../act_session_check_sub.jsp"%>
 
-<jsp:useBean id = "myUpload" scope = "page" class = "com.jspsmart.upload.SmartUpload"/>
+<jsp:useBean id = "myUpload" scope = "page"
+             class = "com.jspsmart.upload.SmartUpload"/>
 
 <%
     myUpload.initialize(pageContext);
@@ -53,25 +54,41 @@
 </c:if>
 
 <%
-    pageContext.setAttribute("use_initiative_criteria", myRequest.getParameter("use_initiative_criteria"));
-    pageContext.setAttribute("use_cfp_criteria", myRequest.getParameter("use_cfp_criteria"));
-    pageContext.setAttribute("show_reviewers", myRequest.getParameter("show_reviewers"));
-    pageContext.setAttribute("show_reviewers_summary", myRequest.getParameter("show_reviewers_summary"));
-    pageContext.setAttribute("multiple_cfps", myRequest.getParameter("multiple_cfps"));
-    pageContext.setAttribute("public_attachments", myRequest.getParameter("public_attachments"));
+    pageContext.setAttribute("use_initiative_criteria",
+                             myRequest.getParameter("use_initiative_criteria"));
+    pageContext.setAttribute("use_cfp_criteria",
+                             myRequest.getParameter("use_cfp_criteria"));
+    pageContext.setAttribute("show_reviewers",
+                             myRequest.getParameter("show_reviewers"));
+    pageContext.setAttribute("show_reviewers_summary",
+                             myRequest.getParameter("show_reviewers_summary"));
+    pageContext.setAttribute("multiple_cfps",
+                             myRequest.getParameter("multiple_cfps"));
+    pageContext.setAttribute("public_attachments",
+                             myRequest.getParameter("public_attachments"));
     pageContext.setAttribute("listname", myRequest.getParameter("listname"));
 
-    pageContext.setAttribute("host_doc_dir", myRequest.getParameter("host_doc_dir"));
+    pageContext.setAttribute("host_doc_dir",
+                             myRequest.getParameter("host_doc_dir"));
     pageContext.setAttribute("host_url", myRequest.getParameter("host_url"));
-    pageContext.setAttribute("application_name", myRequest.getParameter("application_name"));
-    pageContext.setAttribute("application_directory", myRequest.getParameter("application_directory"));
-    pageContext.setAttribute("public_info", myRequest.getParameter("public_info"));
-    pageContext.setAttribute("public_info_degree", myRequest.getParameter("public_info_degree"));
-    pageContext.setAttribute("minimum_rank", myRequest.getParameter("minimum_rank"));
-    pageContext.setAttribute("show_weights", myRequest.getParameter("show_weights"));
-    pageContext.setAttribute("criteria_rankings", myRequest.getParameter("criteria_rankings"));
-    pageContext.setAttribute("default_lang", myRequest.getParameter("default_lang"));
-    pageContext.setAttribute("public_interface", myRequest.getParameter("public_interface"));
+    pageContext.setAttribute("application_name",
+                             myRequest.getParameter("application_name"));
+    pageContext.setAttribute("application_directory",
+                             myRequest.getParameter("application_directory"));
+    pageContext.setAttribute("public_info",
+                             myRequest.getParameter("public_info"));
+    pageContext.setAttribute("public_info_degree",
+                             myRequest.getParameter("public_info_degree"));
+    pageContext.setAttribute("minimum_rank",
+                             myRequest.getParameter("minimum_rank"));
+    pageContext.setAttribute("show_weights",
+                             myRequest.getParameter("show_weights"));
+    pageContext.setAttribute("criteria_rankings",
+                             myRequest.getParameter("criteria_rankings"));
+    pageContext.setAttribute("default_lang",
+                             myRequest.getParameter("default_lang"));
+    pageContext.setAttribute("public_interface",
+                             myRequest.getParameter("public_interface"));
 %>
 
 <c:set var = "use_initiative_criteria">
@@ -120,57 +137,61 @@
 
     if (!public_header_background.isMissing())
         {
-        String filename = upload.saveFile(public_header_background, path, application);
+        String filename = upload.saveFile(public_header_background, path,
+                                          application);
         pageContext.setAttribute("file_name2", filename);
         }
 
     if (!admin_header_background.isMissing())
         {
-        String filename = upload.saveFile(admin_header_background, path, application);
+        String filename = upload.saveFile(admin_header_background, path,
+                                          application);
         pageContext.setAttribute("file_name3", filename);
         }
 %>
 
 <sql:update var = "site_setup">
-    update initiative_setup set host_url = ?, host_doc_dir = ?, public_info = ?, public_info_degree = ?, minimum_rank
-    = ?, show_weights = ?, multiple_cfps = ?, listname = ?, use_initiative_criteria = ?, use_cfp_criteria = ?,
-    show_reviewers = ?, show_reviewers_summary = ?,
+    update initiative_setup set host_url = ?, host_doc_dir = ?, public_info =
+    ?, public_info_degree = ?, minimum_rank = ?, show_weights = ?,
+    multiple_cfps = ?, listname = ?, use_initiative_criteria = ?,
+    use_cfp_criteria = ?, show_reviewers = ?, show_reviewers_summary = ?,
 
-<%
+    <%
     if (!background_image.isMissing())
         {
-%>
+    %>
 
         background_image = ?,
 
-<%
+    <%
         }
-%>
+    %>
 
-<%
+    <%
     if (!public_header_background.isMissing())
         {
-%>
+    %>
 
         public_header_background = ?,
 
-<%
+    <%
         }
-%>
+    %>
 
-<%
+    <%
     if (!admin_header_background.isMissing())
         {
-%>
+    %>
 
         admin_header_background = ?,
 
-<%
+    <%
         }
-%>
+    %>
 
-    criteria_rankings = ?, public_attachments = ?, default_lang = ?, application_name = ?, application_directory = ?,
-    public_interface = ? where initiative_setup_id = 1
+    criteria_rankings = ?, public_attachments = ?, default_lang = ?,
+    application_name = ?, application_directory = ?, public_interface = ?
+    where initiative_setup_id = 1
 
     <sql:param value = "${host_url}"/>
 
@@ -196,38 +217,38 @@
 
     <sql:param value = "${show_reviewers_summary}"/>
 
-<%
+    <%
     if (!background_image.isMissing())
         {
-%>
+    %>
 
         <sql:param value = "${file_name1}"/>
 
-<%
+    <%
         }
-%>
+    %>
 
-<%
+    <%
     if (!public_header_background.isMissing())
         {
-%>
+    %>
 
         <sql:param value = "${file_name2}"/>
 
-<%
+    <%
         }
-%>
+    %>
 
-<%
+    <%
     if (!admin_header_background.isMissing())
         {
-%>
+    %>
 
         <sql:param value = "${file_name3}"/>
 
-<%
+    <%
         }
-%>
+    %>
 
     <sql:param value = "${criteria_rankings}"/>
 

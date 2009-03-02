@@ -16,7 +16,8 @@
     select coordinator_email from coordinators where receive_public_emails = 1
 </sql:query>
 
-<c:set var = "c_m" value = "${coord_email.rows[0].coordinator_email}" scope = "page"/>
+<c:set var = "c_m" value = "${coord_email.rows[0].coordinator_email}"
+       scope = "page"/>
 
 <sql:query var = "i_name">
     select initiative_name from initiative_info where lang_id = 1
@@ -26,7 +27,8 @@
 
 <c:if test = "${!(empty c_m)}">
     <p>
-    <a STYLE="text-decoration: underline"  href = "mailto:<c:out value="${c_m}" />?subject=<c:out value="${i_n}" /> FAQ">
+    <a STYLE = "text-decoration: underline"
+       href = "mailto:<c:out value="${c_m}" />?subject=<c:out value="${i_n}" /> FAQ">
 
     <cf:GetPhrase phrase_id = "107" lang_id = "${lang}"/>
 

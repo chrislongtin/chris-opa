@@ -16,15 +16,16 @@
         <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_edit">
 
         <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
 
         <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
     </div>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>

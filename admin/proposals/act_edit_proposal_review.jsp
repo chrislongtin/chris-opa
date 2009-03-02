@@ -28,18 +28,22 @@
 <c:forEach begin = "0" end = "${maxrank-1}" var = "row">
     <c:set var = "rank" value = "rank${row+1}" scope = "page"/>
 
-    <c:set var = "appraisal_comment" value = "${paramValues.appraisal_comment[row]}" scope = "page"/>
+    <c:set var = "appraisal_comment"
+           value = "${paramValues.appraisal_comment[row]}"
+           scope = "page"/>
 
     <!--- calculating the score based on rank & weight --->
     <c:choose>
         <c:when test = "${paramValues.i_criteria_id[row]!=0}">
-            <c:set var = "appraisal_score" value = "${paramValues.i_criteria_weight[row] * param[rank]}"
+            <c:set var = "appraisal_score"
+                   value = "${paramValues.i_criteria_weight[row] * param[rank]}"
                    scope = "page"/>
         </c:when>
 
         <c:otherwise>
             <c:if test = "${paramValues.cfp_criteria_id[row]!=0}">
-                <c:set var = "appraisal_score" value = "${paramValues.cfp_criteria_weight[row] * param[rank]}"
+                <c:set var = "appraisal_score"
+                       value = "${paramValues.cfp_criteria_weight[row] * param[rank]}"
                        scope = "page"/>
             </c:if>
         </c:otherwise>
@@ -47,8 +51,8 @@
 
     <!--- inserting the rank and score for each criteria --->
     <sql:update>
-        update proposal_appraisal set appraisal_rank = ?, appraisal_score = ?, appraisal_comment = ? where
-        appraisal_id = ?
+        update proposal_appraisal set appraisal_rank = ?, appraisal_score = ?,
+        appraisal_comment = ? where appraisal_id = ?
 
         <sql:param value = "${param[rank]}"/>
 
@@ -61,8 +65,8 @@
 </c:forEach>
 
 <sql:query var = "sum">
-    select SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum from proposal_appraisal where
-    tracking_code = ?
+    select SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum
+    from proposal_appraisal where tracking_code = ?
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -82,7 +86,8 @@
 
 <!--- setting the total scores in the proponents record --->
 <sql:update>
-    update proponent_record set proposal_score_sum = ?, proposal_rank = ? where tracking_code = ?
+    update proponent_record set proposal_score_sum = ?, proposal_rank = ?
+    where tracking_code = ?
 
     <sql:param value = "${score_sum2}"/>
 

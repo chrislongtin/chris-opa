@@ -20,7 +20,8 @@
 </c:forEach>
 
 <sql:query var = "funding_lang">
-    select L.language, L.lang_id from initiative_info I, languages L where I.lang_id = L.lang_id
+    select L.language, L.lang_id from initiative_info I, languages L where
+    I.lang_id = L.lang_id
 </sql:query>
 
 <sql:query var = "funding_agencies">
@@ -128,7 +129,9 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i> <a STYLE="text-decoration: underline"  href = "mailto:<c:out value='${row.ia_email}'/>">
+    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i>
+    <a STYLE = "text-decoration: underline"
+       href = "mailto:<c:out value='${row.ia_email}'/>">
 
     <c:out value = "${row.ia_email}"/></a>
 
@@ -142,7 +145,9 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i> <a STYLE="text-decoration: underline"  href = "<c:out value='${row.ia_url}'/>">
+    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i>
+    <a STYLE = "text-decoration: underline"
+       href = "<c:out value='${row.ia_url}'/>">
 
     <c:out value = "${row.ia_url}"/></a></font>
 
@@ -176,7 +181,8 @@
 
         <select name = "lang_id">
             <c:forEach var = "row" items = "${funding_lang.rows}">
-                <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                <option value = "<c:out value='${row.lang_id}'/>">
+                <c:out value = '${row.language}'/>
             </c:forEach>
         </select>
 
@@ -184,7 +190,8 @@
     </form>
 </c:if>
 
-<a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+<a STYLE = "text-decoration: underline"
+   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='modify_funding'/>
 <c:param name='act' value='add'/>
 <c:param name='${user}'/>
@@ -195,7 +202,8 @@
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "30" lang_id = "${lang}"/>:</h4><c:forEach var = "row" items = "${funding_agencies.rows}">
+<cf:GetPhrase phrase_id = "30" lang_id = "${lang}"/>:</h4>
+<c:forEach var = "row" items = "${funding_agencies.rows}">
     <font size = "-1">
 
     <p>
@@ -215,7 +223,9 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i> <a STYLE="text-decoration: underline"  href = "mailto:<c:out value='${row.agency_email}'/>">
+    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i>
+    <a STYLE = "text-decoration: underline"
+       href = "mailto:<c:out value='${row.agency_email}'/>">
 
     <c:out value = '${row.agency_email}'/></a>
 
@@ -229,11 +239,15 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i> <a STYLE="text-decoration: underline"  href = "<c:out value='${row.agency_url}'/>">
+    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i>
+    <a STYLE = "text-decoration: underline"
+       href = "<c:out value='${row.agency_url}'/>">
 
-    <c:out value = '${row.agency_url}'/></a><c:if test = "${user == 'coordinator'}">
+    <c:out value = '${row.agency_url}'/></a>
+    <c:if test = "${user == 'coordinator'}">
         <br>
-        <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='modify_agencies'/>
 <c:param name='act' value='edit'/>
 <c:param name='agency_id' value='${row.agency_id}'/>
@@ -248,7 +262,8 @@
 
 <c:if test = "${user == 'coordinator'}">
     <p>
-    <h4><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+    <h4><a STYLE = "text-decoration: underline"
+           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='modify_agencies'/>
 <c:param name='act' value='add'/>
 <c:param name='${user}'/>

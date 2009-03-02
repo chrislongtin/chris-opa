@@ -9,7 +9,8 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "messages">
-    select discussion_id, discuss_subject, discuss_author, discuss_date from admin_discussion order by discussion_id
+    select discussion_id, discuss_subject, discuss_author, discuss_date from
+    admin_discussion order by discussion_id
 </sql:query>
 
 <h4>
@@ -57,7 +58,8 @@
 
             <td>
                 <font size = "-1"
-                      face = "Arial"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                      face = "Arial"><a STYLE = "text-decoration: underline"
+                                        href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='admin_discuss_edit'/>
 <c:param name='discussion_id' value='${row.discussion_id}'/>
 <c:param name='${user}'/>
@@ -75,7 +77,8 @@
             <td>
                 <font size = "-1" face = "Arial">
 
-                <fmt:formatDate pattern = 'MMM dd yyyy' value = '${row.discuss_date}'/>
+                <fmt:formatDate pattern = 'MMM dd yyyy'
+                                value = '${row.discuss_date}'/>
             </td>
         </tr>
     </c:forEach>

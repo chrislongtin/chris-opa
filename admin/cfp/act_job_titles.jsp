@@ -45,7 +45,8 @@
 
     <c:when test = "${param.act == 'Edit'}">
         <sql:update var = "title_add2">
-            update standardjobnames set seq_no = ?, job_name = ? where seq_no = ?
+            update standardjobnames set seq_no = ?, job_name = ? where seq_no
+            = ?
 
             <sql:param value = "${param.seq_no}"/>
 

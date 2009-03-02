@@ -10,7 +10,8 @@
 <!--- Modify or Add Funding Initiative Information --->
 
 <sql:query var = "funding_initiative">
-    select minimum_score, minimum_rank from initiative_setup where initiative_setup_id = 1
+    select minimum_score, minimum_rank from initiative_setup where
+    initiative_setup_id = 1
 </sql:query>
 
 <c:if test = "${funding_initiative.rowCount == 0}">
@@ -20,10 +21,10 @@
 
     <c:import url = "funding/dsp_funding_modify.jsp?fuseaction=modify_funding&${user}"/>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <p>
@@ -38,22 +39,26 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_minimum_values'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+          method = "post">
 </cfoutput>
 
 <input type = "hidden" name = "initiative_id" value = "1">
-<input type = "hidden" name = "minimum_score_required" value = "<cf:GetPhrase phrase_id='513' lang_id='${lang}'/>">
-<c:forEach var = "row" items = "${funding_initiative.rows}">
+<input type = "hidden" name = "minimum_score_required"
+value = "<cf:GetPhrase phrase_id='513' lang_id='${lang}'/>"><c:forEach var = "row"
+items = "${funding_initiative.rows}">
     <p>
     <font color = "FF0000"><b>*
 
-    <cf:GetPhrase phrase_id = "509" lang_id = "${lang}"/>:</b></font><input type = "number"
-                                                                            name = "minimum_score"
-                                                                            value = "<c:out value='${row.minimum_score}'/>"
-                                                                            size = "6">
+    <cf:GetPhrase phrase_id = "509"
+                  lang_id = "${lang}"/>:</b></font><input type = "number"
+                                                          name = "minimum_score"
+                                                          value = "<c:out value='${row.minimum_score}'/>"
+                                                          size = "6">
 </c:forEach>
 
 <p>
-<input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+<input type = "submit"
+       value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 
 </form>

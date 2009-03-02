@@ -7,7 +7,8 @@
 <!-- Update report appraisal --->
 
 <sql:update var = "review_chg">
-    update report_appraisal set report_comments = ? where report_appraisal_id = ?
+    update report_appraisal set report_comments = ? where report_appraisal_id
+    = ?
 
     <sql:param value = "${param.report_review}"/>
 

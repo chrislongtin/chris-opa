@@ -4,6 +4,7 @@
 · explorer.css: Internet Explorer 4 & 5, Opera 5 & 6, WebTV 2.6
 · ie6.css: Internet Explorer 6
 */
+
 var css = "netscape.css";
 var nua = navigator.userAgent;
 
@@ -28,4 +29,5 @@ else if (document.all)
         }
     }
 
-document.write('<link rel = "stylesheet" type = "text\/css" href = "../docs/'+css+'" />');
+document.write('<link rel = "stylesheet" type = "text\/css" href = "../docs/'
+                   + css + '" />');

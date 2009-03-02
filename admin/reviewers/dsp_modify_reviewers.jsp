@@ -43,17 +43,24 @@
     <c:set var = "reviewer" value = "${sessionScope.rid}" scope = "page"/>
 
     <sql:query var = "reviewer_settings">
-        select cfp_cat_id, reviewer_coordinator, cfp_code from reviewers where reviewer_id = ?
+        select cfp_cat_id, reviewer_coordinator, cfp_code from reviewers where
+        reviewer_id = ?
 
         <sql:param value = "${reviewer}"/>
     </sql:query>
 
     <c:if test = "${reviewer_settings.rowCount!=0}">
-        <c:set var = "reviewer_cfp_cat_id" value = "${reviewer_settings.rows[0].cfp_cat_id}" scope = "page"/>
+        <c:set var = "reviewer_cfp_cat_id"
+               value = "${reviewer_settings.rows[0].cfp_cat_id}"
+               scope = "page"/>
 
-        <c:set var = "reviewer_cfp_code" value = "${reviewer_settings.rows[0].cfp_code}" scope = "page"/>
+        <c:set var = "reviewer_cfp_code"
+               value = "${reviewer_settings.rows[0].cfp_code}"
+               scope = "page"/>
 
-        <c:set var = "reviewer_organizer" value = "${reviewer_settings.rows[0].reviewer_coordinator}" scope = "page"/>
+        <c:set var = "reviewer_organizer"
+               value = "${reviewer_settings.rows[0].reviewer_coordinator}"
+               scope = "page"/>
     </c:if>
 
     <!--- if reviewer is associated with a specific category get the name --->
@@ -64,7 +71,9 @@
             <sql:param value = "${reviewer_cfp_cat_id}"/>
         </sql:query>
 
-        <c:set var = "cfp_cat_name" value = "${r_cfp_cat_title.rows[0].cfp_cat_name}" scope = "page"/>
+        <c:set var = "cfp_cat_name"
+               value = "${r_cfp_cat_title.rows[0].cfp_cat_name}"
+               scope = "page"/>
     </c:if>
 </c:if>
 
@@ -95,20 +104,18 @@
         <p>
         <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
 
-        <form action = "index.jsp?fuseaction=act_reviewer&act=add" method = "post">
-            <input type = "hidden" name = "cfp_code" value = "<c:out value="${cfp_code}" />"> <input type = "hidden"
-                   name = "reviewer_lastname_required"
-                   value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />"> <input type = "hidden"
-                   name = "reviewer_firstname_required"
-                   value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />"> <input type = "hidden"
-                   name = "reviewer_login_required"
-                   value = "<cf:GetPhrase phrase_id="699" lang_id="${lang}" />"> <input type = "hidden"
-                   name = "reviewer_email_required"
-                   value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />"> <input type = "hidden"
-                   name = "reviewer_password_required"
-                   value = "<cf:GetPhrase phrase_id="701" lang_id="${lang}" />">
-            <input type = "hidden" name = "reviewer_phone_required"
-                   value = "<cf:GetPhrase phrase_id="703" lang_id="${lang}" />">
+        <form action = "index.jsp?fuseaction=act_reviewer&act=add"
+              method = "post">
+            <input type = "hidden" name = "cfp_code"
+            value = "<c:out value="${cfp_code}" />">
+            <input type = "hidden" name = "reviewer_lastname_required"
+            value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />"> <input type = "hidden" name = "reviewer_firstname_required" value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />">
+            <input type = "hidden" name = "reviewer_login_required"
+            value = "<cf:GetPhrase phrase_id="699" lang_id="${lang}" />"> <input type = "hidden" name = "reviewer_email_required" value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
+            <input type = "hidden" name = "reviewer_password_required"
+            value = "<cf:GetPhrase phrase_id="701" lang_id="${lang}" />"> <input type = "hidden"
+            name = "reviewer_phone_required"
+            value = "<cf:GetPhrase phrase_id="703" lang_id="${lang}" />">
 
             <p>
             <font color = "FF0000"><b>*
@@ -189,12 +196,14 @@
             <cf:GetPhrase phrase_id = "1022" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "payment_rate" size = "15"><c:if test = "${sessionScope.user=='coordinator'}">
+            <input type = "text" name = "payment_rate" size = "15">
+            <c:if test = "${sessionScope.user=='coordinator'}">
                 <p>
                 <b>
 
                 <cf:GetPhrase phrase_id = "705" lang_id = "${lang}"/>?:</b>
-                <input type = "checkbox" name = "reviewer_coordinator" value = "1"> yes
+                <input type = "checkbox" name = "reviewer_coordinator"
+                value = "1"> yes
             </c:if>
 
             <c:choose>
@@ -204,24 +213,29 @@
 
                     <cf:GetPhrase phrase_id = "706" lang_id = "${lang}"/>:</b>
 
-                    <c:out value = "${cfp_name.rows[0].cfp_title}"/><c:if test = "${cfp_categories.rowCount!=0}">
+                    <c:out value = "${cfp_name.rows[0].cfp_title}"/>
+                    <c:if test = "${cfp_categories.rowCount!=0}">
                         <p>
                         <b>
 
-                        <cf:GetPhrase phrase_id = "707" lang_id = "${lang}"/>:</b><c:choose>
+                        <cf:GetPhrase phrase_id = "707"
+                        lang_id = "${lang}"/>:</b><c:choose>
                             <c:when test = "${reviewer_cfp_cat_id==0}">
                                 <select name = "cfp_cat_id">
-                                    <option value = "0"><cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                                    <option value = "0">
+                                    <cf:GetPhrase phrase_id = "641"
+                                                  lang_id = "${lang}"/>
 
-                                    <c:forEach items = "${cfp_categories.rows}" var = "row">
-                                        <option value = "<c:out value="${row.cfp_cat_id}" />">
-                                        <c:out value = "${row.cfp_cat_name}"/>
+                                    <c:forEach items = "${cfp_categories.rows}"
+                                               var = "row">
+                                        <option value = "<c:out value="${row.cfp_cat_id}" />"><c:out value = "${row.cfp_cat_name}"/>
                                     </c:forEach>
                                 </select>
                             </c:when>
 
                             <c:otherwise>
-                                <input type = "hidden" name = "cfp_cat_id"
+                                <input type = "hidden"
+                                       name = "cfp_cat_id"
                                        value = "<c:out value="${reviewer_cfp_cat_id}" />">
 
                                 <c:out value = "${cfp_cat_name}"/>
@@ -241,7 +255,8 @@
             </c:choose>
 
             <p>
-            <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+            <input type = "submit"
+                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
         </form>
     </c:when>
 
@@ -381,6 +396,7 @@ where cfp_code = ? and
 		
 	</c:when>
 </c:choose>
+
 
 
 

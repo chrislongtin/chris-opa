@@ -9,8 +9,9 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "comm_sent">
-    select SM.tracking_code, SM.date_sent, SM.letter_id, RS.status_name from sent_messages SM, record_status RS,
-    default_letters DL where SM.letter_id = DL.letter_id AND DL.status_id = RS.status_id order by tracking_code
+    select SM.tracking_code, SM.date_sent, SM.letter_id, RS.status_name from
+    sent_messages SM, record_status RS, default_letters DL where SM.letter_id
+    = DL.letter_id AND DL.status_id = RS.status_id order by tracking_code
 </sql:query>
 
 <c:choose>
@@ -52,12 +53,14 @@
                     <td>
                         <font size = "-1" face = "Arial">
 
-                        <fmt:formatDate pattern = 'dd-MMM-yyyy' value = '${row.date_sent}'/>
+                        <fmt:formatDate pattern = 'dd-MMM-yyyy'
+                                        value = '${row.date_sent}'/>
                     </td>
 
                     <td>
                         <font size = "-1"
-                              face = "Arial"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                              face = "Arial"><a STYLE = "text-decoration: underline"
+                                                href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_message_type'/>
 <c:param name='letter_id' value='${row.letter_id}'/>
 <c:param name='${user}'/>

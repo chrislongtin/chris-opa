@@ -21,7 +21,7 @@
     </c:when>
 
     <c:otherwise>
-        <a STYLE="text-decoration: underline"  href = "#add">
+        <a STYLE = "text-decoration: underline" href = "#add">
 
         <cf:GetPhrase phrase_id = "175" lang_id = "${lang}"/></a>
     </c:otherwise>
@@ -37,7 +37,8 @@
 
     <c:out value = '${row.faq_answer}'/></menu>
 
-    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+    <a STYLE = "text-decoration: underline"
+       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_comm_faq'/>
 <c:param name='faq_id' value='${row.faq_id}'/>
 <c:param name='act' value='Delete'/>
@@ -45,7 +46,8 @@
 </c:url>">
 
     <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
-    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+    <a STYLE = "text-decoration: underline"
+       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_comm_faq'/>
 <c:param name='faq_id' value='${row.faq_id}'/>
 <c:param name='act' value='Edit'/>
@@ -62,10 +64,13 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_comm_faq'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
+</c:url>"
+      method = "post">
     <input type = "hidden" name = "act" value = "Add">
-    <input type = "hidden" name = "faq_question_required" value = "<cf:GetPhrase phrase_id='483' lang_id='${lang}'/>">
-    <input type = "hidden" name = "faq_answer_required" value = "<cf:GetPhrase phrase_id='484' lang_id='${lang}'/>"> <b>
+    <input type = "hidden" name = "faq_question_required"
+    value = "<cf:GetPhrase phrase_id='483' lang_id='${lang}'/>"> <input type = "hidden"
+    name = "faq_answer_required"
+    value = "<cf:GetPhrase phrase_id='484' lang_id='${lang}'/>"> <b>
 
     <cf:GetPhrase phrase_id = "176" lang_id = "${lang}"/>:</b>
 
@@ -83,5 +88,6 @@
     </textarea>
 
     <p>
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+    <input type = "submit"
+           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
 </form>

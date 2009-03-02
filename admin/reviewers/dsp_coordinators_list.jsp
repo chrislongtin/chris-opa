@@ -13,7 +13,8 @@
 <!--------------------- DISPLAY COORDINATORS -------------------------->
 
 <sql:query var = "coordinators">
-    select * from coordinators order by coordinator_lastname, coordinator_firstname
+    select * from coordinators order by coordinator_lastname,
+    coordinator_firstname
 </sql:query>
 
 <table border = "1" cellspacing = "0" cellpadding = "2" width = "100%">
@@ -29,7 +30,9 @@
         <c:when test = "${sessionScope.user=='coordinator'}">
             <tr>
                 <td colspan = "3" align = "right">
-                    <font size = "-1" face = "Arial"> <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=modify_coordinator&act=add">
+                    <font size = "-1" face = "Arial">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=modify_coordinator&act=add">
 
                     <cf:GetPhrase phrase_id = "328" lang_id = "${lang}"/></a>
 
@@ -64,10 +67,12 @@
             <c:if test = "${sessionScope.user=='coordinator'}">
                 <td>
                     <font face = "Arial" size = "1">
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=act_coordinator&act=delete&coordinator_id=<c:out value="${row.coordinator_id}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=act_coordinator&act=delete&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
                     <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=modify_coordinator&act=edit&coordinator_id=<c:out value="${row.coordinator_id}" />">
+                    <a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=modify_coordinator&act=edit&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
                     <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
                 </td>

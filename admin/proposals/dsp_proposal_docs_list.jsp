@@ -21,7 +21,8 @@
 <!--- show the proponent the full proposal record --->
 
 <sql:query var = "proposal_info">
-    select p.*, c.cfp_title from proponent_record p, cfp_info c where p.tracking_code = ? and p.cfp_code = c.cfp_code
+    select p.*, c.cfp_title from proponent_record p, cfp_info c where
+    p.tracking_code = ? and p.cfp_code = c.cfp_code
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -29,8 +30,8 @@
 <c:set var = "pi" value = "${proposal_info.rows[0]}" scope = "page"/>
 
 <sql:query var = "proposal_docs">
-    select d.*, dt.doc_type_name from documents d, document_types dt where d.tracking_code = ? and d.doc_type_id =
-    dt.doc_type_id
+    select d.*, dt.doc_type_name from documents d, document_types dt where
+    d.tracking_code = ? and d.doc_type_id = dt.doc_type_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -42,19 +43,22 @@
 <c:choose>
     <c:when test = "${(source=='proposal_list') and (sessionScope.user=='coordinator')}">
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_list&cfp_code=<c:out value="${cfp_code}" />">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_list&cfp_code=<c:out value="${cfp_code}" />">
 
         <cf:GetPhrase phrase_id = "610" lang_id = "${lang}"/></a>
     </c:when>
 
     <c:when test = "${source=='review'}">
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_review&tracking_code=<c:out value="${tracking_code}" />">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_review&tracking_code=<c:out value="${tracking_code}" />">
 
         <cf:GetPhrase phrase_id = "611" lang_id = "${lang}"/></a>
     </c:when>
 
     <c:when test = "${source=='review_edit'}">
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit_review&tracking_code=<c:out value="${tracking_code}" />">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_edit_review&tracking_code=<c:out value="${tracking_code}" />">
 
         <cf:GetPhrase phrase_id = "611" lang_id = "${lang}"/></a>
     </c:when>
@@ -102,7 +106,8 @@
                 <br>
                 <font face = "arial" size = "-2">
 
-                <fmt:formatDate value = "${row.doc_date}" pattern = "MMM dd, yyyy"/>
+                <fmt:formatDate value = "${row.doc_date}"
+                                pattern = "MMM dd, yyyy"/>
 
                 <br>
                 <c:out value = "${row.doc_type_name}"/></font>
@@ -111,8 +116,11 @@
 
         <tr>
             <td colspan = "3">
-                <font face = "arial" size = "-1"><c:if test = "${!empty row.doc_filename}">
-                    <a STYLE="text-decoration: underline"  href = "../docs/<c:out value="${row.doc_filename}" />?ois=no" target = "new">
+                <font face = "arial" size = "-1">
+                <c:if test = "${!empty row.doc_filename}">
+                    <a STYLE = "text-decoration: underline"
+                       href = "../docs/<c:out value="${row.doc_filename}" />?ois=no"
+                       target = "new">
 
                     <c:out value = "${row.doc_filename}"/></a>
                 </c:if>

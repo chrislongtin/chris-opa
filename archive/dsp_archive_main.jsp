@@ -15,9 +15,12 @@
     select public_info, public_info_degree from initiative_setup
 </sql:query>
 
-<c:set var = "public_info" value = "${info_shown.rows[0].public_info}" scope = "page"/>
+<c:set var = "public_info" value = "${info_shown.rows[0].public_info}"
+       scope = "page"/>
 
-<c:set var = "public_info_degree" value = "${info_shown.rows[0].public_info_degree}" scope = "page"/>
+<c:set var = "public_info_degree"
+       value = "${info_shown.rows[0].public_info_degree}"
+       scope = "page"/>
 
 <h2>
 
@@ -44,7 +47,8 @@
         <!--- output cfp information --->
         <tr bgcolor = "CFCFCF">
             <td colspan = "2">
-                <font face = "Arial"><b><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=cfp_info&cfp_code=<c:out value="${row.cfp_code}" />&lang=<c:out value="${lang}" />">CFP-
+                <font face = "Arial"><b><a STYLE = "text-decoration: underline"
+                                           href = "index.jsp?fuseaction=cfp_info&cfp_code=<c:out value="${row.cfp_code}" />&lang=<c:out value="${lang}" />">CFP-
 
                 <c:out value = "${row.cfp_code}"/>
 
@@ -54,9 +58,10 @@
 
         <!--- retrieve proponent info related to each cfp --->
         <sql:query var = "proponent_info">
-            select distinct d.tracking_code, p.proponent_institution, p.proponent_leader_firstname,
-            p.proponent_leader_lastname from documents d, proponent_record p where p.cfp_code = ? and d.tracking_code
-            = p.tracking_code
+            select distinct d.tracking_code, p.proponent_institution,
+            p.proponent_leader_firstname, p.proponent_leader_lastname from
+            documents d, proponent_record p where p.cfp_code = ? and
+            d.tracking_code = p.tracking_code
 
             <sql:param value = "${row.cfp_code}"/>
 
@@ -95,7 +100,8 @@
                             <!--- if amount of info shown to public is limited, do not include link to full proponent info --->
                             <c:choose>
                                 <c:when test = "${public_info_degree=='complete'}">
-                                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=archive_proposal&tracking_code=<c:out value="${prow.tracking_code}" />&lang=<c:out value="${lang}" />">
+                                    <a STYLE = "text-decoration: underline"
+                                       href = "index.jsp?fuseaction=archive_proposal&tracking_code=<c:out value="${prow.tracking_code}" />&lang=<c:out value="${lang}" />">
 
                                     <c:out value = "${prow.proponent_leader_firstname}"/>
 
@@ -120,11 +126,13 @@
                         </td>
                     </tr>
 
-                    <c:set var = "tracking_code" value = "${prow.tracking_code}" scope = "page"/>
+                    <c:set var = "tracking_code" value = "${prow.tracking_code}"
+                           scope = "page"/>
 
                     <!--- retrieve document list for each proponent --->
                     <sql:query var = "documents">
-                        select doc_title, doc_id, doc_filename from documents where tracking_code = ? order by doc_title
+                        select doc_title, doc_id, doc_filename from documents
+                        where tracking_code = ? order by doc_title
 
                         <sql:param value = "${tracking_code}"/>
                     </sql:query>
@@ -138,7 +146,8 @@
                                 <c:choose>
                                     <c:when test = "${public_info_degree=='complete'}">
                                         <c:if test = "${drow.doc_filename!=''}">
-                                            <a STYLE="text-decoration: underline"  href = "docs/<c:out value="${drow.doc_filename}" />?ois=no">
+                                            <a STYLE = "text-decoration: underline"
+                                               href = "docs/<c:out value="${drow.doc_filename}" />?ois=no">
                                         </c:if>
 
                                         <c:out value = "${drow.doc_title}"/>
@@ -163,9 +172,11 @@
                                 <!--- if public has access to all pubic info include link to discussion --->
                                 <c:choose>
                                     <c:when test = "${public_info_degree=='complete'}">
-                                        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${drow.doc_id}" />&lang=<c:out value="${lang}" />">
+                                        <a STYLE = "text-decoration: underline"
+                                           href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${drow.doc_id}" />&lang=<c:out value="${lang}" />">
 
-                                        <cf:GetPhrase phrase_id = "55" lang_id = "${lang}"/></a>
+                                        <cf:GetPhrase phrase_id = "55"
+                                                      lang_id = "${lang}"/></a>
                                     </c:when>
 
                                     <c:otherwise>

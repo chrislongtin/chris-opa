@@ -23,7 +23,8 @@
         </c:forEach>
 
         <sql:update var = "cat_add">
-            insert into cfp_category (cfp_cat_id, cfp_code, cfp_cat_name) values (?, ?, ?)
+            insert into cfp_category (cfp_cat_id, cfp_code, cfp_cat_name)
+            values (?, ?, ?)
 
             <sql:param value = "${cfp_cat_id}"/>
 
@@ -35,7 +36,8 @@
 
     <c:when test = "${param.act == 'edit'}">
         <sql:update var = "cat_edit">
-            update cfp_category set cfp_code = ?, cfp_cat_name = ? where cfp_cat_id = ?
+            update cfp_category set cfp_code = ?, cfp_cat_name = ? where
+            cfp_cat_id = ?
 
             <sql:param value = "${param.cfp_code}"/>
 

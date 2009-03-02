@@ -24,7 +24,8 @@
         <!--- add new CFP Criteria --->
 
         <sql:query var = "criteria_id" maxRows = "1">
-            select cfp_criteria_id from cfp_criteria order by cfp_criteria_id desc
+            select cfp_criteria_id from cfp_criteria order by cfp_criteria_id
+            desc
         </sql:query>
 
         <!--- set the CFP_Criteria_id variable to the next highest value --->
@@ -32,7 +33,8 @@
         <c:choose>
             <c:when test = "${criteria_id.rowCount != 0}">
                 <c:forEach var = "row" items = "${criteria_id.rows}">
-                    <c:set var = "cfp_criteria_id" value = "${row.cfp_criteria_id + 1}"/>
+                    <c:set var = "cfp_criteria_id"
+                           value = "${row.cfp_criteria_id + 1}"/>
                 </c:forEach>
             </c:when>
 
@@ -42,8 +44,9 @@
         </c:choose>
 
         <sql:update var = "new_cfp_criteria">
-            insert into cfp_criteria ( cfp_criteria_id, cfp_code, cfp_criteria_name, cfp_criteria_weight,
-            cfp_high_rank, cfp_low_rank ) values ( ?, ?, ?, ?, ?, ? )
+            insert into cfp_criteria ( cfp_criteria_id, cfp_code,
+            cfp_criteria_name, cfp_criteria_weight, cfp_high_rank,
+            cfp_low_rank ) values ( ?, ?, ?, ?, ?, ? )
 
             <sql:param value = "${cfp_criteria_id}"/>
 
@@ -61,8 +64,8 @@
 
     <c:when test = "${param.act == 'edit'}">
         <sql:update var = "edit_cfp_criteria">
-            update cfp_criteria set cfp_criteria_name = ?, cfp_criteria_weight = ?, cfp_high_rank = ?, cfp_low_rank =
-            ? where cfp_criteria_id = ?
+            update cfp_criteria set cfp_criteria_name = ?, cfp_criteria_weight
+            = ?, cfp_high_rank = ?, cfp_low_rank = ? where cfp_criteria_id = ?
 
             <sql:param value = "${param.cfp_criteria_name}"/>
 

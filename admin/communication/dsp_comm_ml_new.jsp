@@ -8,8 +8,10 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "members">
-    select distinct members.* from members, listmembers, mailinglists where members.member_id = listmembers.member_id
-    and listmembers.list_id = mailinglists.list_id and mailinglists.coordinator_id = ? order by members.member_name
+    select distinct members.* from members, listmembers, mailinglists where
+    members.member_id = listmembers.member_id and listmembers.list_id =
+    mailinglists.list_id and mailinglists.coordinator_id = ? order by
+    members.member_name
 
     <sql:param value = "${sessionScope.coord_id}"/>
 </sql:query>
@@ -18,19 +20,22 @@
 
 <cf:GetPhrase phrase_id = "802" lang_id = "${lang}"/></h3>
 
-<form name = "new_ml" method = "post" action = "index.jsp?fuseaction=comm_ml_donew">
+<form name = "new_ml" method = "post"
+      action = "index.jsp?fuseaction=comm_ml_donew">
     <table width = "100%" border = "0" cellspacing = "0" cellpadding = "10">
         <tr>
             <td>
                 <FONT face = Arial size = -1><font color = "FF0000"><b>*
 
-                <cf:GetPhrase phrase_id = "810" lang_id = "${lang}"/>:</b></font></font>
+                <cf:GetPhrase phrase_id = "810"
+                              lang_id = "${lang}"/>:</b></font></font>
             </td>
 
             <td>
-                <input type = "text" name = "list_name" size = "20" maxlength = "20" value = "">
+                <input type = "text" name = "list_name" size = "20"
+                maxlength = "20" value = "">
                 <input type = "hidden" name = "list_name_required"
-                       value = "<cf:GetPhrase phrase_id="832" lang_id="${lang}" />">
+                value = "<cf:GetPhrase phrase_id="832" lang_id="${lang}" />">
             </td>
         </tr>
 
@@ -42,7 +47,8 @@
             </td>
 
             <td>
-                <textarea name = "list_descr" wrap = "VIRTUAL" cols = "40" rows = "3">
+                <textarea name = "list_descr" wrap = "VIRTUAL" cols = "40"
+                          rows = "3">
                 </textarea>
             </td>
         </tr>
@@ -55,7 +61,8 @@
             </td>
 
             <td>
-                <textarea name = "list_topic" wrap = "VIRTUAL" cols = "40" rows = "5">
+                <textarea name = "list_topic" wrap = "VIRTUAL" cols = "40"
+                          rows = "5">
                 </textarea>
             </td>
         </tr>
@@ -77,8 +84,7 @@
                     <br>
                     <select name = "members" size = "5" multiple>
                         <c:forEach var = "row" items = "${members.rows}">
-                            <option value = "<c:out value="${row.member_id}" />">
-                            <c:out value = "${row.member_name} (${row.member_email})"/>
+                            <option value = "<c:out value="${row.member_id}" />"><c:out value = "${row.member_name} (${row.member_email})"/>
                         </c:forEach>
                     </select>
 
@@ -89,7 +95,8 @@
 
         <tr>
             <td colspan = "2">
-                <FONT face = Arial size = -1> <input type = "checkbox" name = "default" checked value = "1">
+                <FONT face = Arial size = -1>
+                <input type = "checkbox" name = "default" checked value = "1">
 
                 <cf:GetPhrase phrase_id = "807" lang_id = "${lang}"/></font>
             </td>
@@ -98,7 +105,9 @@
         <tr align = "center">
             <td colspan = "2">
                 <input type = "hidden" name = "act" value = "donew">
-                <input type = "submit" name = "submit_new" value = "<cf:GetPhrase phrase_id="815" lang_id="${lang}" />">
+                <input type = "submit"
+                       name = "submit_new"
+                       value = "<cf:GetPhrase phrase_id="815" lang_id="${lang}" />">
             </td>
         </tr>
     </table>

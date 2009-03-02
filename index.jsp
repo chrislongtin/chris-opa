@@ -4,7 +4,7 @@
 
 <% /*<!--- PUBLIC Index Page for OPA (Online Proposal Appraisal) management system --->*/
 %>
-
+<%-- 
 <c:if test = "${empty sessionScope.bypass}">
     <sql:query var = "where">
         select public_interface from initiative_setup
@@ -39,11 +39,12 @@
             <c:redirect url = "admin/index.jsp"/>
         </c:when>
     </c:choose>
-</c:if>
+</c:if> --%>
 
 <c:set var = "fuseaction" value = "${param.fuseaction}"/>
 
 <c:import url = "public_header_site.jsp"/>
+
 <c:import url = "public_header.jsp"/>
 
 <c:choose>
@@ -119,6 +120,10 @@
         <c:import url = "cfp/dsp_proposal_edit.jsp"/>
     </c:when>
 
+    <c:when test = "${fuseaction == 'act_send_proposal_password'}">
+        <c:import url = "cfp/act_send_proposal_password.jsp"/>
+    </c:when>
+
     <c:when test = "${fuseaction == 'report_add'}">
         <c:import url = "cfp/dsp_report_add.jsp"/>
     </c:when>
@@ -179,9 +184,9 @@
         <c:import url = "default.jsp"/>
     </c:otherwise>
 </c:choose>
+
 <c:if test = "${fuseaction == 'help'}">
     <p>
-    
     <cf:GetPhrase phrase_id = "1040" lang_id = "${lang}"/>
 
     <c:out value = ""/>
@@ -193,9 +198,10 @@
 
     <c:import url = "public_footer.jsp"/>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
+
 <c:import url = "public_footer.jsp"/>

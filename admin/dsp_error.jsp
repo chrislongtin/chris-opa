@@ -7,7 +7,7 @@
 <cf:GetPhrase phrase_id = "429" lang_id = "${lang}"/>:
 
 <p>
-<a STYLE="text-decoration: underline"  href = "index.jsp">
+<a STYLE = "text-decoration: underline" href = "index.jsp">
 
 <cf:GetPhrase phrase_id = "430" lang_id = "${lang}"/></a>
 

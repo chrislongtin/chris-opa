@@ -17,7 +17,8 @@
 
         <!--- general documents discussion section --->
         <sql:query var = "doc_list">
-            select doc_id, doc_title, doc_filename from documents where tracking_code = 0
+            select doc_id, doc_title, doc_filename from documents where
+            tracking_code = 0
         </sql:query>
 
         <hr size = "1">
@@ -30,14 +31,16 @@
                 <tr>
                     <td>
                         <font face = "Arial"
-                              size = "-1"><a STYLE="text-decoration: underline"  href = "../docs/<c:out value='${row.doc_filename}'/>?ois=no">
+                              size = "-1"><a STYLE = "text-decoration: underline"
+                                             href = "../docs/<c:out value='${row.doc_filename}'/>?ois=no">
 
                         <c:out value = '${row.doc_title}'/></a>
                     </td>
 
                     <td>
                         <font face = "Arial"
-                              size = "-1"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                              size = "-1"><a STYLE = "text-decoration: underline"
+                                             href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='gen_doc_del'/>
 <c:param name='act' value='delete'/>
 <c:param name='doc_id' value='${row.doc_id}'/>

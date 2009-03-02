@@ -30,10 +30,13 @@
             <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_funding_agencies'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-                <input type = "hidden" name = "agency_id" value = "<c:out value='${row.agency_id}'/>">
-                <input type = "hidden" name = "act" value = "edit"> <input type = "hidden" name = "agency_name_required"
-                       value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
+</c:url>"
+                  method = "post">
+                <input type = "hidden" name = "agency_id"
+                value = "<c:out value='${row.agency_id}'/>"> <input type = "hidden"
+                name = "act" value = "edit">
+                <input type = "hidden" name = "agency_name_required"
+                value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
 
                 <p>
                 <font color = "FF0000">*
@@ -41,32 +44,39 @@
                 <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</font>
 
                 <br>
-                <input type = "text" name = "agency_name" value = "<c:out value='${row.agency_name}'/>" size = "30">
+                <input type = "text"
+                       name = "agency_name"
+                       value = "<c:out value='${row.agency_name}'/>"
+                       size = "30">
 
                 <p>
                 <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>:
 
                 <br>
-                <input type = "text" name = "agency_contact" value = "<c:out value='${row.agency_contact}'/>">
+                <input type = "text" name = "agency_contact"
+                       value = "<c:out value='${row.agency_contact}'/>">
 
                 <p>
                 <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
 
                 <br>
-                <input type = "text" name = "agency_email" value = "<c:out value='${row.agency_email}'/>">
+                <input type = "text" name = "agency_email"
+                       value = "<c:out value='${row.agency_email}'/>">
 
                 <p>
                 <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:
 
                 <br>
-                <input type = "text" name = "agency_phone" value = "<c:out value='${row.agency_phone}'/>">
+                <input type = "text" name = "agency_phone"
+                       value = "<c:out value='${row.agency_phone}'/>">
 
                 <p>
                 <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:
 
                 <br>
-                <input type = "text" name = "agency_url" value = "<c:out value='${row.agency_url}'/>">
-                <input type = "submit" value = "Update Information">
+                <input type = "text" name = "agency_url"
+                value = "<c:out value='${row.agency_url}'/>"> <input type = "submit"
+                value = "Update Information">
             </form>
 
             <p>
@@ -77,9 +87,11 @@
             <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_delete_agency'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-                <input type = "hidden" name = "agency_id" value = "<c:out value='${row.agency_id}'/>">
-                <input type = "submit" value = "<cf:GetPhrase phrase_id="520" lang_id="${lang}" />">
+</c:url>"
+                  method = "post">
+                <input type = "hidden" name = "agency_id"
+                value = "<c:out value='${row.agency_id}'/>"> <input type = "submit"
+                value = "<cf:GetPhrase phrase_id="520" lang_id="${lang}" />">
             </form>
         </c:forEach>
 
@@ -114,10 +126,13 @@
         <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_funding_agencies'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-            <input type = "hidden" name = "agency_id" value = "<c:out value='${agency_id}'/>">
-            <input type = "hidden" name = "act" value = "add"> <input type = "hidden" name = "agency_name_required"
-                   value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
+</c:url>"
+              method = "post">
+            <input type = "hidden" name = "agency_id"
+            value = "<c:out value='${agency_id}'/>">
+            <input type = "hidden" name = "act" value = "add">
+            <input type = "hidden" name = "agency_name_required"
+            value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
 
             <p>
             <font color = "FF0000">*
@@ -149,8 +164,8 @@
             <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:
 
             <br>
-            <input type = "text" name = "agency_url">
-            <input type = "submit" value = "<cf:GetPhrase phrase_id="522" lang_id="${lang}" />">
+            <input type = "text" name = "agency_url"> <input type = "submit"
+                   value = "<cf:GetPhrase phrase_id="522" lang_id="${lang}" />">
         </form>
     </c:when>
 </c:choose>

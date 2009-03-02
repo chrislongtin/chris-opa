@@ -14,7 +14,8 @@
 </c:set>
 
 <sql:query var = "setup_info">
-    select I.*, L.language from initiative_setup I, languages L where I.default_lang = L.lang_id
+    select I.*, L.language from initiative_setup I, languages L where
+    I.default_lang = L.lang_id
 </sql:query>
 
 <h3>
@@ -28,8 +29,8 @@
             <c:when test = "${setup_info.rowCount == 0}">
                 <cf:GetPhrase phrase_id = "209" lang_id = "${lang}"/>
 
-                .
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                . <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='site_setup'/>
 <c:param name='act' value='setup'/>
 <c:param name='${user}'/>
@@ -45,7 +46,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "211" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "211"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -59,7 +61,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "212" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "212"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -73,7 +76,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "950" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "950"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -87,7 +91,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "951" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "951"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -101,7 +106,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "341" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "341"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -115,21 +121,25 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "213" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "213"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.public_info == 'all'}">
-                                        <cf:GetPhrase phrase_id = "537" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "537"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:when test = "${row.public_info == 'accepted'}">
-                                        <cf:GetPhrase phrase_id = "538" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "538"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:when test = "${row.public_info == 'none'}">
-                                        <cf:GetPhrase phrase_id = "539" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "539"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
                                 </c:choose>
                             </td>
@@ -139,17 +149,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "214" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "214"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.public_info_degree == 'complete'}">
-                                        <cf:GetPhrase phrase_id = "540" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "540"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:when test = "${row.public_info_degree == 'limited'}">
-                                        <cf:GetPhrase phrase_id = "541" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "541"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
                                 </c:choose>
                             </td>
@@ -159,17 +172,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "216" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "216"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.multiple_cfps == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -179,17 +195,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "217" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "217"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.use_initiative_criteria == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -199,17 +218,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "218" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "218"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.use_cfp_criteria == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -219,7 +241,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "224" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "224"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -233,7 +256,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "194" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "194"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -247,7 +271,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "215" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "215"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -261,17 +286,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "219" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "219"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.show_reviewers == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -281,17 +309,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "220" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "220"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.show_reviewers_summary == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -301,7 +332,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "221" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "221"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -315,17 +347,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "974" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "974"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.public_interface == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -335,7 +370,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "222" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "222"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -349,7 +385,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "223" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "223"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -363,17 +400,20 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "225" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "225"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1"><c:choose>
                                     <c:when test = "${row.public_attachments == 1}">
-                                        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "542"
+                                                      lang_id = "${lang}"/>
                                     </c:when>
 
                                     <c:otherwise>
-                                        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/>
+                                        <cf:GetPhrase phrase_id = "543"
+                                                      lang_id = "${lang}"/>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -383,7 +423,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "339" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "339"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -404,13 +445,15 @@
                                 <center>
                                     <p>
                                     <br>
-                                    <h3><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                                    <h3><a STYLE = "text-decoration: underline"
+                                           href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='site_setup'/>
 <c:param name='act' value='setup'/>
 <c:param name='${user}'/>
 </c:url>">
 
-                                    <cf:GetPhrase phrase_id = "131" lang_id = "${lang}"/></a></h3>
+                                    <cf:GetPhrase phrase_id = "131"
+                                                  lang_id = "${lang}"/></a></h3>
                             </td>
                         </tr>
                     </c:forEach>
@@ -521,37 +564,45 @@
 
             <c:set var = "application_name" value = "${row.application_name}"/>
 
-            <c:set var = "application_directory" value = "${row.application_directory}"/>
+            <c:set var = "application_directory"
+                   value = "${row.application_directory}"/>
 
             <c:set var = "listname" value = "${row.listname}"/>
 
             <c:set var = "public_info" value = "${row.public_info}"/>
 
-            <c:set var = "public_info_degree" value = "${row.public_info_degree}"/>
+            <c:set var = "public_info_degree"
+                   value = "${row.public_info_degree}"/>
 
             <c:set var = "minimum_rank" value = "${row.minimum_rank}"/>
 
             <c:set var = "show_weights" value = "${row.show_weights}"/>
 
-            <c:set var = "use_initiative_criteria" value = "${row.use_initiative_criteria}"/>
+            <c:set var = "use_initiative_criteria"
+                   value = "${row.use_initiative_criteria}"/>
 
             <c:set var = "use_cfp_criteria" value = "${row.use_cfp_criteria}"/>
 
             <c:set var = "show_reviewers" value = "${row.show_reviewers}"/>
 
-            <c:set var = "show_reviewers_summary" value = "${row.show_reviewers_summary}"/>
+            <c:set var = "show_reviewers_summary"
+                   value = "${row.show_reviewers_summary}"/>
 
             <c:set var = "background_image" value = "${row.background_image}"/>
 
-            <c:set var = "public_header_background" value = "${row.public_header_background}"/>
+            <c:set var = "public_header_background"
+                   value = "${row.public_header_background}"/>
 
-            <c:set var = "admin_header_background" value = "${row.admin_header_background}"/>
+            <c:set var = "admin_header_background"
+                   value = "${row.admin_header_background}"/>
 
-            <c:set var = "criteria_rankings" value = "${row.criteria_rankings}"/>
+            <c:set var = "criteria_rankings"
+                   value = "${row.criteria_rankings}"/>
 
             <c:set var = "multiple_cfps" value = "${row.multiple_cfps}"/>
 
-            <c:set var = "public_attachments" value = "${row.public_attachments}"/>
+            <c:set var = "public_attachments"
+                   value = "${row.public_attachments}"/>
 
             <c:set var = "default_lang" value = "${row.default_lang}"/>
 
@@ -575,18 +626,14 @@
 </c:url>"
               enctype = "multipart/form-data"
               method = "post">
-            <input type = "hidden" name = "initiative_setup_id" value = "1"> <input type = "hidden"
-                   name = "host_url_required"
-                   value = "<cf:GetPhrase phrase_id='544' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "host_doc_dir_required"
-                   value = "<cf:GetPhrase phrase_id='545' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "application_name_required"
-                   value = "<cf:GetPhrase phrase_id='952' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "application_directory_required"
-                   value = "<cf:GetPhrase phrase_id='953' lang_id='${lang}'/>"> <input type = "hidden"
-                   name = "minimum_rank_required"
-                   value = "<cf:GetPhrase phrase_id='546' lang_id='${lang}'/>">
-            <input type = "hidden" name = "criteria_rankings_range" value = "min=2 max=10">
+            <input type = "hidden" name = "initiative_setup_id" value = "1">
+            <input type = "hidden" name = "host_url_required"
+            value = "<cf:GetPhrase phrase_id='544' lang_id='${lang}'/>"> <input type = "hidden" name = "host_doc_dir_required" value = "<cf:GetPhrase phrase_id='545' lang_id='${lang}'/>">
+            <input type = "hidden" name = "application_name_required"
+            value = "<cf:GetPhrase phrase_id='952' lang_id='${lang}'/>"> <input type = "hidden" name = "application_directory_required" value = "<cf:GetPhrase phrase_id='953' lang_id='${lang}'/>">
+            <input type = "hidden" name = "minimum_rank_required"
+            value = "<cf:GetPhrase phrase_id='546' lang_id='${lang}'/>"> <input type = "hidden"
+            name = "criteria_rankings_range" value = "min=2 max=10">
 
             <p>
             <b>
@@ -594,7 +641,8 @@
             <cf:GetPhrase phrase_id = "211" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "host_url" value = "<c:out value='${host_url}'/>" size = "40">
+            <input type = "text"                          name = "host_url"
+                   value = "<c:out value='${host_url}'/>" size = "40">
 
             <br>
             <i>(
@@ -607,7 +655,10 @@
             <cf:GetPhrase phrase_id = "212" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "host_doc_dir" value = "<c:out value='${host_doc_dir}'/>" size = "40">
+            <input type = "text"
+                   name = "host_doc_dir"
+                   value = "<c:out value='${host_doc_dir}'/>"
+                   size = "40">
 
             <br>
             <i>(
@@ -620,7 +671,10 @@
             <cf:GetPhrase phrase_id = "950" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "application_name" value = "<c:out value='${application_name}'/>" size = "40">
+            <input type = "text"
+                   name = "application_name"
+                   value = "<c:out value='${application_name}'/>"
+                   size = "40">
 
             <br>
             <i>(
@@ -633,7 +687,9 @@
             <cf:GetPhrase phrase_id = "951" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "application_directory" value = "<c:out value='${application_directory}'/>"
+            <input type = "text"
+                   name = "application_directory"
+                   value = "<c:out value='${application_directory}'/>"
                    size = "40">
 
             <br>
@@ -647,7 +703,8 @@
             <cf:GetPhrase phrase_id = "341" lang_id = "${lang}"/>:</b>
 
             <br>
-            <input type = "text" name = "listname" value = "<c:out value='${listname}'/>" size = "40">
+            <input type = "text"                          name = "listname"
+                   value = "<c:out value='${listname}'/>" size = "40">
 
             <p>
             <b>
@@ -658,24 +715,30 @@
                 <c:if test = "${!empty public_info}">
                     <option value = "<c:out value='${public_info}'/>"><c:choose>
                         <c:when test = "${public_info == 'all'}">
-                            <cf:GetPhrase phrase_id = "537" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "537"
+                                          lang_id = "${lang}"/>
                         </c:when>
 
                         <c:when test = "${public_info == 'accepted'}">
-                            <cf:GetPhrase phrase_id = "538" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "538"
+                                          lang_id = "${lang}"/>
                         </c:when>
 
                         <c:when test = "${public_info == 'none'}">
-                            <cf:GetPhrase phrase_id = "539" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "539"
+                                          lang_id = "${lang}"/>
                         </c:when>
                     </c:choose>
                 </c:if>
 
-                <option value = "all"><cf:GetPhrase phrase_id = "537" lang_id = "${lang}"/>
+                <option value = "all">
+                <cf:GetPhrase phrase_id = "537" lang_id = "${lang}"/>
 
-                <option value = "accepted"><cf:GetPhrase phrase_id = "538" lang_id = "${lang}"/>
+                <option value = "accepted">
+                <cf:GetPhrase phrase_id = "538" lang_id = "${lang}"/>
 
-                <option value = "none"><cf:GetPhrase phrase_id = "539" lang_id = "${lang}"/>
+                <option value = "none">
+                <cf:GetPhrase phrase_id = "539" lang_id = "${lang}"/>
             </select>
 
             <p>
@@ -685,27 +748,33 @@
 
             <select name = "public_info_degree">
                 <c:if test = "${!empty public_info_degree}">
-                    <option value = "<c:out value='${public_info_degree}'/>"><c:choose>
+                    <option value = "<c:out value='${public_info_degree}'/>">
+                    <c:choose>
                         <c:when test = "${public_info_degree == 'complete'}">
-                            <cf:GetPhrase phrase_id = "540" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "540"
+                                          lang_id = "${lang}"/>
                         </c:when>
 
                         <c:when test = "${public_info_degree == 'limited'}">
-                            <cf:GetPhrase phrase_id = "541" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "541"
+                                          lang_id = "${lang}"/>
                         </c:when>
                     </c:choose>
                 </c:if>
 
-                <option value = "complete"><cf:GetPhrase phrase_id = "540" lang_id = "${lang}"/>
+                <option value = "complete">
+                <cf:GetPhrase phrase_id = "540" lang_id = "${lang}"/>
 
-                <option value = "limited"><cf:GetPhrase phrase_id = "541" lang_id = "${lang}"/>
+                <option value = "limited">
+                <cf:GetPhrase phrase_id = "541" lang_id = "${lang}"/>
             </select>
 
             <p>
             <b>
 
             <cf:GetPhrase phrase_id = "216" lang_id = "${lang}"/>:</b>
-            <input type = "checkbox" name = "multiple_cfps" value = "1" <c:if test = "${multiple_cfps == 1}">checked
+            <input type = "checkbox" name = "multiple_cfps" value = "1" <c:if
+                   test = "${multiple_cfps == 1}">checked
 
             </c:if>
 
@@ -717,7 +786,8 @@
             <b>
 
             <cf:GetPhrase phrase_id = "217" lang_id = "${lang}"/>:</b>
-            <input type = "checkbox" name = "use_initiative_criteria" value = "1" <c:if
+            <input type = "checkbox" name = "use_initiative_criteria"
+                   value = "1"       <c:if
                    test = "${use_initiative_criteria == 1}">checked
 
             </c:if>
@@ -743,14 +813,18 @@
             <b>
 
             <cf:GetPhrase phrase_id = "224" lang_id = "${lang}"/>:</b>
-            <input type = "text" name = "criteria_rankings" value = "<c:out value='${criteria_rankings}'/>"
-                   size = "2"> <i>(2-10)</i>
+            <input type = "text" name = "criteria_rankings"
+            value = "<c:out value='${criteria_rankings}'/>" size = "2">
+            <i>(2-10)</i>
 
             <p>
             <b>
 
             <cf:GetPhrase phrase_id = "194" lang_id = "${lang}"/>:</b>
-            <input type = "text" name = "minimum_rank" value = "<c:out value='${minimum_rank}'/>" size = "3">
+            <input type = "text"
+                   name = "minimum_rank"
+                   value = "<c:out value='${minimum_rank}'/>"
+                   size = "3">
 
             <p>
             <b>
@@ -759,23 +833,29 @@
 
             <select name = "show_weights">
                 <c:if test = "${!empty show_weights}">
-                    <option value = "<c:out value='${show_weights}'/>"><c:out value = '${show_weights}'/>
+                    <option value = "<c:out value='${show_weights}'/>">
+                    <c:out value = '${show_weights}'/>
                 </c:if>
 
-                <option value = "both"><cf:GetPhrase phrase_id = "548" lang_id = "${lang}"/>
+                <option value = "both">
+                <cf:GetPhrase phrase_id = "548" lang_id = "${lang}"/>
 
-                <option value = "reviewers"><cf:GetPhrase phrase_id = "252" lang_id = "${lang}"/>
+                <option value = "reviewers">
+                <cf:GetPhrase phrase_id = "252" lang_id = "${lang}"/>
 
-                <option value = "public"><cf:GetPhrase phrase_id = "549" lang_id = "${lang}"/>
+                <option value = "public">
+                <cf:GetPhrase phrase_id = "549" lang_id = "${lang}"/>
 
-                <option value = "none"><cf:GetPhrase phrase_id = "550" lang_id = "${lang}"/>
+                <option value = "none">
+                <cf:GetPhrase phrase_id = "550" lang_id = "${lang}"/>
             </select>
 
             <p>
             <b>
 
             <cf:GetPhrase phrase_id = "219" lang_id = "${lang}"/>:</b>
-            <input type = "checkbox" name = "show_reviewers" value = "1" <c:if test = "${show_reviewers == 1}">checked
+            <input type = "checkbox" name = "show_reviewers" value = "1" <c:if
+                   test = "${show_reviewers == 1}">checked
 
             </c:if>
 
@@ -787,7 +867,8 @@
             <b>
 
             <cf:GetPhrase phrase_id = "220" lang_id = "${lang}"/>:</b>
-            <input type = "checkbox" name = "show_reviewers_summary" value = "1" <c:if
+            <input type = "checkbox" name = "show_reviewers_summary"
+                   value = "1"       <c:if
                    test = "${show_reviewers_summary == 1}">checked
 
             </c:if>
@@ -799,7 +880,8 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "221" lang_id = "${lang}"/>:</b> <input type = "file" name = "background_image">
+            <cf:GetPhrase phrase_id = "221" lang_id = "${lang}"/>:</b>
+            <input type = "file" name = "background_image">
             <c:if test = "${!empty background_image}">
                 <br>
                 <font color = "FF0000"><b>"
@@ -833,7 +915,8 @@
             <b>
 
             <cf:GetPhrase phrase_id = "222" lang_id = "${lang}"/>:</b>
-            <input type = "file" name = "public_header_background"><c:if test = "${!empty public_header_background}">
+            <input type = "file" name = "public_header_background">
+            <c:if test = "${!empty public_header_background}">
                 <br>
                 <font color = "FF0000"><b>"
 
@@ -853,7 +936,8 @@
             <b>
 
             <cf:GetPhrase phrase_id = "223" lang_id = "${lang}"/>:</b>
-            <input type = "file" name = "admin_header_background"><c:if test = "${!empty admin_header_background}">
+            <input type = "file" name = "admin_header_background">
+            <c:if test = "${!empty admin_header_background}">
                 <br>
                 <font color = "FF0000"><b>"
 
@@ -873,8 +957,8 @@
             <b>
 
             <cf:GetPhrase phrase_id = "225" lang_id = "${lang}"/>:</b>
-            <input type = "checkbox" name = "public_attachments" value = "1" <c:if
-                   test = "${public_attachments == 1}">checked
+            <input type = "checkbox" name = "public_attachments" value = "1"
+                   <c:if             test = "${public_attachments == 1}">checked
 
             </c:if>
 
@@ -888,15 +972,18 @@
             <cf:GetPhrase phrase_id = "339" lang_id = "${lang}"/>:</b>
 
             <select name = "default_lang">
-                <option value = "<c:out value='${default_lang}'/>"><c:out value = '${language}'/>
+                <option value = "<c:out value='${default_lang}'/>">
+                <c:out value = '${language}'/>
 
                 <c:forEach var = "row" items = "${languages.rows}">
-                    <option value = "<c:out value='${row.lang_id}'/>"><c:out value = '${row.language}'/>
+                    <option value = "<c:out value='${row.lang_id}'/>">
+                    <c:out value = '${row.language}'/>
                 </c:forEach>
             </select>
 
             <p>
-            <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+            <input type = "submit"
+                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
         </form>
     </c:when>
 </c:choose>

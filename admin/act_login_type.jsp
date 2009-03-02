@@ -11,7 +11,8 @@
         </c:when>
 
         <c:otherwise>
-            <c:set var = "lang" scope = "session" value = "${q.rows[0].default_lang}"/>
+            <c:set var = "lang" scope = "session"
+                   value = "${q.rows[0].default_lang}"/>
         </c:otherwise>
     </c:choose>
 </c:if>

@@ -40,16 +40,20 @@
 
             <ul>
                 <c:if test = "${user == 'coordinator'}">
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_default_letters">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=comm_default_letters">
 
                     <cf:GetPhrase phrase_id = "182" lang_id = "${lang}"/></a>
 
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=dsp_send_letters">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=dsp_send_letters">
 
                     <cf:GetPhrase phrase_id = "264" lang_id = "${lang}"/></a>
                 </c:if>
 
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_view_sent" method = "post">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=comm_view_sent"
+                       method = "post">
 
                 <cf:GetPhrase phrase_id = "486" lang_id = "${lang}"/>
             </ul>
@@ -61,7 +65,8 @@
     <!--------------------- MAILING LISTS -------------------------->
 
     <sql:query var = "default_ml">
-        select list_id, list_name from mailinglists where default_list = 1 and coordinator_id = ?
+        select list_id, list_name from mailinglists where default_list = 1 and
+        coordinator_id = ?
 
         <sql:param value = "${sessionScope.coord_id}"/>
     </sql:query>
@@ -79,12 +84,14 @@
             <font face = "arial" size = "-1">
 
             <ul>
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=comm_ml">
 
                 <cf:GetPhrase phrase_id = "800" lang_id = "${lang}"/></a>
 
                 <c:if test = "${!empty default_ml.rows[0].list_id}">
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_send&list=<c:out value="${default_ml.rows[0].list_id}"/>">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=comm_ml_send&list=<c:out value="${default_ml.rows[0].list_id}"/>">
 
                     <cf:GetPhrase phrase_id = "801" lang_id = "${lang}"/>
 
@@ -113,7 +120,8 @@
                 <font face = "arial" size = "-1">
 
                 <ul>
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_faq">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=comm_faq">
 
                     <cf:GetPhrase phrase_id = "489" lang_id = "${lang}"/></a>
                 </ul>
@@ -133,15 +141,18 @@
                 <font face = "arial" size = "-1">
 
                 <ul>
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=gen_doc_add">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=gen_doc_add">
 
                     <cf:GetPhrase phrase_id = "490" lang_id = "${lang}"/></a>
 
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=gen_doc_del">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=gen_doc_del">
 
                     <cf:GetPhrase phrase_id = "491" lang_id = "${lang}"/></a>
 
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=discuss_main">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=discuss_main">
 
                     <cf:GetPhrase phrase_id = "492" lang_id = "${lang}"/></a>
                 </ul>
@@ -162,20 +173,24 @@
             <font face = "arial" size = "-1">
 
             <ul>
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=discuss_comment">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=discuss_comment">
 
                 <cf:GetPhrase phrase_id = "494" lang_id = "${lang}"/></a>
 
-                <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=admin_gen_doc_add">
+                <li><a STYLE = "text-decoration: underline"
+                       href = "index.jsp?fuseaction=admin_gen_doc_add">
 
                 <cf:GetPhrase phrase_id = "490" lang_id = "${lang}"/></a>
 
                 <c:if test = "${user == 'coordinator'}">
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=admin_gen_doc_del">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=admin_gen_doc_del">
 
                     <cf:GetPhrase phrase_id = "491" lang_id = "${lang}"/></a>
 
-                    <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=admin_discuss_main">
+                    <li><a STYLE = "text-decoration: underline"
+                           href = "index.jsp?fuseaction=admin_discuss_main">
 
                     <cf:GetPhrase phrase_id = "492" lang_id = "${lang}"/></a>
                 </c:if>

@@ -30,7 +30,9 @@
 <c:set var = "appraisal_id" value = "1" scope = "page"/>
 
 <c:if test = "${appraisal_iden.rowCount!=0}">
-    <c:set var = "appraisal_id" value = "${appraisal_iden.rows[0].appraisal_id + 1}" scope = "page"/>
+    <c:set var = "appraisal_id"
+           value = "${appraisal_iden.rows[0].appraisal_id + 1}"
+           scope = "page"/>
 </c:if>
 
 <!--- loop from 1 to the maximum rank number --->
@@ -41,18 +43,22 @@
     <!--- the same applies for comments --->
     <c:set var = "rank" value = "rank${row+1}" scope = "page"/>
 
-    <c:set var = "appraisal_comment" value = "${paramValues.appraisal_comment[row]}" scope = "page"/>
+    <c:set var = "appraisal_comment"
+           value = "${paramValues.appraisal_comment[row]}"
+           scope = "page"/>
 
     <!--- calculating the score based on rank & weight --->
     <c:choose>
         <c:when test = "${paramValues.i_criteria_id[row]!=0}">
-            <c:set var = "appraisal_score" value = "${paramValues.i_criteria_weight[row] * param[rank]}"
+            <c:set var = "appraisal_score"
+                   value = "${paramValues.i_criteria_weight[row] * param[rank]}"
                    scope = "page"/>
         </c:when>
 
         <c:otherwise>
             <c:if test = "${paramValues.cfp_criteria_id[row]!=0}">
-                <c:set var = "appraisal_score" value = "${paramValues.cfp_criteria_weight[row] * param[rank]}"
+                <c:set var = "appraisal_score"
+                       value = "${paramValues.cfp_criteria_weight[row] * param[rank]}"
                        scope = "page"/>
             </c:if>
         </c:otherwise>
@@ -60,8 +66,9 @@
 
     <!--- inserting the rank and score for each criteria --->
     <sql:update>
-        insert into proposal_appraisal (appraisal_id, reviewer_id, tracking_code, appraisal_score, appraisal_rank,
-        appraisal_comment, i_criteria_id, cfp_criteria_id) values (?, ?, ?, ?, ?, ?, ?, ?)
+        insert into proposal_appraisal (appraisal_id, reviewer_id,
+        tracking_code, appraisal_score, appraisal_rank, appraisal_comment,
+        i_criteria_id, cfp_criteria_id) values (?, ?, ?, ?, ?, ?, ?, ?)
 
         <sql:param value = "${appraisal_id}"/>
 
@@ -85,7 +92,8 @@
 
 <!--- set status to review completed for reviewer --->
 <sql:update>
-    update reviewer_assignment set proposal_review_completed = 1 where tracking_code = ? and reviewer_id = ?
+    update reviewer_assignment set proposal_review_completed = 1 where
+    tracking_code = ? and reviewer_id = ?
 
     <sql:param value = "${tracking_code}"/>
 
@@ -94,8 +102,8 @@
 
 <!--- calculating the total scores and ranks for this proposal --->
 <sql:query var = "sum">
-    select SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum from proposal_appraisal where
-    tracking_code = ?
+    select SUM(appraisal_score) as score_sum, SUM(appraisal_rank) as rank_sum
+    from proposal_appraisal where tracking_code = ?
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -106,7 +114,8 @@
 
 <!--- setting the total scores in the proponents record --->
 <sql:update>
-    update proponent_record set proposal_score_sum = ?, proposal_rank = ? where tracking_code = ?
+    update proponent_record set proposal_score_sum = ?, proposal_rank = ?
+    where tracking_code = ?
 
     <sql:param value = "${score_sum2}"/>
 

@@ -5,8 +5,8 @@
 <c:if test = "${(empty sessionScope.user) or (sessionScope.user=='')}">
     <c:redirect url = "../index.jsp"/>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>

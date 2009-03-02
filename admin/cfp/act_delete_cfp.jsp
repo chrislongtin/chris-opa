@@ -46,7 +46,8 @@
 <c:param name='${user}'/>
 </c:url>"
                               method = "post">
-                            <input type = "submit" value = " <cf:GetPhrase phrase_id="542" lang_id="${lang}" /> ">
+                            <input type = "submit"
+                                   value = " <cf:GetPhrase phrase_id="542" lang_id="${lang}" /> ">
                         </form>
                     </td>
 
@@ -57,7 +58,8 @@
 <c:param name='${user}'/>
 </c:url>"
                               method = "post">
-                            <input type = "submit" value = " <cf:GetPhrase phrase_id="543" lang_id="${lang}" /> ">
+                            <input type = "submit"
+                                   value = " <cf:GetPhrase phrase_id="543" lang_id="${lang}" /> ">
                         </form>
                     </td>
                 </table>

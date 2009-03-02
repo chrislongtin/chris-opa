@@ -204,17 +204,21 @@
         <sql:param value = "${reviewer}"/>
     </sql:query>
 
-    <c:set var = "reviewer_coordinator" value = "${r_coord_check.rows[0].reviewer_coordinator}" scope = "page"/>
+    <c:set var = "reviewer_coordinator"
+           value = "${r_coord_check.rows[0].reviewer_coordinator}"
+           scope = "page"/>
 </c:if>
 
 <!--------------------------- PROPOSAL REPORTS INFORMATION ------------------------------->
 
 <sql:query var = "proposal_info">
-    select p.cfp_code, p.tracking_code, p.proponent_institution, p.requested_amount, p.awarded_amount, s.status_name,
-    p.date_submitted, p.date_last_updated, p.proponent_leader_firstname, p.proponent_leader_lastname,
-    p.proposal_title, p.cfp_cat_id, p.proponent_citizenship, p.proponent_residency, p.project_country,
-    p.project_date,d.doc_title,d.doc_filename from proponent_record p, record_status s, documents d, document_types dt
-    where
+    select p.cfp_code, p.tracking_code, p.proponent_institution,
+    p.requested_amount, p.awarded_amount, s.status_name, p.date_submitted,
+    p.date_last_updated, p.proponent_leader_firstname,
+    p.proponent_leader_lastname, p.proposal_title, p.cfp_cat_id,
+    p.proponent_citizenship, p.proponent_residency, p.project_country,
+    p.project_date,d.doc_title,d.doc_filename from proponent_record p,
+    record_status s, documents d, document_types dt where
 
     <c:if test = "${cfp_code!=''}">
         p.cfp_code = ? and
@@ -280,8 +284,8 @@
         and p.status_id > 3
     </c:if>
 
-    and p.tracking_code = d.tracking_code and d.doc_type_id = dt.doc_type_id and dt.doc_type_name like '%Report%'
-    order by
+    and p.tracking_code = d.tracking_code and d.doc_type_id = dt.doc_type_id
+    and dt.doc_type_name like '%Report%' order by
 
     <c:out value = "${search_order}"/>
 
@@ -335,7 +339,8 @@
             <cf:GetPhrase phrase_id = "916" lang_id = "${lang}"/>.</h4>
         </div>
 
-        <font size = "-2"><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=dsp_send_letters">
+        <font size = "-2"><a STYLE = "text-decoration: underline"
+                             href = "index.jsp?fuseaction=dsp_send_letters">
 
         <cf:GetPhrase phrase_id = "264" lang_id = "${lang}"/></a></font>
         <c:forEach items = "${proposal_info.rows}" var = "row">
@@ -363,16 +368,18 @@
 
             <!--- retrieving assigned reviewer info for each proposal --->
             <sql:query var = "reviewers_assigned">
-                select r.reviewer_lastname, r.reviewer_firstname from reviewer_assignment ra, reviewers r where
-                ra.tracking_code = ? and ra.reviewer_id = r.reviewer_id and ra.proposal = 1
+                select r.reviewer_lastname, r.reviewer_firstname from
+                reviewer_assignment ra, reviewers r where ra.tracking_code = ?
+                and ra.reviewer_id = r.reviewer_id and ra.proposal = 1
 
                 <sql:param value = "${row.tracking_code}"/>
             </sql:query>
 
             <!--- retrieving outstanding reviewer info for each proposal --->
             <sql:query var = "reviewers_pending">
-                select r.reviewer_lastname, r.reviewer_firstname from reviewer_assignment ra, reviewers r where
-                ra.tracking_code = ? and ra.reviewer_id = r.reviewer_id and ra.proposal = 1 and
+                select r.reviewer_lastname, r.reviewer_firstname from
+                reviewer_assignment ra, reviewers r where ra.tracking_code = ?
+                and ra.reviewer_id = r.reviewer_id and ra.proposal = 1 and
                 proposal_review_completed = 0
 
                 <sql:param value = "${row.tracking_code}"/>
@@ -388,13 +395,15 @@
             </h4></p>
 
             <p>
-            <table border = "1" cellspacing = "0" cellpadding = "3" width = "100%">
+            <table border = "1" cellspacing = "0" cellpadding = "3"
+                   width = "100%">
                 <tr bgcolor = "CFCFCF">
                     <td colspan = "2">
                         <center>
                             <font face = "Arial" size = "+1"> <b>
 
-                            <c:out value = "${row.proposal_title}"/></b> <font size = "-1">
+                            <c:out value = "${row.proposal_title}"/></b>
+                            <font size = "-1">
 
                             <br>
                             <b>
@@ -412,7 +421,8 @@
                     <td>
                         <font face = "Arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</b>
+                        <cf:GetPhrase phrase_id = "57"
+                                      lang_id = "${lang}"/>:</b>
                     </td>
 
                     <td>
@@ -426,19 +436,23 @@
                     <td>
                         <font face = "Arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "595" lang_id = "${lang}"/>:</b>
+                        <cf:GetPhrase phrase_id = "595"
+                                      lang_id = "${lang}"/>:</b>
                     </td>
 
                     <td>
                         <font face = "Arial" size = "-1"><c:choose>
                             <c:when test = "${docs.rowCount==0}">
-                                <cf:GetPhrase phrase_id = "515" lang_id = "${lang}"/>
+                                <cf:GetPhrase phrase_id = "515"
+                                              lang_id = "${lang}"/>
 
                                 .
                             </c:when>
 
                             <c:otherwise>
-                                <a STYLE="text-decoration: underline"  href = "../docs/<c:out value="${row.doc_filename}" />?ois=no" target = "new">
+                                <a STYLE = "text-decoration: underline"
+                                   href = "../docs/<c:out value="${row.doc_filename}" />?ois=no"
+                                   target = "new">
 
                                 <c:out value = "${row.doc_filename}"/></a>
                             </c:otherwise>
@@ -451,13 +465,15 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "266" lang_id = "${lang}"/>:</b>
+                            <cf:GetPhrase phrase_id = "266"
+                                          lang_id = "${lang}"/>:</b>
                         </td>
 
                         <td>
                             <font face = "Arial" size = "-1">
 
-                            <fmt:formatDate value = "${row.date_submitted}" pattern = "MMM dd, yyyy"/>
+                            <fmt:formatDate value = "${row.date_submitted}"
+                                            pattern = "MMM dd, yyyy"/>
                         </td>
                     </tr>
 
@@ -465,13 +481,15 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "267" lang_id = "${lang}"/>:</b>
+                            <cf:GetPhrase phrase_id = "267"
+                                          lang_id = "${lang}"/>:</b>
                         </td>
 
                         <td>
                             <font face = "Arial" size = "-1">
 
-                            <fmt:formatDate value = "${row.date_last_updated}" pattern = "MMM dd, yyyy"/>
+                            <fmt:formatDate value = "${row.date_last_updated}"
+                                            pattern = "MMM dd, yyyy"/>
                         </td>
                     </tr>
 
@@ -479,7 +497,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>:</b>
+                            <cf:GetPhrase phrase_id = "66"
+                                          lang_id = "${lang}"/>:</b>
                         </td>
 
                         <td>
@@ -493,7 +512,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "60" lang_id = "${lang}"/>:</b>
+                            <cf:GetPhrase phrase_id = "60"
+                                          lang_id = "${lang}"/>:</b>
                         </td>
 
                         <td>
@@ -508,7 +528,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "634" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "634"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -524,7 +545,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "635" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "635"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
@@ -539,7 +561,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>:</b>
+                            <cf:GetPhrase phrase_id = "58"
+                                          lang_id = "${lang}"/>:</b>
                         </td>
 
                         <td>
@@ -554,12 +577,14 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "273" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "273"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1">
-                                <c:forEach items = "${reviewers_assigned.rows}" var = "ra">
+                                <c:forEach items = "${reviewers_assigned.rows}"
+                                           var = "ra">
                                     <c:out value = "${ra.reviewer_firstname} ${ra.reviewer_lastname}"/>
 
                                     ,
@@ -573,12 +598,14 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "274" lang_id = "${lang}"/>:</b>
+                                <cf:GetPhrase phrase_id = "274"
+                                              lang_id = "${lang}"/>:</b>
                             </td>
 
                             <td>
                                 <font face = "Arial" size = "-1">
-                                <c:forEach items = "${reviewers_pending.rows}" var = "rp">
+                                <c:forEach items = "${reviewers_pending.rows}"
+                                           var = "rp">
                                     <c:out value = "${rp.reviewer_firstname} ${rp.reviewer_lastname}"/>
 
                                     ,
@@ -598,31 +625,41 @@
 
                         <td align = "right">
                             <font face = "Arial" size = "-2">
-                            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_assign&tracking_code=<c:out value="${row.tracking_code}" />&cfp_code=<c:out value="${row.cfp_code}" />&cfp_cat_id=<c:out value="${row.cfp_cat_id}" />">
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp?fuseaction=proposal_assign&tracking_code=<c:out value="${row.tracking_code}" />&cfp_code=<c:out value="${row.cfp_code}" />&cfp_cat_id=<c:out value="${row.cfp_cat_id}" />">
 
-                            <cf:GetPhrase phrase_id = "250" lang_id = "${lang}"/></a>
+                            <cf:GetPhrase phrase_id = "250"
+                                          lang_id = "${lang}"/></a>
 
                             <c:if test = "${sessionScope.user=='coordinator'}">
                                 <br>
-                                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_info&tracking_code=<c:out value="${row.tracking_code}" />">
+                                <a STYLE = "text-decoration: underline"
+                                   href = "index.jsp?fuseaction=proposal_info&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                                <cf:GetPhrase phrase_id = "636" lang_id = "${lang}"/></a>
+                                <cf:GetPhrase phrase_id = "636"
+                                              lang_id = "${lang}"/></a>
                             </c:if>
 
                             <br>
-                            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_summary&tracking_code=<c:out value="${row.tracking_code}" />">
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp?fuseaction=proposal_summary&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                            <cf:GetPhrase phrase_id = "637" lang_id = "${lang}"/></a>
-
-                            <br>
-                            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=tsc_main&tracking_code=<c:out value="${row.tracking_code}" />">
-
-                            <cf:GetPhrase phrase_id = "841" lang_id = "${lang}"/></a>
+                            <cf:GetPhrase phrase_id = "637"
+                                          lang_id = "${lang}"/></a>
 
                             <br>
-                            <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=report_summary&tracking_code=<c:out value="${row.tracking_code}" />">
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp?fuseaction=tsc_main&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                            <cf:GetPhrase phrase_id = "906" lang_id = "${lang}"/></a>
+                            <cf:GetPhrase phrase_id = "841"
+                                          lang_id = "${lang}"/></a>
+
+                            <br>
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp?fuseaction=report_summary&tracking_code=<c:out value="${row.tracking_code}" />">
+
+                            <cf:GetPhrase phrase_id = "906"
+                                          lang_id = "${lang}"/></a>
                         </td>
                     </tr>
                 </c:if>

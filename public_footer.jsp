@@ -1,1 +1,40 @@
-<!--- footer appears on all public website pages ---><!-- GoC CLF FOOTER: START --><center>    <p>    <hr size = "1" width="100%"><font face = "'Times New Roman',Arial" size = "-1"><b>    <table>    <tr>    <td align="left" width="35%">Last Updated: 2005-02-21 </td>    <td align="center"  width="30%"><a STYLE="text-decoration: underline"  href="#Top" STYLE="color:#3A6EA5;" CLASS="noPrint"><IMG SRC="docs/up.gif" ALT="Top of Page" BORDER="0" WIDTH="23" HEIGHT="15"><br>Top of Page</A>    </td>    <td align="right"  width="35%"><a STYLE="text-decoration: underline"  href="http://salt.cose.gc.ca/site/notices-avis/" TITLE="Privacy Notice, Official Languages Notice, Hyperlinking Notice, Copyright Notice, System Requirements" CLASS="noPrint" STYLE="text-decoration:underline;">Important Notices</A>     </td>    </tr>    </b>    </table>    </center><!-- GoC CLF FOOTER: END -->
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
+<%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
+
+<!--- footer appears on all pages --->
+
+<center>
+    <p>
+    <hr size = "1" width="100"><font face = "'Times New Roman',Arial"
+        size = "-1">
+    <p><b><i>
+
+    <cf:GetPhrase phrase_id = "374"
+                  lang_id = "${lang}"/><a href = "http://www.bellanet.org">
+
+    <cf:GetPhrase phrase_id = "375" lang_id = "${lang}"/></a> © 2001
+
+    <cf:GetPhrase phrase_id = "376" lang_id = "${lang}"/>
+
+    <a href = "http://www.idrc.ca">
+
+    <cf:GetPhrase phrase_id = "377" lang_id = "${lang}"/></a>.
+
+    <cf:GetPhrase phrase_id = "907"
+                  lang_id = "${lang}"/><a href = "http://www.omoli.com/">
+
+    <cf:GetPhrase phrase_id = "908"
+                  lang_id = "${lang}"/></a>&nbsp;2003.</i></b></center>
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+</body>
+
+</html>

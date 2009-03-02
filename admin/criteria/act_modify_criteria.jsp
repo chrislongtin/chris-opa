@@ -25,13 +25,15 @@
         <c:out value = "${i_criteria_weight}"/>
 
         <sql:query var = "criteria_num" maxRows = "1">
-            select i_criteria_id from initiative_criteria order by i_criteria_id desc
+            select i_criteria_id from initiative_criteria order by
+            i_criteria_id desc
         </sql:query>
 
         <c:choose>
             <c:when test = "${criteria_num.rowCount != 0}">
                 <c:forEach var = "row" items = "${criteria_num.rows}">
-                    <c:set var = "i_criteria_id" value = "${row.i_criteria_id + 1}"/>
+                    <c:set var = "i_criteria_id"
+                           value = "${row.i_criteria_id + 1}"/>
                 </c:forEach>
             </c:when>
 
@@ -41,8 +43,9 @@
         </c:choose>
 
         <sql:update var = "add_criteria">
-            insert into initiative_criteria ( i_criteria_id, i_criteria_name, i_criteria_weight, i_low_rank,
-            i_high_rank ) values ( ?, ?, ?, ?, ? )
+            insert into initiative_criteria ( i_criteria_id, i_criteria_name,
+            i_criteria_weight, i_low_rank, i_high_rank ) values ( ?, ?, ?, ?,
+            ? )
 
             <sql:param value = "${i_criteria_id}"/>
 
@@ -58,8 +61,9 @@
 
     <c:when test = "${param.act == 'edit'}">
         <sql:update var = "update_criteria">
-            update initiative_criteria set i_criteria_name = ?, i_criteria_weight = ?, i_low_rank = ?, i_high_rank = ?
-            where i_criteria_id = ?
+            update initiative_criteria set i_criteria_name = ?,
+            i_criteria_weight = ?, i_low_rank = ?, i_high_rank = ? where
+            i_criteria_id = ?
 
             <sql:param value = "${param.i_criteria_name}"/>
 

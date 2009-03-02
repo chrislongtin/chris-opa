@@ -101,7 +101,8 @@
 
 <c:forEach var = "member" items = "${members}">
     <sql:update>
-        insert into listmembers (member_id, list_id, member_status) values (?, ?, 1)
+        insert into listmembers (member_id, list_id, member_status) values (?,
+        ?, 1)
 
         <sql:param value = "${member}"/>
 

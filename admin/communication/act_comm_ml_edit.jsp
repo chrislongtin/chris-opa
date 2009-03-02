@@ -17,7 +17,8 @@
 
 <c:if test = "${!empty list_id}">
     <sql:query var = "list_c">
-        select list_id from mailinglists where list_id = ? and coordinator_id = ?
+        select list_id from mailinglists where list_id = ? and coordinator_id
+        = ?
 
         <sql:param value = "${list_id}"/>
 
@@ -30,7 +31,7 @@
 
                 <%@ include file = "../../guard_required_params.jsp"%>
 
-<%
+                <%
                 GuardRequiredParams guard = new GuardRequiredParams(request);
 
                 if (guard.isParameterMissed())
@@ -38,7 +39,7 @@
                     out.write(guard.getSplashScreen());
                     return;
                     }
-%>
+                %>
 
                 <c:set var = "list_name">
                     <c:out value = "${param.list_name}"
@@ -59,15 +60,16 @@
 
                 <c:if test = "${default==1}">
                     <sql:update>
-                        update mailinglists set default_list = 0 where coordinator_id = ?
+                        update mailinglists set default_list = 0 where
+                        coordinator_id = ?
 
                         <sql:param value = "${sessionScope.coord_id}"/>
                     </sql:update>
                 </c:if>
 
                 <sql:update>
-                    update mailinglists set list_name = ?, list_descr = ?, list_topic = ?, default_list = ? where
-                    list_id = ?
+                    update mailinglists set list_name = ?, list_descr = ?,
+                    list_topic = ?, default_list = ? where list_id = ?
 
                     <sql:param value = "${list_name}"/>
 
@@ -110,7 +112,8 @@
 
                 <c:forEach var = "row" items = "${lm.rows}">
                     <sql:query var = "alm">
-                        select list_id from listmembers where member_id = ? and list_id<> ?
+                        select list_id from listmembers where member_id = ?
+                        and list_id<> ?
         <sql:param value="${row.member_id}" />
         <sql:param value="${list_id}" />
     	</sql:query>
@@ -166,6 +169,7 @@
 </c:if>
 
 <c:import url="communication/dsp_comm_ml.jsp"/>
+
 
 
 

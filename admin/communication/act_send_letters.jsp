@@ -9,14 +9,16 @@
 <!--- set coordinator admin email address --->
 
 <sql:query var = "admin_email">
-    select coordinator_admin_email, coordinator_firstname, coordinator_lastname from coordinators where
-    receive_admin_emails = 1
+    select coordinator_admin_email, coordinator_firstname,
+    coordinator_lastname from coordinators where receive_admin_emails = 1
 </sql:query>
 
 <c:forEach var = "row" items = "${admin_email.rows}">
-    <c:set var = "coordinator_admin_email" value = "${row.coordinator_admin_email}"/>
+    <c:set var = "coordinator_admin_email"
+           value = "${row.coordinator_admin_email}"/>
 
-    <c:set var = "coordinator_firstname" value = "${row.coordinator_firstname}"/>
+    <c:set var = "coordinator_firstname"
+           value = "${row.coordinator_firstname}"/>
 
     <c:set var = "coordinator_lastname" value = "${row.coordinator_lastname}"/>
 </c:forEach>
@@ -39,8 +41,9 @@
 
 <!--- generate a list of proponent records which have the same status --->
 <sql:query var = "proponent_select">
-    select proponent_leader_email, proponent_leader_firstname, proponent_leader_lastname, tracking_code from
-    proponent_record where status_id = ?
+    select proponent_leader_email, proponent_leader_firstname,
+    proponent_leader_lastname, tracking_code from proponent_record where
+    status_id = ?
 
     <sql:param value = "${param.status_id}"/>
 </sql:query>
@@ -49,7 +52,8 @@
 
     <!--- determine if the proponent has already been sent a letter for that status --->
     <sql:query var = "proponents_notified">
-        select tracking_code from sent_messages where letter_id = ? AND tracking_code = ?
+        select tracking_code from sent_messages where letter_id = ? AND
+        tracking_code = ?
 
         <sql:param value = "${letter_id}"/>
 
@@ -99,20 +103,22 @@
 
             <!--- add notification into sent messages table --->
             <sql:query var = "sent_message_num" maxRows = "1">
-                select sent_message_id from sent_messages order by sent_message_id desc
+                select sent_message_id from sent_messages order by
+                sent_message_id desc
             </sql:query>
 
-            <c:set var = "sent_message_id" value = "${sent_message_num.rows[0].sent_message_id + 1}"/>
+            <c:set var = "sent_message_id"
+                   value = "${sent_message_num.rows[0].sent_message_id + 1}"/>
 
-<%
+            <%
             java.sql.Date sqldate = new java.sql.Date(new Date().getTime());
 
             pageContext.setAttribute("date_sent", sqldate.toString());
-%>
+            %>
 
             <sql:update var = "message_sent">
-                insert into sent_messages (sent_message_id, tracking_code, letter_id, date_sent, recipient1) values (
-                ?, ?, ?, ?, ? )
+                insert into sent_messages (sent_message_id, tracking_code,
+                letter_id, date_sent, recipient1) values ( ?, ?, ?, ?, ? )
 
                 <sql:param value = "${sent_message_id}"/>
 

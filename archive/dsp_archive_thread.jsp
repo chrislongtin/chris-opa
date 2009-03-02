@@ -22,7 +22,8 @@
 <c:set var = "thelevel" value = "${thelevel+1}" scope = "page"/>
 
 <sql:query var = "qn">
-    select * from discussion where doc_id = ? and discuss_parent = ? order by discuss_date desc
+    select * from discussion where doc_id = ? and discuss_parent = ? order by
+    discuss_date desc
 
     <sql:param value = "${doc_id}"/>
 
@@ -47,7 +48,8 @@
 
 <ul>
     <c:forEach items = "${qn.rows}" var = "row">
-        <li><a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${doc_id}" />&lang=<c:out value="${lang}" />&show_msg=yes&id_num=<c:out value="${row.discussion_id}" />">
+        <li><a STYLE = "text-decoration: underline"
+               href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${doc_id}" />&lang=<c:out value="${lang}" />&show_msg=yes&id_num=<c:out value="${row.discussion_id}" />">
 
         <c:out value = "${row.discuss_subject}"/></a> <i><c:choose>
             <c:when test = "${row.discuss_author!=''}">
@@ -66,10 +68,12 @@
                 <td bgcolor = "E1E1E1">
                     <font face = "Arial" size = "-2">
 
-                    <fmt:formatDate value = "${row.discuss_date}" pattern = "MMM dd, yyyy"/> |
-                    <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${doc_id}" />&lang=<c:out value="${lang}" />&act=add&discuss_parent=<c:out value="${row.discussion_id}" />">
+                    <fmt:formatDate value = "${row.discuss_date}"
+                    pattern = "MMM dd, yyyy"/> | <a STYLE = "text-decoration: underline"
+                    href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${doc_id}" />&lang=<c:out value="${lang}" />&act=add&discuss_parent=<c:out value="${row.discussion_id}" />">
 
-                    <cf:GetPhrase phrase_id = "39" lang_id = "${lang}"/></a></font>
+                    <cf:GetPhrase phrase_id = "39"
+                                  lang_id = "${lang}"/></a></font>
 
                     <p>
                     <font face = "Arial" size = "-1">
@@ -77,7 +81,8 @@
                     <cf:ParagraphFormat value = "${row.discuss_message}"/>
 
                     <br>
-                    <a STYLE="text-decoration: underline"  href = "docs/<c:out value="${row.discuss_attachment}" />?ois=no">
+                    <a STYLE = "text-decoration: underline"
+                       href = "docs/<c:out value="${row.discuss_attachment}" />?ois=no">
 
                     <c:out value = "${row.discuss_attachment}"/></a></font>
                 </td>

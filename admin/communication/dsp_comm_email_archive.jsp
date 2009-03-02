@@ -24,7 +24,8 @@
 <sql:setDataSource var = "lyrics" dataSource = "Lyris" url = ""/>
 
 <sql:query var = "messagedates" dataSource = "${lyris}">
-    SELECT created, hdrfrom, hdrsubject, hdrfromspc, messageid FROM messages where list = ? order by ?
+    SELECT created, hdrfrom, hdrsubject, hdrfromspc, messageid FROM messages
+    where list = ? order by ?
 
     <c:if test = "${sort == 'creatstamp'}">
         desc
@@ -44,7 +45,9 @@
     <table width = "100%" border = "0" cellspacing = "0" cellpadding = "3">
         <tr>
             <td>
-                <font face = "Arial" size = "-1"><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <font face = "Arial"
+                      size = "-1"><a STYLE = "text-decoration: underline"
+                                     href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_members'/>
 <c:param name='${user}'/>
 </c:url>">
@@ -56,27 +59,31 @@
                 <font face = "Arial" size = "-1"><b>
 
                 <cf:GetPhrase phrase_id = "170" lang_id = "${lang}"/>:</b>
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
 <c:param name='${user}'/>
 <c:param name='sort' value='creatstamp'/>
 </c:url>"><i>
 
                 <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/></i></a> |
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
 <c:param name='${user}'/>
 <c:param name='sort' value='hdrsubject'/>
 </c:url>"><i>
 
                 <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/></i></a> |
-                <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                <a STYLE = "text-decoration: underline"
+                   href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
 <c:param name='${user}'/>
 <c:param name='sort' value='hdrfrom'/>
 </c:url>"><i>
 
-                <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/></i></a></font>
+                <cf:GetPhrase phrase_id = "66"
+                              lang_id = "${lang}"/></i></a></font>
             </td>
         </tr>
 
@@ -106,14 +113,16 @@
         <c:forEach var = "row" items = "${messagedates.rows}">
             <tr BGCOLOR = "cccccc">
                 <td>
-                    <img src = "images/arrow_red.gif" border = 0 alt = "" width = 13
+                    <img src = "images/arrow_red.gif" border = 0
+                         alt = ""                     width = 13
                          height = 8><font face = "Arial" size = "-1">
 
                     <c:out value = '${row.hdrfrom}'/></font>
                 </TD>
 
                 <TD>
-                    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                    <a STYLE = "text-decoration: underline"
+                       href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_message'/>
 <c:param name='id' value='${row.messageid}'/>
 <c:param name='${user}'/>

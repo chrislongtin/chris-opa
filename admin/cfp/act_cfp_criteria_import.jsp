@@ -26,8 +26,9 @@
     </c:forEach>
 
     <sql:update var = "insert_criteria">
-        insert into cfp_criteria ( cfp_criteria_id, cfp_code, cfp_criteria_name, cfp_criteria_weight, cfp_high_rank,
-        cfp_low_rank ) values ( ?, ?, ?, ?, ?, ? )
+        insert into cfp_criteria ( cfp_criteria_id, cfp_code,
+        cfp_criteria_name, cfp_criteria_weight, cfp_high_rank, cfp_low_rank )
+        values ( ?, ?, ?, ?, ?, ? )
 
         <sql:param value = "${cfp_criteria_id2}"/>
 

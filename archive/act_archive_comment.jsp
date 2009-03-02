@@ -7,7 +7,8 @@
 
 <!--- process public comment submission --->
 
-<jsp:useBean id = "myUpload" scope = "page" class = "com.jspsmart.upload.SmartUpload"/>
+<jsp:useBean id = "myUpload" scope = "page"
+             class = "com.jspsmart.upload.SmartUpload"/>
 
 <%
     myUpload.initialize(pageContext);
@@ -52,11 +53,12 @@
 
         <c:set var = "DOCS_DIR" value = "${host_doc_dir}"/>
 
-<%
+    <%
         String path = (String)pageContext.getAttribute("DOCS_DIR");
         path = application.getRealPath(path);
 
-        String filename = discuss_attachment.getFileName().replaceAll("\\s", "");
+        String filename = discuss_attachment.getFileName().replaceAll("\\s",
+                                                                      "");
 
         java.io.File f = new java.io.File(path, filename);
 
@@ -73,22 +75,31 @@
 
         discuss_attachment.saveAs(f.getPath());
         pageContext.setAttribute("file_name1", filename);
-%>
+    %>
 
 <%
         }
 %>
 
 <%
-    pageContext.setAttribute("discuss_attachment", discuss_attachment.isMissing() ? null : "discuss_attachment");
-    pageContext.setAttribute("discuss_author", myRequest.getParameter("discuss_author"));
+    pageContext.setAttribute("discuss_attachment",
+                             discuss_attachment.isMissing()
+                                 ? null : "discuss_attachment");
+    pageContext.setAttribute("discuss_author",
+                             myRequest.getParameter("discuss_author"));
     pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
-    pageContext.setAttribute("discuss_level", myRequest.getParameter("discuss_level"));
-    pageContext.setAttribute("discuss_parent", myRequest.getParameter("discuss_parent"));
-    pageContext.setAttribute("discuss_subject", myRequest.getParameter("discuss_subject"));
-    pageContext.setAttribute("discuss_message", myRequest.getParameter("discuss_message"));
-    pageContext.setAttribute("discuss_author", myRequest.getParameter("discuss_author"));
-    pageContext.setAttribute("discuss_email", myRequest.getParameter("discuss_email"));
+    pageContext.setAttribute("discuss_level",
+                             myRequest.getParameter("discuss_level"));
+    pageContext.setAttribute("discuss_parent",
+                             myRequest.getParameter("discuss_parent"));
+    pageContext.setAttribute("discuss_subject",
+                             myRequest.getParameter("discuss_subject"));
+    pageContext.setAttribute("discuss_message",
+                             myRequest.getParameter("discuss_message"));
+    pageContext.setAttribute("discuss_author",
+                             myRequest.getParameter("discuss_author"));
+    pageContext.setAttribute("discuss_email",
+                             myRequest.getParameter("discuss_email"));
 %>
 <!--- retrieving next discussion identifier number --->
 
@@ -96,12 +107,13 @@
     select discussion_id from discussion order by discussion_id desc
 </sql:query>
 
-<c:set var = "discussion_id" value = "${discuss_num.rows[0].discussion_id + 1}" scope = "page"/>
+<c:set var = "discussion_id" value = "${discuss_num.rows[0].discussion_id + 1}"
+       scope = "page"/>
 
 <!--- adding the message to the database --->
 <sql:update>
-    insert into discussion (discussion_id, doc_id, discuss_level, discuss_parent, discuss_subject, discuss_date,
-    discuss_message
+    insert into discussion (discussion_id, doc_id, discuss_level,
+    discuss_parent, discuss_subject, discuss_date, discuss_message
 
     <c:if test = "${!empty discuss_author}">
         , discuss_author
@@ -161,12 +173,15 @@
 
     <!--- recalculate the number of replies to the original message --->
     <sql:query var = "renum_replies">
-        select discuss_replies, discussion_id from discussion where discussion_id = ?
+        select discuss_replies, discussion_id from discussion where
+        discussion_id = ?
 
         <sql:param value = "${discuss_parent}"/>
     </sql:query>
 
-    <c:set var = "discuss_replies" value = "${renum_replies.rows[0].discuss_replies + 1}" scope = "page"/>
+    <c:set var = "discuss_replies"
+           value = "${renum_replies.rows[0].discuss_replies + 1}"
+           scope = "page"/>
 
     <!--- update the number of replies count --->
     <sql:update>

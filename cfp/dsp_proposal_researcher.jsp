@@ -23,17 +23,18 @@
         <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_edit">
 
         <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
 
         <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
     </div>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <c:set var = "act">
@@ -88,24 +89,41 @@
             <sql:param value = "${researcher_id}"/>
         </sql:query>
 
-        <c:set var = "researcher_firstname" value = "${researcher_edit.rows[0].researcher_firstname}" scope = "page"/>
-
-        <c:set var = "researcher_lastname" value = "${researcher_edit.rows[0].researcher_lastname}" scope = "page"/>
-
-        <c:set var = "researcher_initial" value = "${researcher_edit.rows[0].researcher_initial}" scope = "page"/>
-
-        <c:set var = "researcher_phone" value = "${researcher_edit.rows[0].researcher_phone}" scope = "page"/>
-
-        <c:set var = "researcher_fax" value = "${researcher_edit.rows[0].researcher_fax}" scope = "page"/>
-
-        <c:set var = "researcher_email" value = "${researcher_edit.rows[0].researcher_email}" scope = "page"/>
-
-        <c:set var = "researcher_citizenship" value = "${researcher_edit.rows[0].researcher_citizenship}"
+        <c:set var = "researcher_firstname"
+               value = "${researcher_edit.rows[0].researcher_firstname}"
                scope = "page"/>
 
-        <c:set var = "researcher_residency" value = "${researcher_edit.rows[0].researcher_residency}" scope = "page"/>
+        <c:set var = "researcher_lastname"
+               value = "${researcher_edit.rows[0].researcher_lastname}"
+               scope = "page"/>
 
-        <c:set var = "researcher_org" value = "${researcher_edit.rows[0].researcher_org}" scope = "page"/>
+        <c:set var = "researcher_initial"
+               value = "${researcher_edit.rows[0].researcher_initial}"
+               scope = "page"/>
+
+        <c:set var = "researcher_phone"
+               value = "${researcher_edit.rows[0].researcher_phone}"
+               scope = "page"/>
+
+        <c:set var = "researcher_fax"
+               value = "${researcher_edit.rows[0].researcher_fax}"
+               scope = "page"/>
+
+        <c:set var = "researcher_email"
+               value = "${researcher_edit.rows[0].researcher_email}"
+               scope = "page"/>
+
+        <c:set var = "researcher_citizenship"
+               value = "${researcher_edit.rows[0].researcher_citizenship}"
+               scope = "page"/>
+
+        <c:set var = "researcher_residency"
+               value = "${researcher_edit.rows[0].researcher_residency}"
+               scope = "page"/>
+
+        <c:set var = "researcher_org"
+               value = "${researcher_edit.rows[0].researcher_org}"
+               scope = "page"/>
 
         <p>
         <h3>
@@ -124,23 +142,26 @@
 <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
 
 <form action = "index.jsp?fuseaction=act_proposal_researcher" method = "post">
-    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-    <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
-    <input type = "hidden"
-           name = "researcher_firstname_required"
-           value = "<cf:GetPhrase phrase_id="651" lang_id="${lang}" />"> <input type = "hidden"
-           name = "researcher_lastname_required"
-           value = "<cf:GetPhrase phrase_id="652" lang_id="${lang}" />"> <input type = "hidden"
-           name = "researcher_email_required"
-           value = "<cf:GetPhrase phrase_id="653" lang_id="${lang}" />"> <input type = "hidden"
-           name = "researcher_citizenship_required"
-           value = "<cf:GetPhrase phrase_id="654" lang_id="${lang}" />"> <input type = "hidden"
-           name = "researcher_residency_required"
-           value = "<cf:GetPhrase phrase_id="655" lang_id="${lang}" />"> <input type = "hidden"
-           name = "researcher_org_required"
-           value = "<cf:GetPhrase phrase_id="656" lang_id="${lang}" />">
-    <input type = "hidden" name = "act" value = "<c:out value="${act}" />"><c:if test = "${act=='edit'}">
-        <input type = "hidden" name = "researcher_id" value = "<c:out value="${researcher_id}" />">
+    <input type = "hidden" name = "tracking_code"
+    value = "<c:out value="${tracking_code}" />">
+    <input type = "hidden" name = "proponent_password"
+    value = "<c:out value="${proponent_password}" />"> <input type = "hidden"
+    name = "researcher_firstname_required"
+    value = "<cf:GetPhrase phrase_id="651" lang_id="${lang}" />"> <input type = "hidden"
+    name = "researcher_lastname_required"
+    value = "<cf:GetPhrase phrase_id="652" lang_id="${lang}" />"> <input type = "hidden"
+    name = "researcher_email_required"
+    value = "<cf:GetPhrase phrase_id="653" lang_id="${lang}" />"> <input type = "hidden"
+    name = "researcher_citizenship_required"
+    value = "<cf:GetPhrase phrase_id="654" lang_id="${lang}" />"> <input type = "hidden"
+    name = "researcher_residency_required"
+    value = "<cf:GetPhrase phrase_id="655" lang_id="${lang}" />"> <input type = "hidden"
+    name = "researcher_org_required"
+    value = "<cf:GetPhrase phrase_id="656" lang_id="${lang}" />"> <input type = "hidden"
+    name = "act" value = "<c:out value="${act}" />">
+    <c:if test = "${act=='edit'}">
+        <input type = "hidden" name = "researcher_id"
+               value = "<c:out value="${researcher_id}" />">
     </c:if>
 
     <table>
@@ -152,12 +173,10 @@
             </td>
 
             <td>
-                <input type = "text"
-                       name = "researcher_firstname"
-                       size = "15"
-                       value = "<c:out value="${researcher_firstname}" />">
-                <input type = "text" name = "researcher_initial" size = "3"
-                       value = "<c:out value="${researcher_initial}" />">
+                <input type = "text" name = "researcher_firstname" size = "15"
+                value = "<c:out value="${researcher_firstname}" />"> <input type = "text"
+                name = "researcher_initial" size = "3"
+                value = "<c:out value="${researcher_initial}" />">
             </td>
         </tr>
 
@@ -182,7 +201,9 @@
             </td>
 
             <td>
-                <input type = "text" name = "researcher_phone" value = "<c:out value="${researcher_phone}" />"
+                <input type = "text"
+                       name = "researcher_phone"
+                       value = "<c:out value="${researcher_phone}" />"
                        size = "10">
             </td>
         </tr>
@@ -195,7 +216,10 @@
             </td>
 
             <td>
-                <input type = "text" name = "researcher_fax" value = "<c:out value="${researcher_fax}" />" size = "10">
+                <input type = "text"
+                       name = "researcher_fax"
+                       value = "<c:out value="${researcher_fax}" />"
+                       size = "10">
             </td>
         </tr>
 
@@ -207,7 +231,9 @@
             </td>
 
             <td>
-                <input type = "text" name = "researcher_email" value = "<c:out value="${researcher_email}" />"
+                <input type = "text"
+                       name = "researcher_email"
+                       value = "<c:out value="${researcher_email}" />"
                        size = "20">
             </td>
         </tr>
@@ -220,8 +246,10 @@
             </td>
 
             <td>
-                <input type = "text"                                         name = "researcher_citizenship"
-                       value = "<c:out value="${researcher_citizenship}" />" size = "20">
+                <input type = "text"
+                       name = "researcher_citizenship"
+                       value = "<c:out value="${researcher_citizenship}" />"
+                       size = "20">
             </td>
         </tr>
 
@@ -233,7 +261,9 @@
             </td>
 
             <td>
-                <input type = "text" name = "researcher_residency" value = "<c:out value="${researcher_residency}" />"
+                <input type = "text"
+                       name = "researcher_residency"
+                       value = "<c:out value="${researcher_residency}" />"
                        size = "20">
             </td>
         </tr>
@@ -246,13 +276,17 @@
             </td>
 
             <td>
-                <input type = "text" name = "researcher_org" value = "<c:out value="${researcher_org}" />" size = "20">
+                <input type = "text"
+                       name = "researcher_org"
+                       value = "<c:out value="${researcher_org}" />"
+                       size = "20">
             </td>
         </tr>
 
         <tr>
             <td colspan = "2" align = "center">
-                <input type = "submit" value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+                <input type = "submit"
+                       value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
             </td>
         </tr>
     </table>

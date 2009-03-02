@@ -8,7 +8,8 @@
 
 <!--- select reviewer info --->
 <sql:query var = "reviewer_profiles">
-    select reviewer_profile, reviewer_lastname, reviewer_firstname from reviewers where reviewer_profile<> ''
+    select reviewer_profile, reviewer_lastname, reviewer_firstname from
+    reviewers where reviewer_profile<> ''
 order by reviewer_lastname
 </sql:query>
 
@@ -27,6 +28,7 @@ order by reviewer_lastname
 </c:forEach>
 	</c:otherwise>
 </c:choose>
+
 
 
 

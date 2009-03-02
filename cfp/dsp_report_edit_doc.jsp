@@ -42,13 +42,17 @@
             <sql:param value = "${doc_id}"/>
         </sql:query>
 
-        <c:set var = "doc_title" value = "${doc_edit.rows[0].doc_title}" scope = "page"/>
+        <c:set var = "doc_title" value = "${doc_edit.rows[0].doc_title}"
+               scope = "page"/>
 
-        <c:set var = "doc_abstract" value = "${doc_edit.rows[0].doc_abstract}" scope = "page"/>
+        <c:set var = "doc_abstract" value = "${doc_edit.rows[0].doc_abstract}"
+               scope = "page"/>
 
-        <c:set var = "doc_filename" value = "${doc_edit.rows[0].doc_filename}" scope = "page"/>
+        <c:set var = "doc_filename" value = "${doc_edit.rows[0].doc_filename}"
+               scope = "page"/>
 
-        <c:set var = "doc_type_id" value = "${doc_edit.rows[0].doc_type_id}" scope = "page"/>
+        <c:set var = "doc_type_id" value = "${doc_edit.rows[0].doc_type_id}"
+               scope = "page"/>
 
         <sql:query var = "document_type">
             select * from document_types where doc_type_id = ?
@@ -56,7 +60,9 @@
             <sql:param value = "${doc_type_id}"/>
         </sql:query>
 
-        <c:set var = "doc_type_name" value = "${document_type.rows[0].doc_type_name}" scope = "page"/>
+        <c:set var = "doc_type_name"
+               value = "${document_type.rows[0].doc_type_name}"
+               scope = "page"/>
 
         <p>
         <h3>
@@ -72,11 +78,14 @@
     </c:otherwise>
 </c:choose>
 
-<form action = "index.jsp?fuseaction=act_report_edit_doc" method = "post" ENCTYPE = "multipart/form-data">
-    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-    <input type = "hidden" name = "doc_title_required" value = "<cf:GetPhrase phrase_id="605" lang_id="${lang}" />">
-    <input type = "hidden" name = "act" value = "edit">
-    <input type = "hidden" name = "doc_id" value = "<c:out value="${doc_id}" />">
+<form action = "index.jsp?fuseaction=act_report_edit_doc" method = "post"
+      ENCTYPE = "multipart/form-data">
+    <input type = "hidden" name = "tracking_code"
+    value = "<c:out value="${tracking_code}" />">
+    <input type = "hidden" name = "doc_title_required"
+    value = "<cf:GetPhrase phrase_id="605" lang_id="${lang}" />"> <input type = "hidden" name = "act" value = "edit">
+    <input type = "hidden" name = "doc_id"
+    value = "<c:out value="${doc_id}" />">
 
     <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
 
@@ -90,7 +99,8 @@
             </td>
 
             <td>
-                <input type = "text" name = "doc_title" size = "30" value = "<c:out value="${doc_title}" />">
+                <input type = "text" name = "doc_title" size = "30"
+                       value = "<c:out value="${doc_title}" />">
             </td>
         </tr>
 
@@ -102,8 +112,9 @@
             </td>
 
             <td>
-                <font face = "arial" size = "-1"><input type = "file" name = "doc_filename" size = "30">
-                <c:if test = "${doc_filename!=''}">
+                <font face = "arial"
+                size = "-1"><input type = "file" name = "doc_filename"
+                size = "30"><c:if test = "${doc_filename!=''}">
                     <br>
                     <cf:GetPhrase phrase_id = "607" lang_id = "${lang}"/>
 
@@ -129,7 +140,8 @@
         </tr>
 
         <sql:query var = "type_name">
-            select * from document_types where doc_type_id > 0 and doc_type_category = 'R' order by doc_type_id
+            select * from document_types where doc_type_id > 0 and
+            doc_type_category = 'R' order by doc_type_id
         </sql:query>
 
         <c:if test = "${type_name.rowCount!=0}">
@@ -145,13 +157,13 @@
 
                     <select name = "doc_type_id">
                         <c:if test = "${!empty doc_type_name}">
-                            <option value = "<c:out value="${doc_type_id}" />"><c:out value = "${doc_type_name}"/>
+                            <option value = "<c:out value="${doc_type_id}" />">
+                            <c:out value = "${doc_type_name}"/>
                         </c:if>
 
                         <c:forEach items = "${type_name.rows}" var = "row">
                             <c:if test = "${row.doc_type_id!=doc_type_id}">
-                                <option value = "<c:out value="${row.doc_type_id}" />">
-                                <c:out value = "${row.doc_type_name}"/>
+                                <option value = "<c:out value="${row.doc_type_id}" />"><c:out value = "${row.doc_type_name}"/>
                             </c:if>
                         </c:forEach>
                     </select>
@@ -161,7 +173,8 @@
 
         <tr>
             <td colspan = "2" align = "center">
-                <input type = "submit" value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+                <input type = "submit"
+                       value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
             </td>
         </tr>
     </table>

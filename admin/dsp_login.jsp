@@ -12,7 +12,8 @@
         </c:when>
 
         <c:otherwise>
-            <c:set var = "lang" scope = "session" value = "${q.rows[0].default_lang}"/>
+            <c:set var = "lang" scope = "session"
+                   value = "${q.rows[0].default_lang}"/>
         </c:otherwise>
     </c:choose>
 </c:if>
@@ -36,16 +37,22 @@
 </sql:query>
 
 <sql:query var = "initiative_images">
-    select admin_image_title, image_toolbar from initiative_info where lang_id = 1
+    select admin_image_title, image_toolbar from initiative_info where lang_id
+    = 1
 </sql:query>
 
 <html>
-    <body leftmargin = 0 topmargin = 0 marginwidth = "0" marginheight = "0"
+    <body leftmargin = 0
+          topmargin = 0
+          marginwidth = "0"
+          marginheight = "0"
           background = "../docs/<c:out value="${setup.rows[0].background_image}" />">
-        <table width = "100%" border = "0" cellspacing = "0" cellpadding = "0" valign = "TOP">
+        <table width = "100%" border = "0" cellspacing = "0" cellpadding = "0"
+               valign = "TOP">
             <tr>
                 <td background = "../docs/<c:out value="${setup.rows[0].admin_header_background}" />">
-                    <img src = "../docs/<c:out value="${initiative_images.rows[0].admin_image_title}" />" border = 0
+                    <img src = "../docs/<c:out value="${initiative_images.rows[0].admin_image_title}" />"
+                         border = 0
                          alt = "">
                 </td>
             </tr>
@@ -76,28 +83,31 @@
 
                     <!--- set coordinator admin email address --->
                     <sql:query var = "admin_email">
-                        select coordinator_admin_email from coordinators where receive_admin_emails = 1
+                        select coordinator_admin_email from coordinators where
+                        receive_admin_emails = 1
                     </sql:query>
 
-                    <c:set var = "coordinator_admin_email" value = "${admin_email.rows[0].coordinator_admin_email}"
-                           scope = "page"/><c:choose>
+                    <c:set var = "coordinator_admin_email"
+                    value = "${admin_email.rows[0].coordinator_admin_email}"
+                    scope = "page"/><c:choose>
                         <c:when test = "${role=='coordinator'}">
                             <sql:query var = "get_password">
-                                select coordinator_password, coordinator_login from coordinators where
-                                coordinator_email = ?
+                                select coordinator_password, coordinator_login
+                                from coordinators where coordinator_email = ?
 
                                 <sql:param value = "${user_email}"/>
                             </sql:query>
 
                             <c:if test = "${empty get_password.rows[0].coordinator_login}">
-                                <cf:GetPhrase phrase_id = "431" lang_id = "${lang}"/>
+                                <cf:GetPhrase phrase_id = "431"
+                                              lang_id = "${lang}"/>
 
                                 .
 
-<%
+                                <%
                                 if (true)
                                     return;
-%>
+                                %>
                             </c:if>
 
                             <mt:mail session = "java:/comp/env/mail/session">
@@ -110,15 +120,18 @@
                                 </mt:setrecipient>
 
                                 <mt:subject>
-                                    <cf:GetPhrase phrase_id = "937" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "937"
+                                                  lang_id = "${lang}"/>
                                 </mt:subject>
 
                                 <mt:message>
-                                    <cf:GetPhrase phrase_id = "432" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "432"
+                                                  lang_id = "${lang}"/>
 
                                     <c:out value = "${get_password.rows[0].coordinator_password}"/>
 
-                                    <cf:GetPhrase phrase_id = "433" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "433"
+                                                  lang_id = "${lang}"/>
 
                                     <c:out value = "${get_password.rows[0].coordinator_login}"/>
                                 </mt:message>
@@ -128,29 +141,35 @@
 
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "434" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "434"
+                                          lang_id = "${lang}"/>
 
-                            <c:out value = "${user_email}"/>.</h3> <a STYLE="text-decoration: underline"  href = "index.jsp">
+                            <c:out value = "${user_email}"/>.</h3>
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp">
 
-                            <cf:GetPhrase phrase_id = "435" lang_id = "${lang}"/></a>
+                            <cf:GetPhrase phrase_id = "435"
+                                          lang_id = "${lang}"/></a>
                         </c:when>
 
                         <c:when test = "${role=='reviewer'}">
                             <sql:query var = "get_password">
-                                select reviewer_password, reviewer_login from reviewers where reviewer_email = ?
+                                select reviewer_password, reviewer_login from
+                                reviewers where reviewer_email = ?
 
                                 <sql:param value = "${user_email}"/>
                             </sql:query>
 
                             <c:if test = "${empty get_password.rows[0].reviewer_login}">
-                                <cf:GetPhrase phrase_id = "431" lang_id = "${lang}"/>
+                                <cf:GetPhrase phrase_id = "431"
+                                              lang_id = "${lang}"/>
 
                                 .
 
-<%
+                                <%
                                 if (true)
                                     return;
-%>
+                                %>
                             </c:if>
 
                             <mt:mail session = "java:/comp/env/mail/session">
@@ -163,15 +182,18 @@
                                 </mt:setrecipient>
 
                                 <mt:subject>
-                                    <cf:GetPhrase phrase_id = "937" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "937"
+                                                  lang_id = "${lang}"/>
                                 </mt:subject>
 
                                 <mt:message>
-                                    <cf:GetPhrase phrase_id = "432" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "432"
+                                                  lang_id = "${lang}"/>
 
                                     <c:out value = "${get_password.rows[0].reviewer_password}"/>
 
-                                    <cf:GetPhrase phrase_id = "433" lang_id = "${lang}"/>
+                                    <cf:GetPhrase phrase_id = "433"
+                                                  lang_id = "${lang}"/>
 
                                     <c:out value = "${get_password.rows[0].reviewer_login}"/>
                                 </mt:message>
@@ -181,11 +203,15 @@
 
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "434" lang_id = "${lang}"/>
+                            <cf:GetPhrase phrase_id = "434"
+                                          lang_id = "${lang}"/>
 
-                            <c:out value = "${user_email}"/>.</h3> <a STYLE="text-decoration: underline"  href = "index.jsp">
+                            <c:out value = "${user_email}"/>.</h3>
+                            <a STYLE = "text-decoration: underline"
+                               href = "index.jsp">
 
-                            <cf:GetPhrase phrase_id = "435" lang_id = "${lang}"/></a>
+                            <cf:GetPhrase phrase_id = "435"
+                                          lang_id = "${lang}"/></a>
                         </c:when>
 
                         <c:otherwise>
@@ -193,7 +219,8 @@
                             <h2>
 
                             <center>
-                                <cf:GetPhrase phrase_id = "436" lang_id = "${lang}"/>
+                                <cf:GetPhrase phrase_id = "436"
+                                              lang_id = "${lang}"/>
 
                                 :
                             </center>
@@ -204,71 +231,85 @@
                             <br>
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "437" lang_id = "${lang}"/>:</h3>
+                            <cf:GetPhrase phrase_id = "437"
+                                          lang_id = "${lang}"/>:</h3>
 
-                            <form action = "index.jsp?fuseaction=login" method = "post">
-                                <input type = "hidden" name = "login_type" value = "reviewer"> <b>
+                            <form action = "index.jsp?fuseaction=login"
+                                  method = "post">
+                                <input type = "hidden" name = "login_type"
+                                value = "reviewer"> <b>
 
-                                <cf:GetPhrase phrase_id = "438" lang_id = "${lang}"/>:</b>
-                                <input type = "text" name = "reviewer_login">
+                                <cf:GetPhrase phrase_id = "438"
+                                lang_id = "${lang}"/>:</b> <input type = "text"
+                                name = "reviewer_login">
 
                                 <br>
                                 <b>
 
                                 <cf:GetPhrase phrase_id = "92"
-                                              lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password"
-                                                                                           name = "reviewer_password">
+                                lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password" name = "reviewer_password">
                                 <input type = "submit"
-                                       value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
+                                value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
                             </form>
 
                             <form action = "index.jsp" method = "post">
-                                <input type = "hidden" name = "role" value = "reviewer">
+                                <input type = "hidden" name = "role"
+                                       value = "reviewer">
 
                                 <p>
-                                <cf:GetPhrase phrase_id = "439" lang_id = "${lang}"/>?
+                                <cf:GetPhrase phrase_id = "439"
+                                              lang_id = "${lang}"/>?
 
                                 <br>
-                                <cf:GetPhrase phrase_id = "440" lang_id = "${lang}"/>:
+                                <cf:GetPhrase phrase_id = "440"
+                                              lang_id = "${lang}"/>:
 
                                 <br>
                                 <input type = "text" name = "user_email" size = "30">
-                                <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                                <input type = "submit"
+                                value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
                             </form>
 
                             <p>
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "921" lang_id = "${lang}"/>:</h3>
+                            <cf:GetPhrase phrase_id = "921"
+                                          lang_id = "${lang}"/>:</h3>
 
-                            <form action = "index.jsp?fuseaction=login" method = "post">
-                                <input type = "hidden" name = "login_type" value = "coordinator"> <b>
+                            <form action = "index.jsp?fuseaction=login"
+                                  method = "post">
+                                <input type = "hidden" name = "login_type"
+                                value = "coordinator"> <b>
 
-                                <cf:GetPhrase phrase_id = "438" lang_id = "${lang}"/>:</b>
-                                <input type = "text" name = "coordinator_login">
+                                <cf:GetPhrase phrase_id = "438"
+                                lang_id = "${lang}"/>:</b> <input type = "text"
+                                name = "coordinator_login">
 
                                 <br>
                                 <b>
 
                                 <cf:GetPhrase phrase_id = "92"
-                                              lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password"
-                                                                                           name = "coordinator_password">
+                                lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password" name = "coordinator_password">
                                 <input type = "submit"
-                                       value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
+                                value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
                             </form>
 
                             <form action = "index.jsp" method = "post">
-                                <input type = "hidden" name = "role" value = "coordinator">
+                                <input type = "hidden" name = "role"
+                                       value = "coordinator">
 
                                 <p>
-                                <cf:GetPhrase phrase_id = "439" lang_id = "${lang}"/>?
+                                <cf:GetPhrase phrase_id = "439"
+                                              lang_id = "${lang}"/>?
 
                                 <br>
-                                <cf:GetPhrase phrase_id = "440" lang_id = "${lang}"/>:
+                                <cf:GetPhrase phrase_id = "440"
+                                              lang_id = "${lang}"/>:
 
                                 <br>
                                 <input type = "text" name = "user_email" size = "30">
-                                <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                                <input type = "submit"
+                                value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
                             </form>
                         </c:otherwise>
                     </c:choose>

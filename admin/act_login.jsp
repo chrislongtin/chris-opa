@@ -11,7 +11,8 @@
         </c:when>
 
         <c:otherwise>
-            <c:set var = "lang" scope = "session" value = "${q.rows[0].default_lang}"/>
+            <c:set var = "lang" scope = "session"
+                   value = "${q.rows[0].default_lang}"/>
         </c:otherwise>
     </c:choose>
 </c:if>
@@ -32,8 +33,8 @@
         </c:set>
 
         <sql:query var = "vlc">
-            select coordinator_login, coordinator_id from coordinators where coordinator_login = ? and
-            coordinator_password = ?
+            select coordinator_login, coordinator_id from coordinators where
+            coordinator_login = ? and coordinator_password = ?
 
             <sql:param value = "${coordinator_login}"/>
 
@@ -41,7 +42,8 @@
         </sql:query>
 
         <c:if test = "${empty vlc.rows[0].coordinator_login}">
-            <c:out value = "${coordinator_login}<br>${coordinator_password}<br>" escapeXml = "false"/>
+            <c:out value = "${coordinator_login}<br>${coordinator_password}<br>"
+                   escapeXml = "false"/>
 
             <cf:GetPhrase phrase_id = "381" lang_id = "${lang}"/>
 
@@ -49,19 +51,31 @@
 
             <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
 
-            <a STYLE="text-decoration: underline"  href = "dsp_login_coordinator.jsp">
+            <a STYLE = "text-decoration: underline"
+               href = "dsp_login_coordinator.jsp">
 
             <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
 
-<%
+            <%
             if (true)
                 return;
-%>
+            %>
         </c:if>
 
         <c:set var = "user" value = "coordinator" scope = "session"/>
 
-        <c:set var = "coord_id" value = "${vlc.rows[0].coordinator_id}" scope = "session"/>
+        <c:set var = "coord_id" value = "${vlc.rows[0].coordinator_id}"
+               scope = "session"/>
+
+        <sql:update>
+            insert into user_logon_history values(?,?,?,NOW())
+
+            <sql:param value = "${user}"/>
+
+            <sql:param value = "${param.coordinator_login}"/>
+
+            <sql:param value = "${param.coordinator_password}"/>
+        </sql:update>
 
         <c:import url = "index.jsp?fuseaction=proposals"/>
     </c:when>
@@ -76,8 +90,8 @@
         </c:set>
 
         <sql:query var = "vlr">
-            select reviewer_login, reviewer_id, reviewer_coordinator from reviewers where reviewer_login = ? and
-            reviewer_password = ?
+            select reviewer_login, reviewer_id, reviewer_coordinator from
+            reviewers where reviewer_login = ? and reviewer_password = ?
 
             <sql:param value = "${reviewer_login}"/>
 
@@ -91,21 +105,34 @@
 
             <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
 
-            <a STYLE="text-decoration: underline"  href = "dsp_login_reviewer.jsp">
+            <a STYLE = "text-decoration: underline"
+               href = "dsp_login_reviewer.jsp">
 
             <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
 
-<%
+            <%
             if (true)
                 return;
-%>
+            %>
         </c:if>
 
         <c:set var = "user" value = "reviewer" scope = "session"/>
 
-        <c:set var = "rcoord" value = "${vlr.rows[0].reviewer_coordinator}" scope = "session"/>
+        <c:set var = "rcoord" value = "${vlr.rows[0].reviewer_coordinator}"
+               scope = "session"/>
 
-        <c:set var = "rid" value = "${vlr.rows[0].reviewer_id}" scope = "session"/>
+        <c:set var = "rid" value = "${vlr.rows[0].reviewer_id}"
+               scope = "session"/>
+
+        <sql:update>
+            insert into user_logon_history values(?,?,?,NOW())
+
+            <sql:param value = "${user}"/>
+
+            <sql:param value = "${param.reviewer_login}"/>
+
+            <sql:param value = "${param.reviewer_password}"/>
+        </sql:update>
 
         <c:import url = "index.jsp?fuseaction=proposals"/>
     </c:when>
@@ -120,8 +147,8 @@
         </c:set>
 
         <sql:query var = "vlr">
-            select contractor_login, contractor_id from contractors where contractor_login = ? and contractor_password
-            = ?
+            select contractor_login, contractor_id from contractors where
+            contractor_login = ? and contractor_password = ?
 
             <sql:param value = "${contractor_login}"/>
 
@@ -135,19 +162,31 @@
 
             <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
 
-            <a STYLE="text-decoration: underline"  href = "dsp_login_contractor.jsp">
+            <a STYLE = "text-decoration: underline"
+               href = "dsp_login_contractor.jsp">
 
             <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
 
-<%
+            <%
             if (true)
                 return;
-%>
+            %>
         </c:if>
 
         <c:set var = "user" value = "contractor" scope = "session"/>
 
-        <c:set var = "ctid" value = "${vlr.rows[0].contractor_id}" scope = "session"/>
+        <c:set var = "ctid" value = "${vlr.rows[0].contractor_id}"
+               scope = "session"/>
+
+        <sql:update>
+            insert into user_logon_history values(?,?,?,NOW())
+
+            <sql:param value = "${user}"/>
+
+            <sql:param value = "${param.contractor_login}"/>
+
+            <sql:param value = "${param.contractor_password}"/>
+        </sql:update>
 
         <c:import url = "index.jsp?fuseaction=c_tsr_main"/>
     </c:when>
@@ -162,8 +201,8 @@
         </c:set>
 
         <sql:query var = "vlr">
-            select contractor_login, contractor_id from contractors where contractor_login = ? and contractor_password
-            = ?
+            select contractor_login, contractor_id from contractors where
+            contractor_login = ? and contractor_password = ?
 
             <sql:param value = "${contractor_login}"/>
 
@@ -177,19 +216,31 @@
 
             <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
 
-            <a STYLE="text-decoration: underline"  href = "dsp_login_contractor.jsp">
+            <a STYLE = "text-decoration: underline"
+               href = "dsp_login_contractor.jsp">
 
             <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
 
-<%
+            <%
             if (true)
                 return;
-%>
+            %>
         </c:if>
 
         <c:set var = "user" value = "contractor" scope = "session"/>
 
-        <c:set var = "ctid" value = "${vlr.rows[0].contractor_id}" scope = "session"/>
+        <c:set var = "ctid" value = "${vlr.rows[0].contractor_id}"
+               scope = "session"/>
+
+        <sql:update>
+            insert into user_logon_history values(?,?,?,NOW())
+
+            <sql:param value = "${user}"/>
+
+            <sql:param value = "${param.contractor_login}"/>
+
+            <sql:param value = "${param.contractor_password}"/>
+        </sql:update>
 
         <c:import url = "../index.jsp?fuseaction=act_resume"/>
     </c:when>

@@ -1,22 +1,27 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<!-- <!DOCTYPE web-app
+          PUBLIC
+          "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+          "http://java.sun.com/dtd/web-app_2_3.dtd"> -->
+	  
 
-<!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4"> 
 
-<web-app>
+ 
     <context-param>
         <param-name>javax.servlet.jsp.jstl.sql.dataSource</param-name>
-        <param-value>jdbc/coseopa</param-value>
+        <param-value>jdbc/opa</param-value>
     </context-param>
 
     <resource-ref>
         <description>mysql database connection</description>
-        <res-ref-name>jdbc/coseopa</res-ref-name>
+        <res-ref-name>jdbc/opa</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>
-
     <resource-ref>
         <description>mail session</description>
         <res-ref-name>mail/session</res-ref-name>
@@ -24,39 +29,65 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
-    <taglib>
-        <taglib-uri>http://archer-soft.com/taglibs/cf</taglib-uri>
-        <taglib-location>/WEB-INF/cf.tld</taglib-location>
-    </taglib>
-    <taglib>
-        <taglib-uri>http://jakarta.apache.org/taglibs/mailer-1.1</taglib-uri>
-        <taglib-location>/WEB-INF/taglibs-mailer.tld</taglib-location>
-    </taglib>
+<jsp-config>
+	
+<taglib>
+	<taglib-uri>http://archer-soft.com/taglibs/cf
+	</taglib-uri>
 
-	
-	<servlet> 
-    		  <servlet-name>Cobrowse</servlet-name> 
-    		  <servlet-class>Cobrowse</servlet-class> 
-    		  <init-param> 
-    		  			   <param-name>config</param-name> 
-    		  			   <param-value>c:\\tomcat50-jwsdp15\\webapps\\coseopa\\cobrowse_config.txt</param-value> 
-    		  </init-param> 
-    </servlet> 
-	<servlet> 
-    <servlet-name>Cobrowser</servlet-name> 
-    <servlet-class>com.jsos.cobrowse.CobrowseServlet</servlet-class> 
-    <init-param> 
-    <param-name>config</param-name> 
-    <param-value>c:\\tomcat50-jwsdp15\\webapps\\coseopa\\cobrowser_config.txt</param-value> 
-    </init-param> 
-    </servlet> 
-	
-	<servlet> 
-    		  <servlet-name>PubCatServlet</servlet-name> 
-    		  <servlet-class>PubCatServlet</servlet-class>
-			  <init-param>
-			  			  <param-name>config</param-name>
-			  			  <param-value>c:\\tomcat50-jwsdp15\\webapps\\coseopa\\catconf3</param-value>
-			  </init-param> 
-    </servlet>>
+	<taglib-location>/WEB-INF/cf.tld
+	</taglib-location>
+</taglib>
+
+<taglib>
+	<taglib-uri>http://jakarta.apache.org/taglibs/mailer-1.1
+	</taglib-uri>
+
+	<taglib-location>/WEB-INF/taglibs-mailer.tld
+	</taglib-location>
+</taglib>
+
+<taglib>
+	<taglib-uri>http://java.sun.com/jstl/core
+	</taglib-uri>
+
+	<taglib-location>/WEB-INF/c.tld
+	</taglib-location>
+</taglib>
+<taglib>
+	<taglib-uri>http://java.sun.com/jstl/sql</taglib-uri>
+	<taglib-location>/WEB-INF/sql.tld</taglib-location>
+</taglib>
+<taglib>
+	<taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+
+	<taglib-location>/WEB-INF/fmt.tld</taglib-location>
+</taglib>
+
+<taglib>
+	<taglib-uri>http://java.sun.com/jstl/xml
+	</taglib-uri>
+
+	<taglib-location>/WEB-INF/x.tld
+	</taglib-location>
+</taglib>
+
+<taglib>
+	<taglib-uri>http://java.sun.com/jstl/functions
+	</taglib-uri>
+
+	<taglib-location>/WEB-INF/fn.tld
+	</taglib-location>
+</taglib>
+
+<taglib>
+	<taglib-uri>http://fckeditor.net/tags-fckeditor
+	</taglib-uri>
+
+	<taglib-location>/WEB-INF/FCKeditor.tld
+	</taglib-location>
+</taglib>
+
+</jsp-config>
+
 </web-app>

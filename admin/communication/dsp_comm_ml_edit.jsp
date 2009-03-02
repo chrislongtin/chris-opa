@@ -31,23 +31,26 @@
 
                 <cf:GetPhrase phrase_id = "816" lang_id = "${lang}"/></h3>
 
-                <form name = "edit_ml" method = "post" action = "index.jsp?fuseaction=comm_ml_doedit">
-                    <table width = "100%" border = "0" cellspacing = "0" cellpadding = "10">
+                <form name = "edit_ml" method = "post"
+                      action = "index.jsp?fuseaction=comm_ml_doedit">
+                    <table width = "100%" border = "0" cellspacing = "0"
+                           cellpadding = "10">
                         <tr>
                             <td>
-                                <FONT face = Arial size = -1><font color = "FF0000"><b>*
+                                <FONT face = Arial
+                                      size = -1><font color = "FF0000"><b>*
 
-                                <cf:GetPhrase phrase_id = "810" lang_id = "${lang}"/>:</b></font></font>
+                                <cf:GetPhrase phrase_id = "810"
+                                              lang_id = "${lang}"/>:</b></font></font>
                             </td>
 
                             <td>
-                                <input type = "text"
-                                       name = "list_name"
-                                       size = "20"
-                                       maxlength = "20"
-                                       value = "<c:out value="${list.rows[0].list_name}" />">
-                                <input type = "hidden" name = "list_name_required"
-                                       value = "<cf:GetPhrase phrase_id="832" lang_id="${lang}" />">
+                                <input type = "text" name = "list_name"
+                                size = "20" maxlength = "20"
+                                value = "<c:out value="${list.rows[0].list_name}" />">
+                                <input type = "hidden"
+                                name = "list_name_required"
+                                value = "<cf:GetPhrase phrase_id="832" lang_id="${lang}" />">
                             </td>
                         </tr>
 
@@ -55,11 +58,13 @@
                             <td>
                                 <FONT face = Arial size = -1>
 
-                                <cf:GetPhrase phrase_id = "811" lang_id = "${lang}"/>:</font>
+                                <cf:GetPhrase phrase_id = "811"
+                                              lang_id = "${lang}"/>:</font>
                             </td>
 
                             <td>
-                                <textarea name = "list_descr" wrap = "VIRTUAL" cols = "40" rows = "3">
+                                <textarea name = "list_descr" wrap = "VIRTUAL"
+                                          cols = "40"         rows = "3">
                                     <c:out value = "${list.rows[0].list_descr}"/>
                                 </textarea>
                             </td>
@@ -69,11 +74,13 @@
                             <td>
                                 <FONT face = Arial size = -1>
 
-                                <cf:GetPhrase phrase_id = "812" lang_id = "${lang}"/>:</font>
+                                <cf:GetPhrase phrase_id = "812"
+                                              lang_id = "${lang}"/>:</font>
                             </td>
 
                             <td>
-                                <textarea name = "list_topic" wrap = "VIRTUAL" cols = "40" rows = "5">
+                                <textarea name = "list_topic" wrap = "VIRTUAL"
+                                          cols = "40"         rows = "5">
                                     <c:out value = "${list.rows[0].list_topic}"/>
                                 </textarea>
                             </td>
@@ -81,7 +88,10 @@
 
                         <tr>
                             <td colspan = "2">
-                                <FONT face = Arial size = -1> <input type = "checkbox" name = "default" <c:if
+                                <FONT face = Arial size = -1>
+                                <input type = "checkbox"
+                                       name = "default"
+                                       <c:if
                                        test = "${list.rows[0].default_list == 1}">
 
                                 <c:out value = " checked "/>
@@ -100,9 +110,10 @@
             <tr align = "center">
                 <td colspan = "2">
                     <input type = "hidden" name = "act" value = "doedit">
-                    <input type = "hidden" name = "list" value = "<c:out value="${list_id}" />">
-                    <input type = "submit" name = "submit_edit"
-                           value = "<cf:GetPhrase phrase_id="817" lang_id="${lang}" />">
+                    <input type = "hidden" name = "list"
+                    value = "<c:out value="${list_id}" />"> <input type = "submit"
+                    name = "submit_edit"
+                    value = "<cf:GetPhrase phrase_id="817" lang_id="${lang}" />">
                 </td>
             </tr>
 
@@ -119,10 +130,13 @@
                 <c:out value = "${list.rows[0].list_name}"/></b>?
 
                 <p>
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_doedit&act=del&list=<c:out value="${list_id}" />">[
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml_doedit&act=del&list=<c:out value="${list_id}" />">[
 
-                <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/> ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml">[
+                <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml">[
 
                 <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
             </c:when>
@@ -134,10 +148,13 @@
                 <c:out value = "${list.rows[0].list_name}"/></b>?
 
                 <p>
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_doedit&act=default&list=<c:out value="${list_id}" />">[
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml_doedit&act=default&list=<c:out value="${list_id}" />">[
 
-                <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/> ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml">[
+                <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+                ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a STYLE = "text-decoration: underline"
+                   href = "index.jsp?fuseaction=comm_ml">[
 
                 <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
             </c:when>

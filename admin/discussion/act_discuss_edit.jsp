@@ -15,9 +15,11 @@
     <c:out value = "${param.discuss_email}" default = ""/>
 </c:set>
 
-<fmt:parseDate var = 'discuss_date' pattern = 'dd-MMM-yy' value = '${param.discuss_date}'/>
+<fmt:parseDate var = 'discuss_date' pattern = 'dd-MMM-yy'
+               value = '${param.discuss_date}'/>
 
-<fmt:formatDate var = 'discuss_date' pattern = 'yyyy-MM-dd' value = '${discuss_date}'/>
+<fmt:formatDate var = 'discuss_date' pattern = 'yyyy-MM-dd'
+                value = '${discuss_date}'/>
 
 <sql:query var = "doc_dir_find">
     select host_doc_dir from initiative_setup
@@ -30,8 +32,9 @@
 <c:choose>
     <c:when test = "${param.act == 'edit'}">
         <sql:update var = "edit_msg">
-            update admin_discussion set discuss_subject = ?, discuss_author = ?, discuss_date = ?, discuss_email = ?,
-            discuss_message = ? where discussion_id = ?
+            update admin_discussion set discuss_subject = ?, discuss_author =
+            ?, discuss_date = ?, discuss_email = ?, discuss_message = ? where
+            discussion_id = ?
 
             <sql:param value = "${param.discuss_subject}"/>
 

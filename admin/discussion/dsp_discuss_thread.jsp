@@ -22,15 +22,16 @@
 </c:set>
 
 <sql:query var = "QueryName">
-    select * from admin_discussion where doc_id = 0 and discuss_parent = ? order by discuss_date desc, discussion_id
-    desc
+    select * from admin_discussion where doc_id = 0 and discuss_parent = ?
+    order by discuss_date desc, discussion_id desc
 
     <sql:param value = "${parent}"/>
 </sql:query>
 
 <ul>
     <c:forEach var = "row" items = "${QueryName.rows}">
-        <li><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <li><a STYLE = "text-decoration: underline"
+               href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='discuss_comment'/>
 <c:param name='lang' value='${lang}'/>
 <c:param name='show_msg' value='yes'/>
@@ -54,15 +55,17 @@
                 <td bgcolor = "E1E1E1">
                     <font face = "Arial" size = "-2">
 
-                    <fmt:formatDate value = "${row.discuss_date}" pattern = "MMM dd, yyyy"/> |
-                    <a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+                    <fmt:formatDate value = "${row.discuss_date}"
+                    pattern = "MMM dd, yyyy"/> | <a STYLE = "text-decoration: underline"
+                    href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='discuss_comment'/>
 <c:param name='lang' value='${lang}'/>
 <c:param name='act' value='add'/>
 <c:param name='discuss_parent' value='${row.discussion_id}'/>
 </c:url>">
 
-                    <cf:GetPhrase phrase_id = "39" lang_id = "${lang}"/></a></font>
+                    <cf:GetPhrase phrase_id = "39"
+                                  lang_id = "${lang}"/></a></font>
 
                     <p>
                     <font face = "Arial" size = "-1">
@@ -70,7 +73,8 @@
                     <cf:ParagraphFormat value = "${row.discuss_message}"/>
 
                     <br>
-                    <a STYLE="text-decoration: underline"  href = "../docs/<c:out value='${row.discuss_attachment}'/>?ois=no">
+                    <a STYLE = "text-decoration: underline"
+                       href = "../docs/<c:out value='${row.discuss_attachment}'/>?ois=no">
 
                     <c:out value = "${row.discuss_attachment}"/></a></font>
                 </td>

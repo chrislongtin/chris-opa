@@ -8,13 +8,15 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "default_ml">
-    select list_id, list_name, list_descr from mailinglists where default_list = 1 and coordinator_id = ?
+    select list_id, list_name, list_descr from mailinglists where default_list
+    = 1 and coordinator_id = ?
 
     <sql:param value = "${sessionScope.coord_id}"/>
 </sql:query>
 
 <sql:query var = "mls">
-    select list_id, list_name, list_descr from mailinglists where default_list<> 1 and
+    select list_id, list_name, list_descr from mailinglists where
+    default_list<> 1 and
 coordinator_id = ?
 order by list_name
 	<sql:param value="${sessionScope.coord_id}" />
@@ -51,6 +53,7 @@ order by list_name
               <a STYLE="text-decoration: underline"  href="index.jsp?fuseaction=comm_ml_sent&list=<c:out value="${row.list_id}"/>"><cf:GetPhrase phrase_id="809" lang_id="${lang}" /></a> </p>
             <hr size="1" noshade color="#DDDDDD">
 </c:forEach>
+
 
 
 

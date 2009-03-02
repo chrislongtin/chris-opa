@@ -8,7 +8,8 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "msg_type">
-    select L.*, S.status_name from default_letters L, record_status S where letter_id = ? and L.status_id = S.status_id
+    select L.*, S.status_name from default_letters L, record_status S where
+    letter_id = ? and L.status_id = S.status_id
 
     <sql:param value = "${param.letter_id}"/>
 </sql:query>

@@ -29,7 +29,8 @@
     <c:choose>
         <c:when test = "${phrase_exists.rowCount > 0 }">
             <sql:update var = "phrase_update">
-                update phrases set phrase = ? where phrase_id = ? and lang_id = ?
+                update phrases set phrase = ? where phrase_id = ? and lang_id
+                = ?
 
                 <sql:param value = "${phrase}"/>
 
@@ -42,7 +43,8 @@
         <c:otherwise>
             <c:if test = "${!empty phrase}">
                 <sql:update var = "phrase_update">
-                    insert into phrases ( phrase, phrase_id, lang_id ) values ( ?, ?, ? )
+                    insert into phrases ( phrase, phrase_id, lang_id ) values
+                    ( ?, ?, ? )
 
                     <sql:param value = "${phrase}"/>
 

@@ -32,17 +32,18 @@
         <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=proposal_edit">
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=proposal_edit">
 
         <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
 
         <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
     </div>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <!--- show the proponent the full proposal record --->
@@ -52,7 +53,8 @@
 
 <!--- check that password is correct --->
 <sql:query var = "password_check">
-    select tracking_code, cfp_code from proponent_record where proponent_password = ? and tracking_code = ?
+    select tracking_code, cfp_code from proponent_record where
+    proponent_password = ? and tracking_code = ?
 
     <sql:param value = "${proponent_password}"/>
 
@@ -66,23 +68,26 @@
 
     <cf:GetPhrase phrase_id = "773" lang_id = "${lang}"/>.</b>
 
-<%
+    <%
     if (true)
         return;
-%>
+    %>
 </c:if>
 
 <sql:query var = "proposal_info">
-    select p.*, c.cfp_title from proponent_record p, cfp_info c where p.tracking_code = ? and p.cfp_code = c.cfp_code
+    select p.*, c.cfp_title from proponent_record p, cfp_info c where
+    p.tracking_code = ? and p.cfp_code = c.cfp_code
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
 
-<c:set var = "cfp_code" value = "${proposal_info.rows[0].cfp_code}" scope = "page"/>
+<c:set var = "cfp_code" value = "${proposal_info.rows[0].cfp_code}"
+       scope = "page"/>
 
 <!--- verify that cfp is still active --->
 <sql:query var = "cfp_current_list">
-    select cfp_title from cfp_info where cfp_code = ? and cfp_deadline >= CURDATE()
+    select cfp_title from cfp_info where cfp_code = ? and cfp_deadline >=
+    CURDATE()
 
     <sql:param value = "${cfp_code}"/>
 </sql:query>
@@ -94,8 +99,8 @@
 </c:if>
 
 <sql:query var = "proposal_docs">
-    select d.*, dt.doc_type_name from documents d, document_types dt where d.tracking_code = ? and d.doc_type_id =
-    dt.doc_type_id
+    select d.*, dt.doc_type_name from documents d, document_types dt where
+    d.tracking_code = ? and d.doc_type_id = dt.doc_type_id
 
     <sql:param value = "${tracking_code}"/>
 </sql:query>
@@ -107,13 +112,14 @@
 </sql:query>
 
 <sql:query var = "currency_type">
-    select c.currency_id, c.currency from cfp_info cf, currency_code c where cf.cfp_code = ? and cf.currency_id =
-    c.currency_id
+    select c.currency_id, c.currency from cfp_info cf, currency_code c where
+    cf.cfp_code = ? and cf.currency_id = c.currency_id
 
     <sql:param value = "${cfp_code}"/>
 </sql:query>
 
-<c:set var = "currency" value = "${currency_type.rows[0].currency}" scope = "page"/>
+<c:set var = "currency" value = "${currency_type.rows[0].currency}"
+       scope = "page"/>
 
 <c:forEach items = "${proposal_info.rows}" var = "row">
     <sql:query var = "cfp_cat_name">
@@ -127,33 +133,36 @@
     <table>
         <tr>
             <td>
-                <form action = "index.jsp?fuseaction=cfp_proposal" method = "post">
-                    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                    <input type = "hidden"
-                           name = "proponent_password"
-                           value = "<c:out value="${proponent_password}" />">
-                    <input type = "hidden" name = "act" value = "edit">
-                    <input type = "submit" value = "<cf:GetPhrase phrase_id="144" lang_id="${lang}" />">
+                <form action = "index.jsp?fuseaction=cfp_proposal"
+                      method = "post">
+                    <input type = "hidden" name = "tracking_code"
+                    value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
+                    name = "proponent_password"
+                    value = "<c:out value="${proponent_password}" />"> <input type = "hidden" name = "act" value = "edit">
+                    <input type = "submit"
+                    value = "<cf:GetPhrase phrase_id="144" lang_id="${lang}" />">
                 </form>
             </td>
 
             <td>
-                <form action = "index.jsp?fuseaction=proposal_doc" method = "post">
-                    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                    <input type = "hidden"
-                           name = "proponent_password"
-                           value = "<c:out value="${proponent_password}" />">
-                    <input type = "submit" value = "<cf:GetPhrase phrase_id="615" lang_id="${lang}" />">
+                <form action = "index.jsp?fuseaction=proposal_doc"
+                      method = "post">
+                    <input type = "hidden" name = "tracking_code"
+                    value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
+                    name = "proponent_password"
+                    value = "<c:out value="${proponent_password}" />"> <input type = "submit"
+                    value = "<cf:GetPhrase phrase_id="615" lang_id="${lang}" />">
                 </form>
             </td>
 
             <td>
-                <form action = "index.jsp?fuseaction=proposal_researcher" method = "post">
-                    <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                    <input type = "hidden"
-                           name = "proponent_password"
-                           value = "<c:out value="${proponent_password}" />">
-                    <input type = "submit" value = "<cf:GetPhrase phrase_id="616" lang_id="${lang}" />">
+                <form action = "index.jsp?fuseaction=proposal_researcher"
+                      method = "post">
+                    <input type = "hidden" name = "tracking_code"
+                    value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
+                    name = "proponent_password"
+                    value = "<c:out value="${proponent_password}" />"> <input type = "submit"
+                    value = "<cf:GetPhrase phrase_id="616" lang_id="${lang}" />">
                 </form>
             </td>
         </tr>
@@ -224,7 +233,9 @@
 
                 )
 
-                <fmt:formatNumber value = "${row.requested_amount}" type = "currency" currencySymbol = ""/>
+                <fmt:formatNumber value = "${row.requested_amount}"
+                                  type = "currency"
+                                  currencySymbol = ""/>
             </td>
         </tr>
 
@@ -535,7 +546,8 @@
                     <br>
                     <font face = "arial" size = "-2">
 
-                    <fmt:formatDate value = "${row.doc_date}" pattern = "dd-MMM-yyyy"/>
+                    <fmt:formatDate value = "${row.doc_date}"
+                                    pattern = "dd-MMM-yyyy"/>
 
                     <br>
                     <c:out value = "${row.doc_type_name}"/></font>
@@ -550,28 +562,26 @@
 
                     <c:otherwise>
                         <td valign = "top" align = "right">
-                            <form action = "index.jsp?fuseaction=proposal_doc" method = "post">
-                                <input type = "hidden"
-                                       name = "tracking_code"
-                                       value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
-                                       name = "proponent_password"
-                                       value = "<c:out value="${proponent_password}" />">
-                                <input type = "hidden" name = "doc_id" value = "<c:out value="${row.doc_id}" />">
-                                <input type = "hidden" name = "act" value = "edit"> <input type = "submit"
-                                       value = "   <cf:GetPhrase phrase_id="144" lang_id="${lang}" />   ">
+                            <form action = "index.jsp?fuseaction=proposal_doc"
+                                  method = "post">
+                                <input type = "hidden" name = "tracking_code"
+                                value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
+                                <input type = "hidden" name = "doc_id"
+                                value = "<c:out value="${row.doc_id}" />"> <input type = "hidden" name = "act" value = "edit">
+                                <input type = "submit"
+                                value = "   <cf:GetPhrase phrase_id="144" lang_id="${lang}" />   ">
                             </form>
                         </td>
 
                         <td valign = "top" align = "right">
-                            <form action = "index.jsp?fuseaction=act_proposal_doc" method = "post">
-                                <input type = "hidden"
-                                       name = "tracking_code"
-                                       value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
-                                       name = "proponent_password"
-                                       value = "<c:out value="${proponent_password}" />">
-                                <input type = "hidden" name = "doc_id" value = "<c:out value="${row.doc_id}" />">
-                                <input type = "hidden" name = "act" value = "delete_unconfirmed">
-                                <input type = "submit" value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
+                            <form action = "index.jsp?fuseaction=act_proposal_doc"
+                                  method = "post">
+                                <input type = "hidden" name = "tracking_code"
+                                value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
+                                <input type = "hidden" name = "doc_id"
+                                value = "<c:out value="${row.doc_id}" />"> <input type = "hidden" name = "act" value = "delete_unconfirmed">
+                                <input type = "submit"
+                                value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
                             </form>
                         </td>
                     </c:otherwise>
@@ -580,7 +590,8 @@
 
             <tr>
                 <td colspan = "3">
-                    <font face = "arial" size = "-1"><c:if test = "${row.doc_filename!=''}">
+                    <font face = "arial" size = "-1">
+                    <c:if test = "${row.doc_filename!=''}">
                         <c:out value = "${row.doc_filename}"/>
                     </c:if>
 
@@ -628,28 +639,26 @@
                 </td>
 
                 <td valign = "top" align = "right" valign = "top">
-                    <form action = "index.jsp?fuseaction=proposal_researcher" method = "post">
-                        <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                        <input type = "hidden"
-                               name = "proponent_password"
-                               value = "<c:out value="${proponent_password}" />"> <input type = "hidden"
-                               name = "researcher_id"
-                               value = "<c:out value="${row.researcher_id}" />">
-                        <input type = "hidden" name = "act" value = "edit">
-                        <input type = "submit" value = "  <cf:GetPhrase phrase_id="144" lang_id="${lang}" />  ">
+                    <form action = "index.jsp?fuseaction=proposal_researcher"
+                          method = "post">
+                        <input type = "hidden" name = "tracking_code"
+                        value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
+                        <input type = "hidden" name = "researcher_id"
+                        value = "<c:out value="${row.researcher_id}" />"> <input type = "hidden" name = "act" value = "edit">
+                        <input type = "submit"
+                        value = "  <cf:GetPhrase phrase_id="144" lang_id="${lang}" />  ">
                     </form>
                 </td>
 
                 <td align = "right">
-                    <form action = "index.jsp?fuseaction=act_proposal_researcher" method = "post">
-                        <input type = "hidden" name = "tracking_code" value = "<c:out value="${tracking_code}" />">
-                        <input type = "hidden"
-                               name = "proponent_password"
-                               value = "<c:out value="${proponent_password}" />"> <input type = "hidden"
-                               name = "researcher_id"
-                               value = "<c:out value="${row.researcher_id}" />">
-                        <input type = "hidden" name = "act" value = "delete_unconfirmed">
-                        <input type = "submit" value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
+                    <form action = "index.jsp?fuseaction=act_proposal_researcher"
+                          method = "post">
+                        <input type = "hidden" name = "tracking_code"
+                        value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
+                        <input type = "hidden" name = "researcher_id"
+                        value = "<c:out value="${row.researcher_id}" />"> <input type = "hidden" name = "act" value = "delete_unconfirmed">
+                        <input type = "submit"
+                        value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
                     </form>
                 </td>
             </tr>

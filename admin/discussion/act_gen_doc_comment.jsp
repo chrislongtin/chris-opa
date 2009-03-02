@@ -6,7 +6,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<jsp:useBean id = "myUpload" scope = "page" class = "com.jspsmart.upload.SmartUpload"/>
+<jsp:useBean id = "myUpload" scope = "page"
+             class = "com.jspsmart.upload.SmartUpload"/>
 
 <%
     myUpload.initialize(pageContext);
@@ -55,7 +56,8 @@
     if (!discuss_attachment.isMissing())
         {
         String path     = (String)pageContext.getAttribute("host_doc_dir");
-        String filename = upload.saveFile(discuss_attachment, path, application);
+        String filename = upload.saveFile(discuss_attachment, path,
+                                          application);
         pageContext.setAttribute("file_name1", filename);
         }
 %>
@@ -63,18 +65,29 @@
 <%
     String discuss_date   = myRequest.getParameter("discuss_date");
     java.sql.Date sqldate = new java.sql.Date(new Date().getTime());
-    pageContext.setAttribute("discuss_date", (discuss_date == null) ? sqldate.toString() : discuss_date);
+    pageContext.setAttribute("discuss_date", (discuss_date == null)
+                                                 ? sqldate.toString()
+                                                 : discuss_date);
     String discussion_id = myRequest.getParameter("discussion_id");
-    pageContext.setAttribute("discussion_id", (discussion_id == null) ? "1" : discussion_id);
+    pageContext.setAttribute("discussion_id", (discussion_id == null)
+                                                  ? "1" : discussion_id);
 
-    pageContext.setAttribute("discuss_author", myRequest.getParameter("discuss_author"));
-    pageContext.setAttribute("discuss_attachment", discuss_attachment.isMissing() ? null : "discuss_attachment");
-    pageContext.setAttribute("discuss_email", myRequest.getParameter("discuss_email"));
+    pageContext.setAttribute("discuss_author",
+                             myRequest.getParameter("discuss_author"));
+    pageContext.setAttribute("discuss_attachment",
+                             discuss_attachment.isMissing()
+                                 ? null : "discuss_attachment");
+    pageContext.setAttribute("discuss_email",
+                             myRequest.getParameter("discuss_email"));
     pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
-    pageContext.setAttribute("discuss_level", myRequest.getParameter("discuss_level"));
-    pageContext.setAttribute("discuss_parent", myRequest.getParameter("discuss_parent"));
-    pageContext.setAttribute("discuss_subject", myRequest.getParameter("discuss_subject"));
-    pageContext.setAttribute("discuss_message", myRequest.getParameter("discuss_message"));
+    pageContext.setAttribute("discuss_level",
+                             myRequest.getParameter("discuss_level"));
+    pageContext.setAttribute("discuss_parent",
+                             myRequest.getParameter("discuss_parent"));
+    pageContext.setAttribute("discuss_subject",
+                             myRequest.getParameter("discuss_subject"));
+    pageContext.setAttribute("discuss_message",
+                             myRequest.getParameter("discuss_message"));
 %>
 
 <!--- retrieving next discussion identifier number --->
@@ -89,8 +102,8 @@
 
 <!--- adding the message to the database --->
 <sql:update var = "message_add">
-    insert into admin_discussion (discussion_id, doc_id, discuss_level, discuss_parent, discuss_subject, discuss_date,
-    discuss_message
+    insert into admin_discussion (discussion_id, doc_id, discuss_level,
+    discuss_parent, discuss_subject, discuss_date, discuss_message
 
     <c:if test = "${!empty discuss_author}">
         , discuss_author
@@ -152,12 +165,14 @@
 
     <!--- recalculate the number of replies to the original message --->
     <sql:query var = "renum_replies">
-        select discuss_replies, discussion_id from admin_discussion where discussion_id = ?
+        select discuss_replies, discussion_id from admin_discussion where
+        discussion_id = ?
 
         <sql:param value = "${discuss_parent}"/>
     </sql:query>
 
-    <c:set var = "discuss_replies" value = "${renum_replies.rows[0].discuss_replies + 1}"/>
+    <c:set var = "discuss_replies"
+           value = "${renum_replies.rows[0].discuss_replies + 1}"/>
 
     <!--- update the number of replies count --->
     <sql:update var = "addnum_replies">

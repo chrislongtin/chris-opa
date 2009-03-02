@@ -30,8 +30,10 @@
 
         <!--- selecting the phrases for each language from the phrases table --->
         <sql:query var = "primary_lang">
-            select p1.phrase phrase1, p2.phrase phrase2, p1.phrase_id from phrases p1 left join phrases p2 on
-            p1.phrase_id = p2.phrase_id and p1.lang_id = ? and p2.lang_id = ? where p1.lang_id = ? order by phrase1
+            select p1.phrase phrase1, p2.phrase phrase2, p1.phrase_id from
+            phrases p1 left join phrases p2 on p1.phrase_id = p2.phrase_id and
+            p1.lang_id = ? and p2.lang_id = ? where p1.lang_id = ? order by
+            phrase1
 
             <sql:param value = "${lang_id1}"/>
 
@@ -64,20 +66,26 @@
         <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_lang_convert'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-            <input type = "hidden" name = "maxrows" value = "<c:out value='${maxrows}'/>">
-            <input type = "hidden" name = "lang_id2" value = "<c:out value='${lang_id2}'/>">
+</c:url>"
+              method = "post">
+            <input type = "hidden" name = "maxrows"
+            value = "<c:out value='${maxrows}'/>">
+            <input type = "hidden" name = "lang_id2"
+            value = "<c:out value='${lang_id2}'/>">
 
-            <table border = "1" cellspacing = "0" cellpadding = "3" valign = "TOP">
+            <table border = "1" cellspacing = "0" cellpadding = "3"
+                   valign = "TOP">
                 <tr>
                     <td>
-                        <font face = "Arial"><b><c:forEach var = "row" items = "${lang_header1.rows}">
+                        <font face = "Arial"><b>
+                        <c:forEach var = "row" items = "${lang_header1.rows}">
                             <c:out value = '${row.language}'/>
                         </c:forEach>
                     </td>
 
                     <td>
-                        <font face = "Arial"><b><c:forEach var = "row" items = "${lang_header2.rows}">
+                        <font face = "Arial"><b>
+                        <c:forEach var = "row" items = "${lang_header2.rows}">
                             <c:out value = '${row.language}'/>
                         </c:forEach>
                     </td>
@@ -89,16 +97,19 @@
 
                     <tr>
                         <td>
-                            <input type = "hidden" name = "phrase_id" value = "<c:out value='${row.phrase_id}'/>">
-                            <font face = "Arial" size = "-1">
+                            <input type = "hidden" name = "phrase_id"
+                            value = "<c:out value='${row.phrase_id}'/>"> <font face = "Arial"
+                            size = "-1">
 
                             <c:out value = '${row.phrase1}'/>
                         </td>
 
                         <td>
                             <font face = "Arial"
-                                  size = "-1"><input type = "text" name = "dest<c:out value='${row.phrase_id}'/>"
-                                                     size = "40"   value = "<c:out value='${row.phrase2}'/>">
+                                  size = "-1"><input type = "text"
+                                                     name = "dest<c:out value='${row.phrase_id}'/>"
+                                                     size = "40"
+                                                     value = "<c:out value='${row.phrase2}'/>">
                         </td>
                     </tr>
                 </c:forEach>
@@ -110,10 +121,12 @@
                         <center>
                             <b>
 
-                            <cf:GetPhrase phrase_id = "238" lang_id = "${lang}"/>.</b></font>
+                            <cf:GetPhrase phrase_id = "238"
+                                          lang_id = "${lang}"/>.</b></font>
 
                         <p>
-                        <input type = "submit" value = " <cf:GetPhrase phrase_id="557" lang_id="${lang}" /> ">
+                        <input type = "submit"
+                               value = " <cf:GetPhrase phrase_id="557" lang_id="${lang}" /> ">
                     </td>
                 </tr>
             </table>

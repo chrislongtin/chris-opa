@@ -19,23 +19,28 @@
 
 <c:choose>
     <c:when test = "${displayType == 'pdf'}">
-        <c:set var = "REPORT_PGM" value = "pdfReportsDisplay.jsp" scope = "page"/>
+        <c:set var = "REPORT_PGM" value = "pdfReportsDisplay.jsp"
+               scope = "page"/>
     </c:when>
 
     <c:when test = "${displayType == 'html'}">
-        <c:set var = "REPORT_PGM" value = "htmlReportsDisplay.jsp" scope = "page"/>
+        <c:set var = "REPORT_PGM" value = "htmlReportsDisplay.jsp"
+               scope = "page"/>
     </c:when>
 
     <c:when test = "${displayType == 'xls'}">
-        <c:set var = "REPORT_PGM" value = "xlsReportsDisplay.jsp" scope = "page"/>
+        <c:set var = "REPORT_PGM" value = "xlsReportsDisplay.jsp"
+               scope = "page"/>
     </c:when>
 
     <c:when test = "${displayType == 'csv'}">
-        <c:set var = "REPORT_PGM" value = "csvReportsDisplay.jsp" scope = "page"/>
+        <c:set var = "REPORT_PGM" value = "csvReportsDisplay.jsp"
+               scope = "page"/>
     </c:when>
 
     <c:when test = "${displayType == 'xml'}">
-        <c:set var = "REPORT_PGM" value = "xmlReportsDisplay.jsp" scope = "page"/>
+        <c:set var = "REPORT_PGM" value = "xmlReportsDisplay.jsp"
+               scope = "page"/>
     </c:when>
 </c:choose>
 
@@ -44,9 +49,12 @@
     select host_url from initiative_setup
 </sql:query>
 
-<c:set var = "REPORT_DIRECTORY" value = "${setup.rows[0].host_url}" scope = "session"/>
+<c:set var = "REPORT_DIRECTORY" value = "${setup.rows[0].host_url}"
+       scope = "session"/>
 
-<c:set var = "REPORT_PROG" value = "${sessionScope.REPORT_DIRECTORY}${REPORT_PGM}" scope = "page"/>
+<c:set var = "REPORT_PROG"
+       value = "${sessionScope.REPORT_DIRECTORY}${REPORT_PGM}"
+       scope = "page"/>
 
 <c:redirect url = '${REPORT_PROG}'>
     <c:param name = "selection" value = "${selection}"/>

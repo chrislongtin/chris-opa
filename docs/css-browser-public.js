@@ -1,9 +1,10 @@
 /* Applies one of the following style sheets depending on the browser.
-· netscape.css: Netscape 4, Lynx (text)
-· ns7: Netscape 6 and 7, Mozilla 1, Konqueror 3.3.1
-· explorer.css: Internet Explorer 4 & 5, Opera 5 & 6, WebTV 2.6
-· ie6.css: Internet Explorer 6
+ï¿½ netscape.css: Netscape 4, Lynx (text)
+ï¿½ ns7: Netscape 6 and 7, Mozilla 1, Konqueror 3.3.1
+ï¿½ explorer.css: Internet Explorer 4 & 5, Opera 5 & 6, WebTV 2.6
+ï¿½ ie6.css: Internet Explorer 6
 */
+
 var css = "netscape.css";
 var nua = navigator.userAgent;
 
@@ -28,4 +29,5 @@ else if (document.all)
         }
     }
 
-document.write('<link rel = "stylesheet" type = "text\/css" href = "docs/'+css+'" />');
+document.write('<link rel = "stylesheet" type = "text\/css" href = "docs/' + css
+                   + '" />');

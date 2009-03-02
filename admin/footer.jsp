@@ -1,35 +1,36 @@
-<!--- footer appears on all pages ---> <!-- GoC CLF FOOTER: START -->
+<%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
+
+<!--- footer appears on all pages --->
 
 <center>
     <p>
-    <hr size = "1" width = "100%">
-    <font face = "'Times New Roman',Arial" size = "-1"><b>
+    <hr size = "1"><font face = "'Times New Roman',Arial" size = "-1"><p><b><i>
 
-    <table>
-        <tr>
-            <td align = "left" width = "35%">
-                Last Updated: 2005-02-21
-            </td>
+    <cf:GetPhrase phrase_id = "374"
+                  lang_id = "${lang}"/><a href = "http://www.bellanet.org">
 
-            <td align = "center" width = "30%">
-                <a STYLE="text-decoration: underline"  href = "#Top"
-                   STYLE = "color:#3A6EA5;"
-                   CLASS = "noPrint"><IMG SRC = "../docs/up.gif" ALT = "Top of Page" BORDER = "0" WIDTH = "23"
-                                          HEIGHT = "15">
+    <cf:GetPhrase phrase_id = "375" lang_id = "${lang}"/></a> © 2001
 
-                <br>
-                Top of Page</A>
-            </td>
+    <cf:GetPhrase phrase_id = "376" lang_id = "${lang}"/>
 
-            <td align = "right" width = "35%">
-                <a STYLE="text-decoration: underline"  href = "http://salt.cose.gc.ca/site/notices-avis/"
-                   TITLE = "Privacy Notice, Official Languages Notice, Hyperlinking Notice, Copyright Notice, System Requirements"
-                   CLASS = "noPrint"
-                   STYLE = "text-decoration:underline;">Important Notices</A>
-            </td>
-        </tr>
+    <a href = "http://www.idrc.ca">
 
-    </b>
+    <cf:GetPhrase phrase_id = "377" lang_id = "${lang}"/></a>.
 
-    </table>
-</center> <!-- GoC CLF FOOTER: END -->
+    <cf:GetPhrase phrase_id = "907"
+                  lang_id = "${lang}"/><a href = "http://www.omoli.com/opa">
+
+    <cf:GetPhrase phrase_id = "908"
+                  lang_id = "${lang}"/></a>&nbsp;2003. </i> </b></center>
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+</body>
+
+</html>

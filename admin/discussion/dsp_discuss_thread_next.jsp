@@ -21,8 +21,8 @@
 </c:set>
 
 <sql:query var = "messages">
-    select * from admin_discussion where doc_id = ? AND discuss_parent = ? order by discuss_date desc, discussion_id
-    desc
+    select * from admin_discussion where doc_id = ? AND discuss_parent = ?
+    order by discuss_date desc, discussion_id desc
 
     <sql:param value = "${doc_id}"/>
 
@@ -31,7 +31,8 @@
 
 <ul>
     <c:forEach var = "row" items = "${messages.rows}">
-        <li><a STYLE="text-decoration: underline"  href = "<c:url value='index.jsp'>
+        <li><a STYLE = "text-decoration: underline"
+               href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='archive_comment'/>
 <c:param name='doc_id' value='${row.doc_id}'/>
 <c:param name='${lang}'/>

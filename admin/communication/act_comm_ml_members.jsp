@@ -50,8 +50,9 @@
 <c:set var = "del" value = "no"/>
 
 <sql:query var = "member">
-    select distinct members.* from members, listmembers, mailinglists where mailinglists.list_id = listmembers.list_id
-    and mailinglists.coordinator_id = ? and listmembers.member_id = members.member_id and members.member_id = ?
+    select distinct members.* from members, listmembers, mailinglists where
+    mailinglists.list_id = listmembers.list_id and mailinglists.coordinator_id
+    = ? and listmembers.member_id = members.member_id and members.member_id = ?
 
     <sql:param value = "${sessionScope.coord_id}"/>
 
@@ -61,7 +62,8 @@
 <c:choose>
     <c:when test = "${(act=='edit') && (member.rowCount == 1)}">
         <sql:update>
-            update members set member_name = ?, member_email = ? where member_id = ?
+            update members set member_name = ?, member_email = ? where
+            member_id = ?
 
             <sql:param value = "${member_name}"/>
 
@@ -71,7 +73,8 @@
         </sql:update>
 
         <sql:update>
-            update listmembers set member_status = ? where member_id = ? and list_id = ?
+            update listmembers set member_status = ? where member_id = ? and
+            list_id = ?
 
             <sql:param value = "${active}"/>
 
@@ -88,10 +91,13 @@
         <cf:GetPhrase phrase_id = "834" lang_id = "${lang}"/>?
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodelfromlist&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodelfromlist&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/> ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
+        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+        ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
 
         <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
     </c:when>
@@ -133,10 +139,13 @@
         <cf:GetPhrase phrase_id = "835" lang_id = "${lang}"/>?
 
         <p>
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodel&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodel&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/> ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a STYLE="text-decoration: underline"  href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
+        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+        ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a STYLE = "text-decoration: underline"
+           href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
 
         <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
     </c:when>
@@ -178,7 +187,8 @@
             </sql:query>
 
             <c:if test = "${m_id.rowCount!=0}">
-                <c:set var = "member_id" value = "${m_id.rows[0].member_id + 1}"/>
+                <c:set var = "member_id"
+                       value = "${m_id.rows[0].member_id + 1}"/>
             </c:if>
 
             <c:if test = "${m_id.rowCount==0}">
@@ -210,7 +220,8 @@
             </sql:update>
 
             <sql:update>
-                insert into listmembers (member_id, list_id, member_status) values (?, ?, ?)
+                insert into listmembers (member_id, list_id, member_status)
+                values (?, ?, ?)
 
                 <sql:param value = "${member_id}"/>
 
@@ -226,7 +237,8 @@
     <c:when test = "${act=='add'}">
         <c:forEach var = "m" items = "${members}">
             <sql:update>
-                insert into listmembers (member_id, list_id, member_status) values (?, ?, 1)
+                insert into listmembers (member_id, list_id, member_status)
+                values (?, ?, 1)
 
                 <sql:param value = "${m}"/>
 

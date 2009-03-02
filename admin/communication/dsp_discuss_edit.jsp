@@ -9,8 +9,8 @@
 <%@ include file = "../act_session_check_sub.jsp"%>
 
 <sql:query var = "edit_msg">
-    select discuss_subject, discuss_author, discuss_email, discuss_date, discuss_message, discussion_id from
-    discussion where discussion_id = ?
+    select discuss_subject, discuss_author, discuss_email, discuss_date,
+    discuss_message, discussion_id from discussion where discussion_id = ?
 
     <sql:param value = "${param.discussion_id}"/>
 </sql:query>
@@ -23,24 +23,30 @@
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_discuss_edit'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-        <input type = "hidden" name = "discussion_id" value = "<c:out value='${row.discussion_id}'/>">
-        <input type = "hidden" name = "act" value = "edit"> <b>
+</c:url>"
+          method = "post">
+        <input type = "hidden" name = "discussion_id"
+        value = "<c:out value='${row.discussion_id}'/>"> <input type = "hidden"
+        name = "act" value = "edit"> <b>
 
         <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b>
-        <input type = "text" name = "discuss_subject" size = "40" value = "<c:out value='${row.discuss_subject}'/>">
+        <input type = "text" name = "discuss_subject" size = "40"
+               value = "<c:out value='${row.discuss_subject}'/>">
 
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/>:</b> <input type = "text" name = "discuss_date"
+        <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/>:</b>
+        <input type = "text"
+               name = "discuss_date"
                value = "<fmt:formatDate pattern='dd-MMM-yy' value='${row.discuss_date}'/>">
 
         <p>
         <b>
 
         <cf:GetPhrase phrase_id = "43" lang_id = "${lang}"/>:</b>
-        <input type = "text" name = "discuss_author" value = "<c:out value='${row.discuss_author}'/>"> <i>(
+        <input type = "text" name = "discuss_author"
+        value = "<c:out value='${row.discuss_author}'/>"> <i>(
 
         <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
 
@@ -48,7 +54,8 @@
         <b>
 
         <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b>
-        <input type = "text" name = "discuss_email" value = "<c:out value='${row.discuss_email}'/>"> <i>(
+        <input type = "text" name = "discuss_email"
+        value = "<c:out value='${row.discuss_email}'/>"> <i>(
 
         <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
 
@@ -62,7 +69,8 @@
             <c:out value = '${row.discuss_message}'/>
         </textarea>
 
-        <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+        <input type = "submit"
+               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
     </form>
 </c:forEach>
 
@@ -71,8 +79,10 @@
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_discuss_edit'/>
 <c:param name='${user}'/>
-</c:url>" method = "post">
-    <input type = "hidden" name = "discussion_id" value = "<c:out value='${param.discussion_id}'/>">
-    <input type = "hidden" name = "act" value = "delete">
-    <input type = "submit" value = " <cf:GetPhrase phrase_id="143" lang_id="${lang}" /> ">
+</c:url>"
+      method = "post">
+    <input type = "hidden" name = "discussion_id"
+    value = "<c:out value='${param.discussion_id}'/>"> <input type = "hidden" name = "act" value = "delete">
+    <input type = "submit"
+    value = " <cf:GetPhrase phrase_id="143" lang_id="${lang}" /> ">
 </form>
