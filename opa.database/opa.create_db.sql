@@ -1,9 +1,9 @@
-/* drop database coseopa; */
+/* drop database opa; */
 
-/*create database coseopa;*/
+/*create database opa;*/
 
-use coseopa;
-/*grant ALL on opa.* to coseopa@localhost identified by 'coseopa' with grant option;*/
+use opa;
+/*grant ALL on opa.* to opa@localhost identified by 'opa' with grant option;*/
 
 
 /*==============================================================*/

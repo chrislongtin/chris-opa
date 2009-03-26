@@ -1,54 +1,56 @@
-<Context path="/opa" docBase="opa"
-            debug="5" reloadable="true" crossContext="true">
+<Context path="/opa" docBase="opa" debug="5" reloadable="true"
+	crossContext="true">
 
-    <Resource name="jdbc/opa" auth="Container" type="javax.sql.DataSource"/>
-    <ResourceParams name="jdbc/opa">
-            <parameter>
-            <name>driverClassName</name>
-            <value>com.mysql.jdbc.Driver</value>
-            </parameter>
-            <parameter>
-            <name>url</name>
-            <value>jdbc:mysql://localhost/opa?autoReconnect=true</value>
-            </parameter>
-            <parameter>
-            <name>username</name>
-            <value>opa</value>
-            </parameter>
-            <parameter>
-            <name>password</name>
-            <value>opa</value>
-            </parameter>
-            <parameter>
-            <name>maxWait</name>
-            <value>10000</value>
-            </parameter>
-            <parameter>
-            <name>maxActive</name>
-            <value>1000</value>
-            </parameter>
-            <parameter>
-            <name>maxIdle</name>
-            <value>30</value>
-            </parameter>
+	<Resource name="jdbc/opa" auth="Container" type="javax.sql.DataSource" />
+	<ResourceParams name="jdbc/opa">
+		<parameter>
+			<name>driverClassName</name>
+			<value>com.mysql.jdbc.Driver</value>
+		</parameter>
+		<parameter>
+			<name>url</name>
+			<value>jdbc:mysql://127.0.0.1:3306/opa?autoReconnect=true
+			</value>
+		</parameter>
+		<parameter>
+			<name>paranoid</name>
+			<value>false</value>
+		</parameter>
+		<parameter>
+			<name>username</name>
+			<value>opa</value>
+		</parameter>
+		<parameter>
+			<name>password</name>
+			<value>opa</value>
+		</parameter>
+		<parameter>
+			<name>maxWait</name>
+			<value>10000</value>
+		</parameter>
+		<parameter>
+			<name>maxActive</name>
+			<value>1000</value>
+		</parameter>
+		<parameter>
+			<name>maxIdle</name>
+			<value>30</value>
+		</parameter>
+	</ResourceParams>
 
-    </ResourceParams>
-
-            <Resource name="mail/session" auth="Container" type="javax.mail.Session"/>
-            <ResourceParams name="mail/session">
-            <parameter>
-            <name>mail.smtp.host</name>
-            <value>mail.gti.net</value>
-            </parameter>
-            <parameter>
-            <name>username</name>
-            <value>anizor</value>
-            </parameter>    
-            <parameter>
-            <name>password</name>
-            <value>obiobi</value>
-            </parameter>   
-            </ResourceParams>
-
-
+	<Resource name="mail/session" auth="Container" type="javax.mail.Session" />
+	<ResourceParams name="mail/session">
+		<parameter>
+			<name>mail.smtp.host</name>
+			<value>mail.gti.net</value>
+		</parameter>
+		<parameter>
+			<name>username</name>
+			<value>anizor</value>
+		</parameter>
+		<parameter>
+			<name>password</name>
+			<value>obiobi</value>
+		</parameter>
+	</ResourceParams>
 </Context>
