@@ -1,12 +1,16 @@
 package opa;
 
 import java.io.File;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * @author Chris Longtin
@@ -16,6 +20,8 @@ import org.apache.commons.io.FilenameUtils;
  * 
  */
 public class Utils {
+
+    private final static Log log = LogFactory.getLog(Utils.class);
 
     /**
      * Given a list of FileItem's, gather all of the key/value pairs from them.
@@ -81,6 +87,34 @@ public class Utils {
                 map.put(item.getFieldName(), file);
                 item.write(file);
             }
+        }
+        
+        return map;
+    }
+    
+    /**
+     * This method will convert a ResultSet row into a key/value Map.
+     * 
+     * @param rs
+     * @return A key/value map that may be empty if no fields were present in
+     *         the ResultSet or null if an error occurred while getting data
+     *         from the ResultSet
+     */
+    public static Map<String, Object> resultSetToMap(ResultSet rs) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        try {
+            ResultSetMetaData metaData = rs.getMetaData();
+            for(int i = 1 ; i <= metaData.getColumnCount() ; ++i) { // heh, offset starting at 1
+                String key = metaData.getColumnName(i);
+                Object value = rs.getObject(i);
+                
+                map.put(key, value);
+            }
+        }
+        catch(Exception e) {
+            log.error(e, e);
+            map = null;
         }
         
         return map;

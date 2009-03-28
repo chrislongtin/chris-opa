@@ -31,6 +31,18 @@
     </resource-ref>
 
     <filter>
+        <filter-name>BlockProcessing</filter-name>
+        <filter-class>opa.filter.BlockProcessing</filter-class>
+        <description>This filter will stop processing all requests for files in the extensions parameter in the upload directory. This is necessary to prevent execution of user uploaded files, possibly on the server if they are .jsp</description>
+        <init-param>
+            <param-name>extensions</param-name>
+            <param-value>jsp,sh,cmd,exe,com,pl,cgi</param-value>
+            <description>Comma-separated list of file extensions to disallow</description>
+        </init-param>
+    </filter>
+
+
+    <filter>
         <filter-name>LoadInitiativeSetup</filter-name>
         <filter-class>opa.filter.LoadInitiativeSetup</filter-class>
         <description>This filter loads some of the properties from the initiative_setup table into application context</description>
@@ -40,13 +52,22 @@
             <description>The jdbc connection string in the jndi tree. This should be the same as the one in the resource-ref in this file.</description>
         </init-param>
     </filter>
-    
+
+    <!--
+        It is *VERY* important that LoadInitiatveSetup mapping comes before
+        NonExecutableView or application will not work. The order of the
+        mapping is the order they are filtered in.
+    -->
     <filter-mapping>
         <filter-name>LoadInitiativeSetup</filter-name>    
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
 
-
+    <filter-mapping>
+        <filter-name>BlockProcessing</filter-name>    
+        <url-pattern>*</url-pattern>
+    </filter-mapping>    
+    
 
 <jsp-config>
 	
