@@ -10,6 +10,7 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4"> 
 
+
  
     <context-param>
         <param-name>javax.servlet.jsp.jstl.sql.dataSource</param-name>
@@ -28,6 +29,18 @@
         <res-type>javax.mail.Session</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>
+
+<filter>
+	<filter-name>LoadInitiativeSetup</filter-name>
+	<filter-class>opa.filter.LoadInitiativeSetup</filter-class>
+</filter>
+
+<filter-mapping>
+	<filter-name>LoadInitiativeSetup</filter-name>	
+	<url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+
+
 
 <jsp-config>
 	

@@ -14,6 +14,23 @@
             params = request.getParameterMap();
             }
 
+        GuardRequiredParams(Map<String, ?> m)
+        {
+        	params = new HashMap<String, String[]>();
+        	
+        	for(String key : m.keySet()) {
+        		Object value = m.get(key);
+        		
+        		if(value instanceof String[])
+        			params.put(key, value);
+        		else {
+        			String[] values = new String[] { value.toString() }; // value may be a string, but that is OK.
+        			params.put(key, values);
+        		}
+        	}
+
+        }
+        
         GuardRequiredParams(com.jspsmart.upload.Request request)
             {
             params = new Hashtable();
