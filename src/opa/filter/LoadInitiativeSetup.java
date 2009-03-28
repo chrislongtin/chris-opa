@@ -91,7 +91,6 @@ public class LoadInitiativeSetup implements Filter {
                 response.sendError(500);
             }
 
-            request.getSession().setAttribute("DOCS_DIR", setup.getHost_doc_dir());
             request.getSession().setAttribute("initiativeSetup", setup);
 
         } catch (NamingException e) {

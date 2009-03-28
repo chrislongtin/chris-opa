@@ -7,6 +7,7 @@
 <%@ page import = "org.apache.commons.fileupload.util.*" %>
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
 <%@ page import = "opa.*" %>
+<%@ page import = "opa.model.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
@@ -86,8 +87,10 @@
 
     <c:otherwise>
 <%
-        String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
-        uploadBaseDir = application.getRealPath(uploadBaseDir);
+      InitiativeSetup setup  = 
+          (InitiativeSetup)request.getSession().getAttribute("initiativeSetup");
+      
+      String uploadBaseDir = application.getRealPath(setup.getHost_doc_dir());
         
         FileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
