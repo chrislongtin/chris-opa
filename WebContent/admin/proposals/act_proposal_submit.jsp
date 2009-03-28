@@ -1,6 +1,12 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
@@ -104,86 +110,71 @@
     </c:when>
 
     <c:otherwise>
-        <jsp:useBean id = "myUpload" scope = "page"
-                     class = "com.jspsmart.upload.SmartUpload"/>
+<%
+        String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+        uploadBaseDir = application.getRealPath(uploadBaseDir);
+    
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        List<FileItem> items = upload.parseRequest(request);
+        
+        Map<String, String> requestParams = Utils.gatherStrings(items);
+        Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
+    
+        File doc_filename = uploadedFiles.get("doc_filename");
+        if(doc_filename != null)
+            pageContext.setAttribute("file_name1", doc_filename.getName());
 
-        <%
-        myUpload.initialize(pageContext);
-
-        try
-            {
-            myUpload.upload();
-            }
-        catch (Exception ex)
-            {
-            }
-
-        Request myRequest         = myUpload.getRequest();
-        %>
-
-        <%@ include file = "../../guard_required_params.jsp"%>
-
-        <%
-        GuardRequiredParams guard = new GuardRequiredParams(myRequest);
-
-        if (guard.isParameterMissed())
-            {
-            out.write(guard.getSplashScreen());
-            return;
-            }
-        %>
-
-        <%
-        pageContext.setAttribute("act", myRequest.getParameter("act"));
+	    pageContext.setAttribute("act", requestParams.get("act"));
         pageContext.setAttribute("tracking_code",
-                                 myRequest.getParameter("tracking_code"));
+                                 requestParams.get("tracking_code"));
         pageContext.setAttribute("proponent_password",
-                                 myRequest.getParameter("proponent_password"));
+                                 requestParams.get("proponent_password"));
         pageContext.setAttribute("proposal_title",
-                                 myRequest.getParameter("proposal_title"));
+                                 requestParams.get("proposal_title"));
         pageContext.setAttribute("previous_tracking_code",
-                                 myRequest.getParameter("previous_tracking_code"));
+                                 requestParams.get("previous_tracking_code"));
         pageContext.setAttribute("cfp_code",
-                                 myRequest.getParameter("cfp_code"));
+                                 requestParams.get("cfp_code"));
         pageContext.setAttribute("proponent_institution",
-                                 myRequest.getParameter("proponent_institution"));
+                                 requestParams.get("proponent_institution"));
         pageContext.setAttribute("proponent_address",
-                                 myRequest.getParameter("proponent_address"));
+                                 requestParams.get("proponent_address"));
         pageContext.setAttribute("proponent_phone",
-                                 myRequest.getParameter("proponent_phone"));
+                                 requestParams.get("proponent_phone"));
         pageContext.setAttribute("proponent_fax",
-                                 myRequest.getParameter("proponent_fax"));
+                                 requestParams.get("proponent_fax"));
         pageContext.setAttribute("proponent_email",
-                                 myRequest.getParameter("proponent_email"));
+                                 requestParams.get("proponent_email"));
         pageContext.setAttribute("proponent_url",
-                                 myRequest.getParameter("proponent_url"));
+                                 requestParams.get("proponent_url"));
         pageContext.setAttribute("proponent_leader_firstname",
-                                 myRequest.getParameter("proponent_leader_firstname"));
+                                 requestParams.get("proponent_leader_firstname"));
         pageContext.setAttribute("proponent_leader_lastname",
-                                 myRequest.getParameter("proponent_leader_lastname"));
+                                 requestParams.get("proponent_leader_lastname"));
         pageContext.setAttribute("proponent_leader_initial",
-                                 myRequest.getParameter("proponent_leader_initial"));
+                                 requestParams.get("proponent_leader_initial"));
         pageContext.setAttribute("proponent_leader_affiliation",
-                                 myRequest.getParameter("proponent_leader_affiliation"));
+                                 requestParams.get("proponent_leader_affiliation"));
         pageContext.setAttribute("proponent_leader_address",
-                                 myRequest.getParameter("proponent_leader_address"));
+                                 requestParams.get("proponent_leader_address"));
         pageContext.setAttribute("proponent_leader_phone",
-                                 myRequest.getParameter("proponent_leader_phone"));
+                                 requestParams.get("proponent_leader_phone"));
         pageContext.setAttribute("proponent_leader_fax",
-                                 myRequest.getParameter("proponent_leader_fax"));
+                                 requestParams.get("proponent_leader_fax"));
         pageContext.setAttribute("proponent_leader_email",
-                                 myRequest.getParameter("proponent_leader_email"));
+                                 requestParams.get("proponent_leader_email"));
         pageContext.setAttribute("proponent_residency",
-                                 myRequest.getParameter("proponent_residency"));
+                                 requestParams.get("proponent_residency"));
         pageContext.setAttribute("proponent_citizenship",
-                                 myRequest.getParameter("proponent_citizenship"));
+                                 requestParams.get("proponent_citizenship"));
         pageContext.setAttribute("requested_amount",
-                                 myRequest.getParameter("requested_amount"));
+                                 requestParams.get("requested_amount"));
         pageContext.setAttribute("project_country",
-                                 myRequest.getParameter("project_country"));
+                                 requestParams.get("project_country"));
         pageContext.setAttribute("project_date",
-                                 myRequest.getParameter("project_date"));
-        String cfp_cat_id = myRequest.getParameter("cfp_cat_id");
+                                 requestParams.get("project_date"));
+        String cfp_cat_id = requestParams.get("cfp_cat_id");
         pageContext.setAttribute("cfp_cat_id", (cfp_cat_id == null)
                                                    ? "0" : cfp_cat_id);
         %>
@@ -209,9 +200,8 @@
                 </c:choose>
 
                 <%
-                File doc_filename = myUpload.getFiles().getFile(0);
                 pageContext.setAttribute("doc_filename",
-                                         doc_filename.isMissing()
+                                         (doc_filename == null || !doc_filename.exists())
                                              ? null : "doc_filename");
                 %>
 
@@ -222,39 +212,6 @@
                 <c:set var = "host_doc_dir"
                        value = "${doc_dir_find.rows[0].host_doc_dir}"/>
 
-                <%
-                if (!doc_filename.isMissing())
-                    {
-                %>
-
-                    <c:set var = "DOCS_DIR" value = "${host_doc_dir}"/>
-
-<%
-    String path = (String)pageContext.getAttribute("DOCS_DIR");
-    path = application.getRealPath(path);
-
-    String filename = doc_filename.getFileName().replaceAll("\\s", "");
-
-    java.io.File f = new java.io.File(path, filename);
-
-    // ensure uniqueness
-    for (int i = 1; f.exists(); i++)
-        {
-        if (filename.matches(".*\\[\\d+\\]\\..*"))
-            filename = filename.replaceFirst("\\[\\d+\\]\\.", ".");
-
-        filename = filename.replaceFirst("\\.(?=[^.]+$)", "[" + i + "].");
-
-        f = new java.io.File(path, filename);
-        }
-
-    doc_filename.saveAs(f.getPath());
-    pageContext.setAttribute("file_name1", filename);
-%>
-
-                <%
-                    }
-                %>
             </c:when>
 
             <c:otherwise>

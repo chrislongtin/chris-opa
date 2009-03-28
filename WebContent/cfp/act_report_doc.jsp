@@ -1,6 +1,12 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
@@ -83,28 +89,26 @@
     </c:when>
 
     <c:otherwise>
-        <jsp:useBean id = "myUpload" scope = "page"
-                     class = "com.jspsmart.upload.SmartUpload"/>
-
-        <%
-        myUpload.initialize(pageContext);
-
-        try
-            {
-            myUpload.upload();
-            }
-        catch (Exception ex)
-            {
-            }
-
-        Request myRequest = myUpload.getRequest();
-        File doc_filename = myUpload.getFiles().getFile(0);
-        %>
+<%
+        String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+        uploadBaseDir = application.getRealPath(uploadBaseDir);
+        
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        List<FileItem> items = upload.parseRequest(request);
+        
+        Map<String, String> requestParams = Utils.gatherStrings(items);
+        Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
+        
+        File doc_filename = uploadedFiles.get("doc_filename");
+        if(doc_filename != null)
+            pageContext.setAttribute("file_name1", doc_filename.getName());
+%>
 
         <%@ include file = "../../guard_required_params.jsp"%>
 
         <%
-        GuardRequiredParams guard = new GuardRequiredParams(myRequest);
+        GuardRequiredParams guard = new GuardRequiredParams(requestParams);
 
         if (guard.isParameterMissed())
             {
@@ -115,18 +119,18 @@
 
         <!--- process add document --->
         <%
-        String doc_id = myRequest.getParameter("doc_id");
+        String doc_id = requestParams.get("doc_id");
         pageContext.setAttribute("doc_id", (doc_id == null) ? "1" : doc_id);
-        pageContext.setAttribute("act", myRequest.getParameter("act"));
+        pageContext.setAttribute("act", requestParams.get("act"));
         pageContext.setAttribute("tracking_code",
-                                 myRequest.getParameter("tracking_code"));
+                                 requestParams.get("tracking_code"));
         pageContext.setAttribute("doc_title",
-                                 myRequest.getParameter("doc_title"));
+                                 requestParams.get("doc_title"));
         pageContext.setAttribute("doc_abstract",
-                                 myRequest.getParameter("doc_abstract"));
+                                 requestParams.get("doc_abstract"));
         pageContext.setAttribute("doc_type_id",
-                                 myRequest.getParameter("doc_type_id"));
-        pageContext.setAttribute("doc_filename", doc_filename.isMissing() ? null
+                                 requestParams.get("doc_type_id"));
+        pageContext.setAttribute("doc_filename", (doc_filename == null || !doc_filename.exists()) ? null
                                                      : "doc_filename");
         %>
 
@@ -136,48 +140,6 @@
         <c:if test = "${empty doc_type_id}">
             <c:set var = "doc_type_id" value = "0" scope = "page"/>
         </c:if>
-
-        <sql:query var = "doc_dir_find">
-            select host_doc_dir from initiative_setup
-        </sql:query>
-
-        <c:set var = "host_doc_dir"
-               value = "${doc_dir_find.rows[0].host_doc_dir}"/>
-
-        <%
-        if (!doc_filename.isMissing())
-            {
-        %>
-
-            <c:set var = "DOCS_DIR" value = "${host_doc_dir}"/>
-
-        <%
-            String path = (String)pageContext.getAttribute("DOCS_DIR");
-            path = application.getRealPath(path);
-
-            String filename = doc_filename.getFileName().replaceAll("\\s", "");
-
-            java.io.File f = new java.io.File(path, filename);
-
-            // ensure uniqueness
-            for (int i = 1; f.exists(); i++)
-                {
-                if (filename.matches(".*\\[\\d+\\]\\..*"))
-                    filename = filename.replaceFirst("\\[\\d+\\]\\.", ".");
-
-                filename
-                    = filename.replaceFirst("\\.(?=[^.]+$)", "[" + i + "].");
-
-                f = new java.io.File(path, filename);
-                }
-
-            doc_filename.saveAs(f.getPath());
-            pageContext.setAttribute("file_name1", filename);
-        %>
-
-        <%
-            }
-        %>
 
         <!--------------------------- ADD Report ------------------------>
 

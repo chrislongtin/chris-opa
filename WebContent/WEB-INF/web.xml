@@ -30,15 +30,21 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
-<filter>
-	<filter-name>LoadInitiativeSetup</filter-name>
-	<filter-class>opa.filter.LoadInitiativeSetup</filter-class>
-</filter>
-
-<filter-mapping>
-	<filter-name>LoadInitiativeSetup</filter-name>	
-	<url-pattern>*.jsp</url-pattern>
-</filter-mapping>
+    <filter>
+        <filter-name>LoadInitiativeSetup</filter-name>
+        <filter-class>opa.filter.LoadInitiativeSetup</filter-class>
+        <description>This filter loads some of the properties from the initiative_setup table into application context</description>
+        <init-param>
+            <param-name>jdbcJndi</param-name>
+            <param-value>jdbc/opa</param-value>
+            <description>The jdbc connection string in the jndi tree. This should be the same as the one in the resource-ref in this file.</description>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>LoadInitiativeSetup</filter-name>    
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
 
 
 

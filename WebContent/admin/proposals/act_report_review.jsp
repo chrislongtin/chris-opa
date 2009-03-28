@@ -1,5 +1,4 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
-<%@ page import = "java.util.*,com.jspsmart.upload.*"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>

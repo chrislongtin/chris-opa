@@ -1,5 +1,5 @@
 <%@ page import = "java.util.*"%>
-<%@ page import = "java.io.*"%>
+<%@ page import = "java.io.File"%>
 <%@ page import = "org.apache.commons.io.*" %>
 <%@ page import = "org.apache.commons.fileupload.*" %>
 <%@ page import = "org.apache.commons.fileupload.disk.*" %>
@@ -11,19 +11,19 @@
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
 <%
-	String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
-	uploadBaseDir = application.getRealPath(uploadBaseDir);
-
-	FileItemFactory factory = new DiskFileItemFactory();
-	ServletFileUpload upload = new ServletFileUpload(factory);
-	List<FileItem> items = upload.parseRequest(request);
-	
-	Map<String, String> requestParams = Utils.gatherStrings(items);
-	Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
-
-	File discuss_attachment = uploadedFiles.get("discuss_attachment");
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
+    
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
+    
+    File discuss_attachment = uploadedFiles.get("discuss_attachment");
     if(discuss_attachment != null)
-    	pageContext.setAttribute("file_name1", discuss_attachment.getName());
+        pageContext.setAttribute("file_name1", discuss_attachment.getName());
 %>
 
 <%@ include file = "../guard_required_params.jsp"%>
@@ -54,7 +54,7 @@
     pageContext.setAttribute("discuss_author",
                              requestParams.get("discuss_author"));
     pageContext.setAttribute("discuss_attachment",
-                             discuss_attachment == null
+                             (discuss_attachment == null || !discuss_attachment.exists())
                                  ? null : "discuss_attachment");
     pageContext.setAttribute("discuss_email",
                              requestParams.get("discuss_email"));

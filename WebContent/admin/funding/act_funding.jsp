@@ -1,34 +1,40 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<!--- check for session.user variable to insure user logged in --->
-<%@ include file = "../act_session_check_sub.jsp"%>
-
-<jsp:useBean id = "myUpload" scope = "page"
-             class = "com.jspsmart.upload.SmartUpload"/>
-
 <%
-    myUpload.initialize(pageContext);
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
+    
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
 
-    try
-        {
-        myUpload.upload();
-        }
-    catch (Exception ex)
-        {
-        }
-
-    Request myRequest         = myUpload.getRequest();
+    File public_image_title = uploadedFiles.get("public_image_title");
+    if(public_image_title != null)
+        pageContext.setAttribute("file_name1", public_image_title.getName());
+    
+    File admin_image_title  = uploadedFiles.get("admin_image_title");
+    if(admin_image_title != null)
+        pageContext.setAttribute("file_name2", admin_image_title.getName());
 %>
 
 <%@ include file = "../../guard_required_params.jsp"%>
 
 <%
-    GuardRequiredParams guard = new GuardRequiredParams(myRequest);
+    GuardRequiredParams guard = new GuardRequiredParams(requestParams);
 
     if (guard.isParameterMissed())
         {
@@ -37,88 +43,44 @@
         }
 %>
 
-<%
-    File admin_image_title  = myUpload.getFiles().getFile(0);
-    File public_image_title = myUpload.getFiles().getFile(1);
-%>
-
 <!--- Modify or Add Funding Initiative Information --->
 
-<sql:query var = "doc_dir">
-    select host_doc_dir from initiative_setup
-</sql:query>
-
-<%@ include file = "../../file_upload.jsp"%>
-
 <%
-    FileUpload upload       = new FileUpload();
-
-    if (!public_image_title.isMissing())
-        {
-%>
-
-        <c:forEach var = "row" items = "${doc_dir.rows}">
-            <c:set var = "docs_dir" value = "${row.host_doc_dir}"/>
-        </c:forEach>
-
-    <%
-        String path     = (String)pageContext.getAttribute("docs_dir");
-        String filename = upload.saveFile(public_image_title, path,
-                                          application);
-        pageContext.setAttribute("file_name1", filename);
-        }
-
-    if (!admin_image_title.isMissing())
-        {
-    %>
-
-        <c:forEach var = "row" items = "${doc_dir.rows}">
-            <c:set var = "docs_dir" value = "${row.host_doc_dir}"/>
-        </c:forEach>
-
-    <%
-        String path     = (String)pageContext.getAttribute("docs_dir");
-        String filename = upload.saveFile(admin_image_title, path, application);
-        pageContext.setAttribute("file_name2", filename);
-        }
-    %>
-
-<%
-    pageContext.setAttribute("act", myRequest.getParameter("act"));
-    pageContext.setAttribute("ia_url", myRequest.getParameter("ia_url"));
+    pageContext.setAttribute("act", requestParams.get("act"));
+    pageContext.setAttribute("ia_url", requestParams.get("ia_url"));
     pageContext.setAttribute("background",
-                             myRequest.getParameter("background"));
+                             requestParams.get("background"));
     pageContext.setAttribute("initiative_name",
-                             myRequest.getParameter("initiative_name"));
+                             requestParams.get("initiative_name"));
     pageContext.setAttribute("initiative_id",
-                             myRequest.getParameter("initiative_id"));
+                             requestParams.get("initiative_id"));
     pageContext.setAttribute("eligibility",
-                             myRequest.getParameter("eligibility"));
+                             requestParams.get("eligibility"));
     pageContext.setAttribute("review_process",
-                             myRequest.getParameter("review_process"));
+                             requestParams.get("review_process"));
     pageContext.setAttribute("proposal_format",
-                             myRequest.getParameter("proposal_format"));
-    pageContext.setAttribute("copyright", myRequest.getParameter("copyright"));
+                             requestParams.get("proposal_format"));
+    pageContext.setAttribute("copyright", requestParams.get("copyright"));
     pageContext.setAttribute("record_lifecycle",
-                             myRequest.getParameter("record_lifecycle"));
+                             requestParams.get("record_lifecycle"));
     pageContext.setAttribute("about_submitting",
-                             myRequest.getParameter("about_submitting"));
-    pageContext.setAttribute("ia_name", myRequest.getParameter("ia_name"));
-    pageContext.setAttribute("ia_email", myRequest.getParameter("ia_email"));
+                             requestParams.get("about_submitting"));
+    pageContext.setAttribute("ia_name", requestParams.get("ia_name"));
+    pageContext.setAttribute("ia_email", requestParams.get("ia_email"));
     pageContext.setAttribute("ia_address",
-                             myRequest.getParameter("ia_address"));
+                             requestParams.get("ia_address"));
     pageContext.setAttribute("ia_courier",
-                             myRequest.getParameter("ia_courier"));
-    pageContext.setAttribute("ia_phone", myRequest.getParameter("ia_phone"));
-    pageContext.setAttribute("ia_fax", myRequest.getParameter("ia_fax"));
+                             requestParams.get("ia_courier"));
+    pageContext.setAttribute("ia_phone", requestParams.get("ia_phone"));
+    pageContext.setAttribute("ia_fax", requestParams.get("ia_fax"));
     pageContext.setAttribute("ia_courier_inst",
-                             myRequest.getParameter("ia_courier_inst"));
-    pageContext.setAttribute("ia_url", myRequest.getParameter("ia_url"));
+                             requestParams.get("ia_courier_inst"));
+    pageContext.setAttribute("ia_url", requestParams.get("ia_url"));
     pageContext.setAttribute("image_toolbar",
-                             myRequest.getParameter("image_toolbar"));
-    pageContext.setAttribute("lang_id", myRequest.getParameter("lang_id"));
+                             requestParams.get("image_toolbar"));
+    pageContext.setAttribute("lang_id", requestParams.get("lang_id"));
     pageContext.setAttribute("ia_contact",
-                             myRequest.getParameter("ia_contact"));
+                             requestParams.get("ia_contact"));
 %>
 
 <c:choose>
@@ -130,7 +92,7 @@
             ia_address=?, ia_courier=?, ia_phone=?, ia_fax=?, ia_courier_inst=?,
 
             <%
-            if (!public_image_title.isMissing())
+            if (public_image_title != null && public_image_title.exists())
                 {
             %>
 
@@ -141,7 +103,7 @@
             %>
 
             <%
-            if (!admin_image_title.isMissing())
+            if (admin_image_title != null && admin_image_title.exists())
                 {
             %>
 
@@ -184,7 +146,7 @@
             <sql:param value = "${ia_courier_inst}"/>
 
             <%
-            if (!public_image_title.isMissing())
+            if (public_image_title != null && public_image_title.exists())
                 {
             %>
 
@@ -195,7 +157,7 @@
             %>
 
             <%
-            if (!admin_image_title.isMissing())
+            if (admin_image_title != null && admin_image_title.exists())
                 {
             %>
 
@@ -221,7 +183,7 @@
             ia_address, ia_courier, ia_phone, ia_fax, ia_courier_inst, ia_url,
 
             <%
-            if (!public_image_title.isMissing())
+            if (public_image_title != null && public_image_title.exists())
                 {
             %>
 
@@ -232,7 +194,7 @@
             %>
 
             <%
-            if (!admin_image_title.isMissing())
+            if (admin_image_title != null && admin_image_title.exists())
                 {
             %>
 
@@ -245,7 +207,7 @@
             lang_id ) values ( ?,?,?,?, ?,?,?,?, ?,?,?,?, ?,?,?,?, ?,
 
             <%
-            if (!public_image_title.isMissing())
+            if (public_image_title != null && public_image_title.exists())
                 {
             %>
 
@@ -256,7 +218,7 @@
             %>
 
             <%
-            if (!admin_image_title.isMissing())
+            if (admin_image_title != null && admin_image_title.exists())
                 {
             %>
 
@@ -303,7 +265,7 @@
             <sql:param value = "${ia_url}"/>
 
             <%
-            if (!public_image_title.isMissing())
+            if (public_image_title != null && public_image_title.exists())
                 {
             %>
 
@@ -314,7 +276,7 @@
             %>
 
             <%
-            if (!admin_image_title.isMissing())
+            if (admin_image_title != null && admin_image_title.exists())
                 {
             %>
 
@@ -330,5 +292,4 @@
 </c:choose>
 
 <!--- redirect to main funding information page --->
-
 <c:import url = "funding/dsp_funding.jsp?fuseaction=funding&${user}"/>

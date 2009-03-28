@@ -1,46 +1,50 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<!--- check for session.user variable to insure user logged in --->
-<%@ include file = "../act_session_check_sub.jsp"%>
-
-<jsp:useBean id = "myUpload" scope = "page"
-             class = "com.jspsmart.upload.SmartUpload"/>
-
 <%
-    myUpload.initialize(pageContext);
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
+    
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
 
-    try
-        {
-        myUpload.upload();
-        }
-    catch (Exception ex)
-        {
-        }
+    File background_image = uploadedFiles.get("background_image");
+    if(background_image != null)
+        pageContext.setAttribute("file_name1", background_image.getName());
+    
+    File public_header_background  = uploadedFiles.get("public_header_background");
+    if(public_header_background != null)
+        pageContext.setAttribute("file_name2", public_header_background.getName());
 
-    Request myRequest         = myUpload.getRequest();
+    File admin_header_background  = uploadedFiles.get("admin_header_background");
+    if(admin_header_background != null)
+        pageContext.setAttribute("file_name3", admin_header_background.getName());
 %>
 
 <%@ include file = "../../guard_required_params.jsp"%>
 
 <%
-    GuardRequiredParams guard = new GuardRequiredParams(myRequest);
+    GuardRequiredParams guard = new GuardRequiredParams(requestParams);
 
     if (guard.isParameterMissed())
         {
         out.write(guard.getSplashScreen());
         return;
         }
-%>
-
-<%
-    File background_image         = myUpload.getFiles().getFile(0);
-    File public_header_background = myUpload.getFiles().getFile(1);
-    File admin_header_background  = myUpload.getFiles().getFile(2);
 %>
 
 <sql:query var = "site_setup_num">
@@ -55,40 +59,40 @@
 
 <%
     pageContext.setAttribute("use_initiative_criteria",
-                             myRequest.getParameter("use_initiative_criteria"));
+                             requestParams.get("use_initiative_criteria"));
     pageContext.setAttribute("use_cfp_criteria",
-                             myRequest.getParameter("use_cfp_criteria"));
+                             requestParams.get("use_cfp_criteria"));
     pageContext.setAttribute("show_reviewers",
-                             myRequest.getParameter("show_reviewers"));
+                             requestParams.get("show_reviewers"));
     pageContext.setAttribute("show_reviewers_summary",
-                             myRequest.getParameter("show_reviewers_summary"));
+                             requestParams.get("show_reviewers_summary"));
     pageContext.setAttribute("multiple_cfps",
-                             myRequest.getParameter("multiple_cfps"));
+                             requestParams.get("multiple_cfps"));
     pageContext.setAttribute("public_attachments",
-                             myRequest.getParameter("public_attachments"));
-    pageContext.setAttribute("listname", myRequest.getParameter("listname"));
+                             requestParams.get("public_attachments"));
+    pageContext.setAttribute("listname", requestParams.get("listname"));
 
     pageContext.setAttribute("host_doc_dir",
-                             myRequest.getParameter("host_doc_dir"));
-    pageContext.setAttribute("host_url", myRequest.getParameter("host_url"));
+                             requestParams.get("host_doc_dir"));
+    pageContext.setAttribute("host_url", requestParams.get("host_url"));
     pageContext.setAttribute("application_name",
-                             myRequest.getParameter("application_name"));
+                             requestParams.get("application_name"));
     pageContext.setAttribute("application_directory",
-                             myRequest.getParameter("application_directory"));
+                             requestParams.get("application_directory"));
     pageContext.setAttribute("public_info",
-                             myRequest.getParameter("public_info"));
+                             requestParams.get("public_info"));
     pageContext.setAttribute("public_info_degree",
-                             myRequest.getParameter("public_info_degree"));
+                             requestParams.get("public_info_degree"));
     pageContext.setAttribute("minimum_rank",
-                             myRequest.getParameter("minimum_rank"));
+                             requestParams.get("minimum_rank"));
     pageContext.setAttribute("show_weights",
-                             myRequest.getParameter("show_weights"));
+                             requestParams.get("show_weights"));
     pageContext.setAttribute("criteria_rankings",
-                             myRequest.getParameter("criteria_rankings"));
+                             requestParams.get("criteria_rankings"));
     pageContext.setAttribute("default_lang",
-                             myRequest.getParameter("default_lang"));
+                             requestParams.get("default_lang"));
     pageContext.setAttribute("public_interface",
-                             myRequest.getParameter("public_interface"));
+                             requestParams.get("public_interface"));
 %>
 
 <c:set var = "use_initiative_criteria">
@@ -123,33 +127,6 @@
     <c:out value = "${listname}" default = ""/>
 </c:set>
 
-<%@ include file = "../../file_upload.jsp"%>
-
-<%
-    FileUpload upload = new FileUpload();
-    String path = myRequest.getParameter("host_doc_dir");
-
-    if (!background_image.isMissing())
-        {
-        String filename = upload.saveFile(background_image, path, application);
-        pageContext.setAttribute("file_name1", filename);
-        }
-
-    if (!public_header_background.isMissing())
-        {
-        String filename = upload.saveFile(public_header_background, path,
-                                          application);
-        pageContext.setAttribute("file_name2", filename);
-        }
-
-    if (!admin_header_background.isMissing())
-        {
-        String filename = upload.saveFile(admin_header_background, path,
-                                          application);
-        pageContext.setAttribute("file_name3", filename);
-        }
-%>
-
 <sql:update var = "site_setup">
     update initiative_setup set host_url = ?, host_doc_dir = ?, public_info =
     ?, public_info_degree = ?, minimum_rank = ?, show_weights = ?,
@@ -157,7 +134,7 @@
     use_cfp_criteria = ?, show_reviewers = ?, show_reviewers_summary = ?,
 
     <%
-    if (!background_image.isMissing())
+    if (background_image != null && background_image.exists())
         {
     %>
 
@@ -168,7 +145,7 @@
     %>
 
     <%
-    if (!public_header_background.isMissing())
+    if (public_header_background != null && public_header_background.exists())
         {
     %>
 
@@ -179,7 +156,7 @@
     %>
 
     <%
-    if (!admin_header_background.isMissing())
+    if (admin_header_background != null && admin_header_background.exists())
         {
     %>
 
@@ -218,7 +195,7 @@
     <sql:param value = "${show_reviewers_summary}"/>
 
     <%
-    if (!background_image.isMissing())
+    if (background_image != null && background_image.exists())
         {
     %>
 
@@ -229,7 +206,7 @@
     %>
 
     <%
-    if (!public_header_background.isMissing())
+    if (public_header_background != null && public_header_background.exists())
         {
     %>
 
@@ -240,7 +217,7 @@
     %>
 
     <%
-    if (!admin_header_background.isMissing())
+    if (admin_header_background != null && admin_header_background.exists())
         {
     %>
 

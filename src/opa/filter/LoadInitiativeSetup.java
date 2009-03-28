@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,56 +17,64 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
+/**
+ * @author Chris Longtin
+ * @email chris.longtin@gmail.com
+ * 
+ *        This filter will ensure that initiative_setup.host_doc_dir is always
+ *        saved in application context as DOCS_DIR. This is used as the path to
+ *        store uploaded files.
+ */
 public class LoadInitiativeSetup implements Filter {
-	
-	//private final static Logger logger = Logger.getLogger(LoadInitiativeSetup.class);
-	
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+
+    private String jdbcJndi;
 
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain fc)
-			throws IOException, ServletException {
-		
-		Connection conn = null;
+    public void init(FilterConfig fc) throws ServletException {
+    	jdbcJndi = fc.getInitParameter("jdbcJndi");
+    }
 
-		try {
-			HttpServletRequest request = (HttpServletRequest) req;
-			System.out.println("AAA");
-			Context ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/opa");
-			conn = ds.getConnection();
-			ResultSet rs = conn.createStatement().executeQuery(
-					"select host_doc_dir from initiative_setup");
-			rs.next();
-			String host_doc_dir = rs.getString("host_doc_dir");
-			request.getSession().setAttribute("DOCS_DIR", host_doc_dir);
-			System.out.println("BBB: " + host_doc_dir);
+    @Override
+    public void destroy() {
+    }
 
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					// bleh
-				}
-			}
-		}
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain fc)
+            throws IOException, ServletException {
+        
+        Connection conn = null;
 
-		fc.doFilter(req, res);
-	}
-//
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
+        try {
+            HttpServletRequest request = (HttpServletRequest) req;
+            Context ctx = new InitialContext();
 
+            /*
+             * TODO: get jndi value string from somewhere else  
+             */
+            DataSource ds = (DataSource) ctx.lookup("java:comp/env/" + jdbcJndi);
+            conn = ds.getConnection();
+
+            ResultSet rs = conn.createStatement().executeQuery(
+                    "select host_doc_dir from initiative_setup");
+            rs.next();
+
+            String host_doc_dir = rs.getString("host_doc_dir");
+            request.getSession().setAttribute("DOCS_DIR", host_doc_dir);
+
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    // bleh
+                }
+            }
+        }
+
+        fc.doFilter(req, res);
+    }
 }

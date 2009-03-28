@@ -1,34 +1,35 @@
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
-<%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
-
-<!--- process public comment submission --->
-
-<jsp:useBean id = "myUpload" scope = "page"
-             class = "com.jspsmart.upload.SmartUpload"/>
 
 <%
-    myUpload.initialize(pageContext);
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
 
-    try
-        {
-        myUpload.upload();
-        }
-    catch (Exception ex)
-        {
-        }
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
 
-    Request myRequest       = myUpload.getRequest();
-    File discuss_attachment = myUpload.getFiles().getFile(0);
+    File discuss_attachment = uploadedFiles.get("discuss_attachment");
+    if(discuss_attachment != null)
+        pageContext.setAttribute("file_name1", discuss_attachment.getName());
 %>
 
 <%@ include file = "../guard_required_params.jsp"%>
 
 <%
-    GuardRequiredParams guard = new GuardRequiredParams(myRequest);
+    GuardRequiredParams guard = new GuardRequiredParams(requestParams);
 
     if (guard.isParameterMissed())
         {
@@ -40,66 +41,25 @@
 <% /*<!--- process public comment submission --->*/
 %>
 
-<sql:query var = "doc_dir_find">
-    select host_doc_dir from initiative_setup
-</sql:query>
-
-<c:set var = "host_doc_dir" value = "${doc_dir_find.rows[0].host_doc_dir}"/>
-
-<%
-    if (!discuss_attachment.isMissing())
-        {
-%>
-
-        <c:set var = "DOCS_DIR" value = "${host_doc_dir}"/>
-
-    <%
-        String path = (String)pageContext.getAttribute("DOCS_DIR");
-        path = application.getRealPath(path);
-
-        String filename = discuss_attachment.getFileName().replaceAll("\\s",
-                                                                      "");
-
-        java.io.File f = new java.io.File(path, filename);
-
-        // ensure uniqueness
-        for (int i = 1; f.exists(); i++)
-            {
-            if (filename.matches(".*\\[\\d+\\]\\..*"))
-                filename = filename.replaceFirst("\\[\\d+\\]\\.", ".");
-
-            filename = filename.replaceFirst("\\.(?=[^.]+$)", "[" + i + "].");
-
-            f = new java.io.File(path, filename);
-            }
-
-        discuss_attachment.saveAs(f.getPath());
-        pageContext.setAttribute("file_name1", filename);
-    %>
-
-<%
-        }
-%>
-
 <%
     pageContext.setAttribute("discuss_attachment",
-                             discuss_attachment.isMissing()
+                             (discuss_attachment == null || !discuss_attachment.exists())
                                  ? null : "discuss_attachment");
     pageContext.setAttribute("discuss_author",
-                             myRequest.getParameter("discuss_author"));
-    pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
+                             requestParams.get("discuss_author"));
+    pageContext.setAttribute("doc_id", requestParams.get("doc_id"));
     pageContext.setAttribute("discuss_level",
-                             myRequest.getParameter("discuss_level"));
+                             requestParams.get("discuss_level"));
     pageContext.setAttribute("discuss_parent",
-                             myRequest.getParameter("discuss_parent"));
+                             requestParams.get("discuss_parent"));
     pageContext.setAttribute("discuss_subject",
-                             myRequest.getParameter("discuss_subject"));
+                             requestParams.get("discuss_subject"));
     pageContext.setAttribute("discuss_message",
-                             myRequest.getParameter("discuss_message"));
+                             requestParams.get("discuss_message"));
     pageContext.setAttribute("discuss_author",
-                             myRequest.getParameter("discuss_author"));
+                             requestParams.get("discuss_author"));
     pageContext.setAttribute("discuss_email",
-                             myRequest.getParameter("discuss_email"));
+                             requestParams.get("discuss_email"));
 %>
 <!--- retrieving next discussion identifier number --->
 

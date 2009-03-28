@@ -30,18 +30,6 @@
         	}
 
         }
-        
-        GuardRequiredParams(com.jspsmart.upload.Request request)
-            {
-            params = new Hashtable();
-
-            for (Enumeration e = request.getParameterNames();
-                e.hasMoreElements(); )
-                {
-                String key = (String)e.nextElement();
-                params.put(key, request.getParameterValues(key));
-                }
-            }
 
         boolean isParameterMissed()
             {

@@ -1,33 +1,36 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
-
 <%@ page import = "java.util.*"%>
-<%@ page import = "com.jspsmart.upload.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<jsp:useBean id = "myUpload" scope = "page"
-             class = "com.jspsmart.upload.SmartUpload"/>
-
 <%
-    myUpload.initialize(pageContext);
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
 
-    try
-        {
-        myUpload.upload();
-        }
-    catch (Exception ex)
-        {
-        }
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
 
-    Request myRequest       = myUpload.getRequest();
-    File discuss_attachment = myUpload.getFiles().getFile(0);
+    File discuss_attachment = uploadedFiles.get("discuss_attachment");
+    if(discuss_attachment != null)
+        pageContext.setAttribute("file_name1", discuss_attachment.getName());
 %>
 
 <%@ include file = "../../guard_required_params.jsp"%>
 
 <%
-    GuardRequiredParams guard = new GuardRequiredParams(myRequest);
+    GuardRequiredParams guard = new GuardRequiredParams(requestParams);
 
     if (guard.isParameterMissed())
         {
@@ -39,52 +42,32 @@
 <% /*<!--- process public comment submission --->*/
 %>
 
-<sql:query var = "doc_dir_find">
-    select host_doc_dir from initiative_setup
-</sql:query>
-
-<c:set var = "host_doc_dir" value = "${doc_dir_find.rows[0].host_doc_dir}"/>
-
-<%@ include file = "../../file_upload.jsp"%>
-
 <%
-    FileUpload upload = new FileUpload();
-
-    if (!discuss_attachment.isMissing())
-        {
-        String path     = (String)pageContext.getAttribute("host_doc_dir");
-        String filename = upload.saveFile(discuss_attachment, path,
-                                          application);
-        pageContext.setAttribute("file_name1", filename);
-        }
-%>
-
-<%
-    String discuss_date   = myRequest.getParameter("discuss_date");
+    String discuss_date   = requestParams.get("discuss_date");
     java.sql.Date sqldate = new java.sql.Date(new Date().getTime());
     pageContext.setAttribute("discuss_date", (discuss_date == null)
                                                  ? sqldate.toString()
                                                  : discuss_date);
-    String discussion_id = myRequest.getParameter("discussion_id");
+    String discussion_id = requestParams.get("discussion_id");
     pageContext.setAttribute("discussion_id", (discussion_id == null)
                                                   ? "1" : discussion_id);
 
     pageContext.setAttribute("discuss_author",
-                             myRequest.getParameter("discuss_author"));
+                             requestParams.get("discuss_author"));
     pageContext.setAttribute("discuss_attachment",
-                             discuss_attachment.isMissing()
+                             discuss_attachment == null
                                  ? null : "discuss_attachment");
     pageContext.setAttribute("discuss_email",
-                             myRequest.getParameter("discuss_email"));
-    pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
+                             requestParams.get("discuss_email"));
+    pageContext.setAttribute("doc_id", requestParams.get("doc_id"));
     pageContext.setAttribute("discuss_level",
-                             myRequest.getParameter("discuss_level"));
+                             requestParams.get("discuss_level"));
     pageContext.setAttribute("discuss_parent",
-                             myRequest.getParameter("discuss_parent"));
+                             requestParams.get("discuss_parent"));
     pageContext.setAttribute("discuss_subject",
-                             myRequest.getParameter("discuss_subject"));
+                             requestParams.get("discuss_subject"));
     pageContext.setAttribute("discuss_message",
-                             myRequest.getParameter("discuss_message"));
+                             requestParams.get("discuss_message"));
 %>
 
 <sql:query var = "discuss_num" maxRows = "1">

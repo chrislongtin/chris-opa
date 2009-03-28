@@ -1,49 +1,51 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
-<%@ page import = "java.util.*,com.jspsmart.upload.*"%>
+<%@ page import = "java.util.*"%>
+<%@ page import = "java.io.File"%>
+<%@ page import = "org.apache.commons.io.*" %>
+<%@ page import = "org.apache.commons.fileupload.*" %>
+<%@ page import = "org.apache.commons.fileupload.disk.*" %>
+<%@ page import = "org.apache.commons.fileupload.util.*" %>
+<%@ page import = "org.apache.commons.fileupload.servlet.*" %>
+<%@ page import = "opa.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
-<jsp:useBean id = "myUpload" scope = "page"
-             class = "com.jspsmart.upload.SmartUpload"/>
-
 <%
-    myUpload.initialize(pageContext);
-
-    try
-        {
-        myUpload.upload();
-        }
-    catch (Exception ex)
-        {
-        }
-
-    Request myRequest = myUpload.getRequest();
+    String uploadBaseDir = (String)request.getSession().getAttribute("DOCS_DIR");
+    uploadBaseDir = application.getRealPath(uploadBaseDir);
+    
+    FileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    List<FileItem> items = upload.parseRequest(request);
+    
+    Map<String, String> requestParams = Utils.gatherStrings(items);
+    Map<String, File> uploadedFiles = Utils.gatherFiles(items, uploadBaseDir);
+    
+    File doc_filename = uploadedFiles.get("doc_filename");
+    if(doc_filename != null)
+        pageContext.setAttribute("file_name1", doc_filename.getName());
 %>
 
 <%
-    File doc_filename = myUpload.getFiles().getFile(0);
-%>
-
-<%
-    pageContext.setAttribute("doc_id", myRequest.getParameter("doc_id"));
-    pageContext.setAttribute("doc_title", myRequest.getParameter("doc_title"));
+    pageContext.setAttribute("doc_id", requestParams.get("doc_id"));
+    pageContext.setAttribute("doc_title", requestParams.get("doc_title"));
     pageContext.setAttribute("discussion_id",
-                             myRequest.getParameter("discussion_id"));
+                             requestParams.get("discussion_id"));
     pageContext.setAttribute("discuss_level",
-                             myRequest.getParameter("discuss_level"));
+                             requestParams.get("discuss_level"));
     pageContext.setAttribute("discuss_parent",
-                             myRequest.getParameter("discuss_parent"));
+                             requestParams.get("discuss_parent"));
     pageContext.setAttribute("discuss_author",
-                             myRequest.getParameter("discuss_author"));
+                             requestParams.get("discuss_author"));
     pageContext.setAttribute("discuss_email",
-                             myRequest.getParameter("discuss_email"));
+                             requestParams.get("discuss_email"));
     pageContext.setAttribute("discuss_subject",
-                             myRequest.getParameter("discuss_subject"));
+                             requestParams.get("discuss_subject"));
     pageContext.setAttribute("discuss_date",
-                             myRequest.getParameter("discuss_date"));
+                             requestParams.get("discuss_date"));
     pageContext.setAttribute("discuss_message",
-                             myRequest.getParameter("discuss_message"));
+                             requestParams.get("discuss_message"));
 %>
 
 <!--- add a document for general discussion --->
@@ -63,29 +65,6 @@
 <%
     java.sql.Date sqldate = new java.sql.Date(new Date().getTime());
     pageContext.setAttribute("doc_date", sqldate.toString());
-%>
-
-<sql:query var = "doc_dir_find">
-    select host_doc_dir from initiative_setup
-</sql:query>
-
-<c:forEach var = "row" items = "${doc_dir_find.rows}">
-    <c:set var = "host_doc_dir" value = "${row.host_doc_dir}"/>
-</c:forEach>
-
-<!--- uploading document to the server --->
-
-<%@ include file = "../../file_upload.jsp"%>
-
-<%
-    FileUpload upload = new FileUpload();
-
-    if (!doc_filename.isMissing())
-        {
-        String path     = (String)pageContext.getAttribute("host_doc_dir");
-        String filename = upload.saveFile(doc_filename, path, application);
-        pageContext.setAttribute("file_name1", filename);
-        }
 %>
 
 <sql:update var = "doc_add">
