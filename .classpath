@@ -10,5 +10,22 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-1.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="/home/chris/opa/WebContent/WEB-INF/classes"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils-core-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/jasper-jdt.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/mail.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="/usr/local/tomcat/lib/tomcat-i18n-ja.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
