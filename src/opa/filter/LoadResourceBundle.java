@@ -1,3 +1,24 @@
+/* 
+ * Copyright (C) 2009 Chris Longtin
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; if not, write to the Free Software Foundation, Inc., 51
+ * Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * 
+ * This class will retrieve messages from the database instead of a message
+ * resource file.
+ */
+
 package opa.filter;
 
 import java.io.IOException;
@@ -47,32 +68,36 @@ public class LoadResourceBundle implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpSession session = request.getSession();
         
+        DatabaseResourceBundle bundle = null;
+        
         InitiativeSetup setup = 
             (InitiativeSetup)session.getAttribute("initiativeSetup");
 
-        /*
-		 * store current language in session to avoid reconstructing
-		 * DatabaseResourceBundle
-		 */
-        Integer langId = 
-        	(Integer)session.getAttribute(this.getClass().getName());
+    	LocalizationContext context = (LocalizationContext) 
+    		Config.get(session, Config.FMT_LOCALIZATION_CONTEXT);
+
+    	if(context != null)
+    		bundle = (DatabaseResourceBundle)context.getResourceBundle();
         
         if(setup == null || setup.getLang_id() == null) {
         	throw new ServletException(
 					"Could not get language from InitiativeSetup object in application context.");
         }
         
-        if(langId == null || !langId.equals(setup.getLang_id())) {
-        	DatabaseResourceBundle bundle = 
-        		new DatabaseResourceBundle(jdbcJndi, setup.getLang_id());
+        if(bundle == null || !bundle.getLangId().equals(setup.getLang_id())) {
+        	if(bundle != null) {
+        		bundle.destroy();
+        		bundle = null;
+        	}
+        	
+        	bundle = new DatabaseResourceBundle(jdbcJndi, setup.getLang_id());
+        	bundle.init();
         	
         	/*
              * set the localization context of the session for jsp to process  
              */
             Config.set(session, Config.FMT_LOCALIZATION_CONTEXT, 
             		new LocalizationContext(bundle, null));
-            
-            session.setAttribute(this.getClass().getName(), langId);
             
             log.info("setting language for current user to: " + 
             		bundle.getLangId());

@@ -1,3 +1,23 @@
+/* 
+ * Copyright (C) 2009 Chris Longtin
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; if not, write to the Free Software Foundation, Inc., 51
+ * Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * 
+ * This class will retrieve messages from the database instead of a message
+ * resource file.
+ */
 package opa;
 
 import java.sql.Connection;
@@ -17,9 +37,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * This class will retrieve messages from the database instead of a message
- * resource file.
- * 
  * @author Chris Longtin
  * @email chris.longtin@gmail.com
  * 
@@ -30,26 +47,37 @@ public class DatabaseResourceBundle extends ResourceBundle {
 
     Integer langId;
     String jndiJdbc;
+
+	private Connection connection;
     
     public DatabaseResourceBundle(String jndiJdbc, Integer langId) {
         setLangId(langId);
         setJndiJdbc(jndiJdbc);
     }
+    
+    public void init() {
+    	releaseConnection(connection);
+        connection = createConnection();
+    }
+    
+    public void destroy() {
+    	releaseConnection(connection);
+    }    
 
-    @Override
+	@Override
     public Enumeration<String> getKeys() {
         String sql = "SELECT phrase FROM phrases WHERE lang_id = " + langId;
 
         ArrayList<String> values = new ArrayList<String>();
         
         try {
-            Connection conn = getConnection();
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
 
             if (rs.next())
                 values.add("phrase");
             
-            releaseConnection(conn);
+            rs.close();
+            
         } catch (Exception e) {
             log.error(e, e);
         }
@@ -65,13 +93,13 @@ public class DatabaseResourceBundle extends ResourceBundle {
         String value = null;
         
         try {
-            Connection conn = getConnection();
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
 
             if (rs.next())
                 value = rs.getString("phrase");
             
-            releaseConnection(conn);
+            rs.close();
+            
         } catch (Exception e) {
             log.error(e, e);
         }
@@ -84,7 +112,7 @@ public class DatabaseResourceBundle extends ResourceBundle {
      * 
      * @return
      */
-    private Connection getConnection() {
+    private Connection createConnection() {
         try {
             Context ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup("java:comp/env/" + jndiJdbc);
@@ -135,4 +163,12 @@ public class DatabaseResourceBundle extends ResourceBundle {
     public void setJndiJdbc(String jndiJdbc) {
         this.jndiJdbc = jndiJdbc;
     }
+
+    public Connection getConnection() {
+		return connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
 }
