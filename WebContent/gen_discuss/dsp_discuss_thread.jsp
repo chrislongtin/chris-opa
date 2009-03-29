@@ -42,7 +42,7 @@
             </c:when>
 
             <c:otherwise>
-                <cf:GetPhrase phrase_id = "38" lang_id = "${lang}"/>
+                <fmt:message key = "38" />
             </c:otherwise>
         </c:choose>
 
@@ -62,8 +62,8 @@
 <c:param name='discuss_parent' value='${row.discussion_id}'/>
 </c:url>">
 
-                    <cf:GetPhrase phrase_id = "39"
-                                  lang_id = "${lang}"/></a></font>
+                    <fmt:message key = "39"
+                                  /></a></font>
 
                     <p>
                     <font face = "Arial" size = "-1">

@@ -2,6 +2,7 @@
 <%@ page import = "java.util.*"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
@@ -11,33 +12,33 @@
 <center>
     <h3>
 
-    <cf:GetPhrase phrase_id = "319" lang_id = "${lang}"/></h3>
+    <fmt:message key = "319" /></h3>
 </center>
 
 <font face = "arial" size = "+1">
 
-<cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</font>
+<fmt:message key = "57" />:</font>
 
 <c:out value = "${param.tracking_code}"/>
 
 <br>
 <font face = "arial" size = "+1">
 
-<cf:GetPhrase phrase_id = "100" lang_id = "${lang}"/>:</font>
+<fmt:message key = "100" />:</font>
 
 <c:out value = "${param.proposal_title}"/>
 
 <br>
 <font face = "arial" size = "+1">
 
-<cf:GetPhrase phrase_id = "114" lang_id = "${lang}"/>:</font>
+<fmt:message key = "114" />:</font>
 
 <c:out value = "${param.doc_title}"/>
 
 <br>
 <font face = "arial" size = "+1">
 
-<cf:GetPhrase phrase_id = "319" lang_id = "${lang}"/>
+<fmt:message key = "319" />
 
 :
 
@@ -65,6 +66,6 @@
         </textarea>
 
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+               value = " <fmt:message key="456"  /> ">
     </form>
 </c:if>

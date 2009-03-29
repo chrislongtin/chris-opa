@@ -55,28 +55,28 @@
 
 :
 
-<cf:GetPhrase phrase_id = "250" lang_id = "${lang}"/></h3> <b>
+<fmt:message key = "250" /></h3> <b>
 
-<cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>:</b> CFP-
+<fmt:message key = "56" />:</b> CFP-
 
 <c:out value = "${cfp_code}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</b> P-
+<fmt:message key = "57" />:</b> P-
 
 <c:out value = "${tracking_code}"/><c:choose>
     <c:when test = "${reviewer_info.rowCount==0}">
         <p>
-        <cf:GetPhrase phrase_id = "251" lang_id = "${lang}"/>
+        <fmt:message key = "251" />
     </c:when>
 
     <c:otherwise>
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "252" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "252" />:</b>
         <c:forEach items = "${reviewer_info.rows}" var = "row">
             <p>
             <c:out value = "${row.reviewer_lastname}, ${row.reviewer_firstname}"/><c:if test = "${row.proposal_review_completed!=1}">
@@ -84,7 +84,7 @@
                 <a STYLE = "text-decoration: underline"
                    href = "index.jsp?fuseaction=act_proposal_reviewer_delete&assignment_id=<c:out value="${row.assignment_id}" />&tracking_code=<c:out value="${tracking_code}" />&cfp_code=<c:out value="${cfp_code}" />&cfp_cat_id=<c:out value="${cfp_cat_id}" />">
 
-                <cf:GetPhrase phrase_id = "253" lang_id = "${lang}"/></a>
+                <fmt:message key = "253" /></a>
             </c:if>
         </c:forEach>
     </c:otherwise>
@@ -94,15 +94,15 @@
 <hr size = "1">
 <b>
 
-<cf:GetPhrase phrase_id = "254" lang_id = "${lang}"/>:</b>
+<fmt:message key = "254" />:</b>
 
 <p>
-<cf:GetPhrase phrase_id = "255" lang_id = "${lang}"/>: <i>(
+<fmt:message key = "255" />: <i>(
 
-<cf:GetPhrase phrase_id = "256" lang_id = "${lang}"/>)</i>
+<fmt:message key = "256" />)</i>
 
 <p>
-<cf:GetPhrase phrase_id = "600" lang_id = "${lang}"/>
+<fmt:message key = "600" />
 
 <form action = "index.jsp?fuseaction=act_proposal_assign" method = "post">
     <input type = "hidden" name = "cfp_code"
@@ -112,13 +112,13 @@
     <input type = "hidden" name = "tracking_code"
     value = "<c:out value="${tracking_code}" />">
     <input type = "hidden" name = "reviewer_id_required"
-    value = "<cf:GetPhrase phrase_id="601" lang_id="${lang}" />"> <input type = "checkbox"
+    value = "<fmt:message key="601"  />"> <input type = "checkbox"
     name = "proposal_assigned" value = "P" checked>
 
-    <cf:GetPhrase phrase_id = "122" lang_id = "${lang}"/>
+    <fmt:message key = "122" />
     <input type = "checkbox" name = "report_assigned" value = "R" checked>
 
-    <cf:GetPhrase phrase_id = "311" lang_id = "${lang}"/>
+    <fmt:message key = "311" />
 
     <br>
     <select name = "reviewer_id" size = "3" multiple = "yes">
@@ -129,5 +129,5 @@
     </select>
 
     <input type = "submit"
-           value = " <cf:GetPhrase phrase_id="599" lang_id="${lang}" /> ">
+           value = " <fmt:message key="599"  /> ">
 </form>

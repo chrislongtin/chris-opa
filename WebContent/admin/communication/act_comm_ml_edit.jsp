@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -43,7 +44,7 @@
 
                 <c:set var = "list_name">
                     <c:out value = "${param.list_name}"
-                           default = "<cf:GetPhrase phrase_id="940" lang_id="${lang}" /> ${list_id}"/>
+                           default = "<fmt:message key="940"  /> ${list_id}"/>
                 </c:set>
 
                 <c:set var = "list_descr">

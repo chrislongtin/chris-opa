@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
 <c:set var = "lang" value = "${sessionScope.lang}" scope = "page"/>
@@ -13,15 +14,15 @@
     <div align = "center">
         <b>
 
-        <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
+        <fmt:message key = "770" />
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_edit">
 
-        <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
+        <fmt:message key = "733" /></a>
 
-        <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
+        <fmt:message key = "734" /></b>
     </div>
 
     <%

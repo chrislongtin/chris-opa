@@ -9,6 +9,7 @@
 <%@ page import = "opa.model.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -39,7 +40,7 @@
             <br>
             <b>
 
-            <cf:GetPhrase phrase_id = "569" lang_id = "${lang}"/>?</b>
+            <fmt:message key = "569" />?</b>
 
             <table>
                 <tr>
@@ -52,7 +53,7 @@
                             value = "<c:out value="${doc_id}" />"> <input type = "hidden"
                             name = "act" value = "delete">
                             <input type = "submit"
-                            value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
+                            value = "<fmt:message key="570"  />">
                         </form>
                     </td>
 
@@ -62,7 +63,7 @@
                             <input type = "hidden" name = "tracking_code"
                             value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
                             <input type = "submit"
-                            value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
+                            value = "<fmt:message key="543"  />">
                         </form>
                     </td>
             </table>
@@ -82,7 +83,7 @@
 
             <h3>
 
-            <cf:GetPhrase phrase_id = "738" lang_id = "${lang}"/>!</h3>
+            <fmt:message key = "738" />!</h3>
         </c:if>
     </c:when>
 
@@ -172,7 +173,7 @@
 
             <h3>
 
-            <cf:GetPhrase phrase_id = "735" lang_id = "${lang}"/>!</h3>
+            <fmt:message key = "735" />!</h3>
         </c:if>
 
         <c:if test = "${act=='edit'}">
@@ -203,7 +204,7 @@
 
             <h3>
 
-            <cf:GetPhrase phrase_id = "736" lang_id = "${lang}"/>!</h3>
+            <fmt:message key = "736" />!</h3>
         </c:if>
     </c:otherwise>
 </c:choose>
@@ -217,7 +218,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="739" lang_id="${lang}" />">
+                value = "<fmt:message key="739"  />">
             </form>
         </td>
 
@@ -228,7 +229,7 @@
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "hidden" name = "act" value = "edit">
                 <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="740" lang_id="${lang}" />">
+                value = "<fmt:message key="740"  />">
             </form>
         </td>
 
@@ -238,7 +239,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="741" lang_id="${lang}" />">
+                value = "<fmt:message key="741"  />">
             </form>
         </td>
 
@@ -249,7 +250,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="742" lang_id="${lang}" />">
+                value = "<fmt:message key="742"  />">
             </form>
         </td>
     </tr>

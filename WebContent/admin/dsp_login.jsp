@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib uri = "http://jakarta.apache.org/taglibs/mailer-1.1" prefix = "mt"%>
@@ -99,8 +100,8 @@
                             </sql:query>
 
                             <c:if test = "${empty get_password.rows[0].coordinator_login}">
-                                <cf:GetPhrase phrase_id = "431"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "431"
+                                              />
 
                                 .
 
@@ -120,18 +121,18 @@
                                 </mt:setrecipient>
 
                                 <mt:subject>
-                                    <cf:GetPhrase phrase_id = "937"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "937"
+                                                  />
                                 </mt:subject>
 
                                 <mt:message>
-                                    <cf:GetPhrase phrase_id = "432"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "432"
+                                                  />
 
                                     <c:out value = "${get_password.rows[0].coordinator_password}"/>
 
-                                    <cf:GetPhrase phrase_id = "433"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "433"
+                                                  />
 
                                     <c:out value = "${get_password.rows[0].coordinator_login}"/>
                                 </mt:message>
@@ -141,15 +142,15 @@
 
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "434"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "434"
+                                          />
 
                             <c:out value = "${user_email}"/>.</h3>
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp">
 
-                            <cf:GetPhrase phrase_id = "435"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "435"
+                                          /></a>
                         </c:when>
 
                         <c:when test = "${role=='reviewer'}">
@@ -161,8 +162,8 @@
                             </sql:query>
 
                             <c:if test = "${empty get_password.rows[0].reviewer_login}">
-                                <cf:GetPhrase phrase_id = "431"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "431"
+                                              />
 
                                 .
 
@@ -182,18 +183,18 @@
                                 </mt:setrecipient>
 
                                 <mt:subject>
-                                    <cf:GetPhrase phrase_id = "937"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "937"
+                                                  />
                                 </mt:subject>
 
                                 <mt:message>
-                                    <cf:GetPhrase phrase_id = "432"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "432"
+                                                  />
 
                                     <c:out value = "${get_password.rows[0].reviewer_password}"/>
 
-                                    <cf:GetPhrase phrase_id = "433"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "433"
+                                                  />
 
                                     <c:out value = "${get_password.rows[0].reviewer_login}"/>
                                 </mt:message>
@@ -203,15 +204,15 @@
 
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "434"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "434"
+                                          />
 
                             <c:out value = "${user_email}"/>.</h3>
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp">
 
-                            <cf:GetPhrase phrase_id = "435"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "435"
+                                          /></a>
                         </c:when>
 
                         <c:otherwise>
@@ -219,8 +220,8 @@
                             <h2>
 
                             <center>
-                                <cf:GetPhrase phrase_id = "436"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "436"
+                                              />
 
                                 :
                             </center>
@@ -231,25 +232,25 @@
                             <br>
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "437"
-                                          lang_id = "${lang}"/>:</h3>
+                            <fmt:message key = "437"
+                                          />:</h3>
 
                             <form action = "index.jsp?fuseaction=login"
                                   method = "post">
                                 <input type = "hidden" name = "login_type"
                                 value = "reviewer"> <b>
 
-                                <cf:GetPhrase phrase_id = "438"
-                                lang_id = "${lang}"/>:</b> <input type = "text"
+                                <fmt:message key = "438"
+                                />:</b> <input type = "text"
                                 name = "reviewer_login">
 
                                 <br>
                                 <b>
 
-                                <cf:GetPhrase phrase_id = "92"
-                                lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password" name = "reviewer_password">
+                                <fmt:message key = "92"
+                                />:</b>&nbsp;&nbsp;<input type = "password" name = "reviewer_password">
                                 <input type = "submit"
-                                value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
+                                value = "<fmt:message key="923"  />">
                             </form>
 
                             <form action = "index.jsp" method = "post">
@@ -257,41 +258,41 @@
                                        value = "reviewer">
 
                                 <p>
-                                <cf:GetPhrase phrase_id = "439"
-                                              lang_id = "${lang}"/>?
+                                <fmt:message key = "439"
+                                              />?
 
                                 <br>
-                                <cf:GetPhrase phrase_id = "440"
-                                              lang_id = "${lang}"/>:
+                                <fmt:message key = "440"
+                                              />:
 
                                 <br>
                                 <input type = "text" name = "user_email" size = "30">
                                 <input type = "submit"
-                                value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                                value = " <fmt:message key="456"  /> ">
                             </form>
 
                             <p>
                             <h3>
 
-                            <cf:GetPhrase phrase_id = "921"
-                                          lang_id = "${lang}"/>:</h3>
+                            <fmt:message key = "921"
+                                          />:</h3>
 
                             <form action = "index.jsp?fuseaction=login"
                                   method = "post">
                                 <input type = "hidden" name = "login_type"
                                 value = "coordinator"> <b>
 
-                                <cf:GetPhrase phrase_id = "438"
-                                lang_id = "${lang}"/>:</b> <input type = "text"
+                                <fmt:message key = "438"
+                                />:</b> <input type = "text"
                                 name = "coordinator_login">
 
                                 <br>
                                 <b>
 
-                                <cf:GetPhrase phrase_id = "92"
-                                lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password" name = "coordinator_password">
+                                <fmt:message key = "92"
+                                />:</b>&nbsp;&nbsp;<input type = "password" name = "coordinator_password">
                                 <input type = "submit"
-                                value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
+                                value = "<fmt:message key="923"  />">
                             </form>
 
                             <form action = "index.jsp" method = "post">
@@ -299,17 +300,17 @@
                                        value = "coordinator">
 
                                 <p>
-                                <cf:GetPhrase phrase_id = "439"
-                                              lang_id = "${lang}"/>?
+                                <fmt:message key = "439"
+                                              />?
 
                                 <br>
-                                <cf:GetPhrase phrase_id = "440"
-                                              lang_id = "${lang}"/>:
+                                <fmt:message key = "440"
+                                              />:
 
                                 <br>
                                 <input type = "text" name = "user_email" size = "30">
                                 <input type = "submit"
-                                value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                                value = " <fmt:message key="456"  /> ">
                             </form>
                         </c:otherwise>
                     </c:choose>

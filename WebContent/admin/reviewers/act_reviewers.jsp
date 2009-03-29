@@ -109,7 +109,7 @@
                 <div align = "center">
                     <h2>
 
-                    <cf:GetPhrase phrase_id = "692" lang_id = "${lang}"/>
+                    <fmt:message key = "692" />
 
                     !
 
@@ -117,7 +117,7 @@
 
                     <h3>
 
-                    <cf:GetPhrase phrase_id = "693" lang_id = "${lang}"/>!</h3>
+                    <fmt:message key = "693" />!</h3>
 
                     <table border = "0" cellspacing = "0" cellpadding = "2">
                         <td>
@@ -126,10 +126,10 @@
                                 <input type = "hidden" name = "act"
                                 value = "delete">
                                 <input type = "hidden" name = "delete_confirm"
-                                value = "<cf:GetPhrase phrase_id="542" lang_id="${lang}" />">
+                                value = "<fmt:message key="542"  />">
                                 <input type = "hidden" name = "reviewer_id"
                                 value = "<c:out value="${reviewer_id}" />"> <input type = "submit"
-                                value = " <cf:GetPhrase phrase_id="695" lang_id="${lang}" /> ">
+                                value = " <fmt:message key="695"  /> ">
                             </form>
                         </td>
 
@@ -137,7 +137,7 @@
                             <form action = "index.jsp?fuseaction=reviewers"
                                   method = "post">
                                 <input type = "submit"
-                                       value = " <cf:GetPhrase phrase_id="696" lang_id="${lang}" /> ">
+                                       value = " <fmt:message key="696"  /> ">
                             </form>
                         </td>
                     </table>

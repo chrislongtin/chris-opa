@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -31,13 +32,13 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "454" lang_id = "${lang}"/></h3>
+        <fmt:message key = "454" /></h3>
     </c:when>
 
     <c:otherwise>
         <h3>
 
-        <cf:GetPhrase phrase_id = "455" lang_id = "${lang}"/></h3>
+        <fmt:message key = "455" /></h3>
     </c:otherwise>
 </c:choose>
 
@@ -50,11 +51,11 @@
 
     <input type = "hidden" name = "act" value = "<c:out value='${act}'/>">
 
-    <cf:GetPhrase phrase_id = "457" lang_id = "${lang}"/>:
+    <fmt:message key = "457" />:
     <input type = "text" name = "cfp_cat_name"
            value = "<c:out value='${cfp_cat_name}'/>" size = "50">
 
     <br>
     <input type = "submit"
-           value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />   ">
+           value = "   <fmt:message key="456"  />   ">
 </form>

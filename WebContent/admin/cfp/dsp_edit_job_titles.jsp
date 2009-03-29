@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -15,7 +16,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "1018" lang_id = "${lang}"/></h3>
+<fmt:message key = "1018" /></h3>
 
 <c:forEach var = "row" items = "${title.rows}">
     <form action = "<c:url value='index.jsp'>
@@ -25,10 +26,10 @@
           method = "post">
         <input type = "hidden" name = "act" value = "Edit">
         <input type = "hidden" name = "seq_no_required"
-        value = "<cf:GetPhrase phrase_id='1014' lang_id='${lang}'/>"> <input type = "hidden" name = "job_name_required" value = "<cf:GetPhrase phrase_id='1015' lang_id='${lang}'/>">
+        value = "<fmt:message key='1014' />"> <input type = "hidden" name = "job_name_required" value = "<fmt:message key='1015' />">
         <b>
 
-        <cf:GetPhrase phrase_id = "1016" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "1016" />:</b>
 
         <br>
         <input type = "text" name = "seq_no"
@@ -37,7 +38,7 @@
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "1017" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "1017" />:</b>
 
         <br>
         <input type = "text" name = "job_name"
@@ -45,6 +46,6 @@
 
         <br>
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+               value = " <fmt:message key="456"  /> ">
     </form>
 </c:forEach>

@@ -11,23 +11,6 @@
   <description></description>
 
   <tag>
-    <name>GetPhrase</name>
-    <tag-class>archer.taglibs.cf.GetPhrase</tag-class>
-    <body-content>empty</body-content>
-    <description></description>
-    <attribute>
-        <name>phrase_id</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-        <name>lang_id</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue>
-    </attribute>
-  </tag>
-
-  <tag>
     <name>ParagraphFormat</name>
     <tag-class>archer.taglibs.cf.ParagraphFormat</tag-class>
     <body-content>empty</body-content>

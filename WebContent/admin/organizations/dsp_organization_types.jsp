@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -23,26 +24,26 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "1126" lang_id = "${lang}"/></h3>
+<fmt:message key = "1126" /></h3>
 
 <%-- <c:choose>
     <c:when test = "${orgtypes.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "1127" lang_id = "${lang}"/>
+        <fmt:message key = "1127" />
     <!--- copy from existing chapter --->                               
         [ <font size = "-1"><a href = "index.jsp?fuseaction=dsp_copy_organization_types">
-        <cf:GetPhrase phrase_id = "1046" lang_id = "${lang}"/></a></font> ]
+        <fmt:message key = "1046" /></a></font> ]
     </c:when>
 
     <c:otherwise>
         <a href = "#add">
 
-        <cf:GetPhrase phrase_id = "1120" lang_id = "${lang}"/></a>
+        <fmt:message key = "1120" /></a>
     </c:otherwise>
 </c:choose>
  --%>
 <a href = "#add">
 
-<cf:GetPhrase phrase_id = "1120" lang_id = "${lang}"/></a>
+<fmt:message key = "1120" /></a>
 
 <p>
 <table>
@@ -64,7 +65,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
+                <fmt:message key = "143" /></a>
                 <a href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_organization_type'/>
 <c:param name='organization_type_id' value='${row.organization_type_id}'/>
@@ -72,7 +73,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                <fmt:message key = "144" /></a>
             </td>
         </tr>
     </c:forEach>
@@ -80,7 +81,7 @@
 
 <a name = "add"> <h4>
 
-<cf:GetPhrase phrase_id = "1120" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "1120" />:</h4>
 
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_organization_type'/>
@@ -89,11 +90,11 @@
       method = "post">
     <input type = "hidden" name = "act" value = "Add"> <input type = "hidden"
            name = "organization_type_id_required"
-           value = "<cf:GetPhrase phrase_id='1121' lang_id='${lang}'/>">
+           value = "<fmt:message key='1121' />">
     <input type = "hidden" name = "organization_type_name_required"
-           value = "<cf:GetPhrase phrase_id='1122' lang_id='${lang}'/>"> <b>
+           value = "<fmt:message key='1122' />"> <b>
 
-    <cf:GetPhrase phrase_id = "1123" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "1123" />:</b>
 
     <br>
     <input type = "text" name = "organization_type_id" length = "4"
@@ -102,12 +103,12 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "1124" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "1124" />:</b>
 
     <br>
     <input type = "text" name = "organization_type_name" length = "30">
 
     <p>
     <input type = "submit"
-           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+           value = " <fmt:message key="456"  /> ">
 </form>

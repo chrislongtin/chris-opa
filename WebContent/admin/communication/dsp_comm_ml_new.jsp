@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -18,7 +19,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "802" lang_id = "${lang}"/></h3>
+<fmt:message key = "802" /></h3>
 
 <form name = "new_ml" method = "post"
       action = "index.jsp?fuseaction=comm_ml_donew">
@@ -27,15 +28,15 @@
             <td>
                 <FONT face = Arial size = -1><font color = "FF0000"><b>*
 
-                <cf:GetPhrase phrase_id = "810"
-                              lang_id = "${lang}"/>:</b></font></font>
+                <fmt:message key = "810"
+                              />:</b></font></font>
             </td>
 
             <td>
                 <input type = "text" name = "list_name" size = "20"
                 maxlength = "20" value = "">
                 <input type = "hidden" name = "list_name_required"
-                value = "<cf:GetPhrase phrase_id="832" lang_id="${lang}" />">
+                value = "<fmt:message key="832"  />">
             </td>
         </tr>
 
@@ -43,7 +44,7 @@
             <td>
                 <FONT face = Arial size = -1>
 
-                <cf:GetPhrase phrase_id = "811" lang_id = "${lang}"/>:</font>
+                <fmt:message key = "811" />:</font>
             </td>
 
             <td>
@@ -57,7 +58,7 @@
             <td>
                 <FONT face = Arial size = -1>
 
-                <cf:GetPhrase phrase_id = "812" lang_id = "${lang}"/>:</font>
+                <fmt:message key = "812" />:</font>
             </td>
 
             <td>
@@ -72,11 +73,11 @@
                 <td colspan = "2">
                     <FONT face = Arial size = -1>
 
-                    <cf:GetPhrase phrase_id = "813" lang_id = "${lang}"/>
+                    <fmt:message key = "813" />
 
                     , (
 
-                    <cf:GetPhrase phrase_id = "814" lang_id = "${lang}"/>
+                    <fmt:message key = "814" />
 
                     ):
 
@@ -98,7 +99,7 @@
                 <FONT face = Arial size = -1>
                 <input type = "checkbox" name = "default" checked value = "1">
 
-                <cf:GetPhrase phrase_id = "807" lang_id = "${lang}"/></font>
+                <fmt:message key = "807" /></font>
             </td>
         </tr>
 
@@ -107,7 +108,7 @@
                 <input type = "hidden" name = "act" value = "donew">
                 <input type = "submit"
                        name = "submit_new"
-                       value = "<cf:GetPhrase phrase_id="815" lang_id="${lang}" />">
+                       value = "<fmt:message key="815"  />">
             </td>
         </tr>
     </table>

@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -13,11 +14,11 @@
 order by reviewer_lastname
 </sql:query>
 
-<h3><cf:GetPhrase phrase_id="731" lang_id="${lang}" /></h3>
+<h3><fmt:message key="731"  /></h3>
 
 <c:choose>
 	<c:when test="${empty reviewer_profiles.rows[0].reviewer_lastname}">
-    <cf:GetPhrase phrase_id="732" lang_id="${lang}" />		
+    <fmt:message key="732"  />		
 	</c:when>
 	<c:otherwise>
 

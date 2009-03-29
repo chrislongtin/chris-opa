@@ -1,5 +1,6 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -83,7 +84,7 @@
 <!--- proposal tracking & review --->
 <h3>
 
-<cf:GetPhrase phrase_id = "7" lang_id = "${lang}"/></h3>
+<fmt:message key = "7" /></h3>
 
 <!--- If user is a reviewer, retrieve the reviewer_id number from the session.user variable --->
 <c:if test = "${sessionScope.user!='coordinator'}">
@@ -105,16 +106,16 @@
 
     <h4>
 
-    <cf:GetPhrase phrase_id = "903" lang_id = "${lang}"/></h4>
+    <fmt:message key = "903" /></h4>
 
     <c:choose>
         <c:when test = "${report_info.rowCount==0}">
-            <cf:GetPhrase phrase_id = "904" lang_id = "${lang}"/>
+            <fmt:message key = "904" />
         </c:when>
 
         <c:otherwise>
             <p>
-            <cf:GetPhrase phrase_id = "905" lang_id = "${lang}"/>
+            <fmt:message key = "905" />
 
             <ul>
                 <c:forEach items = "${report_info.rows}" var = "row">
@@ -144,7 +145,7 @@
     <c:if test = "${edit_reviews.rowCount!=0}">
         <h4>
 
-        <cf:GetPhrase phrase_id = "902" lang_id = "${lang}"/>:</h4>
+        <fmt:message key = "902" />:</h4>
 
         <ul>
             <c:forEach items = "${edit_report_reviews.rows}" var = "row">
@@ -169,16 +170,16 @@
 
     <h4>
 
-    <cf:GetPhrase phrase_id = "638" lang_id = "${lang}"/></h4>
+    <fmt:message key = "638" /></h4>
 
     <c:choose>
         <c:when test = "${proposal_info.rowCount==0}">
-            <cf:GetPhrase phrase_id = "289" lang_id = "${lang}"/>
+            <fmt:message key = "289" />
         </c:when>
 
         <c:otherwise>
             <p>
-            <cf:GetPhrase phrase_id = "290" lang_id = "${lang}"/>
+            <fmt:message key = "290" />
 
             <ul>
                 <c:forEach items = "${proposal_info.rows}" var = "row">
@@ -204,7 +205,7 @@
     <c:if test = "${edit_reviews.rowCount!=0}">
         <h4>
 
-        <cf:GetPhrase phrase_id = "639" lang_id = "${lang}"/>:</h4>
+        <fmt:message key = "639" />:</h4>
 
         <ul>
             <c:forEach items = "${edit_reviews.rows}" var = "row">
@@ -218,7 +219,7 @@
 
     <h4>
 
-    <cf:GetPhrase phrase_id = "640" lang_id = "${lang}"/>:</h4>
+    <fmt:message key = "640" />:</h4>
 </c:if>
 
 <!--------------- search form for retrieving a list of proposals ----------------->
@@ -256,14 +257,14 @@
             <td bgcolor = "CACACA">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>:
+                <fmt:message key = "586" />:
             </td>
 
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "cfp_code">
                     <c:if test = "${r_cfp_code==0}">
                         <option value = "">
-                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <fmt:message key = "641" />
                     </c:if>
 
                     <c:forEach items = "${cfp_name.rows}" var = "row">
@@ -278,14 +279,14 @@
             <td bgcolor = "CACACA">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "630" lang_id = "${lang}"/>:
+                <fmt:message key = "630" />:
             </td>
 
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "cfp_cat_id">
                     <c:if test = "${r_cfp_cat_id==0}">
                         <option value = "">
-                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <fmt:message key = "641" />
                     </c:if>
 
                     <c:forEach items = "${category.rows}" var = "row">
@@ -301,13 +302,13 @@
                 <td bgcolor = "CACACA">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>:
+                    <fmt:message key = "58" />:
                 </td>
 
                 <td bgcolor = "EAEAEA">
                     <select name = "status_id">
                         <option value = "">
-                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <fmt:message key = "641" />
 
                         <c:forEach items = "${status.rows}" var = "row">
                             <option value = "<c:out value="${row.status_id}" />"><c:out value = "${row.status_name}"/>
@@ -318,7 +319,7 @@
                 <td bgcolor = "CACACA">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:
+                    <fmt:message key = "57" />:
                 </td>
 
                 <td bgcolor = "EAEAEA">
@@ -328,7 +329,7 @@
                         <option value = "ge">>=
 
                         <option value = "le"><=</select>
-	<select name="tracking_code"><option value=""><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<select name="tracking_code"><option value=""><fmt:message key="641"  />
   <c:forEach items="${track_code.rows}" var="row">
   	<option value="<c:out value="${row.tracking_code}" />"><c:out value="${row.tracking_code}" />
   </c:forEach>
@@ -336,8 +337,8 @@
 
 </tr><tr>
 
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="620" lang_id="${lang}" />:</td>
-	<td bgcolor="EAEAEA"><select name="proponent_leader_lastname"><option value=""><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="620"  />:</td>
+	<td bgcolor="EAEAEA"><select name="proponent_leader_lastname"><option value=""><fmt:message key="641"  />
   <c:forEach items="${lastname.rows}" var="row">
   	<option value="<c:out value="${row.proponent_leader_lastname}" />"><c:out value="${row.proponent_leader_lastname}" /> 
     <c:if test="${row.lastname_sum > 1}" >
@@ -345,8 +346,8 @@
     </c:if>
   </c:forEach>
   </select></td>
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="330" lang_id="${lang}" />:</td>
-	<td bgcolor="EAEAEA"><select name="proponent_leader_firstname"><option value=""><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="330"  />:</td>
+	<td bgcolor="EAEAEA"><select name="proponent_leader_firstname"><option value=""><fmt:message key="641"  />
   <c:forEach items="${firstname.rows}" var="row">
   	<option value="<c:out value="${row.proponent_leader_firstname}" />"><c:out value="${row.proponent_leader_firstname}" /> 
     <c:if test="${row.firstname_sum > 1}" >
@@ -357,16 +358,16 @@
 
 </tr><tr>
 
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="621" lang_id="${lang}" />:</td>
-	<td bgcolor="EAEAEA"><select name="proponent_citizenship"><option value=""><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="621"  />:</td>
+	<td bgcolor="EAEAEA"><select name="proponent_citizenship"><option value=""><fmt:message key="641"  />
   <c:forEach items="${citizenship.rows}" var="row">
     <c:if test="${!empty row.proponent_citizenship}" >
     	<option value="<c:out value="${row.proponent_citizenship}" />"><c:out value="${row.proponent_citizenship}" />
     </c:if>
   </c:forEach>
   </select></td>
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="631" lang_id="${lang}" />:</td>
-	<td bgcolor="EAEAEA"><select name="project_country"><option value=""><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="631"  />:</td>
+	<td bgcolor="EAEAEA"><select name="project_country"><option value=""><fmt:message key="641"  />
   <c:forEach items="${implementation.rows}" var="row">
     <c:if test="${!empty row.project_country}" >
       <option value="<c:out value="${row.project_country}" />"><c:out value="${row.project_country}" />
@@ -379,29 +380,29 @@
 
 <tr>
 
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="642" lang_id="${lang}" />:</td>
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="642"  />:</td>
 	<td bgcolor="EAEAEA"><font face="arial" size="-1">
-		<input type="radio" name="showinfo" value="short" checked><cf:GetPhrase phrase_id="643" lang_id="${lang}" />
-		<input type="radio" name="showinfo" value="long"><cf:GetPhrase phrase_id="644" lang_id="${lang}" />
-		<input type="checkbox" name="hidden" value="yes"><cf:GetPhrase phrase_id="645" lang_id="${lang}" />
+		<input type="radio" name="showinfo" value="short" checked><fmt:message key="643"  />
+		<input type="radio" name="showinfo" value="long"><fmt:message key="644"  />
+		<input type="checkbox" name="hidden" value="yes"><fmt:message key="645"  />
 	</td>
-	<td bgcolor="CACACA"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="170" lang_id="${lang}" />:</td>
+	<td bgcolor="CACACA"><font face="arial" size="-1"><b><fmt:message key="170"  />:</td>
 	<td bgcolor="EAEAEA"><select name="search_order">
-		<option value="tracking_code"><cf:GetPhrase phrase_id="57" lang_id="${lang}" />
-		<option value="cfp_code"><cf:GetPhrase phrase_id="586" lang_id="${lang}" />
-		<option value="cfp_cat_id"><cf:GetPhrase phrase_id="630" lang_id="${lang}" />
-		<option value="p.status_id"><cf:GetPhrase phrase_id="58" lang_id="${lang}" />
-		<option value="proponent_leader_lastname"><cf:GetPhrase phrase_id="620" lang_id="${lang}" />
-		<option value="proponent_leader_firstname"><cf:GetPhrase phrase_id="330" lang_id="${lang}" />
-		<option value="proponent_citizenship"><cf:GetPhrase phrase_id="621" lang_id="${lang}" />
-		<option value="project_country"><cf:GetPhrase phrase_id="631" lang_id="${lang}" />
-		<option value="proposal_title"><cf:GetPhrase phrase_id="100" lang_id="${lang}" />
+		<option value="tracking_code"><fmt:message key="57"  />
+		<option value="cfp_code"><fmt:message key="586"  />
+		<option value="cfp_cat_id"><fmt:message key="630"  />
+		<option value="p.status_id"><fmt:message key="58"  />
+		<option value="proponent_leader_lastname"><fmt:message key="620"  />
+		<option value="proponent_leader_firstname"><fmt:message key="330"  />
+		<option value="proponent_citizenship"><fmt:message key="621"  />
+		<option value="project_country"><fmt:message key="631"  />
+		<option value="proposal_title"><fmt:message key="100"  />
 		</select>
 	</td>
 	
 </tr><tr>
 	
-	<td colspan="4" align="center" bgcolor="000000"><input type="submit" value="  <cf:GetPhrase phrase_id="917" lang_id="${lang}" />  "></td>
+	<td colspan="4" align="center" bgcolor="000000"><input type="submit" value="  <fmt:message key="917"  />  "></td>
 	
 </tr></table>
 
@@ -416,10 +417,10 @@
 
 <tr>
 
-	<td colspan="3"><font face="arial" size="+1"><b><cf:GetPhrase phrase_id="919" lang_id="${lang}" /></td>
+	<td colspan="3"><font face="arial" size="+1"><b><fmt:message key="919"  /></td>
 
 </tr><tr>
-	<td><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="57" lang_id="${lang}" />:</td>
+	<td><font face="arial" size="-1"><b><fmt:message key="57"  />:</td>
 	<td>
 	P-
 	<select name="tracking_code">
@@ -429,7 +430,7 @@
 	</select></td>
 </tr><tr>
 
-	<td colspan="3" align="center"><input type="submit" value=" <cf:GetPhrase phrase_id="918" lang_id="${lang}" /> "></td>
+	<td colspan="3" align="center"><input type="submit" value=" <fmt:message key="918"  /> "></td>
 
 </tr></table>
 

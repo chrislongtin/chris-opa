@@ -3,84 +3,84 @@
 
 <c:set var = "lang" value = "${sessionScope.lang}" scope = "page"/>
 
-<cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+<fmt:message key = "41" />
 
 <p>
-<cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>
+<fmt:message key = "56" />
 
 <p>
-<cf:GetPhrase phrase_id = "96" lang_id = "${lang}"/>
+<fmt:message key = "96" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "97" lang_id = "${lang}"/>
+<fmt:message key = "97" />
 
 <br>
-<cf:GetPhrase phrase_id = "99" lang_id = "${lang}"/>
+<fmt:message key = "99" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "100" lang_id = "${lang}"/>
+<fmt:message key = "100" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "69" lang_id = "${lang}"/>
+<fmt:message key = "69" />
 
 <p>
-<cf:GetPhrase phrase_id = "65" lang_id = "${lang}"/>
-
-<p>
-*
-
-<cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>
+<fmt:message key = "65" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "67" lang_id = "${lang}"/>
+<fmt:message key = "66" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>
+<fmt:message key = "67" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>
-
-<p>
-<cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>
-
-<p>
-<cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>
-
-<p>
-<cf:GetPhrase phrase_id = "103" lang_id = "${lang}"/>
+<fmt:message key = "61" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "60" lang_id = "${lang}"/>
+<fmt:message key = "62" />
+
+<p>
+<fmt:message key = "29" />
+
+<p>
+<fmt:message key = "24" />
+
+<p>
+<fmt:message key = "103" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "25" lang_id = "${lang}"/>
+<fmt:message key = "60" />
 
 <p>
 *
 
-<cf:GetPhrase phrase_id = "104" lang_id = "${lang}"/>
+<fmt:message key = "25" />
 
 <p>
-<cf:GetPhrase phrase_id = "105" lang_id = "${lang}"/>
+*
+
+<fmt:message key = "104" />
 
 <p>
-<cf:GetPhrase phrase_id = "106" lang_id = "${lang}"/>
+<fmt:message key = "105" />
 
 <p>
-<cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>
+<fmt:message key = "106" />
+
+<p>
+<fmt:message key = "64" />

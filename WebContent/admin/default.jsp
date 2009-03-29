@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -60,12 +61,12 @@
             select lang_id from languages
         </sql:query>
 
-        <cf:GetPhrase phrase_id = "384" lang_id = "${lang}"/>
+        <fmt:message key = "384" />
 
         !
 
         <p>
-        <cf:GetPhrase phrase_id = "385" lang_id = "${lang}"/>:
+        <fmt:message key = "385" />:
         <!--- <br><i>Tasks with a check mark next to them have been completed</i> --->
 
         <p>
@@ -74,85 +75,85 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "386" lang_id = "${lang}"/>
+                    <fmt:message key = "386" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1">
                     <cfoutput query = "worksite_check">
                         <c:if test = "${empty worksite_check.rows[0].host_url}">
-                            <li><cf:GetPhrase phrase_id = "211"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "211"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].host_doc_dir}">
-                            <li><cf:GetPhrase phrase_id = "212"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "212"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].public_info}">
-                            <li><cf:GetPhrase phrase_id = "387"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "387"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].public_info_degree}">
-                            <li><cf:GetPhrase phrase_id = "387"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "387"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].minimum_score}">
-                            <li><cf:GetPhrase phrase_id = "389"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "389"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].show_weights}">
-                            <li><cf:GetPhrase phrase_id = "390"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "390"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].use_initiative_criteria}">
-                            <li><cf:GetPhrase phrase_id = "391"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "391"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].use_cfp_criteria}">
-                            <li><cf:GetPhrase phrase_id = "392"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "392"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].show_reviewers}">
-                            <li><cf:GetPhrase phrase_id = "393"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "393"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].show_reviewers_summary}">
-                            <li><cf:GetPhrase phrase_id = "394"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "394"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].background_image}">
-                            <li><cf:GetPhrase phrase_id = "395"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "395"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].admin_header_background}">
-                            <li><cf:GetPhrase phrase_id = "396"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "396"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].public_header_background}">
-                            <li><cf:GetPhrase phrase_id = "397"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "397"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].criteria_rankings}">
-                            <li><cf:GetPhrase phrase_id = "398"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "398"
+                                          />
                         </c:if>
 
                         <c:if test = "${empty worksite_check.rows[0].multiple_cfps}">
-                            <li><cf:GetPhrase phrase_id = "399"
-                                          lang_id = "${lang}"/>
+                            <li><fmt:message key = "399"
+                                          />
                         </c:if>
 
                         <c:if test = "${(!empty worksite_check.rows[0].host_url) and (!empty worksite_check.rows[0].host_doc_dir) and (!empty worksite_check.rows[0].public_info) and (!empty worksite_check.rows[0].public_info_degree) and (!empty worksite_check.rows[0].minimum_score) and (!empty worksite_check.rows[0].minimum_rank) and (!empty worksite_check.rows[0].show_weights) and (!empty worksite_check.rows[0].use_initiative_criteria) and (!empty worksite_check.rows[0].use_cfp_criteria) and (!empty worksite_check.rows[0].show_reviewers) and (!empty worksite_check.rows[0].show_reviewers_summary) and (!empty worksite_check.rows[0].background_image) and (!empty worksite_check.rows[0].admin_header_background) and (!empty worksite_check.rows[0].criteria_rankings) and (!empty worksite_check.rows[0].multiple_cfps)}">
@@ -166,13 +167,13 @@
                     <td>
                         <font face = "Arial" size = "-1">
 
-                        <cf:GetPhrase phrase_id = "400" lang_id = "${lang}"/>
+                        <fmt:message key = "400" />
                     </td>
 
                     <td>
                         <font face = "Arial" size = "-1">
 
-                        <cf:GetPhrase phrase_id = "401" lang_id = "${lang}"/>
+                        <fmt:message key = "401" />
                     </td>
                 </tr>
             </c:if>
@@ -181,106 +182,106 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "402" lang_id = "${lang}"/>
+                    <fmt:message key = "402" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1">
                     <c:if test = "${empty initiative_info.rows[0].initiative_name}">
                         <li>
-                        <cf:GetPhrase phrase_id = "207" lang_id = "${lang}"/>
+                        <fmt:message key = "207" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].background}">
                         <li>
-                        <cf:GetPhrase phrase_id = "403" lang_id = "${lang}"/>
+                        <fmt:message key = "403" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].eligibility}">
-                        <li><cf:GetPhrase phrase_id = "17" lang_id = "${lang}"/>
+                        <li><fmt:message key = "17" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].review_process}">
-                        <li><cf:GetPhrase phrase_id = "18" lang_id = "${lang}"/>
+                        <li><fmt:message key = "18" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].proposal_format}">
                         <li>
-                        <cf:GetPhrase phrase_id = "404" lang_id = "${lang}"/>
+                        <fmt:message key = "404" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].copyright}">
                         <li>
-                        <cf:GetPhrase phrase_id = "405" lang_id = "${lang}"/>
+                        <fmt:message key = "405" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].record_lifecycle}">
                         <li>
-                        <cf:GetPhrase phrase_id = "406" lang_id = "${lang}"/>
+                        <fmt:message key = "406" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].about_submitting}">
-                        <li><cf:GetPhrase phrase_id = "21" lang_id = "${lang}"/>
+                        <li><fmt:message key = "21" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_name}">
                         <li>
-                        <cf:GetPhrase phrase_id = "408" lang_id = "${lang}"/>
+                        <fmt:message key = "408" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_contact}">
                         <li>
-                        <cf:GetPhrase phrase_id = "409" lang_id = "${lang}"/>
+                        <fmt:message key = "409" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_email}">
                         <li>
-                        <cf:GetPhrase phrase_id = "410" lang_id = "${lang}"/>
+                        <fmt:message key = "410" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_address}">
                         <li>
-                        <cf:GetPhrase phrase_id = "411" lang_id = "${lang}"/>
+                        <fmt:message key = "411" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_courier}">
                         <li>
-                        <cf:GetPhrase phrase_id = "412" lang_id = "${lang}"/>
+                        <fmt:message key = "412" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_courier_inst}">
                         <li>
-                        <cf:GetPhrase phrase_id = "413" lang_id = "${lang}"/>
+                        <fmt:message key = "413" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_phone}">
                         <li>
-                        <cf:GetPhrase phrase_id = "414" lang_id = "${lang}"/>
+                        <fmt:message key = "414" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_fax}">
                         <li>
-                        <cf:GetPhrase phrase_id = "415" lang_id = "${lang}"/>
+                        <fmt:message key = "415" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].ia_url}">
                         <li>
-                        <cf:GetPhrase phrase_id = "416" lang_id = "${lang}"/>
+                        <fmt:message key = "416" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].admin_image_title}">
                         <li>
-                        <cf:GetPhrase phrase_id = "201" lang_id = "${lang}"/>
+                        <fmt:message key = "201" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].public_image_title}">
                         <li>
-                        <cf:GetPhrase phrase_id = "202" lang_id = "${lang}"/>
+                        <fmt:message key = "202" />
                     </c:if>
 
                     <c:if test = "${empty initiative_info.rows[0].image_toolbar}">
                         <li>
-                        <cf:GetPhrase phrase_id = "203" lang_id = "${lang}"/>
+                        <fmt:message key = "203" />
                     </c:if>
 
                     <c:if test = "${(!empty initiative_info.rows[0].initiative_name) and (!empty initiative_info.rows[0].background) and (!empty initiative_info.rows[0].eligibility) and (!empty initiative_info.rows[0].review_process) and (!empty initiative_info.rows[0].proposal_format) and (!empty initiative_info.rows[0].copyright) and (!empty initiative_info.rows[0].record_lifecycle) and (!empty initiative_info.rows[0].about_submitting) and (!empty initiative_info.rows[0].ia_name) and (!empty initiative_info.rows[0].ia_contact) and (!empty initiative_info.rows[0].ia_email) and (!empty initiative_info.rows[0].ia_address) and (!empty initiative_info.rows[0].ia_courier) and (!empty initiative_info.rows[0].ia_courier_inst) and (!empty initiative_info.rows[0].ia_phone) and (!empty initiative_info.rows[0].ia_fax) and (!empty initiative_info.rows[0].ia_url) and (!empty initiative_info.rows[0].admin_image_title) and (!empty initiative_info.rows[0].public_image_title) and (!empty initiative_info.rows[0].image_toolbar)}">
@@ -294,19 +295,19 @@
                     <td>
                         <font face = "Arial" size = "-1">
 
-                        <cf:GetPhrase phrase_id = "419" lang_id = "${lang}"/>
+                        <fmt:message key = "419" />
                     </td>
 
                     <td>
                         <font face = "Arial" size = "-1"><c:choose>
                             <c:when test = "${empty criteria.rows[0].i_criteria_id}">
-                                <cf:GetPhrase phrase_id = "420"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "420"
+                                              />
                             </c:when>
 
                             <c:otherwise>
-                                <cf:GetPhrase phrase_id = "421"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "421"
+                                              />
                             </c:otherwise>
                         </c:choose>
                     </td>
@@ -317,19 +318,19 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "422" lang_id = "${lang}"/>
+                    <fmt:message key = "422" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1"><c:choose>
                         <c:when test = "${empty reviewers.rows[0].reviewer_id}">
-                            <cf:GetPhrase phrase_id = "422"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "422"
+                                          />
                         </c:when>
 
                         <c:otherwise>
-                            <cf:GetPhrase phrase_id = "421"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "421"
+                                          />
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -339,19 +340,19 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "423" lang_id = "${lang}"/>
+                    <fmt:message key = "423" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1"><c:choose>
                         <c:when test = "${empty coordinators.rows[0].coordinator_id}">
-                            <cf:GetPhrase phrase_id = "423"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "423"
+                                          />
                         </c:when>
 
                         <c:otherwise>
-                            <cf:GetPhrase phrase_id = "421"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "421"
+                                          />
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -361,19 +362,19 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "424" lang_id = "${lang}"/>
+                    <fmt:message key = "424" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1"><c:choose>
                         <c:when test = "${empty cfps.rows[0].cfp_code}">
-                            <cf:GetPhrase phrase_id = "424"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "424"
+                                          />
                         </c:when>
 
                         <c:otherwise>
-                            <cf:GetPhrase phrase_id = "421"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "421"
+                                          />
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -383,19 +384,19 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "425" lang_id = "${lang}"/>
+                    <fmt:message key = "425" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1"><c:choose>
                         <c:when test = "${proponents.rowCount > assignments.rowCount}">
-                            <cf:GetPhrase phrase_id = "426"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "426"
+                                          />
                         </c:when>
 
                         <c:otherwise>
-                            <cf:GetPhrase phrase_id = "421"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "421"
+                                          />
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -405,19 +406,19 @@
                 <td>
                     <font face = "Arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "164" lang_id = "${lang}"/>
+                    <fmt:message key = "164" />
                 </td>
 
                 <td>
                     <font face = "Arial" size = "-1"><c:choose>
                         <c:when test = "${letters.rowCount==0}">
-                            <cf:GetPhrase phrase_id = "182"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "182"
+                                          />
                         </c:when>
 
                         <c:otherwise>
-                            <cf:GetPhrase phrase_id = "421"
-                                          lang_id = "${lang}"/>
+                            <fmt:message key = "421"
+                                          />
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -441,18 +442,18 @@
 
         <h4>
 
-        <cf:GetPhrase phrase_id = "427" lang_id = "${lang}"/></h4>
+        <fmt:message key = "427" /></h4>
 
         <c:choose>
             <c:when test = "${proposal_info.rowCount==0}">
-                <cf:GetPhrase phrase_id = "289" lang_id = "${lang}"/>
+                <fmt:message key = "289" />
 
                 .
             </c:when>
 
             <c:otherwise>
                 <p>
-                <cf:GetPhrase phrase_id = "290" lang_id = "${lang}"/>
+                <fmt:message key = "290" />
 
                 <ul>
                     <c:forEach items = "${proposal_info.rows}" var = "row">
@@ -478,7 +479,7 @@
                 <c:if test = "${edit_reviews.rowCount!=0}">
                     <h4>
 
-                    <cf:GetPhrase phrase_id = "428" lang_id = "${lang}"/>:</h4>
+                    <fmt:message key = "428" />:</h4>
 
                     <ul>
                         <c:forEach items = "${edit_reviews.rows}" var = "row">

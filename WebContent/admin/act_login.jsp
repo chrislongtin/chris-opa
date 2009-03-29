@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -45,16 +46,16 @@
             <c:out value = "${coordinator_login}<br>${coordinator_password}<br>"
                    escapeXml = "false"/>
 
-            <cf:GetPhrase phrase_id = "381" lang_id = "${lang}"/>
+            <fmt:message key = "381" />
 
             .
 
-            <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
+            <fmt:message key = "382" />
 
             <a STYLE = "text-decoration: underline"
                href = "dsp_login_coordinator.jsp">
 
-            <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
+            <fmt:message key = "383" /></a>.
 
             <%
             if (true)
@@ -99,16 +100,16 @@
         </sql:query>
 
         <c:if test = "${empty vlr.rows[0].reviewer_login}">
-            <cf:GetPhrase phrase_id = "381" lang_id = "${lang}"/>
+            <fmt:message key = "381" />
 
             .
 
-            <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
+            <fmt:message key = "382" />
 
             <a STYLE = "text-decoration: underline"
                href = "dsp_login_reviewer.jsp">
 
-            <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
+            <fmt:message key = "383" /></a>.
 
             <%
             if (true)
@@ -156,16 +157,16 @@
         </sql:query>
 
         <c:if test = "${empty vlr.rows[0].contractor_login}">
-            <cf:GetPhrase phrase_id = "381" lang_id = "${lang}"/>
+            <fmt:message key = "381" />
 
             .
 
-            <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
+            <fmt:message key = "382" />
 
             <a STYLE = "text-decoration: underline"
                href = "dsp_login_contractor.jsp">
 
-            <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
+            <fmt:message key = "383" /></a>.
 
             <%
             if (true)
@@ -210,16 +211,16 @@
         </sql:query>
 
         <c:if test = "${empty vlr.rows[0].contractor_login}">
-            <cf:GetPhrase phrase_id = "381" lang_id = "${lang}"/>
+            <fmt:message key = "381" />
 
             .
 
-            <cf:GetPhrase phrase_id = "382" lang_id = "${lang}"/>
+            <fmt:message key = "382" />
 
             <a STYLE = "text-decoration: underline"
                href = "dsp_login_contractor.jsp">
 
-            <cf:GetPhrase phrase_id = "383" lang_id = "${lang}"/></a>.
+            <fmt:message key = "383" /></a>.
 
             <%
             if (true)

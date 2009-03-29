@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -88,18 +89,18 @@
 
     <c:when test = "${(act=='delfromlist') && (member.rowCount == 1)}">
         <p>
-        <cf:GetPhrase phrase_id = "834" lang_id = "${lang}"/>?
+        <fmt:message key = "834" />?
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodelfromlist&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+        <fmt:message key = "542" />
         ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
+        <fmt:message key = "543" /> ]</a>
     </c:when>
 
     <c:when test = "${(act=='dodelfromlist') && (member.rowCount == 1)}">
@@ -136,18 +137,18 @@
 
     <c:when test = "${(act=='del') && (member.rowCount == 1)}">
         <p>
-        <cf:GetPhrase phrase_id = "835" lang_id = "${lang}"/>?
+        <fmt:message key = "835" />?
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=comm_ml_editmembers&act=dodel&member=<c:out value="${member_id}" />&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/>
+        <fmt:message key = "542" />
         ]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=comm_ml_members&list=<c:out value="${list_id}" />">[
 
-        <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/> ]</a>
+        <fmt:message key = "543" /> ]</a>
     </c:when>
 
     <c:when test = "${(act=='dodel') && (member.rowCount == 1)}">

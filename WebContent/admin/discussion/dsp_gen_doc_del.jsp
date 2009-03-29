@@ -2,6 +2,7 @@
 <%@ page import = "java.util.*"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -24,7 +25,7 @@
         <hr size = "1">
         <h3>
 
-        <cf:GetPhrase phrase_id = "505" lang_id = "${lang}"/></h3>
+        <fmt:message key = "505" /></h3>
 
         <table width = "300" border = "0" cellspacing = "0" cellpadding = "3">
             <c:forEach var = "row" items = "${doc_list.rows}">
@@ -47,8 +48,8 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                        <cf:GetPhrase phrase_id = "143"
-                                      lang_id = "${lang}"/></a>
+                        <fmt:message key = "143"
+                                      /></a>
                     </td>
                 </tr>
             </c:forEach>

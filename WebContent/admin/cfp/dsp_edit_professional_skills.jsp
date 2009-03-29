@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -15,7 +16,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "1009" lang_id = "${lang}"/></h3>
+<fmt:message key = "1009" /></h3>
 
 <c:forEach var = "row" items = "${skill.rows}">
     <form action = "<c:url value='index.jsp'>
@@ -25,11 +26,11 @@
           method = "post">
         <input type = "hidden" name = "act" value = "Edit">
         <input type = "hidden" name = "skill_id_required"
-        value = "<cf:GetPhrase phrase_id='1005' lang_id='${lang}'/>"> <input type = "hidden" name = "skill_name_required" value = "<cf:GetPhrase phrase_id='1006' lang_id='${lang}'/>">
+        value = "<fmt:message key='1005' />"> <input type = "hidden" name = "skill_name_required" value = "<fmt:message key='1006' />">
         <input type = "hidden" name = "industry_id"
         value = " <c:out value="${row.industry_id}" />"> <b>
 
-        <cf:GetPhrase phrase_id = "1007" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "1007" />:</b>
 
         <br>
         <input type = "text" name = "skill_id"
@@ -38,7 +39,7 @@
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "1008" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "1008" />:</b>
 
         <br>
         <input type = "text" name = "skill_name"
@@ -46,6 +47,6 @@
 
         <br>
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+               value = " <fmt:message key="456"  /> ">
     </form>
 </c:forEach>

@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -34,7 +35,7 @@
 </sql:query>
 
 <html>
-    <title><cf:GetPhrase phrase_id = "378" lang_id = "${lang}"/></title>
+    <title><fmt:message key = "378" /></title>
 
     <body leftmargin = 0
           topmargin = 0
@@ -84,8 +85,8 @@
                 <td align = "center"
                     bgcolor = "E8E8E8"><font face = "Arial" size = "3"><b>
 
-                    <cf:GetPhrase phrase_id = "378"
-                                  lang_id = "${lang}"/></b></font></td>
+                    <fmt:message key = "378"
+                                  /></b></font></td>
             </tr>
         </table>
 
@@ -99,47 +100,47 @@
                         <font size = "-2"><p>
                         <a href = "admin/dsp_login_type.jsp">
 
-                        <cf:GetPhrase phrase_id = "923"
-                        lang_id = "${lang}"/></a> &nbsp;|&nbsp; <a href = "index.jsp?fuseaction=main&lang=<c:out value="${lang}" />">
+                        <fmt:message key = "923"
+                        /></a> &nbsp;|&nbsp; <a href = "index.jsp?fuseaction=main&lang=<c:out value="${lang}" />">
 
-                        <cf:GetPhrase phrase_id = "379"
-                        lang_id = "${lang}"/></a> &nbsp;|&nbsp; <a href="http://wikis.bellanet.org/harambee/index.php?title=OPA_Help" target="_new">
+                        <fmt:message key = "379"
+                        /></a> &nbsp;|&nbsp; <a href="http://wikis.bellanet.org/harambee/index.php?title=OPA_Help" target="_new">
 
-                        <cf:GetPhrase phrase_id = "380"
-                                      lang_id = "${lang}"/></a></font>
+                        <fmt:message key = "380"
+                                      /></a></font>
 
                         <p><a href = "index.jsp?fuseaction=cfp_list&lang=<c:out value="${lang}" />">
                         <!--- Current Calls for Proposals --->
-                        <cf:GetPhrase phrase_id = "11" lang_id = "${lang}"/></a>
+                        <fmt:message key = "11" /></a>
 
                         <p><a href = "index.jsp?fuseaction=proposal_edit&lang=<c:out value="${lang}" />">
                         <!--- Edit Proposal Information --->
-                        <cf:GetPhrase phrase_id = "12"
-                                      lang_id = "${lang}"/> </a>
+                        <fmt:message key = "12"
+                                      /> </a>
 
                         <p><a href = "index.jsp?fuseaction=cfp_search&lang=<c:out value="${lang}" />">
                         <!--- Search --->
-                        <cf:GetPhrase phrase_id = "982"
-                                      lang_id = "${lang}"/></a>
+                        <fmt:message key = "982"
+                                      /></a>
 
                         <p><a href = "index.jsp?fuseaction=report_login&lang=<c:out value="${lang}" />">
                         <!--- Submit Reports --->
-                        <cf:GetPhrase phrase_id = "13"
-                                      lang_id = "${lang}"/> </a>
+                        <fmt:message key = "13"
+                                      /> </a>
 
                         <p><a href = "index.jsp?fuseaction=discuss_comment&lang=<c:out value="${lang}" />">
                         <!--- General Discussion --->
-                        <cf:GetPhrase phrase_id = "31" lang_id = "${lang}"/></a>
+                        <fmt:message key = "31" /></a>
                         <c:if test = "${!empty setup.rows[0].public_info}">
                             <p><a href = "index.jsp?fuseaction=archive_main&lang=<c:out value="${lang}" />">
                             <!--- Discussion & Documents --->
-                            <cf:GetPhrase phrase_id = "14"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "14"
+                                          /></a>
                         </c:if>
 
                         <p><a href = "index.jsp?fuseaction=faq&lang=<c:out value="${lang}" />">
                         <!--- Frequently Asked Questions --->
-                        <cf:GetPhrase phrase_id = "15" lang_id = "${lang}"/></a>
+                        <fmt:message key = "15" /></a>
                         <sql:query var = "languages">
                             select * from languages order by language
                         </sql:query>

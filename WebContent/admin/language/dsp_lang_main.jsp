@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -9,14 +10,14 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "9" lang_id = "${lang}"/></h3> <b>
+<fmt:message key = "9" /></h3> <b>
 
-<cf:GetPhrase phrase_id = "239" lang_id = "${lang}"/>.</b>
+<fmt:message key = "239" />.</b>
 
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "240" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "240" />:</h4>
 <sql:query var = "langs">
     select * from languages
 </sql:query>
@@ -30,7 +31,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+    <fmt:message key = "143" /></a> |
 
     <c:out value = '${row.language}'/>
 
@@ -44,16 +45,16 @@
 <c:param name='${user}'/>
 </c:url>">
 
-<cf:GetPhrase phrase_id = "241" lang_id = "${lang}"/></a></h4> <h4>
+<fmt:message key = "241" /></a></h4> <h4>
 
-<cf:GetPhrase phrase_id = "242" lang_id = "${lang}"/></h4>
+<fmt:message key = "242" /></h4>
 
 <p>
 <table>
     <td>
         <font face = "Arial" size = "-1">
 
-        <cf:GetPhrase phrase_id = "242" lang_id = "${lang}"/>
+        <fmt:message key = "242" />
     </td>
 
     <form action = "<c:url value='index.jsp'>
@@ -72,21 +73,21 @@
             </select>
 
             <input type = "submit"
-                   value = "<cf:GetPhrase phrase_id="487" lang_id="${lang}" />">
+                   value = "<fmt:message key="487"  />">
         </td>
     </form>
 </table>
 
 <h4>
 
-<cf:GetPhrase phrase_id = "243" lang_id = "${lang}"/></h4>
+<fmt:message key = "243" /></h4>
 
 <p>
 <table>
     <td>
         <font face = "Arial" size = "-1">
 
-        <cf:GetPhrase phrase_id = "237" lang_id = "${lang}"/>
+        <fmt:message key = "237" />
     </td>
 
     <form action = "<c:url value='index.jsp'>
@@ -108,7 +109,7 @@
         <td>
             <font face = "Arial" size = "-1">
 
-            <cf:GetPhrase phrase_id = "244" lang_id = "${lang}"/>
+            <fmt:message key = "244" />
 
             <select name = "lang_id2">
                 <c:forEach var = "row" items = "${langs.rows}">
@@ -118,7 +119,7 @@
             </select>
 
             <input type = "submit"
-                   value = " <cf:GetPhrase phrase_id="558" lang_id="${lang}" /> ">
+                   value = " <fmt:message key="558"  /> ">
         </td>
     </form>
 </table>

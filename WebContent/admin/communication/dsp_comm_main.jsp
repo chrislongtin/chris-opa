@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -9,7 +10,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "178" lang_id = "${lang}"/></h3>
+<fmt:message key = "178" /></h3>
 
 <!-------------- PROPONENT NOTIFICATIONS ---------------------->
 
@@ -19,7 +20,7 @@
             <td>
                 <font face = "arial"><b>
 
-                <cf:GetPhrase phrase_id = "485" lang_id = "${lang}"/>:
+                <fmt:message key = "485" />:
             </td>
         </tr>
 
@@ -43,19 +44,19 @@
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=comm_default_letters">
 
-                    <cf:GetPhrase phrase_id = "182" lang_id = "${lang}"/></a>
+                    <fmt:message key = "182" /></a>
 
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=dsp_send_letters">
 
-                    <cf:GetPhrase phrase_id = "264" lang_id = "${lang}"/></a>
+                    <fmt:message key = "264" /></a>
                 </c:if>
 
                 <li><a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=comm_view_sent"
                        method = "post">
 
-                <cf:GetPhrase phrase_id = "486" lang_id = "${lang}"/>
+                <fmt:message key = "486" />
             </ul>
         </td>
 
@@ -75,7 +76,7 @@
         <td>
             <font face = "arial"><b>
 
-            <cf:GetPhrase phrase_id = "831" lang_id = "${lang}"/>:
+            <fmt:message key = "831" />:
         </td>
     </tr>
 
@@ -87,13 +88,13 @@
                 <li><a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=comm_ml">
 
-                <cf:GetPhrase phrase_id = "800" lang_id = "${lang}"/></a>
+                <fmt:message key = "800" /></a>
 
                 <c:if test = "${!empty default_ml.rows[0].list_id}">
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=comm_ml_send&list=<c:out value="${default_ml.rows[0].list_id}"/>">
 
-                    <cf:GetPhrase phrase_id = "801" lang_id = "${lang}"/>
+                    <fmt:message key = "801" />
 
                     :
 
@@ -111,7 +112,7 @@
             <td>
                 <font face = "arial"><b>
 
-                <cf:GetPhrase phrase_id = "15" lang_id = "${lang}"/>:
+                <fmt:message key = "15" />:
             </td>
         </tr>
 
@@ -123,7 +124,7 @@
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=comm_faq">
 
-                    <cf:GetPhrase phrase_id = "489" lang_id = "${lang}"/></a>
+                    <fmt:message key = "489" /></a>
                 </ul>
             </td>
         </tr>
@@ -132,7 +133,7 @@
             <td>
                 <font face = "arial"><b>
 
-                <cf:GetPhrase phrase_id = "33" lang_id = "${lang}"/>:
+                <fmt:message key = "33" />:
             </td>
         </tr>
 
@@ -144,17 +145,17 @@
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=gen_doc_add">
 
-                    <cf:GetPhrase phrase_id = "490" lang_id = "${lang}"/></a>
+                    <fmt:message key = "490" /></a>
 
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=gen_doc_del">
 
-                    <cf:GetPhrase phrase_id = "491" lang_id = "${lang}"/></a>
+                    <fmt:message key = "491" /></a>
 
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=discuss_main">
 
-                    <cf:GetPhrase phrase_id = "492" lang_id = "${lang}"/></a>
+                    <fmt:message key = "492" /></a>
                 </ul>
             </td>
         </tr>
@@ -164,7 +165,7 @@
         <td bgcolor = "EAEAEA">
             <font face = "arial"><b>
 
-            <cf:GetPhrase phrase_id = "493" lang_id = "${lang}"/>:
+            <fmt:message key = "493" />:
         </td>
     </tr>
 
@@ -176,23 +177,23 @@
                 <li><a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=discuss_comment">
 
-                <cf:GetPhrase phrase_id = "494" lang_id = "${lang}"/></a>
+                <fmt:message key = "494" /></a>
 
                 <li><a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=admin_gen_doc_add">
 
-                <cf:GetPhrase phrase_id = "490" lang_id = "${lang}"/></a>
+                <fmt:message key = "490" /></a>
 
                 <c:if test = "${user == 'coordinator'}">
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=admin_gen_doc_del">
 
-                    <cf:GetPhrase phrase_id = "491" lang_id = "${lang}"/></a>
+                    <fmt:message key = "491" /></a>
 
                     <li><a STYLE = "text-decoration: underline"
                            href = "index.jsp?fuseaction=admin_discuss_main">
 
-                    <cf:GetPhrase phrase_id = "492" lang_id = "${lang}"/></a>
+                    <fmt:message key = "492" /></a>
                 </c:if>
             </ul>
         </td>

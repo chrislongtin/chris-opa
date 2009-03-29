@@ -10,6 +10,7 @@
 <%@ page import = "opa.model.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib uri = "http://jakarta.apache.org/taglibs/mailer-1.1" prefix = "mt"%>
@@ -43,17 +44,17 @@
             <br>
             <h3>
 
-            <cf:GetPhrase phrase_id = "584" lang_id = "${lang}"/>!</h3>
+            <fmt:message key = "584" />!</h3>
 
             <p>
             <a STYLE = "text-decoration: underline"
                href = "index.jsp?fuseaction=act_proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=delete_confirm&cfp_code=<c:out value="${cfp_code}" />">
 
-            <cf:GetPhrase phrase_id = "542" lang_id = "${lang}"/></a> |
+            <fmt:message key = "542" /></a> |
             <a STYLE = "text-decoration: underline"
                href = "index.jsp?fuseaction=proposal_submit&tracking_code=<c:out value="${tracking_code}" />&act=edit">
 
-            <cf:GetPhrase phrase_id = "543" lang_id = "${lang}"/></a>
+            <fmt:message key = "543" /></a>
 
             <c:set var = "redirect" value = "no" scope = "page"/>
         </c:if>
@@ -376,35 +377,35 @@
                     </mt:setrecipient>
 
                     <mt:subject>
-                        <cf:GetPhrase phrase_id = "936" lang_id = "${lang}"/>
+                        <fmt:message key = "936" />
                     </mt:subject>
 
                     <mt:message>
-                        <cf:GetPhrase phrase_id = "461" lang_id = "${lang}"/>
+                        <fmt:message key = "461" />
 
                         <c:out value = "${proponent_leader_firstname} ${proponent_leader_lastname}"/>,
 
-                        <cf:GetPhrase phrase_id = "578" lang_id = "${lang}"/>:
+                        <fmt:message key = "578" />:
 
                         <c:out value = "${proposal_title}"/>
 
-                        <cf:GetPhrase phrase_id = "579" lang_id = "${lang}"/>:
+                        <fmt:message key = "579" />:
 
                         <c:out value = "${initiative_name}"/>.
 
-                        <cf:GetPhrase phrase_id = "580" lang_id = "${lang}"/>
+                        <fmt:message key = "580" />
 
-                        <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:
+                        <fmt:message key = "57" />:
 
                         <c:out value = "${tracking_code}"/>
 
-                        <cf:GetPhrase phrase_id = "566" lang_id = "${lang}"/>:
+                        <fmt:message key = "566" />:
 
                         <c:out value = "${proposal_password}"/>
 
-                        <cf:GetPhrase phrase_id = "583" lang_id = "${lang}"/>.
+                        <fmt:message key = "583" />.
 
-                        <cf:GetPhrase phrase_id = "462" lang_id = "${lang}"/>,
+                        <fmt:message key = "462" />,
 
                         <c:out value = "${coordinator_firstname} ${coordinator_lastname}"/>
                     </mt:message>

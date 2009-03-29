@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -23,7 +24,7 @@
         <br>
         <h3>
 
-        <cf:GetPhrase phrase_id = "236" lang_id = "${lang}"/></h3>
+        <fmt:message key = "236" /></h3>
     </c:when>
 
     <c:otherwise>
@@ -58,7 +59,7 @@
 
         <font size = +1><b>
 
-        <cf:GetPhrase phrase_id = "237" lang_id = "${lang}"/></b></font>
+        <fmt:message key = "237" /></b></font>
 
         <!--- sets how many rows to process on the submit page --->
         <c:set var = "maxrows" value = "${primary_lang.rowCount}"/>
@@ -121,12 +122,12 @@
                         <center>
                             <b>
 
-                            <cf:GetPhrase phrase_id = "238"
-                                          lang_id = "${lang}"/>.</b></font>
+                            <fmt:message key = "238"
+                                          />.</b></font>
 
                         <p>
                         <input type = "submit"
-                               value = " <cf:GetPhrase phrase_id="557" lang_id="${lang}" /> ">
+                               value = " <fmt:message key="557"  /> ">
                     </td>
                 </tr>
             </table>

@@ -99,28 +99,28 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "254" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "254" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <form action = "index.jsp?fuseaction=act_reviewer&act=add"
               method = "post">
             <input type = "hidden" name = "cfp_code"
             value = "<c:out value="${cfp_code}" />">
             <input type = "hidden" name = "reviewer_lastname_required"
-            value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />"> <input type = "hidden" name = "reviewer_firstname_required" value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />">
+            value = "<fmt:message key="697"  />"> <input type = "hidden" name = "reviewer_firstname_required" value = "<fmt:message key="698"  />">
             <input type = "hidden" name = "reviewer_login_required"
-            value = "<cf:GetPhrase phrase_id="699" lang_id="${lang}" />"> <input type = "hidden" name = "reviewer_email_required" value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
+            value = "<fmt:message key="699"  />"> <input type = "hidden" name = "reviewer_email_required" value = "<fmt:message key="702"  />">
             <input type = "hidden" name = "reviewer_password_required"
-            value = "<cf:GetPhrase phrase_id="701" lang_id="${lang}" />"> <input type = "hidden"
+            value = "<fmt:message key="701"  />"> <input type = "hidden"
             name = "reviewer_phone_required"
-            value = "<cf:GetPhrase phrase_id="703" lang_id="${lang}" />">
+            value = "<fmt:message key="703"  />">
 
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "330" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "330" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_firstname" size = "30">
@@ -128,7 +128,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "329" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "329" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_lastname" size = "30">
@@ -136,7 +136,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "331" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "331" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_login" size = "30">
@@ -144,7 +144,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "92" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "92" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_password" size = "30">
@@ -152,7 +152,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "24" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_email" size = "30">
@@ -160,7 +160,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "62" />:</b></font>
 
             <br>
             <input type = "text" name = "reviewer_phone" size = "30">
@@ -168,7 +168,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "29" />:</b>
 
             <br>
             <input type = "text" name = "reviewer_fax" size = "30">
@@ -176,7 +176,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "61" />:</b>
 
             <br>
             <input type = "text" name = "reviewer_address" size = "30">
@@ -184,7 +184,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "704" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "704" />:</b>
 
             <br>
             <textarea name = "reviewer_profile" rows = "3" cols = "50" wrap>
@@ -193,7 +193,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "1022" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "1022" />:</b>
 
             <br>
             <input type = "text" name = "payment_rate" size = "15">
@@ -201,7 +201,7 @@
                 <p>
                 <b>
 
-                <cf:GetPhrase phrase_id = "705" lang_id = "${lang}"/>?:</b>
+                <fmt:message key = "705" />?:</b>
                 <input type = "checkbox" name = "reviewer_coordinator"
                 value = "1"> yes
             </c:if>
@@ -211,20 +211,20 @@
                     <p>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "706" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "706" />:</b>
 
                     <c:out value = "${cfp_name.rows[0].cfp_title}"/>
                     <c:if test = "${cfp_categories.rowCount!=0}">
                         <p>
                         <b>
 
-                        <cf:GetPhrase phrase_id = "707"
-                        lang_id = "${lang}"/>:</b><c:choose>
+                        <fmt:message key = "707"
+                        />:</b><c:choose>
                             <c:when test = "${reviewer_cfp_cat_id==0}">
                                 <select name = "cfp_cat_id">
                                     <option value = "0">
-                                    <cf:GetPhrase phrase_id = "641"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "641"
+                                                  />
 
                                     <c:forEach items = "${cfp_categories.rows}"
                                                var = "row">
@@ -248,15 +248,15 @@
                     <p>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "706" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "706" />:</b>
 
-                    <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                    <fmt:message key = "641" />
                 </c:otherwise>
             </c:choose>
 
             <p>
             <input type = "submit"
-                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                   value = " <fmt:message key="456"  /> ">
         </form>
     </c:when>
 
@@ -280,9 +280,9 @@ order by cfp_title
 	<sql:param value="${cfp_code}" />
 </sql:query>
 
-<h3><cf:GetPhrase phrase_id="337" lang_id="${lang}" />:</h3>
+<h3><fmt:message key="337"  />:</h3>
 
-<p><cf:GetPhrase phrase_id="41" lang_id="${lang}" />
+<p><fmt:message key="41"  />
 
 <c:if test="${(!empty cfp_code) and (cfp_code!=0)}" >
 	
@@ -318,22 +318,22 @@ where cfp_code = ? and
 <form action="index.jsp?fuseaction=act_reviewer" method="post">
 <input type="hidden" name="act" value="edit">
 <input type="hidden" name="reviewer_id" value="<c:out value="${er.reviewer_id}" />">
-<input type="hidden" name="reviewer_lastname_required" value="<cf:GetPhrase phrase_id="697" lang_id="${lang}" />">
-<input type="hidden" name="reviewer_firstname_required" value="<cf:GetPhrase phrase_id="698" lang_id="${lang}" />">
-<input type="hidden" name="reviewer_login_required" value="<cf:GetPhrase phrase_id="699" lang_id="${lang}" />">
-<input type="hidden" name="reviewer_email_required" value="<cf:GetPhrase phrase_id="710" lang_id="${lang}" />">
-<input type="hidden" name="reviewer_password_required" value="<cf:GetPhrase phrase_id="709" lang_id="${lang}" />">
-<input type="hidden" name="reviewer_phone_required" value="<cf:GetPhrase phrase_id="711" lang_id="${lang}" />">
+<input type="hidden" name="reviewer_lastname_required" value="<fmt:message key="697"  />">
+<input type="hidden" name="reviewer_firstname_required" value="<fmt:message key="698"  />">
+<input type="hidden" name="reviewer_login_required" value="<fmt:message key="699"  />">
+<input type="hidden" name="reviewer_email_required" value="<fmt:message key="710"  />">
+<input type="hidden" name="reviewer_password_required" value="<fmt:message key="709"  />">
+<input type="hidden" name="reviewer_phone_required" value="<fmt:message key="711"  />">
 
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="330" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="330"  />:</b></font>
 <br><input type="text" name="reviewer_firstname" value="<c:out value="${er.reviewer_firstname}" />" size="30">
 
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="329" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="329"  />:</b></font>
 <br><input type="text" name="reviewer_lastname" value="<c:out value="${er.reviewer_lastname}" />" size="30">
 
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="331" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="331"  />:</b></font>
 <br><input type="text" name="reviewer_login" value="<c:out value="${er.reviewer_login}" />" size="30">
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="92" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="92"  />:</b></font>
 
 <c:choose>
 	<c:when test="${reviewer==er.reviewer_id}">
@@ -344,27 +344,27 @@ where cfp_code = ? and
 	</c:otherwise>
 </c:choose>
 
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="24" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="24"  />:</b></font>
 <br><input type="text" name="reviewer_email" value="<c:out value="${er.reviewer_email}" />" size="30">
-<p><font color="FF0000"><b>* <cf:GetPhrase phrase_id="62" lang_id="${lang}" />:</b></font>
+<p><font color="FF0000"><b>* <fmt:message key="62"  />:</b></font>
 <br><input type="text" name="reviewer_phone" value="<c:out value="${er.reviewer_phone}" />" size="30">
-<p><b><cf:GetPhrase phrase_id="29" lang_id="${lang}" />:</b>
+<p><b><fmt:message key="29"  />:</b>
 <br><input type="text" name="reviewer_fax" value="<c:out value="${er.reviewer_fax}" />" size="30">
-<p><b><cf:GetPhrase phrase_id="61" lang_id="${lang}" />:</b>
+<p><b><fmt:message key="61"  />:</b>
 <br><input type="text" name="reviewer_address" value="<c:out value="${er.reviewer_address}" />" size="30">
-<p><cf:GetPhrase phrase_id="704" lang_id="${lang}" />:
+<p><fmt:message key="704"  />:
 <br><textarea name="reviewer_profile" rows="3" cols="50" wrap><c:out value="${er.reviewer_profile}" /></textarea>
 
 <c:if test="${sessionScope.user=='coordinator'}" >
-<p><cf:GetPhrase phrase_id="705" lang_id="${lang}" />?: <input type="checkbox" name="reviewer_coordinator" value="1" <c:if test="${er.reviewer_coordinator==1}" > checked </c:if>> <cf:GetPhrase phrase_id="542" lang_id="${lang}" />	
+<p><fmt:message key="705"  />?: <input type="checkbox" name="reviewer_coordinator" value="1" <c:if test="${er.reviewer_coordinator==1}" > checked </c:if>> <fmt:message key="542"  />	
 </c:if>
 
-<p><cf:GetPhrase phrase_id="706" lang_id="${lang}" />: <select name="cfp_code">
+<p><fmt:message key="706"  />: <select name="cfp_code">
 <c:if test="${(!empty cfp_code) and (cfp_code!=0)}" >
 	<option value="<c:out value="${cfp_code}" />"><c:out value="${cfp_title}" />
 </c:if>
 <c:if test="${(sessionScope.user=='coordinator') or ((reviewer_organizer==1) and (reviewer_cfp_code==0))}" >
-	<option value="0"><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+	<option value="0"><fmt:message key="641"  />
   <c:forEach items="${cfp_list.rows}" var="row">
   	<option value="<c:out value="${row.cfp_code}" />"><c:out value="${row.cfp_title}" />
   </c:forEach>
@@ -372,12 +372,12 @@ where cfp_code = ? and
  </select>
 
 <c:if test="${((!empty cfp_code) and (cfp_code!=0)) and cfp_categories.rowCount!=0}" >
-<p><cf:GetPhrase phrase_id="706" lang_id="${lang}" />:<select name="cfp_cat_id">
+<p><fmt:message key="706"  />:<select name="cfp_cat_id">
 <c:if test="${er.cfp_cat_id!=0}" >
 	<option value="<c:out value="${er.cfp_cat_id}" />"><c:out value="${cfp_cat_name}" />
 </c:if>
 <c:if test="${(sessionScope.user=='coordinator') or ((reviewer_organizer==1) and (reviewer_cfp_cat_id==0))}" >
-  <option value="0"><cf:GetPhrase phrase_id="641" lang_id="${lang}" />
+  <option value="0"><fmt:message key="641"  />
   <c:forEach items="${cfp_categories.rows}" var="row">
   	<option value="<c:out value="${row.cfp_cat_id}" />"><c:out value="${row.cfp_cat_name}" />
   </c:forEach>
@@ -386,10 +386,10 @@ where cfp_code = ? and
 </select>
 
 </c:if>
-<p><b><cf:GetPhrase phrase_id="1022" lang_id="${lang}" />:</b>
+<p><b><fmt:message key="1022"  />:</b>
 <br><input type="text" name="payment_rate" value="<c:out value="${er.payment_rate}" />" size="15">
 
-<p><input type="submit" value=" <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+<p><input type="submit" value=" <fmt:message key="456"  /> ">
 </form>
 
 

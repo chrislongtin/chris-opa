@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -38,7 +39,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "168" lang_id = "${lang}"/></h3>
+<fmt:message key = "168" /></h3>
 
 <center>
     <p>
@@ -52,13 +53,13 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                <cf:GetPhrase phrase_id = "169" lang_id = "${lang}"/></a>
+                <fmt:message key = "169" /></a>
             </td>
 
             <td align = right colspan = 2>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "170" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "170" />:</b>
                 <a STYLE = "text-decoration: underline"
                    href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
@@ -66,7 +67,7 @@
 <c:param name='sort' value='creatstamp'/>
 </c:url>"><i>
 
-                <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/></i></a> |
+                <fmt:message key = "171" /></i></a> |
                 <a STYLE = "text-decoration: underline"
                    href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
@@ -74,7 +75,7 @@
 <c:param name='sort' value='hdrsubject'/>
 </c:url>"><i>
 
-                <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/></i></a> |
+                <fmt:message key = "42" /></i></a> |
                 <a STYLE = "text-decoration: underline"
                    href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_email_archive'/>
@@ -82,8 +83,8 @@
 <c:param name='sort' value='hdrfrom'/>
 </c:url>"><i>
 
-                <cf:GetPhrase phrase_id = "66"
-                              lang_id = "${lang}"/></i></a></font>
+                <fmt:message key = "66"
+                              /></i></a></font>
             </td>
         </tr>
 
@@ -91,19 +92,19 @@
             <TD>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "172" lang_id = "${lang}"/></b>
+                <fmt:message key = "172" /></b>
             </TD>
 
             <TD>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/></b>
+                <fmt:message key = "42" /></b>
             </TD>
 
             <td>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/></b>
+                <fmt:message key = "171" /></b>
             </td>
         </TR>
 

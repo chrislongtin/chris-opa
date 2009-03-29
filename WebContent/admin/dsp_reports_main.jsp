@@ -1,5 +1,6 @@
 <%@ page errorPage = "dsp_error.jsp"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
@@ -11,9 +12,9 @@
 <center>
     <h2>
 
-    <cf:GetPhrase phrase_id = "1025" lang_id = "${lang}"/></h2> <h3><b>
+    <fmt:message key = "1025" /></h2> <h3><b>
 
-    <cf:GetPhrase phrase_id = "1023" lang_id = "${lang}"/></h3>
+    <fmt:message key = "1023" /></h3>
 
     <form action = "act_reports_main.jsp" method = "post">
         <table width = '100%' border = 1 cellpadding = 2 cellspacing = 0>
@@ -69,7 +70,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "1024" lang_id = "${lang}"/></h3>
+        <fmt:message key = "1024" /></h3>
 
         <table width = '100%' border = 1 cellpadding = 2 cellspacing = 0>
             <tr bgcolor = 'CCCCFF'BORDERCOLOR=#c0c0c0>
@@ -77,23 +78,23 @@
                     <input type = "radio" name = "displayType" value = "pdf"
                            checked>
 
-                    <cf:GetPhrase phrase_id = "1026" lang_id = "${lang}"/>
+                    <fmt:message key = "1026" />
                     &nbsp;&nbsp;<input type = "radio" name = "displayType"
                                        value = "html">
 
-                    <cf:GetPhrase phrase_id = "1027" lang_id = "${lang}"/>
+                    <fmt:message key = "1027" />
                     &nbsp;&nbsp;<input type = "radio" name = "displayType"
                                        value = "xls">
 
-                    <cf:GetPhrase phrase_id = "1028" lang_id = "${lang}"/>
+                    <fmt:message key = "1028" />
                     &nbsp;&nbsp;<input type = "radio" name = "displayType"
                                        value = "csv">
 
-                    <cf:GetPhrase phrase_id = "1029" lang_id = "${lang}"/>
+                    <fmt:message key = "1029" />
                     &nbsp;&nbsp;<input type = "radio" name = "displayType"
                                        value = "xml">
 
-                    <cf:GetPhrase phrase_id = "1030" lang_id = "${lang}"/>
+                    <fmt:message key = "1030" />
                 </td>
             </tr>
         </table>
@@ -101,7 +102,7 @@
         <br>
         <br>
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+               value = " <fmt:message key="456"  /> ">
     </form>
 </center>
 

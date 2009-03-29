@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -76,11 +77,11 @@
 <c:set var = "rank_sum2" value = "${sum.rows[0].rank_sum}" scope = "page"/>
 
 <p>
-<cf:GetPhrase phrase_id = "269" lang_id = "${lang}"/>:
+<fmt:message key = "269" />:
 
 <c:out value = "${score_sum2}"/>, Rank
 
-<cf:GetPhrase phrase_id = "561" lang_id = "${lang}"/>:
+<fmt:message key = "561" />:
 
 <c:out value = "${rank_sum2}"/>
 

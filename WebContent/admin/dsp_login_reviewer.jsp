@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib uri = "http://jakarta.apache.org/taglibs/mailer-1.1" prefix = "mt"%>
@@ -97,14 +98,14 @@
 		    
 		                               <h3>
 
-                            <cf:GetPhrase phrase_id = "436"
-                                          lang_id = "${lang}"/></h3> </p>
+                            <fmt:message key = "436"
+                                          /></h3> </p>
 
                             <p>
                             <font size = +2 color = "#FF0000">
 
-                            <cf:GetPhrase phrase_id = "437"
-                                          lang_id = "${lang}"/></font></p>
+                            <fmt:message key = "437"
+                                          /></font></p>
 
                             <br>
                             <form action = "index.jsp?fuseaction=login"
@@ -112,17 +113,17 @@
                                 <input type = "hidden" name = "login_type"
                                 value = "reviewer"> <b>
 
-                                <cf:GetPhrase phrase_id = "438"
-                                lang_id = "${lang}"/>:</b> <input type = "text"
+                                <fmt:message key = "438"
+                                />:</b> <input type = "text"
                                 name = "reviewer_login">
 
                                 <br>
                                 <b>
 
-                                <cf:GetPhrase phrase_id = "92"
-                                lang_id = "${lang}"/>:</b>&nbsp;&nbsp;<input type = "password" name = "reviewer_password">
+                                <fmt:message key = "92"
+                                />:</b>&nbsp;&nbsp;<input type = "password" name = "reviewer_password">
                                 <input type = "submit"
-                                value = "<cf:GetPhrase phrase_id="923" lang_id="${lang}" />">
+                                value = "<fmt:message key="923"  />">
                             </form>
 
                             <form action = "act_send_reviewer_password.jsp" method = "post">
@@ -130,17 +131,17 @@
                                        value = "reviewer">
 
                                 <p>
-                                <cf:GetPhrase phrase_id = "439"
-                                              lang_id = "${lang}"/>?
+                                <fmt:message key = "439"
+                                              />?
 
                                 <br>
-                                <cf:GetPhrase phrase_id = "440"
-                                              lang_id = "${lang}"/>:
+                                <fmt:message key = "440"
+                                              />:
 
                                 <br>
                                 <input type = "text" name = "user_email" size = "30">
                                 <input type = "submit"
-                                value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                                value = " <fmt:message key="456"  /> ">
                             </form>
 		    
 

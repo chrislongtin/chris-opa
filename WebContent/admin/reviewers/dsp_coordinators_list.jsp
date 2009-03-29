@@ -22,7 +22,7 @@
         <td colspan = "3" align = "center">
             <font size = "+1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "338" lang_id = "${lang}"/>
+            <fmt:message key = "338" />
         </td>
     </tr>
 
@@ -34,7 +34,7 @@
                     <a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=modify_coordinator&act=add">
 
-                    <cf:GetPhrase phrase_id = "328" lang_id = "${lang}"/></a>
+                    <fmt:message key = "328" /></a>
 
                     <p>
                 </td>
@@ -70,11 +70,11 @@
                     <a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=act_coordinator&act=delete&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
-                    <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+                    <fmt:message key = "143" /></a> |
                     <a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=modify_coordinator&act=edit&coordinator_id=<c:out value="${row.coordinator_id}" />">
 
-                    <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                    <fmt:message key = "144" /></a>
                 </td>
         </tr>
 

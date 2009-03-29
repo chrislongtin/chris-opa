@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -182,17 +183,17 @@
 
 <c:choose>
     <c:when test = "${param.act == 'add' && getlang.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "205" lang_id = "${lang}"/>
+        <fmt:message key = "205" />
     </c:when>
 
     <c:otherwise>
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "204" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "204" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <hr size = "1">
         <form action = "<c:url value='index.jsp'>
@@ -205,24 +206,24 @@
             value = "<c:out value='${initiative_id}'/>"> <input type = "hidden"
             name = "act" value = "<c:out value='${param.act}'/>">
             <input type = "hidden" name = "initiative_name_required"
-            value = "<cf:GetPhrase phrase_id='524' lang_id='${lang}'/>"> <input type = "hidden" name = "eligibility_required" value = "<cf:GetPhrase phrase_id='525' lang_id='${lang}'/>">
+            value = "<fmt:message key='524' />"> <input type = "hidden" name = "eligibility_required" value = "<fmt:message key='525' />">
             <input type = "hidden" name = "review_process_required"
-            value = "<cf:GetPhrase phrase_id='526' lang_id='${lang}'/>"> <input type = "hidden" name = "copyright_required" value = "<cf:GetPhrase phrase_id='527' lang_id='${lang}'/>">
+            value = "<fmt:message key='526' />"> <input type = "hidden" name = "copyright_required" value = "<fmt:message key='527' />">
             <input type = "hidden" name = "proposal_format_required"
-            value = "<cf:GetPhrase phrase_id='528' lang_id='${lang}'/>"> <input type = "hidden" name = "about_submitting_required" value = "<cf:GetPhrase phrase_id='529' lang_id='${lang}'/>">
+            value = "<fmt:message key='528' />"> <input type = "hidden" name = "about_submitting_required" value = "<fmt:message key='529' />">
             <input type = "hidden" name = "ia_name_required"
-            value = "<cf:GetPhrase phrase_id='530' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_email_required" value = "<cf:GetPhrase phrase_id='531' lang_id='${lang}'/>">
+            value = "<fmt:message key='530' />"> <input type = "hidden" name = "ia_email_required" value = "<fmt:message key='531' />">
             <input type = "hidden" name = "ia_address_required"
-            value = "<cf:GetPhrase phrase_id='532' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_courier_required" value = "<cf:GetPhrase phrase_id='533' lang_id='${lang}'/>">
+            value = "<fmt:message key='532' />"> <input type = "hidden" name = "ia_courier_required" value = "<fmt:message key='533' />">
             <input type = "hidden" name = "ia_phone_required"
-            value = "<cf:GetPhrase phrase_id='534' lang_id='${lang}'/>"> <input type = "hidden" name = "ia_fax_required" value = "<cf:GetPhrase phrase_id='535' lang_id='${lang}'/>">
+            value = "<fmt:message key='534' />"> <input type = "hidden" name = "ia_fax_required" value = "<fmt:message key='535' />">
             <input type = "hidden" name = "ia_courier_inst_required"
-            value = "<cf:GetPhrase phrase_id='536' lang_id='${lang}'/>"><c:choose>
+            value = "<fmt:message key='536' />"><c:choose>
                 <c:when test = "${param.act == 'add'}">
                     <p>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "206" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "206" />:</b>
 
                     <select name = "lang_id">
                         <c:forEach var = "row" items = "${getlang.rows}">
@@ -241,7 +242,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "207" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "207" />:</b></font>
 
             <br>
             <input type = "text"
@@ -252,7 +253,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "16" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "16" />:</b>
 
             <br>
             <textarea name = "background" cols = "50" rows = "3" wrap>
@@ -262,7 +263,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "17" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "17" />:</b>
 
             <br>
             <textarea name = "eligibility" cols = "50" rows = "3" wrap>
@@ -272,7 +273,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "18" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "18" />:</b>
 
             <br>
             <textarea name = "review_process" cols = "50" rows = "3" wrap>
@@ -282,7 +283,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "19" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "19" />:</b>
 
             <br>
             <textarea name = "copyright" cols = "50" rows = "3" wrap>
@@ -292,7 +293,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "20" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "20" />:</b>
 
             <br>
             <textarea name = "proposal_format" cols = "50" rows = "3" wrap>
@@ -302,7 +303,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "21" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "21" />:</b>
 
             <textarea name = "about_submitting" cols = "50" rows = "3" wrap>
                 <c:out value = '${about_submitting}'/>
@@ -313,7 +314,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "201" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "201" />:</b>
 
             <br>
             <input type = "file" name = "admin_image_title" size = "40">
@@ -324,13 +325,13 @@
 
                 "
 
-                <cf:GetPhrase phrase_id = "228" lang_id = "${lang}"/></font>
+                <fmt:message key = "228" /></font>
             </c:if>
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "202" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "202" />:</b>
 
             <br>
             <input type = "file" name = "public_image_title" size = "40">
@@ -341,18 +342,18 @@
 
                 "
 
-                <cf:GetPhrase phrase_id = "228" lang_id = "${lang}"/></font>
+                <fmt:message key = "228" /></font>
             </c:if>
 
             <p>
             <h3>
 
-            <cf:GetPhrase phrase_id = "22" lang_id = "${lang}"/>:</h3>
+            <fmt:message key = "22" />:</h3>
 
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "197" />:</b>
 
             <br>
             <input type = "text"                         name = "ia_name"
@@ -361,7 +362,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "200" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "200" />:</b>
 
             <br>
             <input type = "text"                            name = "ia_contact"
@@ -370,7 +371,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "24" />:</b>
 
             <br>
             <input type = "text"                          name = "ia_email"
@@ -379,7 +380,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "25" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "25" />:</b>
 
             <br>
             <input type = "text"                            name = "ia_address"
@@ -388,7 +389,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "26" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "26" />:</b>
 
             <br>
             <input type = "text"                            name = "ia_courier"
@@ -397,7 +398,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "27" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "27" />:</b>
 
             <br>
             <textarea name = "ia_courier_inst" cols = "50" rows = "3" wrap>
@@ -407,7 +408,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "62" />:</b>
 
             <br>
             <input type = "text"                          name = "ia_phone"
@@ -416,7 +417,7 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "29" />:</b>
 
             <br>
             <input type = "text"                        name = "ia_fax"
@@ -425,7 +426,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "208" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "208" />:</b>
 
             <br>
             <input type = "text" name = "ia_url" size = "50"
@@ -433,7 +434,7 @@
 
             <p>
             <input type = "submit"
-                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                   value = " <fmt:message key="456"  /> ">
         </form>
     </c:otherwise>
 </c:choose>

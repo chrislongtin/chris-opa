@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -10,22 +11,22 @@
         size = "-1">
     <p><b><i>
 
-    <cf:GetPhrase phrase_id = "374"
-                  lang_id = "${lang}"/><a href = "http://www.bellanet.org">
+    <fmt:message key = "374"
+                  /><a href = "http://www.bellanet.org">
 
-    <cf:GetPhrase phrase_id = "375" lang_id = "${lang}"/></a> © 2001
+    <fmt:message key = "375" /></a> © 2001
 
-    <cf:GetPhrase phrase_id = "376" lang_id = "${lang}"/>
+    <fmt:message key = "376" />
 
     <a href = "http://www.idrc.ca">
 
-    <cf:GetPhrase phrase_id = "377" lang_id = "${lang}"/></a>.
+    <fmt:message key = "377" /></a>.
 
-    <cf:GetPhrase phrase_id = "907"
-                  lang_id = "${lang}"/><a href = "http://www.omoli.com/">
+    <fmt:message key = "907"
+                  /><a href = "http://www.omoli.com/">
 
-    <cf:GetPhrase phrase_id = "908"
-                  lang_id = "${lang}"/></a>&nbsp;2003.</i></b></center>
+    <fmt:message key = "908"
+                  /></a>&nbsp;2003.</i></b></center>
 
 </td>
 

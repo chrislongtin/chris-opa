@@ -36,7 +36,7 @@
 
             -
 
-            <cf:GetPhrase phrase_id = "829" lang_id = "${lang}"/></H3>
+            <fmt:message key = "829" /></H3>
 
             <c:forEach var = "row" items = "${mess.rows}">
                 <p>
@@ -81,12 +81,12 @@
 
             -
 
-            <cf:GetPhrase phrase_id = "839" lang_id = "${lang}"/></H3>
+            <fmt:message key = "839" /></H3>
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "188" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "188" />:</b>
 
             <fmt:formatDate pattern = 'MMM-dd-yyyy'
                             value = '${mess.sent_date}'/></p>
@@ -94,14 +94,14 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "172" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "172" />:</b>
 
             <c:out value = "${mess.from_spc} <${mess.message_from}>"/></p>
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "840" lang_id = "${lang}"/></b>:
+            <fmt:message key = "840" /></b>:
 
             <c:set var = "count" value = "0"/>
             <c:forEach var = "row" items = "${mem.rows}">
@@ -119,14 +119,14 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "42" />:</b>
 
             <c:out value = "${mess.subject}"/></p>
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "830" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "830" />:</b>
 
             <br>
             <cf:ParagraphFormat value = "${mess.message_text}"/>

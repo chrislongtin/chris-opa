@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -34,7 +35,7 @@
 
     :
 
-    <cf:GetPhrase phrase_id = "808" lang_id = "${lang}"/></H3>
+    <fmt:message key = "808" /></H3>
 
     <form name = "send_form" method = "post"
           action = "index.jsp?fuseaction=comm_ml_dosend">
@@ -43,15 +44,15 @@
                 <td>
                     <FONT face = Arial size = -1 color = "FF0000"><b>*
 
-                    <cf:GetPhrase phrase_id = "172"
-                                  lang_id = "${lang}"/>:</b></font>
+                    <fmt:message key = "172"
+                                  />:</b></font>
                 </td>
 
                 <td>
                     <font face = "Arial, Helvetica, sans-serif" size = "-1">
                     <input type = "text" name = "from" maxlength = "128"
                     size = "30"> <input type = "hidden" name = "from_required"
-                    value = "<cf:GetPhrase phrase_id="837" lang_id="${lang}" />"> </font>
+                    value = "<fmt:message key="837"  />"> </font>
                 </td>
             </tr>
 
@@ -59,8 +60,8 @@
                 <td>
                     <font face = "Arial, Helvetica, sans-serif" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "838"
-                                  lang_id = "${lang}"/>:</font>
+                    <fmt:message key = "838"
+                                  />:</font>
                 </td>
 
                 <td>
@@ -74,7 +75,7 @@
                 <td>
                     <font face = "Arial, Helvetica, sans-serif" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</font>
+                    <fmt:message key = "42" />:</font>
                 </td>
 
                 <td>
@@ -88,7 +89,7 @@
                 <td colspan = "2">
                     <FONT face = Arial size = -1 color = "FF0000"><b>*
 
-                    <cf:GetPhrase phrase_id = "830" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "830" />:</b>
 
                     <br>
                     <textarea name = "mess_body" wrap = "VIRTUAL" cols = "50"
@@ -97,7 +98,7 @@
 
                     <input type = "hidden"
                            name = "mess_body_required"
-                           value = "<cf:GetPhrase phrase_id="482" lang_id="${lang}" />"> </font>
+                           value = "<fmt:message key="482"  />"> </font>
                 </td>
             </tr>
 
@@ -105,8 +106,8 @@
                 <td>
                     <font face = "Arial, Helvetica, sans-serif" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "828"
-                                  lang_id = "${lang}"/>:</font>
+                    <fmt:message key = "828"
+                                  />:</font>
                 </td>
 
                 <td>
@@ -129,7 +130,7 @@
                     <input type = "checkbox" name = "send_to_all" value = "1"
                            checked>
 
-                    <cf:GetPhrase phrase_id = "836" lang_id = "${lang}"/></font>
+                    <fmt:message key = "836" /></font>
                 </td>
             </tr>
 
@@ -138,7 +139,7 @@
                     <input type = "hidden" name = "list"
                     value = "<c:out value="${list_id}" />"> <input type = "submit"
                     name = "send_submit"
-                    value = "<cf:GetPhrase phrase_id="808" lang_id="${lang}" />">
+                    value = "<fmt:message key="808"  />">
                 </td>
             </tr>
         </table>

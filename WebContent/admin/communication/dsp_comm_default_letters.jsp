@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -18,15 +19,15 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "164" lang_id = "${lang}"/></h3>
+<fmt:message key = "164" /></h3>
 
 <c:if test = "${letter_info.rowCount != 0}">
-    <cf:GetPhrase phrase_id = "165" lang_id = "${lang}"/>
+    <fmt:message key = "165" />
 </c:if>
 
 <c:forEach var = "row" items = "${letter_info.rows}">
     <p>
-    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:
+    <fmt:message key = "42" />:
     <a STYLE = "text-decoration: underline"
        href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='comm_default_letter_body'/>
@@ -37,7 +38,7 @@
     <c:out value = '${row.letter_subject}'/></a>
 
     <br>
-    <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>:
+    <fmt:message key = "58" />:
 
     <c:out value = '${row.status_name}'/>
 
@@ -50,7 +51,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+    <fmt:message key = "143" /></a> |
     <a STYLE = "text-decoration: underline"
        href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='edit_letter'/>
@@ -58,12 +59,12 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+    <fmt:message key = "144" /></a>
 </c:forEach>
 
 <h3>
 
-<cf:GetPhrase phrase_id = "166" lang_id = "${lang}"/></h3>
+<fmt:message key = "166" /></h3>
 
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_letters'/>
@@ -72,11 +73,11 @@
       method = "post">
     <input type = "hidden" name = "act" value = "add">
     <input type = "hidden" name = "letter_subject_required"
-    value = "<cf:GetPhrase phrase_id='481' lang_id='${lang}'/>"> <input type = "hidden"
+    value = "<fmt:message key='481' />"> <input type = "hidden"
     name = "letter_body_required"
-    value = "<cf:GetPhrase phrase_id='482' lang_id='${lang}'/>">
+    value = "<fmt:message key='482' />">
 
-    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>
+    <fmt:message key = "42" />
 
     :
 
@@ -84,14 +85,14 @@
     <input type = "text" name = "letter_subject" size = "40">
 
     <p>
-    <cf:GetPhrase phrase_id = "167" lang_id = "${lang}"/>:
+    <fmt:message key = "167" />:
 
     <br>
     <textarea name = "letter_body" cols = "40" rows = "5" wrap>
     </textarea>
 
     <p>
-    <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>:
+    <fmt:message key = "58" />:
 
     <br>
     <select name = "status_id">
@@ -109,5 +110,5 @@
 
     <p>
     <input type = "submit"
-           value = "<cf:GetPhrase phrase_id="166" lang_id="${lang}" />">
+           value = "<fmt:message key="166"  />">
 </form>

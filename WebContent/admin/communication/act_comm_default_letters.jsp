@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -32,12 +33,12 @@
                 <p>
                 <h3>
 
-                <cf:GetPhrase phrase_id = "459" lang_id = "${lang}"/>!</h3>
+                <fmt:message key = "459" />!</h3>
 
                 <p>
                 <b>
 
-                <cf:GetPhrase phrase_id = "460" lang_id = "${lang}"/>.</b>
+                <fmt:message key = "460" />.</b>
             </c:when>
 
             <c:otherwise>
@@ -83,9 +84,9 @@
 <c:choose>
 <c:when test="${status_check.rowCount != 0}">
 
-<p><h3><cf:GetPhrase phrase_id="459" lang_id="${lang}"/>!</h3>
+<p><h3><fmt:message key="459" />!</h3>
 
-<p><b><cf:GetPhrase phrase_id="460" lang_id="${lang}"/>.</b>
+<p><b><fmt:message key="460" />.</b>
 
 </c:when>
 <c:otherwise>

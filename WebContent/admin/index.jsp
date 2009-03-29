@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
 <c:set var = "fuseaction" value = "${param.fuseaction}"/>
@@ -632,7 +633,7 @@
 
 <c:if test = "${fuseaction == 'help'}">
     <p>
-    <cf:GetPhrase phrase_id = "1040" lang_id = "${lang}"/>
+    <fmt:message key = "1040" />
 
     <c:out value = ""/>
 

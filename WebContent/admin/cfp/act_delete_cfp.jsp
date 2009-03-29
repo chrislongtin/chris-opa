@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -19,7 +20,7 @@
     <c:when test = "${cfp_check.rowCount != 0}">
         <font color = "FF0000"><b>
 
-        <cf:GetPhrase phrase_id = "442" lang_id = "${lang}"/></b></font>
+        <fmt:message key = "442" /></b></font>
     </c:when>
 
     <c:otherwise>
@@ -30,11 +31,11 @@
                 <p>
                 <h3>
 
-                <cf:GetPhrase phrase_id = "443" lang_id = "${lang}"/>
+                <fmt:message key = "443" />
 
                 <c:out value = "${param.cfp_code}"/>?</h3> <b>
 
-                <cf:GetPhrase phrase_id = "444" lang_id = "${lang}"/>!</b>
+                <fmt:message key = "444" />!</b>
 
                 <p>
                 <table>
@@ -47,7 +48,7 @@
 </c:url>"
                               method = "post">
                             <input type = "submit"
-                                   value = " <cf:GetPhrase phrase_id="542" lang_id="${lang}" /> ">
+                                   value = " <fmt:message key="542"  /> ">
                         </form>
                     </td>
 
@@ -59,7 +60,7 @@
 </c:url>"
                               method = "post">
                             <input type = "submit"
-                                   value = " <cf:GetPhrase phrase_id="543" lang_id="${lang}" /> ">
+                                   value = " <fmt:message key="543"  /> ">
                         </form>
                     </td>
                 </table>

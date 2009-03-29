@@ -86,7 +86,7 @@
         <td colspan = "3" align = "center">
             <font size = "+1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "252" lang_id = "${lang}"/>
+            <fmt:message key = "252" />
         </td>
     </tr>
 
@@ -105,7 +105,7 @@
             <td colspan = "4">
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "715" lang_id = "${lang}"/>:
+                <fmt:message key = "715" />:
             </td>
         </tr>
 
@@ -116,14 +116,14 @@
                 <td colspan = "4" align = "center">
                     <font size = "-1" face = "Arial">
 
-                    <cf:GetPhrase phrase_id = "706" lang_id = "${lang}"/>
+                    <fmt:message key = "706" />
 
                     :<c:choose>
                         <c:when test = "${reviewer_cfp_code==0}">
                             <select name = "cfp_code">
                                 <option value = "0">
-                                <cf:GetPhrase phrase_id = "641"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "641"
+                                              />
 
                                 <c:forEach items = "${cfp_list.rows}"
                                            var = "row">
@@ -146,7 +146,7 @@
             <tr>
                 <td colspan = "4" align = "center">
                     <input type = "submit"
-                           value = "<cf:GetPhrase phrase_id="716" lang_id="${lang}" />">
+                           value = "<fmt:message key="716"  />">
                 </td>
             </tr>
         </form>
@@ -173,8 +173,8 @@
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp?fuseaction=act_reviewer&act=delete&reviewer_id=<c:out value="${row.reviewer_id}" />">
 
-                            <cf:GetPhrase phrase_id = "143"
-                            lang_id = "${lang}"/></a> |
+                            <fmt:message key = "143"
+                            /></a> |
                         </c:when>
 
                         <c:otherwise>
@@ -185,7 +185,7 @@
                     <a STYLE = "text-decoration: underline"
                        href = "index.jsp?fuseaction=modify_reviewer&act=edit&reviewer_id=<c:out value="${row.reviewer_id}" />">
 
-                    <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                    <fmt:message key = "144" /></a>
                 </td>
 
                 </td>

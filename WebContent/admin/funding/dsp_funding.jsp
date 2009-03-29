@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -39,7 +40,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "16" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "16" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.background}"/></menu>
@@ -47,7 +48,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "17" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "17" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.eligibility}"/></menu>
@@ -55,7 +56,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "18" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "18" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.review_process}"/></menu>
@@ -63,7 +64,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "19" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "19" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.copyright}"/></menu>
@@ -71,7 +72,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "20" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "20" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.proposal_format}"/></menu>
@@ -79,7 +80,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "21" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "21" />:</b>
 
     <br>
     <menu><cf:ParagraphFormat value = "${row.about_submitting}"/></menu>
@@ -87,40 +88,40 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "22" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "22" />:</b>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "197" />:</i>
 
     <c:out value = "${row.ia_name}"/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "200" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "200" />:</i>
 
     <c:out value = "${row.ia_contact}"/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "61" />:</i>
 
     <c:out value = "${row.ia_address}"/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "26" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "26" />:</i>
 
     <c:out value = "${row.ia_courier}"/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "62" />:</i>
 
     <c:out value = "${row.ia_phone}"/> - Fax:
 
@@ -129,7 +130,7 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "24" />:</i>
     <a STYLE = "text-decoration: underline"
        href = "mailto:<c:out value='${row.ia_email}'/>">
 
@@ -138,14 +139,14 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "27" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "27" />:</i>
 
     <c:out value = "${row.ia_courier_inst}"/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "64" />:</i>
     <a STYLE = "text-decoration: underline"
        href = "<c:out value='${row.ia_url}'/>">
 
@@ -155,14 +156,14 @@
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "201" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "201" />:</b>
 
         <c:out value = '${row.admin_image_title}'/>
 
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "202" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "202" />:</b>
 
         <c:out value = '${row.public_image_title}'/>
     </c:if>
@@ -177,7 +178,7 @@
           method = "post">
         <h3>
 
-        <cf:GetPhrase phrase_id = "204" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "204" />:</h3>
 
         <select name = "lang_id">
             <c:forEach var = "row" items = "${funding_lang.rows}">
@@ -197,33 +198,33 @@
 <c:param name='${user}'/>
 </c:url>"><h3>
 
-<cf:GetPhrase phrase_id = "340" lang_id = "${lang}"/></h3></a>
+<fmt:message key = "340" /></h3></a>
 
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "30" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "30" />:</h4>
 <c:forEach var = "row" items = "${funding_agencies.rows}">
     <font size = "-1">
 
     <p>
     <i>
 
-    <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "197" />:</i>
 
     <c:out value = '${row.agency_name}'/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "23" />:</i>
 
     <c:out value = '${row.agency_contact}'/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "24" />:</i>
     <a STYLE = "text-decoration: underline"
        href = "mailto:<c:out value='${row.agency_email}'/>">
 
@@ -232,14 +233,14 @@
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "62" />:</i>
 
     <c:out value = '${row.agency_phone}'/>
 
     <br>
     <i>
 
-    <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</i>
+    <fmt:message key = "64" />:</i>
     <a STYLE = "text-decoration: underline"
        href = "<c:out value='${row.agency_url}'/>">
 
@@ -254,7 +255,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-        <cf:GetPhrase phrase_id = "196" lang_id = "${lang}"/></a>
+        <fmt:message key = "196" /></a>
     </c:if>
 
     </font>
@@ -269,5 +270,5 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "199" lang_id = "${lang}"/></a></h4>
+    <fmt:message key = "199" /></a></h4>
 </c:if>

@@ -2,6 +2,7 @@
 <%@ page import = "java.util.*"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib prefix = "mt" uri = "http://jakarta.apache.org/taglibs/mailer-1.1"%>
@@ -77,7 +78,7 @@
                 </mt:subject>
 
                 <mt:message>
-                    <cf:GetPhrase phrase_id = "461" lang_id = "${lang}"/>
+                    <fmt:message key = "461" />
 
                     <c:out value = "${row.proponent_leader_firstname}"/>
 
@@ -87,7 +88,7 @@
 
                     <c:out value = "${letter_body}"/>
 
-                    <cf:GetPhrase phrase_id = "462" lang_id = "${lang}"/>
+                    <fmt:message key = "462" />
 
                     ,
 

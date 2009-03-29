@@ -2,6 +2,7 @@
 <%@ page import = "java.util.*"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 
@@ -11,7 +12,7 @@
 <center>
     <h3>
 
-    <cf:GetPhrase phrase_id = "319" lang_id = "${lang}"/></h3>
+    <fmt:message key = "319" /></h3>
 </center>
 
 <sql:query var = "report_appraisal">
@@ -26,31 +27,31 @@
 </sql:query>
 
 <c:if test = "${report_appraisal.rowCount==0}">
-    <cf:GetPhrase phrase_id = "676" lang_id = "${lang}"/>
+    <fmt:message key = "676" />
 </c:if>
 
 <br>
 <c:forEach var = "row" items = "${report_appraisal.rows}">
     <font face = "arial">
 
-    <cf:GetPhrase phrase_id = "57"
-                  lang_id = "${lang}"/>:</font><b>&nbsp;&nbsp;P-
+    <fmt:message key = "57"
+                  />:</font><b>&nbsp;&nbsp;P-
 
     <c:out value = "${row.tracking_code}"/></b>
 
     <br>
     <font face = "arial">
 
-    <cf:GetPhrase phrase_id = "100"
-                  lang_id = "${lang}"/>:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;
+    <fmt:message key = "100"
+                  />:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;
 
     <c:out value = "${row.proposal_title}"/></b>
 
     <br>
     <font face = "arial">
 
-    <cf:GetPhrase phrase_id = "114"
-                  lang_id = "${lang}"/>:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <fmt:message key = "114"
+                  />:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <c:out value = "${row.doc_title}"/></b>
 
@@ -65,8 +66,8 @@
     <br>
     <font face = "arial" size = "+1">
 
-    <cf:GetPhrase phrase_id = "437"
-                  lang_id = "${lang}"/>:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <fmt:message key = "437"
+                  />:</font><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <c:out value = "${row.reviewer_name}"/> </b>
 
@@ -88,6 +89,6 @@
         </textarea>
 
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="943" lang_id="${lang}" /> ">
+               value = " <fmt:message key="943"  /> ">
     </form>
 </c:forEach>

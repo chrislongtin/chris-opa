@@ -88,14 +88,14 @@
         <td valign = "top">
             <font face = "arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "629" lang_id = "${lang}"/>
+            <fmt:message key = "629" />
         </td>
 
         <td valign = "top">
             <font face = "arial" size = "-1"><c:if test = "${cfp_code!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>
+                <fmt:message key = "586" />
 
                 :
 
@@ -107,7 +107,7 @@
             <c:if test = "${cfp_cat_id!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "630" lang_id = "${lang}"/>
+                <fmt:message key = "630" />
 
                 :
 
@@ -119,7 +119,7 @@
             <c:if test = "${status_id!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>
+                <fmt:message key = "58" />
 
                 :
 
@@ -131,7 +131,7 @@
             <c:if test = "${tracking_code!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>
+                <fmt:message key = "57" />
 
                 :
 
@@ -143,7 +143,7 @@
             <c:if test = "${proponent_leader_lastname!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "620" lang_id = "${lang}"/>
+                <fmt:message key = "620" />
 
                 :
 
@@ -155,7 +155,7 @@
             <c:if test = "${proponent_leader_firstname!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "330" lang_id = "${lang}"/>
+                <fmt:message key = "330" />
 
                 :
 
@@ -167,7 +167,7 @@
             <c:if test = "${proponent_citizenship!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "621" lang_id = "${lang}"/>
+                <fmt:message key = "621" />
 
                 :
 
@@ -179,7 +179,7 @@
             <c:if test = "${project_country!=''}">
                 -
 
-                <cf:GetPhrase phrase_id = "631" lang_id = "${lang}"/>
+                <fmt:message key = "631" />
 
                 :
 
@@ -326,7 +326,7 @@
     <c:when test = "${proposal_info.rowCount==0}">
         <h3>
 
-        <cf:GetPhrase phrase_id = "632" lang_id = "${lang}"/>.</h3>
+        <fmt:message key = "632" />.</h3>
     </c:when>
 
     <c:otherwise>
@@ -336,13 +336,13 @@
 
             <c:out value = "${proposal_info.rowCount}"/>
 
-            <cf:GetPhrase phrase_id = "916" lang_id = "${lang}"/>.</h4>
+            <fmt:message key = "916" />.</h4>
         </div>
 
         <font size = "-2"><a STYLE = "text-decoration: underline"
                              href = "index.jsp?fuseaction=dsp_send_letters">
 
-        <cf:GetPhrase phrase_id = "264" lang_id = "${lang}"/></a></font>
+        <fmt:message key = "264" /></a></font>
         <c:forEach items = "${proposal_info.rows}" var = "row">
 
             <!--- get the cfp title for the proposal --->
@@ -421,8 +421,8 @@
                     <td>
                         <font face = "Arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "57"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "57"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -436,15 +436,15 @@
                     <td>
                         <font face = "Arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "595"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "595"
+                                      />:</b>
                     </td>
 
                     <td>
                         <font face = "Arial" size = "-1"><c:choose>
                             <c:when test = "${docs.rowCount==0}">
-                                <cf:GetPhrase phrase_id = "515"
-                                              lang_id = "${lang}"/>
+                                <fmt:message key = "515"
+                                              />
 
                                 .
                             </c:when>
@@ -465,8 +465,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "266"
-                                          lang_id = "${lang}"/>:</b>
+                            <fmt:message key = "266"
+                                          />:</b>
                         </td>
 
                         <td>
@@ -481,8 +481,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "267"
-                                          lang_id = "${lang}"/>:</b>
+                            <fmt:message key = "267"
+                                          />:</b>
                         </td>
 
                         <td>
@@ -497,8 +497,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "66"
-                                          lang_id = "${lang}"/>:</b>
+                            <fmt:message key = "66"
+                                          />:</b>
                         </td>
 
                         <td>
@@ -512,8 +512,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "60"
-                                          lang_id = "${lang}"/>:</b>
+                            <fmt:message key = "60"
+                                          />:</b>
                         </td>
 
                         <td>
@@ -528,8 +528,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "634"
-                                              lang_id = "${lang}"/>:</b>
+                                <fmt:message key = "634"
+                                              />:</b>
                             </td>
 
                             <td>
@@ -545,8 +545,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "635"
-                                              lang_id = "${lang}"/>:</b>
+                                <fmt:message key = "635"
+                                              />:</b>
                             </td>
 
                             <td>
@@ -561,8 +561,8 @@
                         <td>
                             <font face = "Arial" size = "-1"><b>
 
-                            <cf:GetPhrase phrase_id = "58"
-                                          lang_id = "${lang}"/>:</b>
+                            <fmt:message key = "58"
+                                          />:</b>
                         </td>
 
                         <td>
@@ -577,8 +577,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "273"
-                                              lang_id = "${lang}"/>:</b>
+                                <fmt:message key = "273"
+                                              />:</b>
                             </td>
 
                             <td>
@@ -598,8 +598,8 @@
                             <td>
                                 <font face = "Arial" size = "-1"><b>
 
-                                <cf:GetPhrase phrase_id = "274"
-                                              lang_id = "${lang}"/>:</b>
+                                <fmt:message key = "274"
+                                              />:</b>
                             </td>
 
                             <td>
@@ -628,38 +628,38 @@
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp?fuseaction=proposal_assign&tracking_code=<c:out value="${row.tracking_code}" />&cfp_code=<c:out value="${row.cfp_code}" />&cfp_cat_id=<c:out value="${row.cfp_cat_id}" />">
 
-                            <cf:GetPhrase phrase_id = "250"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "250"
+                                          /></a>
 
                             <c:if test = "${sessionScope.user=='coordinator'}">
                                 <br>
                                 <a STYLE = "text-decoration: underline"
                                    href = "index.jsp?fuseaction=proposal_info&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                                <cf:GetPhrase phrase_id = "636"
-                                              lang_id = "${lang}"/></a>
+                                <fmt:message key = "636"
+                                              /></a>
                             </c:if>
 
                             <br>
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp?fuseaction=proposal_summary&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                            <cf:GetPhrase phrase_id = "637"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "637"
+                                          /></a>
 
                             <br>
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp?fuseaction=tsc_main&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                            <cf:GetPhrase phrase_id = "841"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "841"
+                                          /></a>
 
                             <br>
                             <a STYLE = "text-decoration: underline"
                                href = "index.jsp?fuseaction=report_summary&tracking_code=<c:out value="${row.tracking_code}" />">
 
-                            <cf:GetPhrase phrase_id = "906"
-                                          lang_id = "${lang}"/></a>
+                            <fmt:message key = "906"
+                                          /></a>
                         </td>
                     </tr>
                 </c:if>

@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -37,7 +38,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "231" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "231" />:</h3>
     </c:when>
 
     <c:when test = "${act == 'edit'}">
@@ -60,7 +61,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "232" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "232" />:</h3>
     </c:when>
 </c:choose>
 
@@ -74,7 +75,7 @@
     value = "<c:out value='${act}'/>"> <input type = "hidden" name = "lang_id"
     value = "<c:out value='${lang_id}'/>">
 
-    <cf:GetPhrase phrase_id = "233" lang_id = "${lang}"/>: <b>
+    <fmt:message key = "233" />: <b>
 
     <c:out value = '${phrase_id}'/></b>
     <input type = "text" name = "phrase" size = "40"
@@ -82,13 +83,13 @@
 
     <br>
     <input type = "submit"
-           value = "  <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+           value = "  <fmt:message key="456"  />  ">
 </form>
 
 <p>
 <b>
 
-<cf:GetPhrase phrase_id = "234" lang_id = "${lang}"/>:</b>
+<fmt:message key = "234" />:</b>
 <sql:query var = "phrases">
     select phrase, phrase_id, lang_id from phrases where lang_id = ? order by
     phrase
@@ -99,7 +100,7 @@
 <p>
 **
 
-<cf:GetPhrase phrase_id = "235" lang_id = "${lang}"/>
+<fmt:message key = "235" />
 
 <p>
 <table border = "0" cellspacing = "0" cellpadding = "3">
@@ -107,7 +108,7 @@
         <td>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "233" lang_id = "${lang}"/>
+            <fmt:message key = "233" />
         </td>
     </tr>
 

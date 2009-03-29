@@ -67,8 +67,8 @@ if (guard.isParameterMissed())
              to = "${param.user_email}"
              debug = "true"
              subject = "Your Password">
-<cf:GetPhrase phrase_id = "565" lang_id = "${lang}"/>: <c:out value = "${org.rows[0].coordinator_login}"/>
-<cf:GetPhrase phrase_id = "566" lang_id = "${lang}"/>: <c:out value = "${org.rows[0].coordinator_password}"/>
+<fmt:message key = "565" />: <c:out value = "${org.rows[0].coordinator_login}"/>
+<fmt:message key = "566" />: <c:out value = "${org.rows[0].coordinator_password}"/>
 </sm:Sendmail>
 
 <center>

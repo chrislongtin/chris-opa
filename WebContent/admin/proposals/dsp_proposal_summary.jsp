@@ -1,5 +1,6 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -111,7 +112,7 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "303" lang_id = "${lang}"/>:</h3>
+<fmt:message key = "303" />:</h3>
 
 <c:if test = "${(sessionScope.user!='coordinator') and (status_id > 3)}">
     <table width = "100%" border = "0" cellspacing = "0" cellpadding = "0">
@@ -130,7 +131,7 @@ order by status_id
 <form action="index.jsp?fuseaction=proposal_status" method="post">
 <input type="hidden" name="cfp_code" value="<c:out value="${cfp_code}" />">
 <input type="hidden" name="tracking_code" value="<c:out value="${tracking_code}" />">
-<input type="hidden" name="redirect" value="<cf:GetPhrase phrase_id="673" lang_id="${lang}" />">
+<input type="hidden" name="redirect" value="<fmt:message key="673"  />">
 
 <td align="right" valign="bottom"><select name="status_id"><option value="<c:out value="${status_id}" />"><c:out value="${status_name}" />
 <c:forEach items="${status_options.rows}" var="row">
@@ -138,9 +139,9 @@ order by status_id
 </c:forEach>
 </select>
 </td>
-<td align="right"><input type="submit" value="<cf:GetPhrase phrase_id="613" lang_id="${lang}" />"></td>
+<td align="right"><input type="submit" value="<fmt:message key="613"  />"></td>
 </tr><tr>
-	<td align="right"><font face="arial" size="-2"><cf:GetPhrase phrase_id="614" lang_id="${lang}" /></font>
+	<td align="right"><font face="arial" size="-2"><fmt:message key="614"  /></font>
   <input type="checkbox" name="proposal_hide" <c:if test="${proposal_hide==1}" ><c:out value="checked" /></c:if> value="1"></td>
 	<td></td>
 </form>
@@ -149,30 +150,30 @@ order by status_id
 
 <h4><c:out value="${pi.proposal_title}" /></h4>
 
-<b><cf:GetPhrase phrase_id="56" lang_id="${lang}" />:</b> <cf:GetPhrase phrase_id="586" lang_id="${lang}" />-<c:out value="${cfp_code}" />
-<br><b><cf:GetPhrase phrase_id="57" lang_id="${lang}" />:</b> P-<c:out value="${tracking_code}" />
-<br><b><cf:GetPhrase phrase_id="60" lang_id="${lang}" />:</b> <c:out value="${pi.proponent_institution}" />
+<b><fmt:message key="56"  />:</b> <fmt:message key="586"  />-<c:out value="${cfp_code}" />
+<br><b><fmt:message key="57"  />:</b> P-<c:out value="${tracking_code}" />
+<br><b><fmt:message key="60"  />:</b> <c:out value="${pi.proponent_institution}" />
 
 <c:choose>
 	<c:when test="${reviewer_sum!=0}">
 
 <ul>
-<li><cf:GetPhrase phrase_id="304" lang_id="${lang}" /> <c:out value="${minimum_rank}" />
-<li><cf:GetPhrase phrase_id="305" lang_id="${lang}" /></ul>
+<li><fmt:message key="304"  /> <c:out value="${minimum_rank}" />
+<li><fmt:message key="305"  /></ul>
 
 <c:choose>
 	<c:when test="${show_comments=='yes'}">
-		<p><a STYLE="text-decoration: underline"  href="index.jsp?fuseaction=proposal_summary&show_comments=no&tracking_code=<c:out value="${tracking_code}" />"><cf:GetPhrase phrase_id="674" lang_id="${lang}" /></a>
+		<p><a STYLE="text-decoration: underline"  href="index.jsp?fuseaction=proposal_summary&show_comments=no&tracking_code=<c:out value="${tracking_code}" />"><fmt:message key="674"  /></a>
 	</c:when>
 	<c:otherwise>
-    <p><a STYLE="text-decoration: underline"  href="index.jsp?fuseaction=proposal_summary&tracking_code=<c:out value="${tracking_code}" />"><cf:GetPhrase phrase_id="675" lang_id="${lang}" /></a>	
+    <p><a STYLE="text-decoration: underline"  href="index.jsp?fuseaction=proposal_summary&tracking_code=<c:out value="${tracking_code}" />"><fmt:message key="675"  /></a>	
 	</c:otherwise>
 </c:choose>
 
 <p><table border="1" cellspacing="0" cellpadding="3">
 <tr bgcolor="E3E3E3">
-	<td><font size="-1" face="Arial"><b><cf:GetPhrase phrase_id="306" lang_id="${lang}" /></td>
-	<td><font size="-1" face="Arial"><b><cf:GetPhrase phrase_id="271" lang_id="${lang}" /></td>
+	<td><font size="-1" face="Arial"><b><fmt:message key="306"  /></td>
+	<td><font size="-1" face="Arial"><b><fmt:message key="271"  /></td>
 </tr>
 
 <c:forEach items="${i_appraisal_info.rows}" var="row">
@@ -299,7 +300,7 @@ order by status_id
 	</c:when>
 	<c:otherwise>
 
-<h3><cf:GetPhrase phrase_id="676" lang_id="${lang}" />.</h3>	
+<h3><fmt:message key="676"  />.</h3>	
 
 	</c:otherwise>
 </c:choose>

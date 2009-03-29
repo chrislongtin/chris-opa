@@ -29,26 +29,26 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "173" lang_id = "${lang}"/></h3>
+<fmt:message key = "173" /></h3>
 
 <table cellpadding = "3">
     <TR bgcolor = "A8A8A8">
         <TD>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/></b>
+            <fmt:message key = "66" /></b>
         </TD>
 
         <TD>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/></b>
+            <fmt:message key = "24" /></b>
         </TD>
 
         <TD>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "174" lang_id = "${lang}"/></b>
+            <fmt:message key = "174" /></b>
         </TD>
     </TR>
 

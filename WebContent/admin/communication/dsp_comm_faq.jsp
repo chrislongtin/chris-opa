@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -13,17 +14,17 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "181" lang_id = "${lang}"/></h3>
+<fmt:message key = "181" /></h3>
 
 <c:choose>
     <c:when test = "${faq.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "108" lang_id = "${lang}"/>
+        <fmt:message key = "108" />
     </c:when>
 
     <c:otherwise>
         <a STYLE = "text-decoration: underline" href = "#add">
 
-        <cf:GetPhrase phrase_id = "175" lang_id = "${lang}"/></a>
+        <fmt:message key = "175" /></a>
     </c:otherwise>
 </c:choose>
 
@@ -45,7 +46,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
+    <fmt:message key = "143" /></a>
     <a STYLE = "text-decoration: underline"
        href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_comm_faq'/>
@@ -54,12 +55,12 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+    <fmt:message key = "144" /></a>
 </c:forEach>
 
 <a name = "add"> <h4>
 
-<cf:GetPhrase phrase_id = "175" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "175" />:</h4>
 
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_comm_faq'/>
@@ -68,11 +69,11 @@
       method = "post">
     <input type = "hidden" name = "act" value = "Add">
     <input type = "hidden" name = "faq_question_required"
-    value = "<cf:GetPhrase phrase_id='483' lang_id='${lang}'/>"> <input type = "hidden"
+    value = "<fmt:message key='483' />"> <input type = "hidden"
     name = "faq_answer_required"
-    value = "<cf:GetPhrase phrase_id='484' lang_id='${lang}'/>"> <b>
+    value = "<fmt:message key='484' />"> <b>
 
-    <cf:GetPhrase phrase_id = "176" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "176" />:</b>
 
     <br>
     <textarea name = "faq_question" cols = "40" rows = "3" wrap>
@@ -81,7 +82,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "177" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "177" />:</b>
 
     <br>
     <textarea name = "faq_answer" cols = "40" rows = "3" wrap>
@@ -89,5 +90,5 @@
 
     <p>
     <input type = "submit"
-           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+           value = " <fmt:message key="456"  /> ">
 </form>

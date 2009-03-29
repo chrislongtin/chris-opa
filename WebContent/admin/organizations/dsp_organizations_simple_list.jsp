@@ -23,7 +23,7 @@
         <td colspan = "3" align = "center">
             <font size = "+1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "1113" lang_id = "${lang}"/>
+            <fmt:message key = "1113" />
         </td>
     </tr>
 
@@ -38,7 +38,7 @@
                     <td colspan = "4">
                         <font size = "-1" face = "Arial"><b>
         
-                        <cf:GetPhrase phrase_id = "1118" lang_id = "${lang}"/>:
+                        <fmt:message key = "1118" />:
                     </td>
                 </tr>
          --%>
@@ -50,7 +50,7 @@
             <tr>
                 <td colspan = "4" align = "center">
                     <input type = "submit"
-                           value = "<cf:GetPhrase phrase_id="1118" lang_id="${lang}" />">
+                           value = "<fmt:message key="1118"  />">
                 </td>
             </tr>
         </form>
@@ -75,8 +75,8 @@
                     <c:when test = "${sessionScope.user=='coordinator'}">
                         <a href = "index.jsp?fuseaction=act_organization&act=delete&organization_id=<c:out value="${row.organization_id}" />">
 
-                        <cf:GetPhrase phrase_id = "143"
-                                      lang_id = "${lang}"/></a> |
+                        <fmt:message key = "143"
+                                      /></a> |
                     </c:when>
 
                     <c:otherwise>
@@ -86,7 +86,7 @@
 
                 <a href = "index.jsp?fuseaction=modify_organization&act=edit&organization_id=<c:out value="${row.organization_id}" />">
 
-                <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                <fmt:message key = "144" /></a>
             </td>
 
             </td>

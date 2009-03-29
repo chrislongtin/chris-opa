@@ -10,6 +10,7 @@
 <%@ page import = "opa.model.*" %>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -45,7 +46,7 @@
             <br>
             <b>
 
-            <cf:GetPhrase phrase_id = "569" lang_id = "${lang}"/>?</b>
+            <fmt:message key = "569" />?</b>
 
             <table>
                 <tr>
@@ -56,7 +57,7 @@
                             value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "doc_id" value = "<c:out value="${doc_id}" />">
                             <input type = "hidden" name = "act" value = "delete">
                             <input type = "submit"
-                            value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
+                            value = "<fmt:message key="570"  />">
                         </form>
                     </td>
 
@@ -65,7 +66,7 @@
                               method = "post">
                             <input type = "hidden" name = "tracking_code"
                             value = "<c:out value="${tracking_code}" />"> <input type = "submit"
-                            value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
+                            value = "<fmt:message key="543"  />">
                         </form>
                     </td>
             </table>

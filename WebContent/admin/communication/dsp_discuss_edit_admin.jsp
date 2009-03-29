@@ -17,7 +17,7 @@
 
 <h4>
 
-<cf:GetPhrase phrase_id = "495" lang_id = "${lang}"/></h4>
+<fmt:message key = "495" /></h4>
 
 <c:forEach var = "row" items = "${edit_msg.rows}">
     <form action = "<c:url value='index.jsp'>
@@ -29,14 +29,14 @@
         value = "<c:out value='${row.discussion_id}'/>"> <input type = "hidden"
         name = "act" value = "edit"> <b>
 
-        <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "42" />:</b>
         <input type = "text" name = "discuss_subject" size = "40"
                value = "<c:out value='${row.discuss_subject}'/>">
 
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "171" />:</b>
         <input type = "text"
                name = "discuss_date"
                value = "<fmt:formatDate pattern='dd-MMM-yy' value='${row.discuss_date}'/>">
@@ -44,25 +44,25 @@
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "43" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "43" />:</b>
         <input type = "text" name = "discuss_author"
         value = "<c:out value='${row.discuss_author}'/>"> <i>(
 
-        <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
+        <fmt:message key = "45" />)</i>
 
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "44" />:</b>
         <input type = "text" name = "discuss_email"
         value = "<c:out value='${row.discuss_email}'/>"> <i>(
 
-        <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
+        <fmt:message key = "45" />)</i>
 
         <p>
         <font color = "FF0000">* <b>
 
-        <cf:GetPhrase phrase_id = "46" lang_id = "${lang}"/>:</b></font>
+        <fmt:message key = "46" />:</b></font>
 
         <br>
         <textarea name = "discuss_message" cols = "60" rows = "15" wrap>
@@ -70,13 +70,13 @@
         </textarea>
 
         <input type = "submit"
-               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+               value = " <fmt:message key="456"  /> ">
     </form>
 </c:forEach>
 
 <h3>
 
-<cf:GetPhrase phrase_id = "496" lang_id = "${lang}"/></h3>
+<fmt:message key = "496" /></h3>
 
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_discuss_edit'/>
@@ -86,5 +86,5 @@
     <input type = "hidden" name = "discussion_id"
     value = "<c:out value='${param.discussion_id}'/>"> <input type = "hidden" name = "act" value = "delete">
     <input type = "submit"
-    value = " <cf:GetPhrase phrase_id="143" lang_id="${lang}" /> ">
+    value = " <fmt:message key="143"  /> ">
 </form>

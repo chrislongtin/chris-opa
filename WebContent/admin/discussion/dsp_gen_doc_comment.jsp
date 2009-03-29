@@ -40,23 +40,23 @@
 
     <c:out value = "${row.doc_title}"/>
 
-    <cf:GetPhrase phrase_id = "33" lang_id = "${lang}"/></b></font>
+    <fmt:message key = "33" /></b></font>
 
     <p>
     <a STYLE = "text-decoration: underline"
        href = "../docs/<c:out value='${row.doc_filename}'/>?ois=no">
 
-    <cf:GetPhrase phrase_id = "34" lang_id = "${lang}"/></a> |
+    <fmt:message key = "34" /></a> |
     <a STYLE = "text-decoration: underline"
        href = "../docs/<c:out value='${row.doc_filename}'/>?ois=yes">
 
-    <cf:GetPhrase phrase_id = "35" lang_id = "${lang}"/></a>
+    <fmt:message key = "35" /></a>
 </c:forEach>
 
 <c:choose>
     <c:when test = "${act == 'view'}">
         <p>
-        <cf:GetPhrase phrase_id = "36" lang_id = "${lang}"/>
+        <fmt:message key = "36" />
 
         <!--- link to add a new comment to this discussion --->
         <a STYLE = "text-decoration: underline"
@@ -67,7 +67,7 @@
 <c:param name='doc_id' value='${doc_id}'/>
 </c:url>"> <b>
 
-        <cf:GetPhrase phrase_id = "37" lang_id = "${lang}"/></b></a>
+        <fmt:message key = "37" /></b></a>
 
         <p>
         <hr size = "1">
@@ -116,7 +116,7 @@
                     </c:when>
 
                     <c:otherwise>
-                        <cf:GetPhrase phrase_id = "38" lang_id = "${lang}"/>
+                        <fmt:message key = "38" />
                     </c:otherwise>
                 </c:choose>
 
@@ -138,8 +138,8 @@
 <c:param name='discuss_parent' value='${row.discussion_id}'/>
 </c:url>">
 
-                            <cf:GetPhrase phrase_id = "39"
-                                          lang_id = "${lang}"/> </a></font>
+                            <fmt:message key = "39"
+                                          /> </a></font>
 
                             <p>
                             <font face = "Arial" size = "-1">
@@ -179,12 +179,12 @@
         <c:if test = "${discuss_parent == 0}">
             <h4>
 
-            <cf:GetPhrase phrase_id = "40" lang_id = "${lang}"/>:</h4>
+            <fmt:message key = "40" />:</h4>
 
             <cfelse>
                 <h4>
 
-                <cf:GetPhrase phrase_id = "39" lang_id = "${lang}"/>:</h4>
+                <fmt:message key = "39" />:</h4>
 
                 <!--- reply to a message, retrieving original message --->
                 <sql:query var = "message_reply">
@@ -227,7 +227,7 @@
             </c:if>
 
             <p>
-            <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+            <fmt:message key = "41" />
 
             <!--- input form for reply or new message --->
             <c:forEach var = "row" items = "${doc_info.rows}">
@@ -246,32 +246,32 @@
             </c:forEach>
 
             <input type = "hidden" name = "discuss_message_required"
-            value = "<cf:GetPhrase phrase_id='516' lang_id='${lang}' />"> <input type = "hidden" name = "discuss_subject_required" value = "<cf:GetPhrase phrase_id='517' lang_id='${lang}' />">
+            value = "<fmt:message key='516'  />"> <input type = "hidden" name = "discuss_subject_required" value = "<fmt:message key='517'  />">
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "42" />:</b></font>
             <input type = "text" name = "discuss_subject" size = "40">
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "43" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "43" />:</b>
             <input type = "text" name = "discuss_author"> <i>(
 
-            <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
+            <fmt:message key = "45" />)</i>
 
             <br>
             <b>
 
-            <cf:GetPhrase phrase_id = "44" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "44" />:</b>
             <input type = "text" name = "discuss_email"> <i>(
 
-            <cf:GetPhrase phrase_id = "45" lang_id = "${lang}"/>)</i>
+            <fmt:message key = "45" />)</i>
 
             <p>
             <font color = "FF0000">* <b>
 
-            <cf:GetPhrase phrase_id = "46" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "46" />:</b></font>
 
             <br>
             <textarea name = "discuss_message" cols = "60" rows = "15" wrap>
@@ -282,7 +282,7 @@
                 <p>
                 <b>
 
-                <cf:GetPhrase phrase_id = "47" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "47" />:</b>
 
                 <br>
                 <input type = "file" name = "discuss_attachment" size = "40">
@@ -290,16 +290,16 @@
                 <br>
                 <i>
 
-                <cf:GetPhrase phrase_id = "48" lang_id = "${lang}"/></i>
+                <fmt:message key = "48" /></i>
             </c:if>
 
             <p>
             <input type = "submit"
-                   value = "  <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+                   value = "  <fmt:message key="456"  />  ">
 
             </form>
 
             <p>
-            <cf:GetPhrase phrase_id = "49" lang_id = "${lang}"/>
+            <fmt:message key = "49" />
         </c:when>
     </c:choose>

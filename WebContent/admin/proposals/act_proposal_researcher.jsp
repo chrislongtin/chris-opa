@@ -151,7 +151,7 @@
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "577" lang_id = "${lang}"/>?</b>
+        <fmt:message key = "577" />?</b>
 
         <table>
             <tr>
@@ -162,7 +162,7 @@
                         value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "researcher_id" value = "<c:out value="${researcher_id}" />">
                         <input type = "hidden" name = "act" value = "delete">
                         <input type = "submit"
-                        value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
+                        value = "<fmt:message key="570"  />">
                     </form>
                 </td>
 
@@ -171,7 +171,7 @@
                           method = "post">
                         <input type = "hidden" name = "tracking_code"
                         value = "<c:out value="${tracking_code}" />"> <input type = "submit"
-                        value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
+                        value = "<fmt:message key="543"  />">
                     </form>
                 </td>
         </table>

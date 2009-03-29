@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -30,12 +31,12 @@
 <p>
 <h3>
 
-<cf:GetPhrase phrase_id = "510" lang_id = "${lang}"/>:</h3>
+<fmt:message key = "510" />:</h3>
 
 <p>
-<cf:GetPhrase phrase_id = "511" lang_id = "${lang}"/> <font color = "FF0000">
+<fmt:message key = "511" /> <font color = "FF0000">
 
-<cf:GetPhrase phrase_id = "512" lang_id = "${lang}"/></font><cfoutput>
+<fmt:message key = "512" /></font><cfoutput>
     <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_minimum_values'/>
 <c:param name='${user}'/>
@@ -45,13 +46,13 @@
 
 <input type = "hidden" name = "initiative_id" value = "1">
 <input type = "hidden" name = "minimum_score_required"
-value = "<cf:GetPhrase phrase_id='513' lang_id='${lang}'/>"><c:forEach var = "row"
+value = "<fmt:message key='513' />"><c:forEach var = "row"
 items = "${funding_initiative.rows}">
     <p>
     <font color = "FF0000"><b>*
 
-    <cf:GetPhrase phrase_id = "509"
-                  lang_id = "${lang}"/>:</b></font><input type = "number"
+    <fmt:message key = "509"
+                  />:</b></font><input type = "number"
                                                           name = "minimum_score"
                                                           value = "<c:out value='${row.minimum_score}'/>"
                                                           size = "6">
@@ -59,6 +60,6 @@ items = "${funding_initiative.rows}">
 
 <p>
 <input type = "submit"
-       value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+       value = " <fmt:message key="456"  /> ">
 
 </form>

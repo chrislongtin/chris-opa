@@ -26,7 +26,7 @@ if (guard.isParameterMissed())
 
 <c:if test = "${empty param.proponent_leader_email}">
 <center>
-<font size = +2 color = "#FF0000"> 	<c:out value = "<cf:GetPhrase phrase_id = '1109' lang_id = '${lang}'/>"/> </font>
+<font size = +2 color = "#FF0000"> 	<c:out value = "<fmt:message key = '1109' lang_id = '${lang}'/>"/> </font>
 </center>
  <%
  if (true)
@@ -42,7 +42,7 @@ if (guard.isParameterMissed())
 
 <c:if test = "${org.rowCount==0}">
 <center>
-<font size = +2 color = "#FF0000"> 	<c:out value = "<cf:GetPhrase phrase_id = '1110' lang_id = '${lang}'/> "/> </font>
+<font size = +2 color = "#FF0000"> 	<c:out value = "<fmt:message key = '1110' lang_id = '${lang}'/> "/> </font>
 </center>
  <%
  if (true)
@@ -65,7 +65,7 @@ if (guard.isParameterMissed())
 </sm:Sendmail>
 
 <p>
-<cf:GetPhrase phrase_id = '434' lang_id = '${lang}'/>:
+<fmt:message key = '434' lang_id = '${lang}'/>:
 
 <c:out value = "${param.proponent_leader_email}"/></p>
 

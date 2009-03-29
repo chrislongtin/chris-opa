@@ -20,15 +20,15 @@
     <div align = "center">
         <b>
 
-        <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
+        <fmt:message key = "770" />
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_edit">
 
-        <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
+        <fmt:message key = "733" /></a>
 
-        <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
+        <fmt:message key = "734" /></b>
     </div>
 
     <%
@@ -128,18 +128,18 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "649" lang_id = "${lang}"/></h3>
+        <fmt:message key = "649" /></h3>
     </c:when>
 
     <c:otherwise>
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "650" lang_id = "${lang}"/></h3>
+        <fmt:message key = "650" /></h3>
     </c:otherwise>
 </c:choose>
 
-<cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+<fmt:message key = "41" />
 
 <form action = "index.jsp?fuseaction=act_proposal_researcher" method = "post">
     <input type = "hidden" name = "tracking_code"
@@ -147,17 +147,17 @@
     <input type = "hidden" name = "proponent_password"
     value = "<c:out value="${proponent_password}" />"> <input type = "hidden"
     name = "researcher_firstname_required"
-    value = "<cf:GetPhrase phrase_id="651" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="651"  />"> <input type = "hidden"
     name = "researcher_lastname_required"
-    value = "<cf:GetPhrase phrase_id="652" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="652"  />"> <input type = "hidden"
     name = "researcher_email_required"
-    value = "<cf:GetPhrase phrase_id="653" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="653"  />"> <input type = "hidden"
     name = "researcher_citizenship_required"
-    value = "<cf:GetPhrase phrase_id="654" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="654"  />"> <input type = "hidden"
     name = "researcher_residency_required"
-    value = "<cf:GetPhrase phrase_id="655" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="655"  />"> <input type = "hidden"
     name = "researcher_org_required"
-    value = "<cf:GetPhrase phrase_id="656" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="656"  />"> <input type = "hidden"
     name = "act" value = "<c:out value="${act}" />">
     <c:if test = "${act=='edit'}">
         <input type = "hidden" name = "researcher_id"
@@ -169,7 +169,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "657" lang_id = "${lang}"/>:
+                <fmt:message key = "657" />:
             </td>
 
             <td>
@@ -184,7 +184,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "329" lang_id = "${lang}"/>:
+                <fmt:message key = "329" />:
             </td>
 
             <td>
@@ -197,7 +197,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:
+                <fmt:message key = "62" />:
             </td>
 
             <td>
@@ -212,7 +212,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:
+                <fmt:message key = "29" />:
             </td>
 
             <td>
@@ -227,7 +227,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
+                <fmt:message key = "24" />:
             </td>
 
             <td>
@@ -242,7 +242,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "621" lang_id = "${lang}"/>:
+                <fmt:message key = "621" />:
             </td>
 
             <td>
@@ -257,7 +257,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "622" lang_id = "${lang}"/>:
+                <fmt:message key = "622" />:
             </td>
 
             <td>
@@ -272,7 +272,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "628" lang_id = "${lang}"/>:
+                <fmt:message key = "628" />:
             </td>
 
             <td>
@@ -286,7 +286,7 @@
         <tr>
             <td colspan = "2" align = "center">
                 <input type = "submit"
-                       value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+                       value = "   <fmt:message key="456"  />  ">
             </td>
         </tr>
     </table>

@@ -57,7 +57,7 @@
             </c:when>
 
             <c:otherwise>
-                <cf:GetPhrase phrase_id = "38" lang_id = "${lang}"/>
+                <fmt:message key = "38" />
             </c:otherwise>
         </c:choose>
 
@@ -72,8 +72,8 @@
                     pattern = "MMM dd, yyyy"/> | <a STYLE = "text-decoration: underline"
                     href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${doc_id}" />&lang=<c:out value="${lang}" />&act=add&discuss_parent=<c:out value="${row.discussion_id}" />">
 
-                    <cf:GetPhrase phrase_id = "39"
-                                  lang_id = "${lang}"/></a></font>
+                    <fmt:message key = "39"
+                                  /></a></font>
 
                     <p>
                     <font face = "Arial" size = "-1">

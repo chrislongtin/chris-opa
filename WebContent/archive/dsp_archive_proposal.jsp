@@ -39,7 +39,7 @@
 
 <c:out value = "${pr.proposal_title}"/></h3> <h4>
 
-<cf:GetPhrase phrase_id = "19" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "19" />:</h4>
 
 <menu><cf:ParagraphFormat value = "${copyright.rows[0].copyright}"/></menu>
 
@@ -47,65 +47,65 @@
 <p>
 <b>
 
-<cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>:</b> CFP-
+<fmt:message key = "56" />:</b> CFP-
 
 <c:out value = "${pr.cfp_code}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</b> P-
+<fmt:message key = "57" />:</b> P-
 
 <c:out value = "${pr.tracking_code}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>:</b>
+<fmt:message key = "58" />:</b>
 
 <c:out value = "${pr.status_name}"/>
 
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "59" lang_id = "${lang}"/></h4> <b>
+<fmt:message key = "59" /></h4> <b>
 
-<cf:GetPhrase phrase_id = "60" lang_id = "${lang}"/>:</b>
+<fmt:message key = "60" />:</b>
 
 <c:out value = "${pr.proponent_institution}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</b>
+<fmt:message key = "61" />:</b>
 
 <c:out value = "${pr.proponent_address}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b>
+<fmt:message key = "62" />:</b>
 
 <c:out value = "${pr.proponent_phone}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
+<fmt:message key = "29" />:</b>
 
 <c:out value = "${pr.proponent_fax}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
+<fmt:message key = "24" />:</b>
 
 <c:out value = "${pr.proponent_email}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</b>
+<fmt:message key = "64" />:</b>
 <a STYLE = "text-decoration: underline"
    href = "<c:out value="${pr.proponent_url}" />">
 
@@ -114,60 +114,60 @@
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "65" lang_id = "${lang}"/></h4> <b>
+<fmt:message key = "65" /></h4> <b>
 
-<cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>:</b>
+<fmt:message key = "66" />:</b>
 
 <c:out value = "${pr.proponent_leader_firstname} ${pr.proponent_leader_lastname}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "67" lang_id = "${lang}"/>:</b>
+<fmt:message key = "67" />:</b>
 
 <c:out value = "${pr.proponent_leader_affiliation}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</b>
+<fmt:message key = "61" />:</b>
 
 <c:out value = "${pr.proponent_leader_address}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b>
+<fmt:message key = "62" />:</b>
 
 <c:out value = "${pr.proponent_leader_phone}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
+<fmt:message key = "29" />:</b>
 
 <c:out value = "${pr.proponent_leader_fax}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
+<fmt:message key = "24" />:</b>
 
 <c:out value = "${pr.proponent_leader_email}"/>
 
 <p>
 <h4>
 
-<cf:GetPhrase phrase_id = "68" lang_id = "${lang}"/></h4> <b>
+<fmt:message key = "68" /></h4> <b>
 
-<cf:GetPhrase phrase_id = "69" lang_id = "${lang}"/>:</b>
+<fmt:message key = "69" />:</b>
 
 <fmt:formatNumber value = "${pr.requested_amount}" type = "currency"
 currencySymbol = ""/><c:if test = "${!empty appraisal_info.rows[0].reviewer_lastname}">
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "70" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "70" />:</b>
 
     <fmt:formatNumber value = "${row.awarded_amount}" type = "currency"
                       currencySymbol = ""/>

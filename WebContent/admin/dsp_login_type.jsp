@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 <%@ taglib uri = "http://jakarta.apache.org/taglibs/mailer-1.1" prefix = "mt"%>
@@ -79,7 +80,7 @@
             <th bgcolor = "#CCCCFF" colspan = 1 width = "450">
                 <font size = 2>
 
-                <cf:GetPhrase phrase_id = "1054" lang_id = "${lang}"/></font>
+                <fmt:message key = "1054" /></font>
             </th>
         </table>
 
@@ -99,7 +100,7 @@
                         </select>
 
                         <input type = "submit"
-                               value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                               value = " <fmt:message key="456"  /> ">
                     </form>
 
                     <%@ include file = "footer.jsp"%>

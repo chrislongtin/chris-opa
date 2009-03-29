@@ -46,21 +46,21 @@
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_list&cfp_code=<c:out value="${cfp_code}" />">
 
-        <cf:GetPhrase phrase_id = "610" lang_id = "${lang}"/></a>
+        <fmt:message key = "610" /></a>
     </c:when>
 
     <c:when test = "${source=='review'}">
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_review&tracking_code=<c:out value="${tracking_code}" />">
 
-        <cf:GetPhrase phrase_id = "611" lang_id = "${lang}"/></a>
+        <fmt:message key = "611" /></a>
     </c:when>
 
     <c:when test = "${source=='review_edit'}">
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_edit_review&tracking_code=<c:out value="${tracking_code}" />">
 
-        <cf:GetPhrase phrase_id = "611" lang_id = "${lang}"/></a>
+        <fmt:message key = "611" /></a>
     </c:when>
 </c:choose>
 
@@ -69,14 +69,14 @@
 
 <c:out value = "${pi.proposal_title}"/></h3> <b>
 
-<cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>:</b>
+<fmt:message key = "586" />:</b>
 
 <c:out value = "${pi.cfp_title}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</b>
+<fmt:message key = "57" />:</b>
 
 <c:out value = "${tracking_code}"/>
 
@@ -86,7 +86,7 @@
         <td colspan = "3">
             <font face = "arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "595" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "595" />:</b>
         </td>
     </tr>
 

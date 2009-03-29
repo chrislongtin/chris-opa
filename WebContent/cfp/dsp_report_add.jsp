@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -15,15 +16,15 @@
     <div align = "center">
         <b>
 
-        <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
+        <fmt:message key = "770" />
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=report_edit">
 
-        <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
+        <fmt:message key = "733" /></a>
 
-        <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
+        <fmt:message key = "734" /></b>
     </div>
 
     <%
@@ -52,7 +53,7 @@
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "773" lang_id = "${lang}"/>.</b>
+    <fmt:message key = "773" />.</b>
 
     <%
     if (true)
@@ -87,7 +88,7 @@
 <c:choose>
     <c:when test = "${(deadline_date=='passed')}">
         <p>
-        <cf:GetPhrase phrase_id = "915" lang_id = "${lang}"/>:
+        <fmt:message key = "915" />:
     </c:when>
 
     <c:otherwise>
@@ -106,7 +107,7 @@
                 <p>
                 <h3>
 
-                <cf:GetPhrase phrase_id = "19" lang_id = "${lang}"/>:</h3>
+                <fmt:message key = "19" />:</h3>
 
                 <cf:ParagraphFormat value = "${cr}"/>
 
@@ -119,14 +120,14 @@
                     value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                     name = "proponent_password"
                     value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                    value = "<cf:GetPhrase phrase_id="110" lang_id="${lang}" />">
+                    value = "<fmt:message key="110"  />">
                 </form>
 
                 <p>
-                <cf:GetPhrase phrase_id = "76" lang_id = "${lang}"/>
+                <fmt:message key = "76" />
 
                 <p>
-                <cf:GetPhrase phrase_id = "111" lang_id = "${lang}"/>:
+                <fmt:message key = "111" />:
 
                 <center>
                     <p>
@@ -135,33 +136,33 @@
                     <c:out value = "${row.ia_name}"/></b>
 
                     <br>
-                    <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
+                    <fmt:message key = "24" />:
                     <a STYLE = "text-decoration: underline"
                        href = "mailto:<c:out value="${row.ia_email}" />">
 
                     <c:out value = "${row.ia_email}"/></a>
 
                     <br>
-                    <cf:GetPhrase phrase_id = "25" lang_id = "${lang}"/>:
+                    <fmt:message key = "25" />:
 
                     <c:out value = "${row.ia_address}"/>
 
                     <br>
-                    <cf:GetPhrase phrase_id = "26" lang_id = "${lang}"/>:
+                    <fmt:message key = "26" />:
 
                     <c:out value = "${row.ia_courier}"/>
 
                     <br>
-                    <cf:GetPhrase phrase_id = "27" lang_id = "${lang}"/>:
+                    <fmt:message key = "27" />:
 
                     <c:out value = "${row.ia_courier_inst}"/>
 
                     <br>
-                    <cf:GetPhrase phrase_id = "28" lang_id = "${lang}"/>:
+                    <fmt:message key = "28" />:
 
                     <c:out value = "${row.ia_phone}"/> -
 
-                    <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:
+                    <fmt:message key = "29" />:
 
                     <c:out value = "${row.ia_fax}"/>
                 </center>

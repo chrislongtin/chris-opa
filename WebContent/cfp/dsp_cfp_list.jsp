@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -12,13 +13,13 @@
 
 <h2>
 
-<cf:GetPhrase phrase_id = "85" lang_id = "${lang}"/></h2>
+<fmt:message key = "85" /></h2>
 
 <hr size = "-1">
 <c:choose>
     <c:when test = "${empty cfp_current_list.rows[0].cfp_code}">
         <p>
-        <cf:GetPhrase phrase_id = "86" lang_id = "${lang}"/>
+        <fmt:message key ="86" />
     </c:when>
 
     <c:otherwise>

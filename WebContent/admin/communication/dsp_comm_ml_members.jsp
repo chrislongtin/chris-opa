@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -36,12 +37,12 @@
 
     -
 
-    <cf:GetPhrase phrase_id = "806" lang_id = "${lang}"/></H3>
+    <fmt:message key = "806" /></H3>
 
     <c:if test = "${members.rowCount > 0}">
         <h4>
 
-        <cf:GetPhrase phrase_id = "819" lang_id = "${lang}"/></h4>
+        <fmt:message key = "819" /></h4>
 
         <c:forEach var = "row" items = "${members.rows}">
             <c:if test = "${!empty wexp}">
@@ -66,8 +67,8 @@
                             <font face = "Arial, Helvetica, sans-serif"
                                   size = "-1">
 
-                            <cf:GetPhrase phrase_id = "66"
-                                          lang_id = "${lang}"/>:</font>
+                            <fmt:message key = "66"
+                                          />:</font>
                         </td>
 
                         <td>
@@ -82,8 +83,8 @@
                         <td>
                             <FONT face = Arial size = -1 color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "24"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "24"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -91,7 +92,7 @@
                             name = "member_email"
                             value = "<c:out value="${row.member_email}" />"> <input type = "hidden"
                             name = "member_email_required"
-                            value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
+                            value = "<fmt:message key="702"  />">
                         </td>
                     </tr>
 
@@ -107,7 +108,7 @@
 
         >
 
-        <cf:GetPhrase phrase_id = "820" lang_id = "${lang}"/>
+        <fmt:message key = "820" />
 
         </font>
 
@@ -124,23 +125,23 @@
                 <input type = "hidden" name = "member"
                 value = "<c:out value="${row.member_id}" />"> <input type = "submit"
                 name = "save_changes"
-                value = "<cf:GetPhrase phrase_id="817" lang_id="${lang}" />">
+                value = "<fmt:message key="817"  />">
 
                 <br>
                 <br>
                 <a STYLE = "text-decoration: underline"
                    href = "index.jsp?fuseaction=comm_ml_editmembers&act=delfromlist&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
 
-                <cf:GetPhrase phrase_id = "821" lang_id = "${lang}"/></a>
+                <fmt:message key = "821" /></a>
 
                 <br>
                 <br>
                 <a STYLE = "text-decoration: underline"
                    href = "index.jsp?fuseaction=comm_ml_editmembers&act=del&member=<c:out value="${row.member_id}" />&list=<c:out value="${list_id}" />">
 
-                <cf:GetPhrase phrase_id = "822" lang_id = "${lang}"/></a> (
+                <fmt:message key = "822" /></a> (
 
-                <cf:GetPhrase phrase_id = "823" lang_id = "${lang}"/>) </font>
+                <fmt:message key = "823" />) </font>
             </td>
         </tr>
 
@@ -155,7 +156,7 @@
 
     <h4>
 
-    <cf:GetPhrase phrase_id = "833" lang_id = "${lang}"/></h4>
+    <fmt:message key = "833" /></h4>
 
     <sql:query var = "other_members">
         select distinct members.* from members, listmembers, mailinglists
@@ -178,11 +179,11 @@
         <ul>
             <li><font face = Arial size = -1>
 
-            <cf:GetPhrase phrase_id = "813" lang_id = "${lang}"/>
+            <fmt:message key = "813" />
 
             , (
 
-            <cf:GetPhrase phrase_id = "814" lang_id = "${lang}"/>) </font>
+            <fmt:message key = "814" />) </font>
 
             <form name = "add_emembers" method = "post"
                   action = "index.jsp?fuseaction=comm_ml_editmembers">
@@ -200,7 +201,7 @@
                 <input type = "hidden" name = "list"
                 value = "<c:out value="${list_id}" />"> <input type = "submit"
                 name = "add_members"
-                value = "<cf:GetPhrase phrase_id="824" lang_id="${lang}" />">
+                value = "<fmt:message key="824"  />">
             </form>
 
             </li>
@@ -211,34 +212,34 @@
     <ul>
         <li><font face = "Arial, Helvetica, sans-serif" size = "-1">
 
-        <cf:GetPhrase phrase_id = "825" lang_id = "${lang}"/></font>
+        <fmt:message key = "825" /></font>
 
         <form name = "create_member" method = "post"
               action = "index.jsp?fuseaction=comm_ml_editmembers">
             <font face = "Arial, Helvetica, sans-serif" size = "-1">
 
-            <cf:GetPhrase phrase_id = "66" lang_id = "${lang}"/>:
+            <fmt:message key = "66" />:
             <input type = "text" name = "member_name" maxlength = "128">
 
             <br>
             <FONT face = Arial size = -1 color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "24" />:</b></font>
             <input type = "text" name = "member_email" maxlength = "128">
             <input type = "hidden" name = "member_email_required"
-                   value = "<cf:GetPhrase phrase_id="702" lang_id="${lang}" />">
+                   value = "<fmt:message key="702"  />">
 
             <br>
             <input type = "checkbox" name = "active" value = "1" checked>
 
-            <cf:GetPhrase phrase_id = "820" lang_id = "${lang}"/> </font>
+            <fmt:message key = "820" /> </font>
 
             <br>
             <input type = "hidden" name = "act" value = "create">
             <input type = "hidden" name = "list"
             value = "<c:out value="${list_id}" />">
             <input type = "submit" name = "create_member"
-            value = "<cf:GetPhrase phrase_id="825" lang_id="${lang}" />">
+            value = "<fmt:message key="825"  />">
         </form>
 
         </li>

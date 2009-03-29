@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -17,18 +18,18 @@
 <c:forEach var = "row" items = "${msg_type.rows}">
     <h3>
 
-    <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>
+    <fmt:message key = "58" />
 
     :
 
     <c:out value = '${row.status_name}'/></h3> <b>
 
-    <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "42" />:</b>
 
     <c:out value = '${row.letter_subject}'/>
 
     <p>
-    <cf:GetPhrase phrase_id = "184" lang_id = "${lang}"/>
+    <fmt:message key = "184" />
 
     <menu><c:out value = '${row.letter_body}'/></menu>
 </c:forEach>

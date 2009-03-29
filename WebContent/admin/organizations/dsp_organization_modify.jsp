@@ -95,7 +95,7 @@
     <c:when test = "${act=='edit'}">
         <h3>
 
-        <cf:GetPhrase phrase_id = "1114" lang_id = "${lang}"/></h3>
+        <fmt:message key = "1114" /></h3>
 
         <sql:query var = "edit_organization">
             select * from organizations where organization_id = ?
@@ -178,7 +178,7 @@
             <sql:param value = "${sessionScope.lang}"/>
         </sql:query>
 
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <form action = "index.jsp?fuseaction=act_organization" method = "post">
             <input type = "hidden"
@@ -188,25 +188,25 @@
                    value = "<c:out value="${organization_id}" />">
             <input type = "hidden"
                    name = "organization_type_id_required"
-                   value = "<cf:GetPhrase phrase_id="1121" lang_id="${lang}" />">
+                   value = "<fmt:message key="1121"  />">
             <input type = "hidden"
                    name = "organization_name_required"
-                   value = "<cf:GetPhrase phrase_id="1117" lang_id="${lang}" />">
+                   value = "<fmt:message key="1117"  />">
 
             <table width = "100%" cellpadding = "3">
                 <tr bgcolor = "CFCFCF">
                     <td colspan = "2">
                         <font face = "arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "1115" lang_id = "${lang}"/>
+                        <fmt:message key = "1115" />
                     </td>
                 </tr>
 
                 <tr>
                     <td><font face = "arial" color = "FF0000">*
 
-                        <cf:GetPhrase phrase_id = "628"
-                                      lang_id = "${lang}"/></font></td>
+                        <fmt:message key = "628"
+                                      /></font></td>
 
                     <td><input type = "text"
                                name = "organization_name"
@@ -216,8 +216,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1119"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1119"
+                                      /></td>
 
                     <td>
                         <select name = "organization_type_id" size = "1"
@@ -237,8 +237,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "61"
-                                      lang_id = "${lang}"/>-1</td>
+                        <fmt:message key = "61"
+                                      />-1</td>
 
                     <td><input type = "text"
                                name = "organization_address_line_1"
@@ -248,8 +248,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "61"
-                                      lang_id = "${lang}"/>-2</td>
+                        <fmt:message key = "61"
+                                      />-2</td>
 
                     <td><input type = "text"
                                name = "organization_address_line_2"
@@ -259,8 +259,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1058"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1058"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_city"
@@ -270,8 +270,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1059"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1059"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_prov_state_code"
@@ -281,8 +281,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1060"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1060"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_prov_state_name"
@@ -292,8 +292,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1061"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1061"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_postal_zip_code"
@@ -303,8 +303,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "62"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "62"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_phone"
@@ -314,8 +314,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "29"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "29"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_fax"
@@ -325,8 +325,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "24"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "24"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_email"
@@ -336,8 +336,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "64"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "64"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_url"
@@ -347,10 +347,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "330"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "330"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_contact_firstname"
@@ -360,10 +360,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "619"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "619"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_contact_initial"
@@ -373,10 +373,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "329"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "329"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_contact_lastname"
@@ -386,10 +386,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "24"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "24"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_contact_email"
@@ -402,7 +402,7 @@
                 <tr bgcolor = "CFCFCF">
                     <td colspan = "2"
                         align = "center"><input type = "submit"
-                                                value = " <cf:GetPhrase phrase_id = "456" lang_id = "${lang}"/> "></td>
+                                                value = " <fmt:message key = "456" /> "></td>
         </form>
 
         </tr>
@@ -413,11 +413,11 @@
     <c:when test = "${act=='add'}">
         <h3>
 
-        <cf:GetPhrase phrase_id = "1118" lang_id = "${lang}"/></h3>
+        <fmt:message key = "1118" /></h3>
 
         <c:set var = "act" value = "add" scope = "page"/>
 
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <form action = "index.jsp?fuseaction=act_organization" method = "post">
             <input type = "hidden"
@@ -427,25 +427,25 @@
                    value = "<c:out value="${organization_id}" />">
             <input type = "hidden"
                    name = "organization_type_id_required"
-                   value = "<cf:GetPhrase phrase_id="1121" lang_id="${lang}" />">
+                   value = "<fmt:message key="1121"  />">
             <input type = "hidden"
                    name = "organization_name_required"
-                   value = "<cf:GetPhrase phrase_id="1117" lang_id="${lang}" />">
+                   value = "<fmt:message key="1117"  />">
 
             <table width = "100%" cellpadding = "3">
                 <tr bgcolor = "CFCFCF">
                     <td colspan = "2">
                         <font face = "arial" size = "-1"><b>
 
-                        <cf:GetPhrase phrase_id = "1115" lang_id = "${lang}"/>
+                        <fmt:message key = "1115" />
                     </td>
                 </tr>
 
                 <tr>
                     <td><font face = "arial" color = "FF0000">
 
-                        <cf:GetPhrase phrase_id = "628"
-                                      lang_id = "${lang}"/>*</font></td>
+                        <fmt:message key = "628"
+                                      />*</font></td>
 
                     <td><input type = "text"
                                name = "organization_name"
@@ -455,7 +455,7 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1119" lang_id = "${lang}"/>
+                        <fmt:message key = "1119" />
 
                         </font></td>
 
@@ -473,8 +473,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "61"
-                                      lang_id = "${lang}"/>-1</td>
+                        <fmt:message key = "61"
+                                      />-1</td>
 
                     <td><input type = "text"
                                name = "organization_address_line_1"
@@ -484,8 +484,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "61"
-                                      lang_id = "${lang}"/>-2</td>
+                        <fmt:message key = "61"
+                                      />-2</td>
 
                     <td><input type = "text"
                                name = "organization_address_line_2"
@@ -495,8 +495,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1058"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1058"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_city"
@@ -506,8 +506,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1059"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1059"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_prov_state_code"
@@ -517,8 +517,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1060"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1060"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_prov_state_name"
@@ -528,8 +528,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "1061"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "1061"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_postal_zip_code"
@@ -539,8 +539,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "62"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "62"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_phone"
@@ -551,8 +551,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "29"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "29"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_fax"
@@ -563,8 +563,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "24"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "24"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_email"
@@ -574,8 +574,8 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "64"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "64"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_url"
@@ -585,10 +585,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "330"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "330"
+                                      /></td>
 
                     <td><input type = "text"
                                size = "40"
@@ -598,10 +598,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "619"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "619"
+                                      /></td>
 
                     <td><input type = "text"
                                name = "organization_contact_initial"
@@ -611,10 +611,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "329"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "329"
+                                      /></td>
 
                     <td><input type = "text"
                                size = "40"
@@ -624,10 +624,10 @@
 
                 <tr>
                     <td>
-                        <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>
+                        <fmt:message key = "23" />
 
-                        <cf:GetPhrase phrase_id = "24"
-                                      lang_id = "${lang}"/></td>
+                        <fmt:message key = "24"
+                                      /></td>
 
                     <td><input type = "text"
                                size = "40"
@@ -640,7 +640,7 @@
                 <tr bgcolor = "CFCFCF">
                     <td colspan = "2"
                         align = "center"><input type = "submit"
-                                                value = " <cf:GetPhrase phrase_id = "456" lang_id = "${lang}"/> "></td>
+                                                value = " <fmt:message key = "456" /> "></td>
         </form>
 
         </tr>
@@ -653,7 +653,7 @@
 <c:if test = "${act=='edit'}">
     <h3>
 
-    <cf:GetPhrase phrase_id = "1116" lang_id = "${lang}"/></h3>
+    <fmt:message key = "1116" /></h3>
 
     <form action = "index.jsp?fuseaction=act_organization" method = "post">
         <input type = "hidden"
@@ -661,9 +661,9 @@
                value = "<c:out value="${organization_id}" />">
         <input type = "hidden" name = "act" value = "delete">
 
-        <cf:GetPhrase phrase_id = "130" lang_id = "${lang}"/>
+        <fmt:message key = "130" />
 
         <br><input type = "submit"
-                   value = " <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/> ">
+                   value = " <fmt:message key = "143" /> ">
     </form>
 </c:if>

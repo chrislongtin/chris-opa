@@ -120,7 +120,7 @@
     <c:when test = "${act=='edit'}">
         <h3>
 
-        <cf:GetPhrase phrase_id = "662" lang_id = "${lang}"/></h3>
+        <fmt:message key = "662" /></h3>
 
         <sql:query var = "edit_proposal">
             select p.*, c.cfp_title from proponent_record p, cfp_info c where
@@ -256,7 +256,7 @@
     <c:otherwise>
         <h3>
 
-        <cf:GetPhrase phrase_id = "93" lang_id = "${lang}"/></h3>
+        <fmt:message key = "93" /></h3>
     </c:otherwise>
 </c:choose>
 
@@ -270,7 +270,7 @@
 <c:set var = "currency" value = "${currency_type.rows[0].currency}"
        scope = "page"/>
 
-<cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+<fmt:message key = "41" />
 
 <form action = "index.jsp?fuseaction=act_proposal_submit" method = "post"
       ENCTYPE = "multipart/form-data">
@@ -280,7 +280,7 @@
             <input type = "hidden" name = "cfp_code"
             value = "<c:out value="${cfp_code}" />">
             <input type = "hidden" name = "proponent_password_required"
-            value = "<cf:GetPhrase phrase_id="663" lang_id="${lang}" />">
+            value = "<fmt:message key="663"  />">
         </c:when>
 
         <c:otherwise>
@@ -290,32 +290,32 @@
     </c:choose>
 
     <input type = "hidden" name = "proposal_title_required"
-    value = "<cf:GetPhrase phrase_id="664" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="664"  />"> <input type = "hidden"
     name = "requested_amount_float"
-    value = "<cf:GetPhrase phrase_id="778" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="778"  />"> <input type = "hidden"
     name = "proponent_institution_required"
-    value = "<cf:GetPhrase phrase_id="666" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="666"  />"> <input type = "hidden"
     name = "proponent_address_required"
-    value = "<cf:GetPhrase phrase_id="667" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="667"  />"> <input type = "hidden"
     name = "proponent_phone_required"
-    value = "<cf:GetPhrase phrase_id="668" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="668"  />"> <input type = "hidden"
     name = "proponent_leader_affiliation_required"
-    value = "<cf:GetPhrase phrase_id="669" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="669"  />"> <input type = "hidden"
     name = "proponent_leader_address_required"
-    value = "<cf:GetPhrase phrase_id="670" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="670"  />"> <input type = "hidden"
     name = "proponent_leader_phone_required"
-    value = "<cf:GetPhrase phrase_id="671" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="671"  />"> <input type = "hidden"
     name = "proponent_leader_firstname_required"
-    value = "<cf:GetPhrase phrase_id="698" lang_id="${lang}" />"> <input type = "hidden"
+    value = "<fmt:message key="698"  />"> <input type = "hidden"
     name = "proponent_leader_lastname_required"
-    value = "<cf:GetPhrase phrase_id="697" lang_id="${lang}" />">
+    value = "<fmt:message key="697"  />">
 
     <table width = "100%" cellpadding = "3">
         <tr bgcolor = "CFCFCF">
             <td colspan = "2">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "617" lang_id = "${lang}"/>
+                <fmt:message key = "617" />
             </td>
         </tr>
 
@@ -324,9 +324,9 @@
                 <td>
                     <font face = "arial" size = "-1" color = "FF0000">*
 
-                    <cf:GetPhrase phrase_id = "299" lang_id = "${lang}"/>
+                    <fmt:message key = "299" />
 
-                    <cf:GetPhrase phrase_id = "92" lang_id = "${lang}"/></font>
+                    <fmt:message key = "92" /></font>
                 </td>
 
                 <td>
@@ -339,7 +339,7 @@
                 <td colspan = "2">
                     <font face = "arial" size = "-2">
 
-                    <cf:GetPhrase phrase_id = "99" lang_id = "${lang}"/>
+                    <fmt:message key = "99" />
                 </td>
             </tr>
         </c:if>
@@ -388,7 +388,7 @@ order by cfp_cat_id
 
 <tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="100" lang_id="${lang}" /></font></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="100"  /></font></td>
 	<td><input type="text" name="proposal_title" size="40" value="<c:out value="${proposal_title}" />"></td>
 	
 </tr>
@@ -396,14 +396,14 @@ order by cfp_cat_id
 <c:if test="${(deadline_date=='current') and act!='edit'}" >
 <tr>
 
-	<td valign="top"><font face="Arial" size="-1"><cf:GetPhrase phrase_id="101" lang_id="${lang}" /></td>
+	<td valign="top"><font face="Arial" size="-1"><fmt:message key="101"  /></td>
 	<td><font face="Arial" size="-1">
 	<font face="Arial" size="-2"><input type="file" name="doc_filename" size="30"></td>
 	
 </tr><tr>
 
 	<td colspan="2"><font face="Arial" size="-2">
-	<cf:GetPhrase phrase_id="48" lang_id="${lang}" />
+	<fmt:message key="48"  />
 </td>
 
 </tr>
@@ -412,110 +412,110 @@ order by cfp_cat_id
 
 <tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="69" lang_id="${lang}" /></font></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="69"  /></font></td>
 	<td><font face="arial" size="-1">(<c:out value="${currency}" />) <input type="number" name="requested_amount" size="10" value="<fmt:formatNumber value="${requested_amount}" type="currency" currencySymbol=""/>"></td>
 
 </tr><tr>
 
-	<td colspan="2"><font face="arial" size="-1"><cf:GetPhrase phrase_id="298" lang_id="${lang}" />
+	<td colspan="2"><font face="arial" size="-1"><fmt:message key="298"  />
 <input type="number" name="previous_tracking_code" size="2" value="<c:out value="${previous_tracking_code}" />"></td>
 
 </tr><tr bgcolor="CFCFCF">
 
-	<td colspan="2"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="65" lang_id="${lang}" /></b></td>
+	<td colspan="2"><font face="arial" size="-1"><b><fmt:message key="65"  /></b></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="330" lang_id="${lang}" /></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="330"  /></td>
 	<td><input type="text" name="proponent_leader_firstname" value="<c:out value="${proponent_leader_firstname}" />" size="10"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="619" lang_id="${lang}" /></td>
+	<td><font face="arial" size="-1"><fmt:message key="619"  /></td>
 	<td><input type="text" name="proponent_leader_initial" value="<c:out value="${proponent_leader_initial}" />" size="2"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="620" lang_id="${lang}" /></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="620"  /></td>
 	<td><input type="text" name="proponent_leader_lastname" value="<c:out value="${proponent_leader_lastname}" />" size="10"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="300" lang_id="${lang}" /></font></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="300"  /></font></td>
 	<td><input type="text" name="proponent_leader_affiliation" value="<c:out value="${proponent_leader_affiliation}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="61" lang_id="${lang}" /></font></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="61"  /></font></td>
 	<td><input type="text" name="proponent_leader_address" value="<c:out value="${proponent_leader_address}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="62" lang_id="${lang}" /></font></td>
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="62"  /></font></td>
 	<td><input type="text" name="proponent_leader_phone" size="10" value="<c:out value="${proponent_leader_phone}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="29" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="29"  /></td>	
 	<td><input type="text" name="proponent_leader_fax" size="10" value="<c:out value="${proponent_leader_fax}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="24" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="24"  /></td>	
 	<td><input type="text" name="proponent_leader_email" value="<c:out value="${proponent_leader_email}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="621" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="621"  /></td>	
 	<td><input type="text" name="proponent_citizenship" value="<c:out value="${proponent_citizenship}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="622" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="622"  /></td>	
 	<td><input type="text" name="proponent_residency" value="<c:out value="${proponent_residency}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="623" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="623"  /></td>	
 	<td><input type="text" name="project_country" value="<c:out value="${project_country}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="624" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="624"  /></td>	
 	<td><input type="text" name="project_date" value="<c:out value="${project_date}" />"></td>
 
 </tr><tr bgcolor="CFCFCF">
 
-	<td colspan="2"><font face="arial" size="-1"><b><cf:GetPhrase phrase_id="103" lang_id="${lang}" /></b></td>
+	<td colspan="2"><font face="arial" size="-1"><b><fmt:message key="103"  /></b></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="60" lang_id="${lang}" /></font></td>	
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="60"  /></font></td>	
 	<td><input type="text" name="proponent_institution" value="<c:out value="${proponent_institution}" />" size="40"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="25" lang_id="${lang}" /></font></td>	
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="25"  /></font></td>	
 	<td><input type="text" name="proponent_address" value="<c:out value="${proponent_address}" />" size="40"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1" color="FF0000">* <cf:GetPhrase phrase_id="104" lang_id="${lang}" /></font></td>	
+	<td><font face="arial" size="-1" color="FF0000">* <fmt:message key="104"  /></font></td>	
 	<td><input type="text" name="proponent_phone" size="10" value="<c:out value="${proponent_phone}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="105" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="105"  /></td>	
 	<td><input type="text" name="proponent_fax" size="10" value="<c:out value="${proponent_fax}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="106" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="106"  /></td>	
 	<td><input type="text" name="proponent_email" value="<c:out value="${proponent_email}" />"></td>
 
 </tr><tr>
 
-	<td><font face="arial" size="-1"><cf:GetPhrase phrase_id="64" lang_id="${lang}" /></td>	
+	<td><font face="arial" size="-1"><fmt:message key="64"  /></td>	
 	<td><input type="text" name="proponent_url" value="<c:out value="${proponent_url}" />"></td>
 
 </tr><tr bgcolor="CFCFCF">
@@ -528,13 +528,13 @@ order by cfp_cat_id
 
 <!--- option to delete the proposal record --->
 <c:if test="${act=='edit'}" >
-<h3><cf:GetPhrase phrase_id="301" lang_id="${lang}" /></h3>
+<h3><fmt:message key="301"  /></h3>
 
 <form action="index.jsp?fuseaction=act_proposal_submit" method="post">
 <input type="hidden" name="tracking_code" value="<c:out value="${tracking_code}" />">
 <input type="hidden" name="cfp_code" value="<c:out value="${cfp_code}" />">
 <input type="hidden" name="act" value="delete">
-<cf:GetPhrase phrase_id="130" lang_id="${lang}" />
+<fmt:message key="130"  />
 
 <br><input type="submit" value=" Delete ">
 </form>

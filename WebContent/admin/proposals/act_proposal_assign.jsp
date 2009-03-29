@@ -74,8 +74,8 @@
                 <c:when test = "${r_assign_verify.rowCount!=0}">
                     <p><h4>
 
-                    <cf:GetPhrase phrase_id = "459" lang_id = "${lang}"/>!<p>
-                    <cf:GetPhrase phrase_id = "562" lang_id = "${lang}"/>!</h4>
+                    <fmt:message key = "459" />!<p>
+                    <fmt:message key = "562" />!</h4>
 
                     <c:set var = "redirect" value = "no" scope = "page"/>
                 </c:when>
@@ -98,8 +98,8 @@
                         <c:when test = "${coord_email.rowCount==0}">
                             <p><h4>
 
-                            <cf:GetPhrase phrase_id = "563"
-                                          lang_id = "${lang}"/></h4>
+                            <fmt:message key = "563"
+                                          /></h4>
 
                             <c:set var = "redirect" value = "no"
                                    scope = "page"/>
@@ -203,16 +203,16 @@
 			    <sm:Sendmail host = "leapfrogindex.com"  domain = "leapfrogindex.com" port = "25"
 					    from = "${coordinator_email}"
 					    to = "${reviewer_email}" debug = "true"            subject = "Proposal Assignment">
-			       <cf:GetPhrase phrase_id = "461" lang_id = "${lang}"/> <c:out value = "${re.reviewer_firstname} ${re.reviewer_lastname}"/>
-			       <cf:GetPhrase phrase_id = "564" lang_id = "${lang}"/>:
-			       <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/>: <c:out value = "${proposal_title}"/>
-			       <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/> : <c:out value = "${cfp_code}"/>
-			       <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/> : <c:out value = "${tracking_code}"/>
-			       <cf:GetPhrase phrase_id = "565" lang_id = "${lang}"/>: <c:out value = "${re.reviewer_login}"/>
-			       <cf:GetPhrase phrase_id = "566" lang_id = "${lang}"/>: <c:out value = "${re.reviewer_password}"/>
-			       <cf:GetPhrase phrase_id = "567" lang_id = "${lang}"/>
+			       <fmt:message key = "461" /> <c:out value = "${re.reviewer_firstname} ${re.reviewer_lastname}"/>
+			       <fmt:message key = "564" />:
+			       <fmt:message key = "151" />: <c:out value = "${proposal_title}"/>
+			       <fmt:message key = "56" /> : <c:out value = "${cfp_code}"/>
+			       <fmt:message key = "57" /> : <c:out value = "${tracking_code}"/>
+			       <fmt:message key = "565" />: <c:out value = "${re.reviewer_login}"/>
+			       <fmt:message key = "566" />: <c:out value = "${re.reviewer_password}"/>
+			       <fmt:message key = "567" />
 			       <c:out value = "${host_url}"/>
-			       <cf:GetPhrase phrase_id = "568" lang_id = "${lang}"/> 
+			       <fmt:message key = "568" /> 
 			    </sm:Sendmail>
 
 				   
@@ -230,51 +230,51 @@
                                 </mt:setrecipient>
 
                                 <mt:subject>
-                                    <cf:GetPhrase phrase_id = "942"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "942"
+                                                  />
                                 </mt:subject>
 
                                 <mt:message>
-                                    <cf:GetPhrase phrase_id = "461"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "461"
+                                                  />
 
                                     <c:out value = "${re.reviewer_firstname} ${re.reviewer_lastname}"/>
 
-                                    <cf:GetPhrase phrase_id = "564"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "564"
+                                                  />:
 
-                                    <cf:GetPhrase phrase_id = "151"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "151"
+                                                  />:
 
                                     <c:out value = "${proposal_title}"/>
 
-                                    <cf:GetPhrase phrase_id = "56"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "56"
+                                                  />:
 
                                     <c:out value = "${cfp_code}"/>
 
-                                    <cf:GetPhrase phrase_id = "57"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "57"
+                                                  />:
 
                                     <c:out value = "${tracking_code}"/>
 
-                                    <cf:GetPhrase phrase_id = "565"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "565"
+                                                  />:
 
                                     <c:out value = "${re.reviewer_login}"/>
 
-                                    <cf:GetPhrase phrase_id = "566"
-                                                  lang_id = "${lang}"/>:
+                                    <fmt:message key = "566"
+                                                  />:
 
                                     <c:out value = "${re.reviewer_password}"/>
 
-                                    <cf:GetPhrase phrase_id = "567"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "567"
+                                                  />
 
                                     <c:out value = "${host_url}"/>
 
-                                    <cf:GetPhrase phrase_id = "568"
-                                                  lang_id = "${lang}"/>
+                                    <fmt:message key = "568"
+                                                  />
                                 </mt:message>
 
                                 <mt:send/>

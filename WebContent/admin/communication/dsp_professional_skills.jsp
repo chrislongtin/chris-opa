@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -19,17 +20,17 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "1002" lang_id = "${lang}"/></h3>
+<fmt:message key = "1002" /></h3>
 
 <c:choose>
     <c:when test = "${skills.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "1003" lang_id = "${lang}"/>
+        <fmt:message key = "1003" />
     </c:when>
 
     <c:otherwise>
         <a STYLE = "text-decoration: underline" href = "#add">
 
-        <cf:GetPhrase phrase_id = "1004" lang_id = "${lang}"/></a>
+        <fmt:message key = "1004" /></a>
     </c:otherwise>
 </c:choose>
 
@@ -54,7 +55,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a>
+                <fmt:message key = "143" /></a>
                 <a STYLE = "text-decoration: underline"
                    href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='dsp_edit_skills'/>
@@ -63,7 +64,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-                <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                <fmt:message key = "144" /></a>
             </td>
         </tr>
     </c:forEach>
@@ -71,7 +72,7 @@
 
 <a name = "add"> <h4>
 
-<cf:GetPhrase phrase_id = "1004" lang_id = "${lang}"/>:</h4>
+<fmt:message key = "1004" />:</h4>
 
 <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_skills'/>
@@ -80,12 +81,12 @@
       method = "post">
     <input type = "hidden" name = "act" value = "Add">
     <input type = "hidden" name = "skill_id_required"
-    value = "<cf:GetPhrase phrase_id='1005' lang_id='${lang}'/>"> <input type = "hidden"
+    value = "<fmt:message key='1005' />"> <input type = "hidden"
     name = "skill_name_required"
-    value = "<cf:GetPhrase phrase_id='1006' lang_id='${lang}'/>"> <input type = "hidden"
+    value = "<fmt:message key='1006' />"> <input type = "hidden"
     name = "industry_id" value = "0"> <b>
 
-    <cf:GetPhrase phrase_id = "1007" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "1007" />:</b>
 
     <br>
     <input type = "text" name = "skill_id" length = "4"
@@ -94,12 +95,12 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "1008" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "1008" />:</b>
 
     <br>
     <input type = "text" name = "skill_name" length = "30">
 
     <p>
     <input type = "submit"
-           value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+           value = " <fmt:message key="456"  /> ">
 </form>

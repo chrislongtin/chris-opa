@@ -28,7 +28,7 @@
         <td colspan = "2">
             <font face = "Arial"><h3>(
 
-            <cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>
+            <fmt:message key = "586" />
 
             -
 
@@ -40,7 +40,7 @@
         <td>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "78" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "78" />:</b>
         </td>
 
         <td>
@@ -55,7 +55,7 @@
         <td>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "79" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "79" />:</b>
         </td>
 
         <td>
@@ -71,7 +71,7 @@
             <td colspan = "2">
                 <font face = "Arial" size = "-1"> <b>
 
-                <cf:GetPhrase phrase_id = "80" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "80" />:</b>
 
                 <p>
                 <cf:ParagraphFormat value = "${cfp.cfp_background}"/>
@@ -84,7 +84,7 @@
             <td colspan = "2">
                 <font face = "Arial" size = "-1"> <b>
 
-                <cf:GetPhrase phrase_id = "63" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "63" />:</b>
 
                 <p>
                 <cf:ParagraphFormat value = "${cfp.cfp_format}"/>
@@ -96,13 +96,13 @@
         <td>
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "81" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "81" />:</b>
         </td>
 
         <td>
             <font face = "Arial" size = "-1"><b><font color = "FF0000">
 
-            <cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>
+            <fmt:message key = "586" />
 
             -
 
@@ -114,7 +114,7 @@
         <td colspan = "2">
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "82" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "82" />:</b>
 
             <fmt:formatNumber value = "${cfp.cfp_maxaward}" type = "currency"
                               currencySymbol = ""/>
@@ -125,7 +125,7 @@
         <td colspan = "2">
             <font face = "Arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "83" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "83" />:</b>
 
             <fmt:formatNumber value = "${cfp.cfp_totalfunds}" type = "currency"
                               currencySymbol = ""/>
@@ -136,11 +136,11 @@
 <h4><a STYLE = "text-decoration: underline"
        href = "index.jsp?fuseaction=cfp_eligibility&cfp_code=<c:out value="${param.cfp_code}" />&lang=<c:out value="${lang}" />">
 
-<cf:GetPhrase phrase_id = "84" lang_id = "${lang}"/></a></h4>
+<fmt:message key = "84" /></a></h4>
 
 <p>
 <h3>
 
-<cf:GetPhrase phrase_id = "19" lang_id = "${lang}"/>:</h3>
+<fmt:message key = "19" />:</h3>
 
 <cf:ParagraphFormat value = "${cr}"/>

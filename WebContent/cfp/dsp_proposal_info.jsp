@@ -29,15 +29,15 @@
     <div align = "center">
         <b>
 
-        <cf:GetPhrase phrase_id = "770" lang_id = "${lang}"/>
+        <fmt:message key = "770" />
 
         <p>
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_edit">
 
-        <cf:GetPhrase phrase_id = "733" lang_id = "${lang}"/></a>
+        <fmt:message key = "733" /></a>
 
-        <cf:GetPhrase phrase_id = "734" lang_id = "${lang}"/></b>
+        <fmt:message key = "734" /></b>
     </div>
 
     <%
@@ -66,7 +66,7 @@
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "773" lang_id = "${lang}"/>.</b>
+    <fmt:message key = "773" />.</b>
 
     <%
     if (true)
@@ -140,7 +140,7 @@
                     name = "proponent_password"
                     value = "<c:out value="${proponent_password}" />"> <input type = "hidden" name = "act" value = "edit">
                     <input type = "submit"
-                    value = "<cf:GetPhrase phrase_id="144" lang_id="${lang}" />">
+                    value = "<fmt:message key="144"  />">
                 </form>
             </td>
 
@@ -151,7 +151,7 @@
                     value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                     name = "proponent_password"
                     value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                    value = "<cf:GetPhrase phrase_id="615" lang_id="${lang}" />">
+                    value = "<fmt:message key="615"  />">
                 </form>
             </td>
 
@@ -162,7 +162,7 @@
                     value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                     name = "proponent_password"
                     value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                    value = "<cf:GetPhrase phrase_id="616" lang_id="${lang}" />">
+                    value = "<fmt:message key="616"  />">
                 </form>
             </td>
         </tr>
@@ -173,7 +173,7 @@
             <td colspan = "2">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "617" lang_id = "${lang}"/>
+                <fmt:message key = "617" />
             </td>
         </tr>
 
@@ -181,7 +181,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "100" lang_id = "${lang}"/></font>
+                <fmt:message key = "100" /></font>
             </td>
 
             <td>
@@ -195,7 +195,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "586" lang_id = "${lang}"/>:</font>
+                <fmt:message key = "586" />:</font>
             </td>
 
             <td>
@@ -209,7 +209,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "618" lang_id = "${lang}"/></font>
+                <fmt:message key = "618" /></font>
             </td>
 
             <td>
@@ -223,7 +223,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "69" lang_id = "${lang}"/></font>
+                <fmt:message key = "69" /></font>
             </td>
 
             <td>
@@ -244,7 +244,7 @@
                 <td colspan = "2">
                     <font face = "arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "298" lang_id = "${lang}"/>
+                    <fmt:message key = "298" />
 
                     <c:out value = "${row.previous_tracking_code}"/>
                 </td>
@@ -255,7 +255,7 @@
             <td colspan = "2">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "65" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "65" />:</b>
             </td>
         </tr>
 
@@ -263,7 +263,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "330" lang_id = "${lang}"/>:
+                <fmt:message key = "330" />:
             </td>
 
             <td>
@@ -277,7 +277,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "619" lang_id = "${lang}"/>:
+                <fmt:message key = "619" />:
             </td>
 
             <td>
@@ -291,7 +291,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "620" lang_id = "${lang}"/>:
+                <fmt:message key = "620" />:
             </td>
 
             <td>
@@ -305,7 +305,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "300" lang_id = "${lang}"/></font>
+                <fmt:message key = "300" /></font>
             </td>
 
             <td>
@@ -319,7 +319,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/></font>
+                <fmt:message key = "61" /></font>
             </td>
 
             <td>
@@ -333,7 +333,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/></font>
+                <fmt:message key = "62" /></font>
             </td>
 
             <td>
@@ -347,7 +347,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>
+                <fmt:message key = "29" />
             </td>
 
             <td>
@@ -361,7 +361,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>
+                <fmt:message key = "24" />
             </td>
 
             <td>
@@ -375,7 +375,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "621" lang_id = "${lang}"/>
+                <fmt:message key = "621" />
             </td>
 
             <td>
@@ -389,7 +389,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "622" lang_id = "${lang}"/>
+                <fmt:message key = "622" />
             </td>
 
             <td>
@@ -403,7 +403,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "761" lang_id = "${lang}"/>
+                <fmt:message key = "761" />
             </td>
 
             <td>
@@ -417,7 +417,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "624" lang_id = "${lang}"/>
+                <fmt:message key = "624" />
             </td>
 
             <td>
@@ -431,7 +431,7 @@
             <td colspan = "2">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "103" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "103" />:</b>
             </td>
         </tr>
 
@@ -439,7 +439,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "60" lang_id = "${lang}"/></font>
+                <fmt:message key = "60" /></font>
             </td>
 
             <td>
@@ -453,7 +453,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "25" lang_id = "${lang}"/></font>
+                <fmt:message key = "25" /></font>
             </td>
 
             <td>
@@ -467,7 +467,7 @@
             <td>
                 <font face = "arial" size = "-1"ss>
 
-                <cf:GetPhrase phrase_id = "104" lang_id = "${lang}"/></font>
+                <fmt:message key = "104" /></font>
             </td>
 
             <td>
@@ -481,7 +481,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "105" lang_id = "${lang}"/>
+                <fmt:message key = "105" />
             </td>
 
             <td>
@@ -495,7 +495,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "106" lang_id = "${lang}"/>
+                <fmt:message key = "106" />
             </td>
 
             <td>
@@ -509,7 +509,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>
+                <fmt:message key = "64" />
             </td>
 
             <td>
@@ -526,7 +526,7 @@
             <td colspan = "3">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "595" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "595" />:</b>
             </td>
         </tr>
 
@@ -569,7 +569,7 @@
                                 <input type = "hidden" name = "doc_id"
                                 value = "<c:out value="${row.doc_id}" />"> <input type = "hidden" name = "act" value = "edit">
                                 <input type = "submit"
-                                value = "   <cf:GetPhrase phrase_id="144" lang_id="${lang}" />   ">
+                                value = "   <fmt:message key="144"  />   ">
                             </form>
                         </td>
 
@@ -581,7 +581,7 @@
                                 <input type = "hidden" name = "doc_id"
                                 value = "<c:out value="${row.doc_id}" />"> <input type = "hidden" name = "act" value = "delete_unconfirmed">
                                 <input type = "submit"
-                                value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
+                                value = "<fmt:message key="143"  />">
                             </form>
                         </td>
                     </c:otherwise>
@@ -615,7 +615,7 @@
             <td colspan = "4">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "626" lang_id = "${lang}"/></b>
+                <fmt:message key = "626" /></b>
             </td>
         </tr>
 
@@ -646,7 +646,7 @@
                         <input type = "hidden" name = "researcher_id"
                         value = "<c:out value="${row.researcher_id}" />"> <input type = "hidden" name = "act" value = "edit">
                         <input type = "submit"
-                        value = "  <cf:GetPhrase phrase_id="144" lang_id="${lang}" />  ">
+                        value = "  <fmt:message key="144"  />  ">
                     </form>
                 </td>
 
@@ -658,7 +658,7 @@
                         <input type = "hidden" name = "researcher_id"
                         value = "<c:out value="${row.researcher_id}" />"> <input type = "hidden" name = "act" value = "delete_unconfirmed">
                         <input type = "submit"
-                        value = "<cf:GetPhrase phrase_id="143" lang_id="${lang}" />">
+                        value = "<fmt:message key="143"  />">
                     </form>
                 </td>
             </tr>
@@ -667,7 +667,7 @@
                 <td>
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "62" />:</b>
 
                     <c:out value = "${row.researcher_phone}"/>
                 </td>
@@ -675,7 +675,7 @@
                 <td>
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "29" />:</b>
 
                     <c:out value = "${row.researcher_fax}"/>
                 </td>
@@ -693,7 +693,7 @@
                 <td colspan = "2">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "621" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "621" />:</b>
 
                     <c:out value = "${row.researcher_citizenship}"/>
                 </td>
@@ -701,7 +701,7 @@
                 <td colspan = "2">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "627" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "627" />:</b>
 
                     <c:out value = "${row.researcher_residency}"/>
                 </td>
@@ -711,7 +711,7 @@
                 <td colspan = "4">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "628" lang_id = "${lang}"/>:</b>
+                    <fmt:message key = "628" />:</b>
 
                     <c:out value = "${row.researcher_org}"/>
                 </td>

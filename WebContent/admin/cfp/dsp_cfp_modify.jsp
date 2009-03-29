@@ -41,10 +41,10 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "148" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "148" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <hr size = "1">
         <form action = "<c:url value='index.jsp'>
@@ -56,22 +56,22 @@
             value = "<c:out value='${cfp_code}'/>">
             <input type = "hidden" name = "act" value = "add">
             <input type = "hidden" name = "cfp_title_required"
-            value = "<cf:GetPhrase phrase_id='467' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_maxaward_required" value = "<cf:GetPhrase phrase_id='469' lang_id='${lang}'/>">
+            value = "<fmt:message key='467' />"> <input type = "hidden" name = "cfp_maxaward_required" value = "<fmt:message key='469' />">
             <input type = "hidden" name = "cfp_maxaward_float"
-            value = "<cf:GetPhrase phrase_id='470' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_totalfunds_required" value = "<cf:GetPhrase phrase_id='471' lang_id='${lang}'/>">
+            value = "<fmt:message key='470' />"> <input type = "hidden" name = "cfp_totalfunds_required" value = "<fmt:message key='471' />">
             <input type = "hidden" name = "cfp_startdate_required"
-            value = "<cf:GetPhrase phrase_id='472' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_deadline_required" value = "<cf:GetPhrase phrase_id='473' lang_id='${lang}'/>">
+            value = "<fmt:message key='472' />"> <input type = "hidden" name = "cfp_deadline_required" value = "<fmt:message key='473' />">
             <input type = "hidden" name = "cfp_report_deadline_required"
-            value = "<cf:GetPhrase phrase_id='474' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_proposal_review_deadline_required" value = "<cf:GetPhrase phrase_id='475' lang_id='${lang}'/>">
+            value = "<fmt:message key='474' />"> <input type = "hidden" name = "cfp_proposal_review_deadline_required" value = "<fmt:message key='475' />">
             <input type = "hidden" name = "cfp_report_review_deadline_required"
-            value = "<cf:GetPhrase phrase_id='476' lang_id='${lang}'/>"> <input type = "hidden" name = "first_reminder_required" value = "<cf:GetPhrase phrase_id='477' lang_id='${lang}'/>">
+            value = "<fmt:message key='476' />"> <input type = "hidden" name = "first_reminder_required" value = "<fmt:message key='477' />">
             <input type = "hidden" name = "second_reminder_required"
-            value = "<cf:GetPhrase phrase_id='478' lang_id='${lang}'/>">
+            value = "<fmt:message key='478' />">
 
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>
+            <fmt:message key = "56" />
 
             : CFP-
 
@@ -80,7 +80,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "151" />:</b></font>
 
             <br>
             <input type = "text" name = "cfp_title" size = "50">
@@ -88,7 +88,7 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "80" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "80" />:</b>
 
             <br>
             <textarea name = "cfp_background" cols = "50" rows = "8" wrap>
@@ -97,7 +97,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "82" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "82" />:</b></font>
 
             <br>
             $ <input type = "number" name = "cfp_maxaward" size = "10"
@@ -106,7 +106,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "83" lang_id = "${lang}"/>:</b></font>
+            <fmt:message key = "83" />:</b></font>
 
             <br>
             $ <input type = "number" name = "cfp_totalfunds" size = "10"
@@ -115,7 +115,7 @@
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "160" lang_id = "${lang}"/></b></font>
+            <fmt:message key = "160" /></b></font>
 
             <select name = "currency_id">
                 <option value = "155" selected>USD
@@ -141,8 +141,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "78"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "78"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -155,8 +155,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "123"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "123"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -169,8 +169,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "124"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "124"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -185,8 +185,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "125"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "125"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -199,8 +199,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "126"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "126"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -213,8 +213,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "161"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "161"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -227,8 +227,8 @@
                     <td align = "RIGHT">
                         <font face = "Arial" size = "-1" color = "FF0000"><b>*
 
-                        <cf:GetPhrase phrase_id = "162"
-                                      lang_id = "${lang}"/>:</b>
+                        <fmt:message key = "162"
+                                      />:</b>
                     </td>
 
                     <td>
@@ -241,14 +241,14 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "129" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "129" />:</b>
 
             <br>
             <textarea name = "cfp_format" cols = "50" rows = "3" wrap>
             </textarea>
 
             <input type = "submit"
-                   value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                   value = " <fmt:message key="456"  /> ">
         </form>
     </c:when>
 
@@ -307,10 +307,10 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "163" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "163" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <hr size = "1">
         <form action = "<c:url value='index.jsp'>
@@ -322,22 +322,22 @@
             value = "<c:out value='${cfp_code}'/>">
             <input type = "hidden" name = "act" value = "edit">
             <input type = "hidden" name = "cfp_title_required"
-            value = "<cf:GetPhrase phrase_id='467' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_maxaward_required" value = "<cf:GetPhrase phrase_id='469' lang_id='${lang}'/>">
+            value = "<fmt:message key='467' />"> <input type = "hidden" name = "cfp_maxaward_required" value = "<fmt:message key='469' />">
             <input type = "hidden" name = "cfp_maxaward_required"
-            value = "<cf:GetPhrase phrase_id='469' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_totalfunds_required" value = "<cf:GetPhrase phrase_id='471' lang_id='${lang}'/>">
+            value = "<fmt:message key='469' />"> <input type = "hidden" name = "cfp_totalfunds_required" value = "<fmt:message key='471' />">
             <input type = "hidden" name = "cfp_startdate_required"
-            value = "<cf:GetPhrase phrase_id='472' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_deadline_required" value = "<cf:GetPhrase phrase_id='473' lang_id='${lang}'/>">
+            value = "<fmt:message key='472' />"> <input type = "hidden" name = "cfp_deadline_required" value = "<fmt:message key='473' />">
             <input type = "hidden" name = "cfp_report_deadline_required"
-            value = "<cf:GetPhrase phrase_id='474' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_proposal_review_deadline_required" value = "<cf:GetPhrase phrase_id='475' lang_id='${lang}'/>">
+            value = "<fmt:message key='474' />"> <input type = "hidden" name = "cfp_proposal_review_deadline_required" value = "<fmt:message key='475' />">
             <input type = "hidden" name = "cfp_report_review_deadline_required"
-            value = "<cf:GetPhrase phrase_id='476' lang_id='${lang}'/>"> <input type = "hidden" name = "first_reminder_required" value = "<cf:GetPhrase phrase_id='477' lang_id='${lang}'/>">
+            value = "<fmt:message key='476' />"> <input type = "hidden" name = "first_reminder_required" value = "<fmt:message key='477' />">
             <input type = "hidden" name = "second_reminder_required"
-            value = "<cf:GetPhrase phrase_id='478' lang_id='${lang}'/>"><c:forEach var = "row"
+            value = "<fmt:message key='478' />"><c:forEach var = "row"
             items = "${edit_cfp.rows}">
                 <p>
                 <b>
 
-                <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>
+                <fmt:message key = "56" />
 
                 : CFP-
 
@@ -346,8 +346,8 @@
                 <p>
                 <font color = "FF0000"><b>*
 
-                <cf:GetPhrase phrase_id = "151"
-                              lang_id = "${lang}"/>:</b></font>
+                <fmt:message key = "151"
+                              />:</b></font>
 
                 <br>
                 <input type = "text"
@@ -358,7 +358,7 @@
                 <p>
                 <b>
 
-                <cf:GetPhrase phrase_id = "80" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "80" />:</b>
 
                 <br>
                 <textarea name = "cfp_background" cols = "50" rows = "3" wrap>
@@ -368,7 +368,7 @@
                 <p>
                 <font color = "FF0000"><b>*
 
-                <cf:GetPhrase phrase_id = "82" lang_id = "${lang}"/>:</b></font>
+                <fmt:message key = "82" />:</b></font>
 
                 <br>
                 <input type = "number"
@@ -379,7 +379,7 @@
                 <p>
                 <font color = "FF0000"><b>*
 
-                <cf:GetPhrase phrase_id = "83" lang_id = "${lang}"/>:</b></font>
+                <fmt:message key = "83" />:</b></font>
 
                 <br>
                 <input type = "number"
@@ -390,7 +390,7 @@
                 <p>
                 <font color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "160" lang_id = "${lang}"/></font>
+                <fmt:message key = "160" /></font>
 
                 <select name = "currency_id">
                     <option value = "<c:out value='${row.currency_id}'/>">
@@ -420,8 +420,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "78"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "78"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -437,8 +437,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "123"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "123"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -454,8 +454,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "124"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "124"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -471,8 +471,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "125"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "125"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -488,8 +488,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "126"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "126"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -505,8 +505,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "161"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "161"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -522,8 +522,8 @@
                             <font face = "Arial" size = "-1"
                                   color = "FF0000"><b>*
 
-                            <cf:GetPhrase phrase_id = "162"
-                                          lang_id = "${lang}"/>:</b></font>
+                            <fmt:message key = "162"
+                                          />:</b></font>
                         </td>
 
                         <td>
@@ -538,8 +538,8 @@
                 <p>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "129"
-                              lang_id = "${lang}"/>:</b></font>
+                <fmt:message key = "129"
+                              />:</b></font>
 
                 <br>
                 <textarea name = "cfp_format" cols = "50" rows = "3" wrap>
@@ -547,7 +547,7 @@
                 </textarea>
 
                 <input type = "submit"
-                       value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                       value = " <fmt:message key="456"  /> ">
             </c:forEach>
         </form>
     </c:when>

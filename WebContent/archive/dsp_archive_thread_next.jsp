@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -48,7 +49,7 @@
             </c:when>
 
             <c:otherwise>
-                <cf:GetPhrase phrase_id = "38" lang_id = "${lang}"/>
+                <fmt:message key = "38" />
             </c:otherwise>
         </c:choose>
 

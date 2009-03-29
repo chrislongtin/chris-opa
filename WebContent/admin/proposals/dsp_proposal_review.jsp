@@ -89,13 +89,13 @@
 
 <h3>
 
-<cf:GetPhrase phrase_id = "246" lang_id = "${lang}"/>
+<fmt:message key = "246" />
 
 "
 
 <c:out value = "${pi.proposal_title}"/>"</h3> <b>
 
-<cf:GetPhrase phrase_id = "594" lang_id = "${lang}"/>:</b>
+<fmt:message key = "594" />:</b>
 
 <c:out value = "${reviewer_name.rows[0].reviewer_firstname} ${reviewer_name.rows[0].reviewer_lastname}"/>
 
@@ -103,23 +103,23 @@
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>:</b>
+<fmt:message key = "57" />:</b>
 
 <c:out value = "${pi.tracking_code}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>:</b>
+<fmt:message key = "56" />:</b>
 
 <c:out value = "${pi.cfp_code}"/>
 
 <br>
 <b>
 
-<cf:GetPhrase phrase_id = "595" lang_id = "${lang}"/>:</b><c:choose>
+<fmt:message key = "595" />:</b><c:choose>
     <c:when test = "${doc_info.rowCount==0}">
-        <cf:GetPhrase phrase_id = "596" lang_id = "${lang}"/>
+        <fmt:message key = "596" />
 
         .
     </c:when>
@@ -128,7 +128,7 @@
         <a STYLE = "text-decoration: underline"
            href = "index.jsp?fuseaction=proposal_docs_list&tracking_code=<c:out value="${tracking_code}" />&source=review">
 
-        <cf:GetPhrase phrase_id = "597" lang_id = "${lang}"/></a>
+        <fmt:message key = "597" /></a>
     </c:otherwise>
 </c:choose>
 
@@ -147,7 +147,7 @@
                 <td colspan = "2">
                     <h4>
 
-                    <cf:GetPhrase phrase_id = "72" lang_id = "${lang}"/>:</h4>
+                    <fmt:message key = "72" />:</h4>
                 </td>
             </tr>
 
@@ -242,7 +242,7 @@
 
                             <input type = "hidden"
                                    name = "rank<c:out value="${rank}" />_required"
-                                   value = "<cf:GetPhrase phrase_id="660" lang_id="${lang}" />">
+                                   value = "<fmt:message key="660"  />">
                     </td>
                 </tr>
 
@@ -274,7 +274,7 @@
                 <td colspan = "2">
                     <h4>
 
-                    <cf:GetPhrase phrase_id = "74" lang_id = "${lang}"/>:</h4>
+                    <fmt:message key = "74" />:</h4>
                 </td>
             </tr>
 
@@ -369,7 +369,7 @@
 
                             <input type = "hidden"
                                    name = "rank<c:out value="${rank}" />_required"
-                                   value = "<cf:GetPhrase phrase_id="660" lang_id="${lang}" />">
+                                   value = "<fmt:message key="660"  />">
                     </td>
                 </tr>
 
@@ -411,14 +411,14 @@
                     <p>
                     <font color = "FF0000"><b>
 
-                    <cf:GetPhrase phrase_id = "249" lang_id = "${lang}"/>
+                    <fmt:message key = "249" />
 
                     <fmt:formatDate value = "${deadline.rows[0].cfp_proposal_review_deadline}"
                                     pattern = "MMM dd, yyyy"/></b></font>
 
                     <p>
                     <input type = "submit"
-                           value = " <cf:GetPhrase phrase_id="598" lang_id="${lang}" /> ">
+                           value = " <fmt:message key="598"  /> ">
             </td>
         </tr>
     </form>

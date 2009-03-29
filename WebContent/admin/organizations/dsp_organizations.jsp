@@ -27,7 +27,7 @@
         <td colspan = "4" align = "center">
             <font size = "+1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "1113" lang_id = "${lang}"/>
+            <fmt:message key = "1113" />
         </td>
     </tr>
 
@@ -38,7 +38,7 @@
                     <font size = "-1" face = "Arial">
                     <a href = "index.jsp?fuseaction=modify_organization&act=add">
 
-                    <cf:GetPhrase phrase_id = "1118" lang_id = "${lang}"/></a>
+                    <fmt:message key = "1118" /></a>
 
                     <p>
                 </td>
@@ -73,7 +73,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "1119" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "1119" />:</b>
             </td>
 
             <td colspan = "3">
@@ -87,7 +87,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "61" />:</b>
             </td>
 
             <td colspan = "3">
@@ -101,7 +101,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "61" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "61" />:</b>
             </td>
 
             <td colspan = "3">
@@ -115,7 +115,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "1058" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "1058" />:</b>
             </td>
 
             <td colspan = "3">
@@ -129,7 +129,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "1059" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "1059" />:</b>
             </td>
 
             <td colspan = "1">
@@ -141,7 +141,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "1060" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "1060" />:</b>
             </td>
 
             <td colspan = "2">
@@ -155,7 +155,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "1061" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "1061" />:</b>
             </td>
 
             <td colspan = "3">
@@ -169,7 +169,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:
+                <fmt:message key = "62" />:
             </td>
 
             <td>
@@ -181,7 +181,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "29" lang_id = "${lang}"/>:
+                <fmt:message key = "29" />:
             </td>
 
             <td>
@@ -195,7 +195,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "24" />:</b>
             </td>
 
             <td colspan = "3">
@@ -209,7 +209,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "64" />:</b>
             </td>
 
             <td colspan = "3">
@@ -223,7 +223,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "23" />:</b>
             </td>
 
             <td colspan = "3">
@@ -237,7 +237,7 @@
             <td>
                 <font size = "-1" face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:</b>
+                <fmt:message key = "24" />:</b>
             </td>
 
             <td colspan = "3">
@@ -257,10 +257,10 @@
                     <font size = "-2" face = "Arial">
                     <a href = "index.jsp?fuseaction=act_organization&act=delete&organization_id=<c:out value="${row.organization_id}" />">
 
-                    <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+                    <fmt:message key = "143" /></a> |
                     <a href = "index.jsp?fuseaction=modify_organization&act=edit&organization_id=<c:out value="${row.organization_id}" />">
 
-                    <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+                    <fmt:message key = "144" /></a>
                 </td>
             </tr>
         </c:if>

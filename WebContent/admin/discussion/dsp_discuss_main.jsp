@@ -15,9 +15,9 @@
 
 <h4>
 
-<cf:GetPhrase phrase_id = "497" lang_id = "${lang}"/></h4> **
+<fmt:message key = "497" /></h4> **
 
-<cf:GetPhrase phrase_id = "498" lang_id = "${lang}"/>
+<fmt:message key = "498" />
 
 <p>
 <br>
@@ -26,25 +26,25 @@
         <td>
             <font size = "-1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "499" lang_id = "${lang}"/>
+            <fmt:message key = "499" />
         </td>
 
         <td>
             <font size = "-1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "42" lang_id = "${lang}"/>
+            <fmt:message key = "42" />
         </td>
 
         <td>
             <font size = "-1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "500" lang_id = "${lang}"/>
+            <fmt:message key = "500" />
         </td>
 
         <td>
             <font size = "-1" face = "Arial"><b>
 
-            <cf:GetPhrase phrase_id = "171" lang_id = "${lang}"/>
+            <fmt:message key = "171" />
         </td>
     </tr>
 

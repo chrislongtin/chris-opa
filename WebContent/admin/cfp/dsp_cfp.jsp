@@ -95,14 +95,14 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/>:</b> CFP-
+    <fmt:message key = "56" />:</b> CFP-
 
     <c:out value = "${row.cfp_code}"/>
 
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "80" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "80" />:</b>
 
     <br>
     <cf:ParagraphFormat value = "${row.cfp_background}"/>
@@ -110,7 +110,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "82" lang_id = "${lang}"/>:</b> (
+    <fmt:message key = "82" />:</b> (
 
     <c:out value = "${row.currency}"/>)
 
@@ -120,7 +120,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "83" lang_id = "${lang}"/>:</b> (
+    <fmt:message key = "83" />:</b> (
 
     <c:out value = "${row.currency}"/>)
 
@@ -130,7 +130,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "977" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "977" />:</b>
     <c:forEach items = "${edit_cfp_agencies.rows}" var = "rowag">
         <c:out value = "${rowag.agency_name}"/>
     </c:forEach>
@@ -138,21 +138,21 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "78" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "78" />:</b>
 
     <fmt:formatDate value = "${row.cfp_startdate}" pattern = "dd-MMM-yyyy"/>
 
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "123" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "123" />:</b>
 
     <fmt:formatDate value = "${row.cfp_deadline}" pattern = "dd-MMM-yyyy"/>
 
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "124" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "124" />:</b>
 
     <fmt:formatDate value = "${row.cfp_proposal_review_deadline}"
                     pattern = "dd-MMM-yyyy"/>
@@ -160,21 +160,21 @@
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "125" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "125" />:</b>
 
     <fmt:formatDate value = "${row.first_reminder}" pattern = "dd-MMM-yyyy"/>
 
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "126" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "126" />:</b>
 
     <fmt:formatDate value = "${row.second_reminder}" pattern = "dd-MMM-yyyy"/>
 
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "127" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "127" />:</b>
 
     <fmt:formatDate value = "${row.cfp_report_deadline}"
                     pattern = "dd-MMM-yyyy"/>
@@ -182,7 +182,7 @@
     <br>
     <b>
 
-    <cf:GetPhrase phrase_id = "128" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "128" />:</b>
 
     <fmt:formatDate value = "${row.cfp_report_review_deadline}"
                     pattern = "dd-MMM-yyyy"/>
@@ -190,7 +190,7 @@
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "129" lang_id = "${lang}"/>:</b>
+    <fmt:message key = "129" />:</b>
 
     <br>
     <cf:ParagraphFormat value = "${row.cfp_format}"/>
@@ -207,7 +207,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "131" lang_id = "${lang}"/></a>
+    <fmt:message key = "131" /></a>
     <!--- link for coordinator to delete cfp info --->
     | <a STYLE = "text-decoration: underline"
        href = "<c:url value='index.jsp'>
@@ -217,14 +217,14 @@
 <c:param name='${user}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "132" lang_id = "${lang}"/></a> <b>
+    <fmt:message key = "132" /></a> <b>
 
-    <cf:GetPhrase phrase_id = "130" lang_id = "${lang}"/></b>
+    <fmt:message key = "130" /></b>
 </c:if>
 
 <h3>
 
-<cf:GetPhrase phrase_id = "445" lang_id = "${lang}"/>:</h3>
+<fmt:message key = "445" />:</h3>
 
 <c:if test = "${user == 'coordinator'}">
     <a STYLE = "text-decoration: underline"
@@ -233,7 +233,7 @@
 <c:param name='cfp_code' value='${cfp_code}'/>
 </c:url>">
 
-    <cf:GetPhrase phrase_id = "446" lang_id = "${lang}"/></a>
+    <fmt:message key = "446" /></a>
 
     <p>
 </c:if>
@@ -247,7 +247,7 @@
 
 <c:if test = "${cfp_category_list.rowCount == 0}">
     <p>
-    <cf:GetPhrase phrase_id = "447" lang_id = "${lang}"/>
+    <fmt:message key = "447" />
 </c:if>
 
 <ul>
@@ -263,7 +263,7 @@
 <c:param name='act' value='edit'/>
 </c:url>">
 
-            <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a> |
+            <fmt:message key = "144" /></a> |
             <a STYLE = "text-decoration: underline"
                href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_cfp_cat'/>
@@ -272,26 +272,26 @@
 <c:param name='act' value='delete'/>
 </c:url>">
 
-            <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> ]
+            <fmt:message key = "143" /></a> ]
         </c:if>
     </c:forEach>
 </ul>
 
 <h3>
 
-<cf:GetPhrase phrase_id = "3" lang_id = "${lang}"/></h3>
+<fmt:message key = "3" /></h3>
 
 <c:choose>
     <c:when test = "${user == 'coordinator' and review_active == 'no'}">
         <p>
-        <cf:GetPhrase phrase_id = "133" lang_id = "${lang}"/>
+        <fmt:message key = "133" />
     </c:when>
 
     <c:when test = "${user == 'coordinator' and review_active == 'yes'}">
         <p>
         <font color = "FF0000">
 
-        <cf:GetPhrase phrase_id = "134" lang_id = "${lang}"/></font>
+        <fmt:message key = "134" /></font>
     </c:when>
 </c:choose>
 
@@ -302,7 +302,7 @@
         <h4><a STYLE = "text-decoration: underline"
                href = "index.jsp?fuseaction=criteria">
 
-        <cf:GetPhrase phrase_id = "135" lang_id = "${lang}"/></a></h4>
+        <fmt:message key = "135" /></a></h4>
     </c:if>
 </c:forEach>
 
@@ -310,9 +310,9 @@
     <p>
     <h4>
 
-    <cf:GetPhrase phrase_id = "136" lang_id = "${lang}"/></h4>
+    <fmt:message key = "136" /></h4>
     <c:if test = "${cfp_criteria.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "137" lang_id = "${lang}"/>
+        <fmt:message key = "137" />
     </c:if>
 
     <!--- display criteria for this cfp --->
@@ -320,35 +320,35 @@
         <p>
         <b>
 
-        <cf:GetPhrase phrase_id = "138" lang_id = "${lang}"/>:</b> C-
+        <fmt:message key = "138" />:</b> C-
 
         <c:out value = "${row.cfp_criteria_id}"/>
 
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "139" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "139" />:</b>
 
         <menu><cf:ParagraphFormat value = "${row.cfp_criteria_name}"/></menu>
 
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "140" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "140" />:</b>
 
         <c:out value = "${row.cfp_criteria_weight}"/>
 
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "141" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "141" />:</b>
 
         <c:out value = "${row.cfp_high_rank}"/>
 
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "142" lang_id = "${lang}"/>:</b>
+        <fmt:message key = "142" />:</b>
 
         <c:out value = "${row.cfp_low_rank}"/>
 
@@ -364,7 +364,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-            <cf:GetPhrase phrase_id = "143" lang_id = "${lang}"/></a> |
+            <fmt:message key = "143" /></a> |
             <a STYLE = "text-decoration: underline"
                href = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='cfp_edit_criteria'/>
@@ -373,7 +373,7 @@
 <c:param name='${user}'/>
 </c:url>">
 
-            <cf:GetPhrase phrase_id = "144" lang_id = "${lang}"/></a>
+            <fmt:message key = "144" /></a>
         </c:if>
     </c:forEach>
 
@@ -383,10 +383,10 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "145" lang_id = "${lang}"/></h3>
+        <fmt:message key = "145" /></h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_cfp_criteria'/>
@@ -397,16 +397,16 @@
             value = "<c:out value='${cfp_code}'/>">
             <input type = "hidden" name = "act" value = "add">
             <input type = "hidden" name = "cfp_criteria_name_required"
-            value = "<cf:GetPhrase phrase_id='450' lang_id='${lang}'/>"> <input type = "hidden" name = "cfp_criteria_weight_required" value = "<cf:GetPhrase phrase_id='451' lang_id='${lang}'/>">
+            value = "<fmt:message key='450' />"> <input type = "hidden" name = "cfp_criteria_weight_required" value = "<fmt:message key='451' />">
             <input type = "hidden" name = "cfp_low_rank_required"
-            value = "<cf:GetPhrase phrase_id='452' lang_id='${lang}'/>"> <input type = "hidden"
+            value = "<fmt:message key='452' />"> <input type = "hidden"
             name = "cfp_high_rank_required"
-            value = "<cf:GetPhrase phrase_id='453' lang_id='${lang}'/>">
+            value = "<fmt:message key='453' />">
 
             <p>
             <font color = "FF0000"><b>*
 
-            <cf:GetPhrase phrase_id = "139" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "139" />:</b>
 
             <br>
             <textarea name = "cfp_criteria_name" cols = "30" rows = "2" wrap>
@@ -415,21 +415,21 @@
             <p>
             <b>*
 
-            <cf:GetPhrase phrase_id = "142" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "142" />:</b>
             <input type = "text" name = "cfp_low_rank" size = "10"
-            value = "<cf:GetPhrase phrase_id='465' lang_id='${lang}'/>"> <b>*
+            value = "<fmt:message key='465' />"> <b>*
 
-            <cf:GetPhrase phrase_id = "141" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "141" />:</b>
             <input type = "text" name = "cfp_high_rank" size = "10"
-                   value = "<cf:GetPhrase phrase_id='466' lang_id='${lang}'/>">
+                   value = "<fmt:message key='466' />">
 
             <br>
             <b>*
 
-            <cf:GetPhrase phrase_id = "140" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "140" />:</b>
             <input type = "number" name = "cfp_criteria_weight" size = "6"></font>
             <input type = "Submit"
-            value = "<cf:GetPhrase phrase_id="145" lang_id="${lang}" />">
+            value = "<fmt:message key="145"  />">
         </form>
 
         <sql:query var = "source_cfp_criteria">
@@ -442,7 +442,7 @@ order by cfp_title
 
 <c:if test="${source_cfp_criteria.rowCount != 0}">
 
-<p><h4><cf:GetPhrase phrase_id="146" lang_id="${lang}"/></h4>
+<p><h4><fmt:message key="146" /></h4>
 
 
 <form action="<c:url value='index.jsp'>
@@ -456,7 +456,7 @@ order by cfp_title
 <option value="<c:out value='${row.cfp_code}'/>"><c:out value='${row.cfp_title}'/></c:forEach>
 </select>
 
-<input type="submit" value=" <cf:GetPhrase phrase_id="523" lang_id="${lang}" /> ">
+<input type="submit" value=" <fmt:message key="523"  /> ">
 </form>
 
 </c:if>

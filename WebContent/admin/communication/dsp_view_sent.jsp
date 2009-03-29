@@ -16,7 +16,7 @@
 
 <c:choose>
     <c:when test = "${comm_sent.rowCount == 0}">
-        <cf:GetPhrase phrase_id = "187" lang_id = "${lang}"/>
+        <fmt:message key = "187" />
     </c:when>
 
     <c:otherwise>
@@ -26,19 +26,19 @@
                 <td>
                     <font size = "-1" face = "Arial">
 
-                    <cf:GetPhrase phrase_id = "57" lang_id = "${lang}"/>
+                    <fmt:message key = "57" />
                 </td>
 
                 <td>
                     <font size = "-1" face = "Arial">
 
-                    <cf:GetPhrase phrase_id = "188" lang_id = "${lang}"/>
+                    <fmt:message key = "188" />
                 </td>
 
                 <td>
                     <font size = "-1" face = "Arial">
 
-                    <cf:GetPhrase phrase_id = "58" lang_id = "${lang}"/>
+                    <fmt:message key = "58" />
                 </td>
             </tr>
 

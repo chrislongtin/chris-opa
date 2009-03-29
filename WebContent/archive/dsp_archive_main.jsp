@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -24,21 +25,21 @@
 
 <h2>
 
-<cf:GetPhrase phrase_id = "14" lang_id = "${lang}"/></h2>
+<fmt:message key = "14" /></h2>
 
 **
 
-<cf:GetPhrase phrase_id = "51" lang_id = "${lang}"/>
+<fmt:message key = "51" />
 
 <br>
 **
 
-<cf:GetPhrase phrase_id = "52" lang_id = "${lang}"/>
+<fmt:message key = "52" />
 
 <br>
 **
 
-<cf:GetPhrase phrase_id = "53" lang_id = "${lang}"/>
+<fmt:message key = "53" />
 
 <p>
 <table border = "0" cellspacing = "0" cellpadding = "3">
@@ -77,7 +78,7 @@
                         <font face = "Arial" size = "-1">
 
                         <center>
-                            <cf:GetPhrase phrase_id = "54" lang_id = "${lang}"/>
+                            <fmt:message key = "54" />
 
                             .
                         </center>
@@ -175,8 +176,8 @@
                                         <a STYLE = "text-decoration: underline"
                                            href = "index.jsp?fuseaction=archive_comment&doc_id=<c:out value="${drow.doc_id}" />&lang=<c:out value="${lang}" />">
 
-                                        <cf:GetPhrase phrase_id = "55"
-                                                      lang_id = "${lang}"/></a>
+                                        <fmt:message key = "55"
+                                                      /></a>
                                     </c:when>
 
                                     <c:otherwise>

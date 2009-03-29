@@ -67,14 +67,14 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "603" lang_id = "${lang}"/></h3>
+        <fmt:message key = "603" /></h3>
     </c:when>
 
     <c:otherwise>
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "918" lang_id = "${lang}"/></h3>
+        <fmt:message key = "918" /></h3>
     </c:otherwise>
 </c:choose>
 
@@ -83,11 +83,11 @@
     <input type = "hidden" name = "tracking_code"
     value = "<c:out value="${tracking_code}" />">
     <input type = "hidden" name = "doc_title_required"
-    value = "<cf:GetPhrase phrase_id="605" lang_id="${lang}" />"> <input type = "hidden" name = "act" value = "edit">
+    value = "<fmt:message key="605"  />"> <input type = "hidden" name = "act" value = "edit">
     <input type = "hidden" name = "doc_id"
     value = "<c:out value="${doc_id}" />">
 
-    <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+    <fmt:message key = "41" />
 
     <p>
     <table>
@@ -95,7 +95,7 @@
             <td>
                 <font face = "arial" size = "-1" color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/>:
+                <fmt:message key = "151" />:
             </td>
 
             <td>
@@ -108,7 +108,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "606" lang_id = "${lang}"/>:
+                <fmt:message key = "606" />:
             </td>
 
             <td>
@@ -116,7 +116,7 @@
                 size = "-1"><input type = "file" name = "doc_filename"
                 size = "30"><c:if test = "${doc_filename!=''}">
                     <br>
-                    <cf:GetPhrase phrase_id = "607" lang_id = "${lang}"/>
+                    <fmt:message key = "607" />
 
                     <c:out value = "${doc_filename}"/>
                 </c:if>
@@ -127,7 +127,7 @@
             <td>
                 <font face = "arial" size = "-1">
 
-                <cf:GetPhrase phrase_id = "608" lang_id = "${lang}"/>:
+                <fmt:message key = "608" />:
             </td>
 
             <td>
@@ -149,7 +149,7 @@
                 <td>
                     <font face = "arial" size = "-1">
 
-                    <cf:GetPhrase phrase_id = "117" lang_id = "${lang}"/>:
+                    <fmt:message key = "117" />:
                 </td>
 
                 <td>
@@ -174,7 +174,7 @@
         <tr>
             <td colspan = "2" align = "center">
                 <input type = "submit"
-                       value = "   <cf:GetPhrase phrase_id="456" lang_id="${lang}" />  ">
+                       value = "   <fmt:message key="456"  />  ">
             </td>
         </tr>
     </table>

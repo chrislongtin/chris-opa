@@ -1,6 +1,7 @@
 <%@ page errorPage = "../dsp_error.jsp"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -20,10 +21,10 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "196" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "196" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <hr size = "1">
         <c:forEach var = "row" items = "${funding_agencies.rows}">
@@ -36,12 +37,12 @@
                 value = "<c:out value='${row.agency_id}'/>"> <input type = "hidden"
                 name = "act" value = "edit">
                 <input type = "hidden" name = "agency_name_required"
-                value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
+                value = "<fmt:message key='519' />">
 
                 <p>
                 <font color = "FF0000">*
 
-                <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</font>
+                <fmt:message key = "197" />:</font>
 
                 <br>
                 <input type = "text"
@@ -50,28 +51,28 @@
                        size = "30">
 
                 <p>
-                <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>:
+                <fmt:message key = "23" />:
 
                 <br>
                 <input type = "text" name = "agency_contact"
                        value = "<c:out value='${row.agency_contact}'/>">
 
                 <p>
-                <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
+                <fmt:message key = "24" />:
 
                 <br>
                 <input type = "text" name = "agency_email"
                        value = "<c:out value='${row.agency_email}'/>">
 
                 <p>
-                <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:
+                <fmt:message key = "62" />:
 
                 <br>
                 <input type = "text" name = "agency_phone"
                        value = "<c:out value='${row.agency_phone}'/>">
 
                 <p>
-                <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:
+                <fmt:message key = "64" />:
 
                 <br>
                 <input type = "text" name = "agency_url"
@@ -82,7 +83,7 @@
             <p>
             <h3>
 
-            <cf:GetPhrase phrase_id = "198" lang_id = "${lang}"/>:</h3>
+            <fmt:message key = "198" />:</h3>
 
             <form action = "<c:url value='index.jsp'>
 <c:param name='fuseaction' value='act_delete_agency'/>
@@ -91,7 +92,7 @@
                   method = "post">
                 <input type = "hidden" name = "agency_id"
                 value = "<c:out value='${row.agency_id}'/>"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="520" lang_id="${lang}" />">
+                value = "<fmt:message key="520"  />">
             </form>
         </c:forEach>
 
@@ -117,10 +118,10 @@
         <p>
         <h3>
 
-        <cf:GetPhrase phrase_id = "199" lang_id = "${lang}"/>:</h3>
+        <fmt:message key = "199" />:</h3>
 
         <p>
-        <cf:GetPhrase phrase_id = "41" lang_id = "${lang}"/>
+        <fmt:message key = "41" />
 
         <hr size = "1">
         <form action = "<c:url value='index.jsp'>
@@ -132,40 +133,40 @@
             value = "<c:out value='${agency_id}'/>">
             <input type = "hidden" name = "act" value = "add">
             <input type = "hidden" name = "agency_name_required"
-            value = "<cf:GetPhrase phrase_id='519' lang_id='${lang}'/>">
+            value = "<fmt:message key='519' />">
 
             <p>
             <font color = "FF0000">*
 
-            <cf:GetPhrase phrase_id = "197" lang_id = "${lang}"/>:</font>
+            <fmt:message key = "197" />:</font>
 
             <br>
             <input type = "text" name = "agency_name" size = "30">
 
             <p>
-            <cf:GetPhrase phrase_id = "23" lang_id = "${lang}"/>:
+            <fmt:message key = "23" />:
 
             <br>
             <input type = "text" name = "agency_contact">
 
             <p>
-            <cf:GetPhrase phrase_id = "24" lang_id = "${lang}"/>:
+            <fmt:message key = "24" />:
 
             <br>
             <input type = "text" name = "agency_email">
 
             <p>
-            <cf:GetPhrase phrase_id = "62" lang_id = "${lang}"/>:
+            <fmt:message key = "62" />:
 
             <br>
             <input type = "text" name = "agency_phone">
 
             <p>
-            <cf:GetPhrase phrase_id = "64" lang_id = "${lang}"/>:
+            <fmt:message key = "64" />:
 
             <br>
             <input type = "text" name = "agency_url"> <input type = "submit"
-                   value = "<cf:GetPhrase phrase_id="522" lang_id="${lang}" />">
+                   value = "<fmt:message key="522"  />">
         </form>
     </c:when>
 </c:choose>

@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -54,7 +55,7 @@
 
        <br>
 <html>
-    <title><cf:GetPhrase phrase_id = "939" lang_id = "${lang}"/></title>
+    <title><fmt:message key = "939" /></title>
 
     <body leftmargin = 0
           topmargin = 0
@@ -104,8 +105,8 @@
                 <td align = "center"
                     bgcolor = "E8E8E8"><font face = "Arial" size = "3"><b>
 
-                    <cf:GetPhrase phrase_id = "939"
-                                  lang_id = "${lang}"/></b></font></td>
+                    <fmt:message key = "939"
+                                  /></b></font></td>
             </tr>
         </table>
 
@@ -117,14 +118,14 @@
                     bgcolor = "E8E8E8"><font face = "Arial" size = "-2"><center>
                         <a href = "dsp_login_type.jsp">
 
-                        <cf:GetPhrase phrase_id = "923"
-                        lang_id = "${lang}"/></a> &nbsp;|&nbsp; <a href = "index.jsp?fuseaction=main">
+                        <fmt:message key = "923"
+                        /></a> &nbsp;|&nbsp; <a href = "index.jsp?fuseaction=main">
 
-                        <cf:GetPhrase phrase_id = "379"
-                        lang_id = "${lang}"/></a> &nbsp;|&nbsp;<a href="http://wikis.bellanet.org/harambee/index.php?title=OPA_Help" target="_new">
+                        <fmt:message key = "379"
+                        /></a> &nbsp;|&nbsp;<a href="http://wikis.bellanet.org/harambee/index.php?title=OPA_Help" target="_new">
 
-                        <cf:GetPhrase phrase_id = "380"
-                                      lang_id = "${lang}"/></a>
+                        <fmt:message key = "380"
+                                      /></a>
 
                         <c:set var = "reviewer_organizer">
                             <c:out value = "${param.reviewer_organizer}"
@@ -154,55 +155,55 @@
                             <!--- Worksite Setup --->
                             <font size = "-2"><p><a href = "index.jsp?fuseaction=site_setup">
 
-                            <cf:GetPhrase phrase_id = "1"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "1"
+                                          /></a></font>
 
                             <!--- Languages Setup --->
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=lang_main">
 
-                            <cf:GetPhrase phrase_id = "9"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "9"
+                                          /></a></font>
 
                             <!--- View Funding Initiative Info --->
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=funding">
 
-                            <cf:GetPhrase phrase_id = "2"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "2"
+                                          /></a></font>
 
                             <!--- modify funding initiative info --->
                             <br>[
                             <a href = "index.jsp?fuseaction=modify_funding&act=add">
 
-                            <cf:GetPhrase phrase_id = "10"
-                            lang_id = "${lang}"/></a> ]
+                            <fmt:message key = "10"
+                            /></a> ]
 
                             <!--- view appraisal criteria --->
                             <c:if test = "${init_crit==1}">
                                 <p><font size = "-2"><a href = "index.jsp?fuseaction=criteria">
 
-                                <cf:GetPhrase phrase_id = "3"
-                                              lang_id = "${lang}"/></a></font>
+                                <fmt:message key = "3"
+                                              /></a></font>
 
                                 <!--- add new criteria --->
                                 <br>[ <a href = "index.jsp?fuseaction=criteria">
 
-                                <cf:GetPhrase phrase_id = "10"
-                                lang_id = "${lang}"/></a> ]
+                                <fmt:message key = "10"
+                                /></a> ]
                             </c:if>
 
                             <!--- CFP List --->
                             <p><font size = "-2">
                             <a href = "index.jsp?fuseaction=list_cfp">
 
-                            <cf:GetPhrase phrase_id = "5"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "5"
+                                          /></a></font>
 
                             <!--- add new CFP --->
                             <br>[
                             <a href = "index.jsp?fuseaction=modify_cfp&act=add">
 
-                            <cf:GetPhrase phrase_id = "10"
-                            lang_id = "${lang}"/></a> ]
+                            <fmt:message key = "10"
+                            /></a> ]
                         </c:if>
 
                         <!--- proposals --->
@@ -210,8 +211,8 @@
                             <p><font size = "-2">
                             <a href = "index.jsp?fuseaction=proposals">
 
-                            <cf:GetPhrase phrase_id = "6"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "6"
+                                          /></a></font>
                             </p>
                         </c:if>
 
@@ -220,8 +221,8 @@
                             <p><font size = "-2">
                             <a href = "index.jsp?fuseaction=reports">
 
-                            <cf:GetPhrase phrase_id = "7"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "7"
+                                          /></a></font>
                             </p>
                         </c:if>
 
@@ -229,7 +230,7 @@
                         <%--                        <c:if test = "${(sessionScope.user=='coordinator') or (reviewer_organizer==1)}">
                                                     <p><font size = "-2"><a href = "index.jsp?fuseaction=mgt_reports">
                         
-                                                    <cf:GetPhrase phrase_id = "1025" lang_id = "${lang}"/></a></font>
+                                                    <fmt:message key = "1025" /></a></font>
                                                 </c:if>
                          --%>
                         <!--- Coordinators & Reviewers list --->
@@ -237,32 +238,32 @@
                         <c:if test = "${(sessionScope.user=='coordinator') or (reviewer_organizer==1)}">
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=reviewers">
 
-                            <cf:GetPhrase phrase_id = "4"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "4"
+                                          /></a></font>
                         </c:if>
 
                         <!--- Communication Center --->
                         <c:if test = "${sessionScope.user=='coordinator'}">
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=comm_main">
 
-                            <cf:GetPhrase phrase_id = "8"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "8"
+                                          /></a></font>
                         </c:if>
 
                         <!--- Timesheet management for Reviewers --->
                         <c:if test = "${sessionScope.user=='reviewer'}">
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=tsr_main">
 
-                            <cf:GetPhrase phrase_id = "841"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "841"
+                                          /></a></font>
                         </c:if>
 
                         <!--- Timesheet management for Contractors --->
                         <c:if test = "${sessionScope.user=='contractor' }">
                             <p><font size = "-2"><a href = "index.jsp?fuseaction=c_tsr_main">
 
-                            <cf:GetPhrase phrase_id = "841"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "841"
+                                          /></a></font>
                         </c:if>
 
                         <c:if test = "${setup.rows[0].public_interface == 1}">
@@ -270,8 +271,8 @@
                             <p><font size = "-2"><a href = "../index.jsp"
                                                     target = "new">
 
-                            <cf:GetPhrase phrase_id = "342"
-                                          lang_id = "${lang}"/></a></font>
+                            <fmt:message key = "342"
+                                          /></a></font>
                             </p>
                         </c:if>
 

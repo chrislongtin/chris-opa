@@ -3,6 +3,7 @@
 <%@ page import = "java.util.*"%>
 <%@ page import = "java.io.*"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ page errorPage = "admin/dsp_error.jsp"%>
 
 <%!
@@ -145,7 +146,7 @@
         <center>
             <form action = " <%= outUrl %> ">
                 <input type = "hidden" name = "config" value = "<%= outConfigFile %>">
-                <input type = "submit" value = " <cf:GetPhrase phrase_id="456" lang_id="${lang}" /> ">
+                <input type = "submit" value = " <fmt:message key="456"  /> ">
             </form>
         </center>
 

@@ -116,7 +116,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "743" lang_id = "${lang}"/>!</h3>
+        <fmt:message key = "743" />!</h3>
     </c:when>
 
     <c:when test = "${act=='edit'}">
@@ -150,7 +150,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "743" lang_id = "${lang}"/>!</h3>
+        <fmt:message key = "743" />!</h3>
     </c:when>
 
     <c:when test = "${act=='delete_unconfirmed'}">
@@ -158,7 +158,7 @@
         <br>
         <b>
 
-        <cf:GetPhrase phrase_id = "577" lang_id = "${lang}"/>?</b>
+        <fmt:message key = "577" />?</b>
 
         <table>
             <tr>
@@ -170,7 +170,7 @@
                         <input type = "hidden" name = "researcher_id"
                         value = "<c:out value="${researcher_id}" />"> <input type = "hidden" name = "act" value = "delete">
                         <input type = "submit"
-                        value = "<cf:GetPhrase phrase_id="570" lang_id="${lang}" />">
+                        value = "<fmt:message key="570"  />">
                     </form>
                 </td>
 
@@ -180,7 +180,7 @@
                         <input type = "hidden" name = "tracking_code"
                         value = "<c:out value="${tracking_code}" />"> <input type = "hidden" name = "proponent_password" value = "<c:out value="${proponent_password}" />">
                         <input type = "submit"
-                        value = "<cf:GetPhrase phrase_id="543" lang_id="${lang}" />">
+                        value = "<fmt:message key="543"  />">
                     </form>
                 </td>
         </table>
@@ -200,7 +200,7 @@
 
         <h3>
 
-        <cf:GetPhrase phrase_id = "744" lang_id = "${lang}"/>!</h3>
+        <fmt:message key = "744" />!</h3>
     </c:when>
 </c:choose>
 
@@ -213,7 +213,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="739" lang_id="${lang}" />">
+                value = "<fmt:message key="739"  />">
             </form>
         </td>
 
@@ -224,7 +224,7 @@
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "hidden" name = "act" value = "edit">
                 <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="740" lang_id="${lang}" />">
+                value = "<fmt:message key="740"  />">
             </form>
         </td>
 
@@ -234,7 +234,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="741" lang_id="${lang}" />">
+                value = "<fmt:message key="741"  />">
             </form>
         </td>
 
@@ -245,7 +245,7 @@
                 value = "<c:out value="${tracking_code}" />"> <input type = "hidden"
                 name = "proponent_password"
                 value = "<c:out value="${proponent_password}" />"> <input type = "submit"
-                value = "<cf:GetPhrase phrase_id="742" lang_id="${lang}" />">
+                value = "<fmt:message key="742"  />">
             </form>
         </td>
     </tr>

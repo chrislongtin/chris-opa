@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jstl/fmt"%>
 <%@ taglib prefix = "sql" uri = "http://java.sun.com/jstl/sql"%>
 <%@ taglib prefix = "cf" uri = "http://archer-soft.com/taglibs/cf"%>
 
@@ -6,7 +7,7 @@
 
 <h2>
 
-<cf:GetPhrase phrase_id = "15" lang_id = "${lang}"/></h2>
+<fmt:message key = "15" /></h2>
 
 <sql:query var = "faq">
     select * from faq
@@ -30,7 +31,7 @@
     <a STYLE = "text-decoration: underline"
        href = "mailto:<c:out value="${c_m}" />?subject=<c:out value="${i_n}" /> FAQ">
 
-    <cf:GetPhrase phrase_id = "107" lang_id = "${lang}"/>
+    <fmt:message key = "107" />
 
     (
 
@@ -40,7 +41,7 @@
 <c:choose>
     <c:when test = "${empty faq.rows[0].faq_id}">
         <p>
-        <cf:GetPhrase phrase_id = "108" lang_id = "${lang}"/>
+        <fmt:message key = "108" />
     </c:when>
 
     <c:otherwise>
@@ -48,13 +49,13 @@
             <p>
             <b>
 
-            <cf:GetPhrase phrase_id = "726" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "726" />:</b>
 
             <c:out value = "${row.faq_question}"/>
 
             <menu><b>
 
-            <cf:GetPhrase phrase_id = "727" lang_id = "${lang}"/>:</b>
+            <fmt:message key = "727" />:</b>
 
             <c:out value = "${row.faq_answer}"/></menu>
         </c:forEach>

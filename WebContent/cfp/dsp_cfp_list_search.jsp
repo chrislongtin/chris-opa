@@ -113,12 +113,12 @@
     <p>
     <h2>
 
-    <cf:GetPhrase phrase_id = "5" lang_id = "${lang}"/></h2>
+    <fmt:message key = "5" /></h2>
 
     <p>
     <b>
 
-    <cf:GetPhrase phrase_id = "1020" lang_id = "${lang}"/>
+    <fmt:message key = "1020" />
 
     :&nbsp;&nbsp;&nbsp;
 
@@ -126,7 +126,7 @@
 
     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
-    <cf:GetPhrase phrase_id = "1021" lang_id = "${lang}"/>
+    <fmt:message key = "1021" />
 
     :&nbsp;&nbsp;&nbsp;
 
@@ -135,14 +135,14 @@
     <br>
     <h4>
 
-    <cf:GetPhrase phrase_id = "993" lang_id = "${lang}"/></h4>
+    <fmt:message key = "993" /></h4>
 
     <table width = "100%" border = "1" cellspacing = "0" cellpadding = "5">
         <tr>
             <td bgcolor = "CACACA">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/>:
+                <fmt:message key = "151" />:
             </td>
 
             <c:if test = "${empty job_name}">
@@ -158,7 +158,7 @@
             <td bgcolor = "CACACA">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "977" lang_id = "${lang}"/>:
+                <fmt:message key = "977" />:
             </td>
 
             <c:if test = "${empty agency_name}">
@@ -173,7 +173,7 @@
         <td bgcolor = "CACACA">
             <font face = "arial" size = "-1"><b>
 
-            <cf:GetPhrase phrase_id = "984" lang_id = "${lang}"/>:
+            <fmt:message key = "984" />:
         </td>
 
         <c:if test = "${empty job_length}">
@@ -191,7 +191,7 @@
 
     <h4>
 
-    <cf:GetPhrase phrase_id = "994" lang_id = "${lang}"/></h4>
+    <fmt:message key = "994" /></h4>
 
     <form action = "index.jsp?fuseaction=cfp_search" method = "post">
         <table width = "100%" border = "1" cellspacing = "0" cellpadding = "5">
@@ -199,13 +199,13 @@
                 <td bgcolor = "CACACA">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/>:
+                    <fmt:message key = "151" />:
                 </td>
 
                 <td colspan = "3" bgcolor = "EAEAEA">
                     <select name = "job_name">
                         <option value = "">
-                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <fmt:message key = "641" />
 
                         <c:forEach items = "${jobtitles.rows}" var = "row">
                             <option value = "<c:out value="${row.job_name}" />"><c:out value = "${row.job_name}"/>
@@ -218,13 +218,13 @@
                 <td bgcolor = "CACACA">
                     <font face = "arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "977" lang_id = "${lang}"/>:
+                    <fmt:message key = "977" />:
                 </td>
 
                 <td colspan = "3" bgcolor = "EAEAEA">
                     <select name = "agency_name">
                         <option value = "">
-                        <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                        <fmt:message key = "641" />
 
                         <c:forEach items = "${agencies.rows}" var = "row">
                             <option value = "<c:out value="${row.agency_name}" />"><c:out value = "${row.agency_name} (Agency:${row.agency_id})"/>
@@ -236,37 +236,37 @@
             <td bgcolor = "CACACA">
                 <font face = "arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "984" lang_id = "${lang}"/>:
+                <fmt:message key = "984" />:
             </td>
 
             <td colspan = "3" bgcolor = "EAEAEA">
                 <select name = "job_length">
                     <option value = "">
-                    <cf:GetPhrase phrase_id = "641" lang_id = "${lang}"/>
+                    <fmt:message key = "641" />
 
                     <option value = "Full Time">
-                    <cf:GetPhrase phrase_id = "985" lang_id = "${lang}"/>
+                    <fmt:message key = "985" />
 
                     <option value = "Contract">
-                    <cf:GetPhrase phrase_id = "986" lang_id = "${lang}"/>
+                    <fmt:message key = "986" />
 
                     <option value = "Part Time">
-                    <cf:GetPhrase phrase_id = "987" lang_id = "${lang}"/>
+                    <fmt:message key = "987" />
 
                     <option value = "Temp-to-Perm">
-                    <cf:GetPhrase phrase_id = "988" lang_id = "${lang}"/>
+                    <fmt:message key = "988" />
 
                     <option value = "Tempporary">
-                    <cf:GetPhrase phrase_id = "989" lang_id = "${lang}"/>
+                    <fmt:message key = "989" />
 
                     <option value = "Internship">
-                    <cf:GetPhrase phrase_id = "990" lang_id = "${lang}"/>
+                    <fmt:message key = "990" />
 
                     <option value = "Entry Level">
-                    <cf:GetPhrase phrase_id = "991" lang_id = "${lang}"/>
+                    <fmt:message key = "991" />
 
                     <option value = "Co-Op">
-                    <cf:GetPhrase phrase_id = "992" lang_id = "${lang}"/>
+                    <fmt:message key = "992" />
                 </select>
             </td>
 
@@ -275,7 +275,7 @@
             <tr>
                 <td colspan = "4" align = "center" bgcolor = "000000">
                     <input type = "submit"
-                           value = "  <cf:GetPhrase phrase_id="982" lang_id="${lang}" />  ">
+                           value = "  <fmt:message key="982"  />  ">
                 </td>
             </tr>
         </table>
@@ -284,11 +284,11 @@
     <p>
     <c:choose>
         <c:when test = "${user == 'coordinator'}">
-            <cf:GetPhrase phrase_id = "150" lang_id = "${lang}"/>
+            <fmt:message key = "150" />
         </c:when>
 
         <c:otherwise>
-            <cf:GetPhrase phrase_id = "149" lang_id = "${lang}"/>
+            <fmt:message key = "149" />
         </c:otherwise>
     </c:choose>
 
@@ -298,7 +298,7 @@
             <td colspan = "6" align = "center">
                 <font face = "Arial"><b>
 
-                <cf:GetPhrase phrase_id = "85" lang_id = "${lang}"/></b>
+                <fmt:message key = "85" /></b>
             </td>
         </tr>
 
@@ -306,7 +306,7 @@
             <td>
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/></b>
+                <fmt:message key = "151" /></b>
             </td>
 
             <td>
@@ -315,7 +315,7 @@
                 <center>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "78" lang_id = "${lang}"/></b>
+                    <fmt:message key = "78" /></b>
             </td>
 
             <td>
@@ -324,7 +324,7 @@
                 <center>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "79" lang_id = "${lang}"/></b>
+                    <fmt:message key = "79" /></b>
             </td>
 
             <td>
@@ -333,13 +333,13 @@
                 <center>
                     <b>
 
-                    <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/></b>
+                    <fmt:message key = "56" /></b>
             </td>
 
             <td align = "RIGHT">
                 <font face = "Arial" size = "-1"><b>
 
-                <cf:GetPhrase phrase_id = "977" lang_id = "${lang}"/></b>
+                <fmt:message key = "977" /></b>
             </td>
         </tr>
 
@@ -398,7 +398,7 @@
                 <td colspan = "6" align = "center">
                     <font face = "Arial"><b>
 
-                    <cf:GetPhrase phrase_id = "152" lang_id = "${lang}"/></b>
+                    <fmt:message key = "152" /></b>
                 </td>
             </tr>
 
@@ -406,7 +406,7 @@
                 <td>
                     <font face = "Arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "151" lang_id = "${lang}"/></b>
+                    <fmt:message key = "151" /></b>
                 </td>
 
                 <td>
@@ -415,7 +415,7 @@
                     <center>
                         <b>
 
-                        <cf:GetPhrase phrase_id = "78" lang_id = "${lang}"/></b>
+                        <fmt:message key = "78" /></b>
                 </td>
 
                 <td>
@@ -424,7 +424,7 @@
                     <center>
                         <b>
 
-                        <cf:GetPhrase phrase_id = "79" lang_id = "${lang}"/></b>
+                        <fmt:message key = "79" /></b>
                 </td>
 
                 <td>
@@ -433,13 +433,13 @@
                     <center>
                         <b>
 
-                        <cf:GetPhrase phrase_id = "56" lang_id = "${lang}"/></b>
+                        <fmt:message key = "56" /></b>
                 </td>
 
                 <td align = "RIGHT">
                     <font face = "Arial" size = "-1"><b>
 
-                    <cf:GetPhrase phrase_id = "977" lang_id = "${lang}"/></b>
+                    <fmt:message key = "977" /></b>
                 </td>
             </tr>
 
